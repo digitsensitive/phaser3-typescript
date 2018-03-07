@@ -30,6 +30,7 @@ Alternatively to build a version `npm run build`.
 
 ### 1.0.1 (07.03.2018)
 - small changes of the README.md file
+- small changes of the package.json and webpack.config.js file
 
 ### 1.0.0 (04.03.2018)
 - First release
