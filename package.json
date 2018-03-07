@@ -1,6 +1,6 @@
 {
   "name": "phaser3-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Boilerplate for Phaser 3 in Typescript",
   "keywords": [
     "Phaser",
@@ -21,7 +21,8 @@
     "phaser": "3.1.2"
   },
   "scripts": {
-    "dev": "webpack && webpack-dev-server --mode development"
+    "dev": "webpack && webpack-dev-server --mode development",
+    "build": "webpack && webpack-dev-server --mode production"
   },
   "repository": {
     "type": "git",
