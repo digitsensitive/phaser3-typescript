@@ -7,8 +7,13 @@ I have used the Typescript definition file from [@troyedwardsjr](https://github.
 Feedback is always welcome!
 
 ![Phaser](/assets/github/phaser.png)
+> Phaser 3.1.2
+
 ![Webpack](/assets/github/webpack.png)
+> Webpack 4.0.1
+
 ![Typescript](/assets/github/ts.png)
+> Typescript 2.7.2
 
 ## Install
 
@@ -27,6 +32,9 @@ Building and running is as easy as the three following steps:
 Alternatively to build a version `npm run build`.
 
 ## Versions
+
+### 1.0.2 (08.03.2018)
+- small changes of the README.md file
 
 ### 1.0.1 (07.03.2018)
 - small changes of the README.md file
