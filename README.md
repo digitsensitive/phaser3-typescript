@@ -35,6 +35,7 @@ Coming soon.
 ## Versions
 
 ### 1.0.2 (08.03.2018)
+- finish first version of the boilerplate
 - small changes of the README.md file
 
 ### 1.0.1 (07.03.2018)

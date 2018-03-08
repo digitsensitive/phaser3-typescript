@@ -5,13 +5,13 @@
  */
 
 export class MainScene extends Phaser.Scene {
-  logo: Phaser.GameObjects.Sprite;
+  private phaserSprite: Phaser.GameObjects.Sprite;
 
   preload(): void {
     this.load.image("logo", "../assets/sprites/phaser.png");
   }
 
   create(): void {
-    this.logo = this.add.sprite(400, 300, "logo");
+    this.phaserSprite = this.add.sprite(400, 300, "logo");
   }
 }
