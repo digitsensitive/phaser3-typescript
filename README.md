@@ -31,20 +31,3 @@ Alternatively to build a version `npm run build`.
 ## Game Examples
 
 Coming soon.
-
-## Versions
-
-### 1.0.3 (11.03.2018)
-- update phaser version from 3.1.2 to 3.2.0
-- restructure folders
-
-### 1.0.2 (08.03.2018)
-- finish first version of the boilerplate
-- small changes of the README.md file
-
-### 1.0.1 (07.03.2018)
-- small changes of the README.md file
-- small changes of the package.json and webpack.config.js file
-
-### 1.0.0 (04.03.2018)
-- First release
