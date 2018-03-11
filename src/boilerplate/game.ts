@@ -7,22 +7,22 @@
 /// <reference path="../phaser.d.ts"/>
 
 import "phaser";
-import { MainScene } from "./Scenes/MainScene";
+import { MainScene } from "./scenes/mainScene";
 
 // main game configuration
 const config: GameConfig = {
-  type: Phaser.AUTO,
-  parent: "game",
   width: 800,
   height: 600,
+  type: Phaser.AUTO,
+  parent: "game",
+  scene: {
+    MainScene
+  },
   physics: {
     default: "arcade",
     arcade: {
       gravity: { y: 200 }
     }
-  },
-  scene: {
-    MainScene
   }
 };
 

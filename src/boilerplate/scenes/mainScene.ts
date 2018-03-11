@@ -8,7 +8,7 @@ export class MainScene extends Phaser.Scene {
   private phaserSprite: Phaser.GameObjects.Sprite;
 
   preload(): void {
-    this.load.image("logo", "../assets/sprites/phaser.png");
+    this.load.image("logo", "../assets/boilerplate/phaser.png");
   }
 
   create(): void {

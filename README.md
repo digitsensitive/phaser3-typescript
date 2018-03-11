@@ -9,7 +9,7 @@ Feedback is always welcome!
 
 ![Phaser](/assets/github/phaser3-typescript.png)
 
-### `Phaser 3.1.2 | Typescript 2.7.2 | Webpack 4.0.1`
+### `Phaser 3.2.0 | Typescript 2.7.2 | Webpack 4.0.1`
 
 
 ### Install
@@ -33,6 +33,10 @@ Alternatively to build a version `npm run build`.
 Coming soon.
 
 ## Versions
+
+### 1.0.3 (11.03.2018)
+- update phaser version from 3.1.2 to 3.2.0
+- restructure folders
 
 ### 1.0.2 (08.03.2018)
 - finish first version of the boilerplate
