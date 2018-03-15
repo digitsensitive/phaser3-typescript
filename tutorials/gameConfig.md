@@ -5,33 +5,33 @@ const config: GameConfig = { };
 
 There are many parameters you can define when you create your own configuration object. We will have a look at the most important ones here. If you are interested to see all the parameters you can check the official source-code and have a look at the Config.js file (src/boot).
 
-#### Important parameters
+#### Important parameters (parameter : default value)
 
 ```
 Informations about the game
 
-- title: (default '')
-- url: (default 'http://phaser.io')
-- version: (default '')
+- title             : ''
+- url               : 'http://phaser.io'
+- version           : ''
 ```
 
 ```
 Size and adjustments of your game
 
-* width (default: 1024)
-* height (default: 768)
-* zoom (default 1) - will simply enlarge width and height with this factor
-* resolution (default 1)
+* width             : 1024)
+* height            : 768)
+* zoom              : 1 (will simply enlarge width and height with this factor)
+* resolution        : 1
 ```
 
 ```
 Rendering and context
 
-* type (default CONST.AUTO)
+* type              : CONST.AUTO
 AUTO will automatically detect the render. You can choose CONST.CANVAS to
 choose the CANVAS Renderer, CONST.WEBGL for WebGL Rendering or CONST.HEADLESS
 to have a headless renderer.
-* parent (default: null)
+* parent            : null
 Select where you want to render the game. It refers to the id of your
 html element.
 ```
@@ -39,10 +39,10 @@ html element.
 ```
 Scenes and Input
 
-* scene (default {})
+* scene             : {}
 This is a very important parameter. Here you put all the scenes of your game.
 For example you might have a boot scene, a main menu scene and a game scene.
-* input (default {})
+* input             : {}
 Here you can specify which inputs are allowed. If you do not define it,
 keyboard, mouse and touch will be allowed.
 ```
@@ -50,9 +50,9 @@ keyboard, mouse and touch will be allowed.
 ```
 Random
 
-* pixelArt (default false)
+* pixelArt          : false
 If you work with pixel art you should set this to true.
-* backgroundColor (default 0x000000)
+* backgroundColor   : 0x000000
 Set the background color
 ```
 
