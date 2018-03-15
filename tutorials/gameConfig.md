@@ -10,9 +10,9 @@ There are many parameters you can define when you create your own configuration 
 ```
 Informations about the game
 
-- title             : ''
-- url               : 'http://phaser.io'
-- version           : ''
+* title             : ''
+* url               : 'http://phaser.io'
+* version           : ''
 ```
 
 ```
