@@ -18,8 +18,8 @@ Informations about the game
 ```
 Size and adjustments of your game
 
-* width             : 1024)
-* height            : 768)
+* width             : 1024
+* height            : 768
 * zoom              : 1 (will simply enlarge width and height with this factor)
 * resolution        : 1
 ```
