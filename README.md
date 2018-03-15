@@ -33,4 +33,4 @@ Alternatively to build a version `npm run build`.
 Coming soon.
 
 ## Tutorials
-[The Game Config Class](https://github.com/digitsensitive/phaser3-typescript/tutorials/gameConfig.md)
+[The Game Config Class](https://github.com/digitsensitive/phaser3-typescript/blob/master/tutorials/gameConfig.md)
