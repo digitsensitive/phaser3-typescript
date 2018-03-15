@@ -3,7 +3,7 @@
 
 const config: GameConfig = { };
 
-There are at many parameters you can define when you create your own configuration object. We will have a look at the most important ones here. If you are interested to see all the parameters you can check the official source-code and have a look at the Config.js file (src/boot).
+There are many parameters you can define when you create your own configuration object. We will have a look at the most important ones here. If you are interested to see all the parameters you can check the official source-code and have a look at the Config.js file (src/boot).
 
 #### Important parameters
 
