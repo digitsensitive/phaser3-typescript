@@ -29,8 +29,7 @@ Rendering and context
 
 * type              : CONST.AUTO
 AUTO will automatically detect the render. You can choose CONST.CANVAS to
-choose the CANVAS Renderer, CONST.WEBGL for WebGL Rendering or CONST.HEADLESS
-to have a headless renderer.
+choose the CANVAS Renderer or CONST.WEBGL for WebGL Rendering.
 * parent            : null
 Select where you want to render the game. It refers to the id of your
 html element.
@@ -117,6 +116,14 @@ backgroundColor     : 0x000000
 callbacks           : {}
 callbacks.preBoot   : NOOP
 callbacks.postBoot  : NOOP
+physics {
+  system              : impact
+  setBounds           : true
+  gravity             : {}
+  cellSize            : 64
+  debug               : false
+}
+default             : false
 loader {
   baseURL             : ?
   path                : ?

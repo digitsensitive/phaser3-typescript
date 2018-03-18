@@ -16,6 +16,12 @@
 
 * ....
 
+## Version 1.0.4 - 18th March 2018
+
+### Updates
+
+* update phaser version from 3.2.0 to 3.2.1
+
 
 ## Version 1.0.3 - 11th March 2018
 
