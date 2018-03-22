@@ -1,5 +1,7 @@
 
-## The GameConfig Class
+## The Game Config Class
+
+![Game Config](/assets/tutorials/gameConfig.png)
 
 const config: GameConfig = { };
 
