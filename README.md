@@ -2,7 +2,8 @@
 
 ## Boilerplate, Tutorials and more for Phaser 3 in Typescript
 
-[Phaser](https://github.com/photonstorm/phaser) is a fast, free, and fun open source HTML5 game framework. This is a boilerplate for people coding Games in TypeScript for Phaser 3 with Webpack.
+[Phaser](https://github.com/photonstorm/phaser) is a fast, free, and fun open source HTML5 game framework.
+Here you will find a boilerplate for Phaser 3 in TypeScript and Webpack, Tutorials and more.
 I have used the Typescript definition file from [@troyedwardsjr](https://github.com/troyedwardsjr/phaser3-typescript-webpack).
 
 Feedback is always welcome!
