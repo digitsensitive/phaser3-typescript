@@ -10,7 +10,7 @@ Feedback is always welcome!
 
 ![Phaser](/assets/github/phaser3-typescript.png)
 
-### `Phaser 3.3.0 | Typescript 2.7.2 | Webpack 4.0.1`
+### `Phaser 3.3.0 | Typescript 2.7.2 | Webpack 4.2.0`
 
 
 ### Install
