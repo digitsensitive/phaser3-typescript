@@ -16,6 +16,23 @@
 * ...
 
 
+## Version 1.0.6 - 25th March 2018
+
+### Updates
+
+* first game: coin runner (*digitsensitive*)
+* small changes in the README.md (*digitsensitive*)
+* create coin runner folder in assets/games (*digitsensitive*)
+* upload assets for the coin runner game (*digitsensitive*)
+* small changes in the README.md (*digitsensitive*)
+* small changes in the package.json (*digitsensitive*)
+* rename tutorials folder to cheatsheets (*digitsensitive*)
+
+### Bugfixes
+
+* phaser.d.ts: fix RectangleToRectangle problem -> missing object
+
+
 ## Version 1.0.5 - 24th March 2018
 
 ### Updates

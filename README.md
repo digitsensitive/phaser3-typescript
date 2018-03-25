@@ -31,7 +31,7 @@ Alternatively to build a version `npm run build`.
 
 ## Game Examples
 
-Coming soon.
+[Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/games/coinRunner/coinRunner.md)
 
-## Tutorials
-[The Game Config Class](https://github.com/digitsensitive/phaser3-typescript/blob/master/tutorials/gameConfig.md)
+## Cheat Sheets
+[The Game Config Class](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameConfig.md)

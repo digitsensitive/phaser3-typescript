@@ -20050,7 +20050,7 @@ declare namespace Phaser {
              * @param rectA [description]
              * @param rectB [description]
              */
-            function RectangleToRectangle(rectA: Phaser.Geom.Rectangle, rectB: Phaser.Geom.Rectangle): boolean;
+            function RectangleToRectangle(rectA: Phaser.Geom.Rectangle | object, rectB: Phaser.Geom.Rectangle | object): boolean;
 
             /**
              * [description]
