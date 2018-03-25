@@ -4,5 +4,12 @@
 
 ## Description
 
+Small game, where the player has to collect coins.
 
-<a target="_blank" href="https://www.vecteezy.com">Vector Illustration by Vecteezy!</a>
+## How to run it
+
+Change in the webpack.config.js file the `entry` to `./src/games/coinRunner/game.ts`
+
+## Thanks to
+
+[Vecteezy](https://www.vecteezy.com "Vecteezy")
