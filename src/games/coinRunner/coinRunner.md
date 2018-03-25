@@ -8,7 +8,8 @@ Small game, where the player has to collect coins.
 
 ## How to run it
 
-Change in the webpack.config.js file the `entry` to `./src/games/coinRunner/game.ts`
+Adjust the webpack.config.js file:
+`entry` is `./src/games/coinRunner/game.ts`
 
 ## Thanks to
 
