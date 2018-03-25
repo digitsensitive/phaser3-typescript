@@ -24,4 +24,4 @@ Adjust the `webpack.config.js` file as follows:
 
 ## Thanks to
 
-[Vecteezy](https://www.vecteezy.com "Vecteezy")
+[Vecteezy](https://www.vecteezy.com "Vecteezy") for the game assets.
