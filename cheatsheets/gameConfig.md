@@ -1,7 +1,7 @@
 
 ## The Game Config Class
 
-![Game Config](/assets/tutorials/gameConfig.png)
+![Game Config](/assets/cheatsheets/gameConfig.png)
 
 const config: GameConfig = { };
 

@@ -1,5 +1,7 @@
 # Coin Runner
 
+![Coin Runner](/assets/games/coinRunner/README.gif)
+
 ## Description
 
 
