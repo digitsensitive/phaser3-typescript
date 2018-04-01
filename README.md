@@ -32,3 +32,4 @@ Alternatively to build a version `npm run build`.
 
 ## Cheat Sheets
 [The Game Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
+[The Scene configuration object](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)

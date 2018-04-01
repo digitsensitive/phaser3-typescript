@@ -1,4 +1,3 @@
-
 ## The Game Config Class
 
 ![Game Config](/assets/cheatsheets/gameConfig.png)
@@ -12,7 +11,7 @@ at the most important parameters.
 If you are interested to see all the parameters check out the list of
 parameters at the bottom of this site.
 
-In case of doubt, the [official source code](https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js) can be viewed directly.
+In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
 #### Example
 

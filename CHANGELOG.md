@@ -15,12 +15,14 @@
 
 * ...
 
-## Version 1.0.7 - 1th April 2018
+## Version 1.0.7 - 01th April 2018
 
 ### Updates
 
 * update cheatsheets/game-config.md (*digitsensitive*)
+* new cheatsheet: scene-config.md (*digitsensitive*)
 * update README.md (*digitsensitive*)
+* new assets: cheatsheets/sceneConfig.png (*digitsensitive*)
 
 ### Bugfixes
 
