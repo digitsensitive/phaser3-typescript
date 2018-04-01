@@ -22,9 +22,7 @@ const config: GameConfig = {
   height: 600,
   type: Phaser.AUTO,
   parent: "game",
-  scene: {
-    MainScene
-  }
+  scene: MainScene
 };
 ```
 
@@ -61,9 +59,10 @@ html element.
 ```
 Scenes and Input
 
-* scene             : {}
+* scene             : []
 This is a very important parameter. Here you put all the scenes of your game.
 For example you might have a boot scene, a main menu scene and a game scene.
+Important: If you have more then one scene, create an array and NOT an object.
 * input             : {}
 Here you can specify which inputs are allowed. If you do not define it,
 keyboard, mouse and touch will be allowed.

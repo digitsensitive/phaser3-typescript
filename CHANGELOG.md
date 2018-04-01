@@ -22,6 +22,13 @@
 * update cheatsheets/game-config.md (*digitsensitive*)
 * update README.md (*digitsensitive*)
 
+### Bugfixes
+
+* Boilerplate Game Config: do not load object (*digitsensitive*)
+* Delete this (not necessary): (*digitsensitive*)
+  - this.scene.add("GameScene", GameScene, false);
+  - this.scene.start("GameScene");
+
 
 ## Version 1.0.6 - 25th March 2018
 

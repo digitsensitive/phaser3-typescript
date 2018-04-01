@@ -15,9 +15,7 @@ const config: GameConfig = {
   height: 600,
   type: Phaser.AUTO,
   parent: "game",
-  scene: {
-    MainScene
-  },
+  scene: MainScene,
   physics: {
     default: "arcade",
     arcade: {
@@ -30,8 +28,6 @@ const config: GameConfig = {
 export class Game extends Phaser.Game {
   constructor(GameConfig: config) {
     super(config);
-    this.scene.add("MainScene", MainScene, false);
-    this.scene.start("MainScene");
   }
 }
 
