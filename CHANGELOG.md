@@ -15,6 +15,13 @@
 
 * ...
 
+## Version 1.0.7 - 1th April 2018
+
+### Updates
+
+* update cheatsheets/game-config.md (*digitsensitive*)
+* update README.md (*digitsensitive*)
+
 
 ## Version 1.0.6 - 25th March 2018
 

@@ -1,4 +1,4 @@
-# Phaser 3 and TypeScript
+# Phaser 3 and TypeScript [![dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/status.svg?style=flat-square)](https://david-dm.org/digitsensitive/phaser3-typescript) [![development dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/dev-status.svg?style=flat-square)](https://david-dm.org/digitsensitive/phaser3-typescript/?type=dev)
 
 ## Boilerplate, Tutorials and more for Phaser 3 in Typescript
 
@@ -9,9 +9,6 @@ I have used the Typescript definition file from [@troyedwardsjr](https://github.
 Feedback is always welcome!
 
 ![Phaser](/assets/github/phaser3-typescript.png)
-
-### `Phaser 3.3.0 | Typescript 2.7.2 | Webpack 4.2.0`
-
 
 ### Install
 
@@ -34,4 +31,4 @@ Alternatively to build a version `npm run build`.
 [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
 
 ## Cheat Sheets
-[The Game Config Class](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameConfig.md)
+[The Game Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)

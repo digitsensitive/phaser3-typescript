@@ -5,7 +5,28 @@
 
 const config: GameConfig = { };
 
-There are many parameters you can define when you create your own configuration object. We will have a look at the most important ones here. If you are interested to see all the parameters you can check the official source-code and have a look at the Config.js file (src/boot).
+There are many parameters you can define when you create your own
+configuration object. You will find a short example and then we will have a look
+at the most important parameters.
+
+If you are interested to see all the parameters check out the list of
+parameters at the bottom of this site.
+
+In case of doubt, the [official source code](https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js)can be viewed directly.
+
+#### Example
+
+```
+const config: GameConfig = {
+  width: 800,
+  height: 600,
+  type: Phaser.AUTO,
+  parent: "game",
+  scene: {
+    MainScene
+  }
+};
+```
 
 #### Important parameters (parameter : default value)
 
@@ -57,36 +78,22 @@ If you work with pixel art you should set this to true.
 Set the background color
 ```
 
-#### Example
+#### List of all parameters (parameter : default value)
 
 ```
-const config: GameConfig = {
-  width: 800,
-  height: 600,
-  type: Phaser.AUTO,
-  parent: "game",
-  scene: {
-    MainScene
-  }
-};
-```
-
-#### List of parameters (parameter : default value)
-
-```
-width               : 1024
-height              : 768
-zoom                : 1
-resolution          : 1
-type                : CONST.AUTO
-parent              : null
-canvas              : null
-canvasStyle         : null
-scene               : {}
-seed                : ?
-title               : ''
-url                 : 'http://phaser.io'
-version             : ''
+width                 : 1024
+height                : 768
+zoom                  : 1
+resolution            : 1
+type                  : CONST.AUTO
+parent                : null
+canvas                : null
+canvasStyle           : null
+scene                 : {}
+seed                  : ?
+title                 : ''
+url                   : 'http://phaser.io'
+version               : ''
 input {
   keyboard            : true
   keyboard.target     : window
@@ -97,11 +104,12 @@ input {
   touch.capture       : true
   gamepad             : false
 }
-disableContextMenu  : false
-banner              : false
-banner.hidePhaser   : false
-banner.text         : '#ffffff'
-banner.background   : ?
+disableContextMenu    : false
+banner {
+  hidePhaser          : false
+  text                : '#ffffff'
+  background          : ?
+}       
 fps {
   min                 : 10
   target              : 60
@@ -109,15 +117,21 @@ fps {
   deltaHistory        : 10
   panicMax            : 120
 }
-pixelArt            : false
-autoResize          : false
-roundPixels         : false
-transparent         : false
-clearBeforeRender   : true
-backgroundColor     : 0x000000
-callbacks           : {}
-callbacks.preBoot   : NOOP
-callbacks.postBoot  : NOOP
+antialias             : true
+pixelArt              : false
+autoResize            : false
+roundPixels           : false
+transparent           : false
+clearBeforeRender     : true
+premultipliedAlpha    : true
+preserveDrawingBuffer : false
+failIfMajorPerformanceCaveat : false
+powerPreference       : 'default'
+backgroundColor       : 0x000000
+callbacks {
+  preBoot             : NOOP
+  postBoot            : NOOP
+}
 physics {
   system              : impact
   setBounds           : true
@@ -125,7 +139,7 @@ physics {
   cellSize            : 64
   debug               : false
 }
-default             : false
+default               : false
 loader {
   baseURL             : ?
   path                : ?
@@ -138,7 +152,8 @@ loader {
   password            : ?
   timeout             : 0
 }
-images              : {}
-images.default      : ?
-images.missing      : ?
+images {
+  default             : ?
+  missing             : ?
+}
 ```
