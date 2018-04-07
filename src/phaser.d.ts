@@ -151,6 +151,10 @@ declare type GameConfig = {
      */
     clearBeforeRender?: boolean;
     /**
+     * TODO
+     */
+    antialias?: boolean;
+    /**
      * [description]
      */
     backgroundColor?: string | number;
@@ -2312,6 +2316,11 @@ declare namespace Phaser {
                  * TODO
                  */
                 clearBeforeRender: boolean;
+
+                /**
+                 * TODO
+                 */
+                antialias: boolean;
 
                 /**
                  * The background color of this Camera. Only used if `transparent` is `false`.

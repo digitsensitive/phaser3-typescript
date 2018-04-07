@@ -1,19 +1,19 @@
 # Change Log
 
-## Version x.x.x - xxth xx 2018
-
-### New Features
-
-* first game available: Endless Runner (*digitsensitive*)
-
-
-### Bugfixes
-
-* ...
+## Version 1.0.8 - 07th April 2018
 
 ### Updates
 
-* ...
+* create new game: snake (*digitsensitive*)
+* create assets folder for snake (*digitsensitive*)
+* update README.md (*digitsensitive*)
+* small changes in the index.html file (*digitsensitive*)
+* update ts-loader version from 4.1.0 to 4.2.0 (*digitsensitive*)
+* update typescript version from 2.7.2 to 2.8.1 (*digitsensitive*)
+* update webpack version from 4.2.0 to 4.5.0 (*digitsensitive*)
+* update webpack-dev-server version from 3.1.1 to 3.1.2 (*digitsensitive*)
+* update webpack-cli version from 2.0.13 to 2.0.14 (*digitsensitive*)
+
 
 ## Version 1.0.7 - 01th April 2018
 
