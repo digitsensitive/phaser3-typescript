@@ -28,8 +28,8 @@ Alternatively to build a version `npm run build`.
 
 ## Game Examples
 
-[Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
-[Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
+- [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
+- [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
 
 ## Cheat Sheets
 
