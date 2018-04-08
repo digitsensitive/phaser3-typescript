@@ -11,28 +11,36 @@ export class Apple {
     return this.appleGraphic;
   }
 
-  constructor(_scene) {
-    // set variables
+  constructor() {
     this.appleGraphic = null;
   }
 
   /**
-   * Function which randomly puts a new apple on the field
+   * Randomly generate new apple position on the field
    */
-  public spawnApple(_scene, _fieldSize, _hFields, _vFields): void {
+  public spawnApple(params): void {
+    // generate new random position
+    let randX =
+      Phaser.Math.RND.between(1, params.hFields - 1) * params.fieldSize;
+    let randY =
+      Phaser.Math.RND.between(1, params.vFields - 1) * params.fieldSize;
+
     if (this.appleGraphic) {
-      this.appleGraphic.x =
-        Phaser.Math.RND.between(1, _hFields - 1) * _fieldSize;
-      this.appleGraphic.y =
-        Phaser.Math.RND.between(1, _vFields - 1) * _fieldSize;
+      this.appleGraphic.x = randX;
+      this.appleGraphic.y = randY;
     } else {
-      this.appleGraphic = _scene.add
+      this.appleGraphic = params.scene.add
         .graphics({
-          x: Phaser.Math.RND.between(1, _hFields - 1) * _fieldSize,
-          y: Phaser.Math.RND.between(1, _vFields - 1) * _fieldSize,
+          x: randX,
+          y: randY,
           fillStyle: { color: "0x61e85b", alpha: 0.8 }
         })
-        .fillRect(_fieldSize, _fieldSize, _fieldSize, _fieldSize);
+        .fillRect(
+          params.fieldSize,
+          params.fieldSize,
+          params.fieldSize,
+          params.fieldSize
+        );
     }
   }
 }

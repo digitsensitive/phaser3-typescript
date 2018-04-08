@@ -44,7 +44,7 @@ export class GameScene extends Phaser.Scene {
 
     // objects
     this.player = new Snake(this);
-    this.apple = new Apple(this);
+    this.apple = new Apple();
     this.gameBorder = [];
 
     // texts
@@ -90,12 +90,12 @@ export class GameScene extends Phaser.Scene {
     }
 
     // create new apple
-    this.apple.spawnApple(
-      this,
-      this.fieldSize,
-      this.numberHorizontalFields,
-      this.numberVerticalFields
-    );
+    this.apple.spawnApple({
+      scene: this,
+      fieldSize: this.fieldSize,
+      hFields: this.numberHorizontalFields,
+      vFields: this.numberVerticalFields
+    });
   }
 
   update(time): void {
@@ -122,12 +122,12 @@ export class GameScene extends Phaser.Scene {
     ) {
       this.player.growSnake(this);
       this.scoreText.setText("" + this.player.getSnakeLength());
-      this.apple.spawnApple(
-        this,
-        this.fieldSize,
-        this.numberHorizontalFields,
-        this.numberVerticalFields
-      );
+      this.apple.spawnApple({
+        scene: this,
+        fieldSize: this.fieldSize,
+        hFields: this.numberHorizontalFields,
+        vFields: this.numberVerticalFields
+      });
     }
 
     // check collision border <-> snake
