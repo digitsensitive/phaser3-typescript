@@ -44,24 +44,21 @@ export class Snake {
   }
 
   private buildSnake(_scene): void {
+    let currentAlpha = 0;
     for (let i = 0; i <= this.snakeLength; i++) {
       if (i === 0) {
-        this.snakeBody[i] = _scene.add
-          .graphics({
-            x: 16 - i * this.dotSize,
-            y: 16,
-            fillStyle: { color: "0x61e85b", alpha: 1 }
-          })
-          .fillRect(this.dotSize, this.dotSize, this.dotSize, this.dotSize);
+        currentAlpha = 1;
       } else {
-        this.snakeBody[i] = _scene.add
-          .graphics({
-            x: 16 - i * this.dotSize,
-            y: 16,
-            fillStyle: { color: "0x61e85b", alpha: 0.8 }
-          })
-          .fillRect(this.dotSize, this.dotSize, this.dotSize, this.dotSize);
+        currentAlpha = 0.8;
       }
+
+      this.snakeBody[i] = _scene.add
+        .graphics({
+          x: 16 - i * this.dotSize,
+          y: 16,
+          fillStyle: { color: "0x61e85b", alpha: currentAlpha }
+        })
+        .fillRect(this.dotSize, this.dotSize, this.dotSize, this.dotSize);
     }
   }
 
