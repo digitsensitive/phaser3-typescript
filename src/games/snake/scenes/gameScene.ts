@@ -45,8 +45,8 @@ export class GameScene extends Phaser.Scene {
     // objects
     this.player = new Snake(this);
     this.apple = new Apple(this, {
-      hFields: this.numberHorizontalFields,
-      vFields: this.numberVerticalFields,
+      xPos: this.rndXPos(),
+      yPos: this.rndYPos(),
       fSize: this.fieldSize
     });
     this.gameBorder = [];
@@ -94,11 +94,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     // create new apple
-    this.apple.newApplePosition({
-      hFields: this.numberHorizontalFields,
-      vFields: this.numberVerticalFields,
-      fSize: this.fieldSize
-    });
+    this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
   }
 
   update(time): void {
@@ -125,11 +121,7 @@ export class GameScene extends Phaser.Scene {
     ) {
       this.player.growSnake(this);
       this.scoreText.setText("" + this.player.getSnakeLength());
-      this.apple.newApplePosition({
-        hFields: this.numberHorizontalFields,
-        vFields: this.numberVerticalFields,
-        fSize: this.fieldSize
-      });
+      this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
     }
 
     // check collision border <-> snake
@@ -144,5 +136,18 @@ export class GameScene extends Phaser.Scene {
 
     // check snake <-> snake collision
     this.player.checkSnakeSnakeCollision();
+  }
+
+  private rndXPos(): number {
+    return (
+      Phaser.Math.RND.between(1, this.numberHorizontalFields - 1) *
+      this.fieldSize
+    );
+  }
+
+  private rndYPos(): number {
+    return (
+      Phaser.Math.RND.between(1, this.numberVerticalFields - 1) * this.fieldSize
+    );
   }
 }
