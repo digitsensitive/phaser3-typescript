@@ -9,13 +9,14 @@ import { Apple } from "../objects/apple";
 import { Snake } from "../objects/snake";
 
 export class GameScene extends Phaser.Scene {
+  // field and game setting
   private fieldSize: number;
   private gameHeight: number;
   private gameWidth: number;
   private boardWidth: number;
   private boardHeight: number;
-  private numberHorizontalFields: number;
-  private numberVerticalFields: number;
+  private horizontalFields: number;
+  private verticalFields: number;
   private tick: number;
 
   // objects
@@ -38,35 +39,14 @@ export class GameScene extends Phaser.Scene {
     this.gameWidth = this.sys.canvas.width;
     this.boardWidth = this.gameWidth - 2 * this.fieldSize;
     this.boardHeight = this.gameHeight - 2 * this.fieldSize;
-    this.numberHorizontalFields = this.boardWidth / this.fieldSize;
-    this.numberVerticalFields = this.boardHeight / this.fieldSize;
+    this.horizontalFields = this.boardWidth / this.fieldSize;
+    this.verticalFields = this.boardHeight / this.fieldSize;
     this.tick = 0;
-
-    // objects
-    this.player = new Snake(this);
-    this.apple = new Apple(this, {
-      xPos: this.rndXPos(),
-      yPos: this.rndYPos(),
-      fSize: this.fieldSize
-    });
-    this.gameBorder = [];
-
-    // texts
-    this.scoreText = this.add.text(
-      this.sys.canvas.width / 2,
-      0,
-      "" + this.player.getSnakeLength(),
-      {
-        fontFamily: "Courier",
-        fontSize: "8px",
-        fontStyle: "",
-        fill: "#4df24c"
-      }
-    );
   }
 
   create(): void {
-    // build game border
+    // objects
+    this.gameBorder = [];
     let i = 0;
     for (let x = 0; x < this.gameWidth / this.fieldSize; x++) {
       for (let y = 0; y < this.gameHeight / this.fieldSize; y++) {
@@ -93,8 +73,25 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // create new apple
-    this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
+    this.player = new Snake(this);
+    this.apple = new Apple(this, {
+      xPos: this.rndXPos(),
+      yPos: this.rndYPos(),
+      fSize: this.fieldSize
+    });
+
+    // texts
+    this.scoreText = this.add.text(
+      this.gameWidth / 2,
+      0,
+      "" + this.player.getSnakeLength(),
+      {
+        fontFamily: "Courier",
+        fontSize: "8px",
+        fontStyle: "",
+        fill: "#4df24c"
+      }
+    );
   }
 
   update(time): void {
@@ -114,7 +111,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private checkCollision(): void {
-    // check collision with apple
+    // player <-> apple collision
     if (
       this.player.getHead().x === this.apple.x &&
       this.player.getHead().y === this.apple.y
@@ -124,7 +121,7 @@ export class GameScene extends Phaser.Scene {
       this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
     }
 
-    // check collision border <-> snake
+    // border <-> snake collision
     for (let i = 0; i < this.gameBorder.length; i++) {
       if (
         this.player.getHead().x === this.gameBorder[i].x &&
@@ -134,20 +131,17 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // check snake <-> snake collision
+    // snake <-> snake collision
     this.player.checkSnakeSnakeCollision();
   }
 
   private rndXPos(): number {
     return (
-      Phaser.Math.RND.between(1, this.numberHorizontalFields - 1) *
-      this.fieldSize
+      Phaser.Math.RND.between(1, this.horizontalFields - 1) * this.fieldSize
     );
   }
 
   private rndYPos(): number {
-    return (
-      Phaser.Math.RND.between(1, this.numberVerticalFields - 1) * this.fieldSize
-    );
+    return Phaser.Math.RND.between(1, this.verticalFields - 1) * this.fieldSize;
   }
 }

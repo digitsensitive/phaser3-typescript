@@ -17,6 +17,8 @@ export class Apple extends Phaser.GameObjects.Graphics {
 
   /**
    * Randomly generate new apple position on the field
+   * @param _rndX [Random X Position]
+   * @param _rndY [Random Y Position]
    */
   public newApplePosition(_rndX, _rndY): void {
     this.x = _rndX;

@@ -28,22 +28,22 @@ export class Snake {
     return this.snakeLength;
   }
 
-  constructor(_scene) {
+  constructor(scene) {
     // set variables
-    this.dotSize = _scene.fieldSize;
+    this.dotSize = scene.fieldSize;
     this.snakeLength = 0;
     this.direction = "right";
     this.dead = false;
     this.snakeBody = [];
 
     // input
-    this.cursors = _scene.input.keyboard.createCursorKeys();
+    this.cursors = scene.input.keyboard.createCursorKeys();
 
     // build snake
-    this.buildSnake(_scene);
+    this.buildSnake(scene);
   }
 
-  private buildSnake(_scene): void {
+  private buildSnake(scene): void {
     let currentAlpha = 0;
     for (let i = 0; i <= this.snakeLength; i++) {
       if (i === 0) {
@@ -52,7 +52,7 @@ export class Snake {
         currentAlpha = 0.8;
       }
 
-      this.snakeBody[i] = _scene.add
+      this.snakeBody[i] = scene.add
         .graphics({
           x: 16 - i * this.dotSize,
           y: 16,
@@ -93,9 +93,9 @@ export class Snake {
     }
   }
 
-  public growSnake(_scene): void {
+  public growSnake(scene): void {
     this.snakeLength++;
-    this.snakeBody[this.snakeBody.length] = _scene.add
+    this.snakeBody[this.snakeBody.length] = scene.add
       .graphics({
         x: this.snakeBody[this.snakeBody.length - 1].x,
         y: this.snakeBody[this.snakeBody.length - 1].y,
