@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 1.0.9 - 17th April 2018
+
+### Updates
+
+* update phaser version from 3.3.0 to 3.5.0 (*digitsensitive*)
+* update webpack version from 4.5.0 to 4.6.0 (*digitsensitive*)
+* update webpack-dev-server version from 3.1.2 to 3.1.3 (*digitsensitive*)
+
+
 ## Version 1.0.8 - 07th April 2018
 
 ### Updates

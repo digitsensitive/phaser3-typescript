@@ -1,6 +1,6 @@
 {
   "name": "phaser3-typescript",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Boilerplate, Tutorials, Cheat Sheets and more for Phaser 3 in Typescript",
   "keywords": [
     "Phaser",
@@ -15,12 +15,12 @@
     "expose-loader": "0.7.5",
     "ts-loader": "4.2.0",
     "typescript": "2.8.1",
-    "webpack": "4.5.0",
-    "webpack-dev-server": "3.1.2",
+    "webpack": "4.6.0",
+    "webpack-dev-server": "3.1.3",
     "webpack-cli": "2.0.14"
   },
   "dependencies": {
-    "phaser": "3.3.0"
+    "phaser": "3.5.0"
   },
   "scripts": {
     "dev": "webpack && webpack-dev-server --mode development",
