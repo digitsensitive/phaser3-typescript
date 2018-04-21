@@ -2,14 +2,6 @@
 
 ![Scene Config](/assets/cheatsheets/sceneConfig.png)
 
-There are many parameters you can define when you create a scene
-configuration object, which you will pass to the Scene Constructor.
-You will find a short example and then we will have a look
-at the some interesting parameters.
-
-If you are interested to see all the parameters check out the list of
-parameters at the bottom of this site.
-
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
 #### Example
@@ -19,31 +11,32 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
   key: "myScene",
   physics: {
     arcade: {
-      debug: true,
       gravity: { y: 200 }
+      debug: true
     }
   }
 }
 ```
 
-#### Interesting parameters (parameter : description)
+#### Interesting parameters with default values
 
 ```
 Informations about the scene
 
 * key               : The name of the scene
-* visible           : If the scene is visible
-```
-
-```
-Physics of the scene
-
 * physics           : Define the physics for that specific scene
+* map               : properties get injected into scene and map to local systems
+* mapAdd            : extends the injection map for a scene
 ```
 
-#### List of all parameters (parameter : default value)
+#### List of parameters with default values
 
 ```
+Takes a scene configuration object (= Phaser.Scenes.Settings.Config)
+and returns a fully formed systems object (= Phaser.Scenes.Settings.Object)
+
+Phaser.Scenes.Settings.Config
+
 key                   : ''
 active                : false
 visible               : true
@@ -73,10 +66,30 @@ map {
   impactPhysics       : 'impact'
   matterPhysics       : 'matter'
 }
+mapAdd                : {}
 physics               : {}
 loader                : {}
 plugins               : false
 status                : CONST.PENDING
 isBooted              : false
 data                  : {}
+
+Phaser.Scenes.Settings.Object
+
+status                : ?
+key                   : ?
+active                : ?
+visible               : ?
+isBooted              : ?
+isTransition          : ?
+transitionFrom        : ?
+transitionDuration    : ?
+transitionAllowInput  : ?
+data                  : ?
+files                 : ?
+cameras               : ?
+map                   : ?
+physics               : ?
+loader                : ?
+plugins               : ?
 ```

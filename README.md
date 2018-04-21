@@ -4,7 +4,6 @@
 
 [Phaser](https://github.com/photonstorm/phaser) is a fast, free, and fun open source HTML5 game framework.
 Here you will find a boilerplate for Phaser 3 in TypeScript and Webpack, Game Examples and Tutorials.
-I have used the Typescript definition file from [@troyedwardsjr](https://github.com/troyedwardsjr/phaser3-typescript-webpack).
 
 Feedback is always welcome!
 
@@ -30,8 +29,17 @@ Alternatively to build a version `npm run build`.
 
 - [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
 - [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
+- Flappy Bird (coming soon)
 
 ## Cheat Sheets
 
 - [The Game Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
 - [The Scene configuration object](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
+- [The Image Class](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
+
+## External Resources
+
+- [Phaser 3 Framework](https://github.com/photonstorm/phaser)
+- [Phaser 3 Docs with TypeScript Definition File](https://github.com/photonstorm/phaser3-docs)
+- [Phaser 3 Online Docs](https://photonstorm.github.io/phaser3-docs/index.html)
+- [Phaser 3 Official Examples](https://github.com/photonstorm/phaser3-examples)

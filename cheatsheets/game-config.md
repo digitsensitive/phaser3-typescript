@@ -2,15 +2,6 @@
 
 ![Game Config](/assets/cheatsheets/gameConfig.png)
 
-const config: GameConfig = { };
-
-There are many parameters you can define when you create your own
-configuration object. You will find a short example and then we will have a look
-at the most important parameters.
-
-If you are interested to see all the parameters check out the list of
-parameters at the bottom of this site.
-
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
 #### Example
@@ -21,11 +12,18 @@ const config: GameConfig = {
   height: 600,
   type: Phaser.AUTO,
   parent: "game",
-  scene: MainScene
+  scene: MainScene,
+  physics: {
+    default: "arcade",
+    arcade: {
+      gravity: { y: 300 },
+      debug: false
+    }
+  }
 };
 ```
 
-#### Important parameters (parameter : default value)
+#### Interesting parameters with default values
 
 ```
 Informations about the game
@@ -76,7 +74,7 @@ If you work with pixel art you should set this to true.
 Set the background color
 ```
 
-#### List of all parameters (parameter : default value)
+#### List of all parameters with default values
 
 ```
 width                 : 1024
@@ -87,7 +85,7 @@ type                  : CONST.AUTO
 parent                : null
 canvas                : null
 canvasStyle           : null
-scene                 : {}
+scene                 : null
 seed                  : ?
 title                 : ''
 url                   : 'http://phaser.io'
@@ -103,6 +101,7 @@ input {
   gamepad             : false
 }
 disableContextMenu    : false
+banner                : false
 banner {
   hidePhaser          : false
   text                : '#ffffff'
@@ -130,13 +129,7 @@ callbacks {
   preBoot             : NOOP
   postBoot            : NOOP
 }
-physics {
-  system              : impact
-  setBounds           : true
-  gravity             : {}
-  cellSize            : 64
-  debug               : false
-}
+physics               : {}
 default               : false
 loader {
   baseURL             : ?

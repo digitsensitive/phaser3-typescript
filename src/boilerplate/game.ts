@@ -26,7 +26,7 @@ const config: GameConfig = {
 
 // game class
 export class Game extends Phaser.Game {
-  constructor(GameConfig: config) {
+  constructor(config: GameConfig) {
     super(config);
   }
 }
