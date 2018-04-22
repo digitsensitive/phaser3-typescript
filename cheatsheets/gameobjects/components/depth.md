@@ -1,6 +1,4 @@
-```
-PHASER.COMPONENTS.DEPTH
-```
+## Phaser.Components.Depth
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
