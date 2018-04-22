@@ -1,6 +1,6 @@
-## The Game Config Class
+## Phaser.Game
 
-![Game Config](/assets/cheatsheets/gameConfig.png)
+![Phaser.Game](/assets/cheatsheets/gameConfig.png)
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

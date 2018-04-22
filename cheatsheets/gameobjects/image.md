@@ -1,6 +1,6 @@
-## The Image Class
+## Phaser.GameObject.Image
 
-![Image Class](/assets/cheatsheets/image.png)
+![Phaser.GameObject.Image](/assets/cheatsheets/image.png)
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

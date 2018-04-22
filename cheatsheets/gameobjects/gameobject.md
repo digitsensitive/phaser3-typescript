@@ -1,6 +1,6 @@
-## GameObject
+## Phaser.GameObject
 
-![GameObject](/assets/cheatsheets/gameobject.png)
+![Phaser.GameObject](/assets/cheatsheets/gameobject.png)
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

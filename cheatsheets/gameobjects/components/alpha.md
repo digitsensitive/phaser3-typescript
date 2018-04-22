@@ -1,6 +1,6 @@
-## Alpha
+## Phaser.Components.Alpha
 
-![Alpha](/assets/cheatsheets/alpha.png)
+![Phaser.Components.Alpha](/assets/cheatsheets/alpha.png)
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

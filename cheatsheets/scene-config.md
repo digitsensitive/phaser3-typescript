@@ -1,6 +1,6 @@
-## The Scene configuration object
+## Phaser.Scene
 
-![Scene Config](/assets/cheatsheets/sceneConfig.png)
+![Phaser.Scene](/assets/cheatsheets/sceneConfig.png)
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

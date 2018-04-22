@@ -33,9 +33,9 @@ Alternatively to build a version `npm run build`.
 
 ## Cheat Sheets
 
-- [The Game Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
-- [The Scene configuration object](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
-- [The Image Class](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
+- [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
+- [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
+- [Phaser.GameObject.Image](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
 
 ## External Resources
 
