@@ -17,7 +17,7 @@ let newImage = this.add.image(20, 30, "imageTexture");
 #### Mixins
 
 - [Components.Alpha](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/alpha.md)
-- Components.BlendMode
+- [Components.BlendMode](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/blendMode.md)
 - Components.Depth
 - Components.Flip
 - Components.GetBounds
