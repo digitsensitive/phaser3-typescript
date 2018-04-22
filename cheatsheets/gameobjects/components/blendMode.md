@@ -1,6 +1,4 @@
-## Phaser.Components.BlendMode
-
-![Phaser.Components.BlendMode](/assets/cheatsheets/blendMode.png)
+## :ballot_box_with_check: Phaser.Components.BlendMode
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

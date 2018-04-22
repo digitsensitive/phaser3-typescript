@@ -1,6 +1,4 @@
-## Phaser.GameObject.Image
-
-![Phaser.GameObject.Image](/assets/cheatsheets/image.png)
+## :ballot_box_with_check: Phaser.GameObject.Image
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

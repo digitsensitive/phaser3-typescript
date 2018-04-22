@@ -1,6 +1,4 @@
-## Phaser.Scene
-
-![Phaser.Scene](/assets/cheatsheets/sceneConfig.png)
+## :ballot_box_with_check: Phaser.Scene
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

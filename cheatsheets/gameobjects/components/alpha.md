@@ -1,6 +1,4 @@
-## Phaser.Components.Alpha
-
-![Phaser.Components.Alpha](/assets/cheatsheets/alpha.png)
+## :ballot_box_with_check: Phaser.Components.Alpha
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
