@@ -27,6 +27,6 @@ let newImage = this.add.image(20, 30, "imageTexture");
 - Components.Size
 - Components.Texture
 - Components.Tint
-- Components.Transform
+- [Components.Transform](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/transform.md)
 - Components.Visible
 - ImageRender
