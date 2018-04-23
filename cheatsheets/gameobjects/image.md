@@ -18,8 +18,8 @@ let newImage = this.add.image(20, 30, "imageTexture");
 - [Components.BlendMode](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/blendMode.md)
 - [Components.Depth](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/depth.md)
 - [Components.Flip](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/flip.md)
-- Components.GetBounds
-- Components.Mask
+- [Components.GetBounds](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/getBounds.md)
+- [Components.Mask](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/mask.md)
 - Components.Origin
 - Components.Pipeline
 - Components.ScaleMode
