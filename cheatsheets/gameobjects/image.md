@@ -20,7 +20,7 @@ let newImage = this.add.image(20, 30, "imageTexture");
 - [Components.Flip](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/flip.md)
 - [Components.GetBounds](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/getBounds.md)
 - [Components.Mask](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/mask.md)
-- Components.Origin
+- [Components.Origin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/origin.md)
 - Components.Pipeline
 - Components.ScaleMode
 - Components.ScrollFactor
