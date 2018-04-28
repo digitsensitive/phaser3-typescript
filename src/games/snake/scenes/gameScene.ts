@@ -7,6 +7,7 @@
 
 import { Apple } from "../objects/apple";
 import { Snake } from "../objects/snake";
+import { CONST } from "../const/const";
 
 export class GameScene extends Phaser.Scene {
   // field and game setting
@@ -25,7 +26,7 @@ export class GameScene extends Phaser.Scene {
   private gameBorder: Phaser.GameObjects.Graphics[];
 
   // texts
-  private scoreText: Phaser.GameObjects.Text;
+  private scoreText: Phaser.GameObjects.BitmapText;
 
   constructor() {
     super({
@@ -80,17 +81,13 @@ export class GameScene extends Phaser.Scene {
       fSize: this.fieldSize
     });
 
-    // texts
-    this.scoreText = this.add.text(
+    // text
+    this.scoreText = this.add.bitmapText(
       this.gameWidth / 2,
-      0,
-      "" + this.player.getSnakeLength(),
-      {
-        fontFamily: "Courier",
-        fontSize: "8px",
-        fontStyle: "",
-        fill: "#4df24c"
-      }
+      1,
+      "snakeFont",
+      "" + CONST.SCORE,
+      8
     );
   }
 
@@ -111,17 +108,18 @@ export class GameScene extends Phaser.Scene {
   }
 
   private checkCollision(): void {
-    // player <-> apple collision
+    // player vs. apple collision
     if (
       this.player.getHead().x === this.apple.x &&
       this.player.getHead().y === this.apple.y
     ) {
       this.player.growSnake(this);
-      this.scoreText.setText("" + this.player.getSnakeLength());
+      CONST.SCORE++;
+      this.scoreText.setText("" + CONST.SCORE);
       this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
     }
 
-    // border <-> snake collision
+    // border vs. snake collision
     for (let i = 0; i < this.gameBorder.length; i++) {
       if (
         this.player.getHead().x === this.gameBorder[i].x &&
@@ -131,7 +129,7 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // snake <-> snake collision
+    // snake vs. snake collision
     this.player.checkSnakeSnakeCollision();
   }
 

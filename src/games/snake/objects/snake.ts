@@ -12,6 +12,7 @@ export class Snake {
   private cursors: any;
   private dead: boolean;
   private snakeBody: Phaser.GameObjects.Graphics[];
+
   public isDead(): boolean {
     return this.dead;
   }

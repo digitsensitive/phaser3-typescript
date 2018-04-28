@@ -12,11 +12,10 @@ import { BootScene } from "./scenes/bootScene";
 import { MainMenuScene } from "./scenes/mainMenuScene";
 import { GameScene } from "./scenes/gameScene";
 
-// main game configuration
 const config: GameConfig = {
   title: "Snake",
   url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "1.0",
+  version: "1.1",
   width: 256,
   height: 224,
   zoom: 3,
@@ -34,14 +33,12 @@ const config: GameConfig = {
   antialias: false
 };
 
-// game class
 export class Game extends Phaser.Game {
   constructor(config: GameConfig) {
     super(config);
   }
 }
 
-// when the page is loaded, create our game instance
 window.onload = () => {
   var game = new Game(config);
 };
