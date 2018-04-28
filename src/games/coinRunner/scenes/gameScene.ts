@@ -10,10 +10,17 @@ import { Player } from "../objects/player";
 
 export class GameScene extends Phaser.Scene {
   private background: Phaser.GameObjects.Image;
-  private player: Player;
   private coin: Coin;
-  private coinsCollectedText: Phaser.GameObjects.Text;
+  private player: Player;
+
   private collectedCoins: number = 0;
+  private coinsCollectedText: Phaser.GameObjects.Text;
+
+  constructor() {
+    super({
+      key: "GameScene"
+    });
+  }
 
   preload(): void {
     this.load.image("background", "../assets/games/coinRunner/background.png");
@@ -27,14 +34,13 @@ export class GameScene extends Phaser.Scene {
     this.background.setOrigin(0, 0);
 
     // create objects
-    this.player = new Player({ scene: this, x: 150, y: 300, key: "player" });
-
     this.coin = new Coin({
       scene: this,
       x: Phaser.Math.RND.integerInRange(100, 700),
       y: Phaser.Math.RND.integerInRange(100, 500),
       key: "coin"
     });
+    this.player = new Player({ scene: this, x: 150, y: 300, key: "player" });
 
     // create texts
     this.coinsCollectedText = this.add.text(
@@ -42,34 +48,35 @@ export class GameScene extends Phaser.Scene {
       this.sys.canvas.height - 50,
       this.collectedCoins + "",
       {
-        fontFamily: "arial",
-        fontSize: 30,
+        fontFamily: "Connection",
+        fontSize: 38,
         stroke: "#fff",
-        strokeThickness: 4,
+        strokeThickness: 6,
         fill: "#000000"
       }
     );
   }
 
   update(): void {
+    // update player and coin
     this.player.update();
     this.coin.update();
 
+    // do the collision check
     if (
       Phaser.Geom.Intersects.RectangleToRectangle(
         this.player.getBounds(),
         this.coin.getBounds()
-      ) &&
-      this.coin.active
+      )
     ) {
-      this.collectedCoins++;
-      this.updateCoinsText();
-      this.coin.changePosition();
+      this.updateCoinStatus();
     }
   }
 
-  private updateCoinsText(): void {
+  private updateCoinStatus(): void {
+    this.collectedCoins++;
     this.coinsCollectedText.setText(this.collectedCoins + "");
+    this.coin.changePosition();
   }
 
   private gameover(): void {

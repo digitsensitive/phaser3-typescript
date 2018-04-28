@@ -9,28 +9,21 @@ export class Coin extends Phaser.GameObjects.Image {
   private lastPosition: string;
   private moveToBottom: boolean = true;
   private changePositionTimer: Phaser.Time.TimerEvent;
+
   constructor(params) {
     super(params.scene, params.x, params.y, params.key);
 
-    // variables
     this.setFieldSide();
-
-    // image
     this.initImage();
-
-    // events
     this.initEvents(params);
 
     params.scene.add.existing(this);
   }
 
   private initImage(): void {
-    this.setScale(1);
+    this.setScale(0.8);
     this.setSize(56, 56);
-    this.setAlpha(1, 1, 1, 1);
-    this.setBlendMode(0);
-    this.setDepth(0);
-    this.setFlip(false, false);
+    this.setAlpha(1);
     this.setOrigin(0, 0);
   }
 

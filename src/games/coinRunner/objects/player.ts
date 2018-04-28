@@ -12,10 +12,7 @@ export class Player extends Phaser.GameObjects.Image {
   constructor(params) {
     super(params.scene, params.x, params.y, params.key);
 
-    // image
     this.initImage();
-
-    // input
     this.initInput(params);
 
     params.scene.add.existing(this);
@@ -24,9 +21,7 @@ export class Player extends Phaser.GameObjects.Image {
   private initImage(): void {
     this.setScale(0.8);
     this.setSize(40, 50);
-    this.setAlpha(1, 1, 1, 1);
-    this.setBlendMode(0);
-    this.setDepth(0);
+    this.setAlpha(1);
     this.setFlip(false, false);
     this.setOrigin(0.4, 0.4);
     this.setAngle(0);
