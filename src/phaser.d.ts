@@ -12079,7 +12079,7 @@ declare namespace Phaser {
             /**
              * If this Game Object is enabled for physics then this property will contain a reference to a Physics Body.
              */
-            body: object;
+            body: any;
 
             /**
              * This Game Object will ignore all calls made to its destroy method if this flag is set to `true`.
@@ -28976,7 +28976,7 @@ declare namespace Phaser {
                  * @param processCallback A callback function that lets you perform additional checks against the two objects if they overlap. If this is set then `overlapCallback` will only be called if this callback returns `true`. Default null.
                  * @param callbackContext The context in which to run the callbacks.
                  */
-                overlap(object1: Phaser.GameObjects.GameObject | any[], object2: Phaser.GameObjects.GameObject | any[], overlapCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
+                overlap(object1: Phaser.GameObjects.GameObject | any[] | Phaser.GameObjects.Group, object2: Phaser.GameObjects.GameObject | any[] | Phaser.GameObjects.Group, overlapCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
 
                 /**
                  * [description]
