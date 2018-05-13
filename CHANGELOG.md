@@ -8,6 +8,7 @@
 
 ### Updates
 
+* new cheatsheet sprite (*digitsensitive*)
 * new cheatsheet texture (*digitsensitive*)
 * new cheatsheet tint (*digitsensitive*)
 * new cheatsheet visible (*digitsensitive*)
