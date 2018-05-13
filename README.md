@@ -33,6 +33,7 @@ Alternatively to build a version `npm run build`.
 - [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade/blockade.md)
 - [Asteroid](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/asteroid.md)
 - Candy Crush (coming soon)
+- If you have any suggestion for a next game example, let me know!
 
 ## Cheat Sheets
 
