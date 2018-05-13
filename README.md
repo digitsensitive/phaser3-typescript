@@ -35,7 +35,7 @@ Alternatively to build a version `npm run build`.
 - Candy Crush (coming soon)
 - If you have any suggestion for a next game example, let me know!
 
-## Cheat Sheets
+## :love_letter: Cheat Sheets
 
 - [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
 - [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
@@ -57,7 +57,7 @@ Alternatively to build a version `npm run build`.
 -  Phaser.GameObject.Tilesprite	(coming soon)
 -  Phaser.GameObject.Zone	(coming soon)
 
-## External Resources
+## :cookie: External Resources
 
 - [Phaser 3 Framework](https://github.com/photonstorm/phaser)
 - [Phaser 3 Docs with TypeScript Definition File](https://github.com/photonstorm/phaser3-docs)
