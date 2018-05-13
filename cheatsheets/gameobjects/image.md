@@ -25,8 +25,8 @@ let newImage = this.add.image(20, 30, "imageTexture");
 - [Components.ScaleMode](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/scaleMode.md)
 - [Components.ScrollFactor](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/scrollFactor.md)
 - [Components.Size](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/size.md)
-- Components.Texture
-- Components.Tint
+- [Components.Texture](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/texture.md)
+- [Components.Tint](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/tint.md)
 - [Components.Transform](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/transform.md)
-- Components.Visible
+- [Components.Visible](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/visible.md)
 - ImageRender
