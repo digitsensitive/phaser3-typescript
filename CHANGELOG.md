@@ -1,5 +1,23 @@
 # Change Log
 
+## Version 1.2.0 - ..th ... 2018
+
+### Features
+
+* ...
+
+### Updates
+
+* new cheatsheet texture (*digitsensitive*)
+* new cheatsheet tint (*digitsensitive*)
+* new cheatsheet visible (*digitsensitive*)
+* update cheatsheet image (*digitsensitive*)
+* update CHANGELOG.md (*digitsensitive*)
+
+### Bugfixes
+
+* ...
+
 ## Version 1.1.0 - 13th May 2018
 
 ### Features
@@ -23,7 +41,7 @@
 * update webpack version from to 4.6.0 to 4.8.3 (*digitsensitive*)
 * update webpack-dev-server version from 3.1.3 to 3.1.4 (*digitsensitive*)
 
-## Bugfixes
+### Bugfixes
 
 * fix config error in game.ts (constructor(config: GameConfig)) files after updating to official phaser.d.ts (*vladfaust*)
 * workaround for intersect in the phaser.d.ts file (*digitsensitive*)
