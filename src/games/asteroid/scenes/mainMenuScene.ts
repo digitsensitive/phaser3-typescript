@@ -33,8 +33,8 @@ export class MainMenuScene extends Phaser.Scene {
   preload(): void {
     this.load.bitmapFont(
       "asteroidFont",
-      "../assets/games/asteroid/asteroidFont.png",
-      "../assets/games/asteroid/asteroidFont.fnt"
+      "./assets/games/asteroid/asteroidFont.png",
+      "./assets/games/asteroid/asteroidFont.fnt"
     );
   }
 

@@ -23,9 +23,9 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image("background", "../assets/games/coinRunner/background.png");
-    this.load.image("player", "../assets/games/coinRunner/player.png");
-    this.load.image("coin", "../assets/games/coinRunner/coin.png");
+    this.load.image("background", "./assets/games/coinRunner/background.png");
+    this.load.image("player", "./assets/games/coinRunner/player.png");
+    this.load.image("coin", "./assets/games/coinRunner/coin.png");
   }
 
   create(): void {

@@ -31,8 +31,8 @@ export class MainMenuScene extends Phaser.Scene {
   preload(): void {
     this.load.bitmapFont(
       "pcsenior",
-      "../assets/games/blockade/pcsenior.png",
-      "../assets/games/blockade/pcsenior.fnt"
+      "./assets/games/blockade/pcsenior.png",
+      "./assets/games/blockade/pcsenior.fnt"
     );
   }
 

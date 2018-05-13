@@ -24,8 +24,8 @@ export class MainMenuScene extends Phaser.Scene {
   preload(): void {
     this.load.bitmapFont(
       "flappyBirdFont",
-      "../assets/games/flappyBird/flappyBirdFont.png",
-      "../assets/games/flappyBird/flappyBirdFont.fnt"
+      "./assets/games/flappyBird/flappyBirdFont.png",
+      "./assets/games/flappyBird/flappyBirdFont.fnt"
     );
   }
 

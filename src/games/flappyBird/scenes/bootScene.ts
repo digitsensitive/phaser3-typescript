@@ -13,9 +13,9 @@ export class BootScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image("background", "../assets/games/flappyBird/bg.png");
-    this.load.image("bird", "../assets/games/flappyBird/bird.png");
-    this.load.spritesheet("pipe", "../assets/games/flappyBird/pipe.png", {
+    this.load.image("background", "./assets/games/flappyBird/bg.png");
+    this.load.image("bird", "./assets/games/flappyBird/bird.png");
+    this.load.spritesheet("pipe", "./assets/games/flappyBird/pipe.png", {
       frameWidth: 20,
       frameHeight: 20
     });
