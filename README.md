@@ -42,6 +42,20 @@ Alternatively to build a version `npm run build`.
 - [Phaser.GameObject.Image](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
 - [Phaser.GameObject.Sprite](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/sprite.md)
 - [Phaser.GameObject.Group](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/group.md)
+-  Phaser.GameObject.Bitmaptext	(coming soon)
+-  Phaser.GameObject.Blitter	(coming soon)
+-  Phaser.GameObject.Container	(coming soon)
+-  Phaser.GameObject.Graphics	(coming soon)
+-  Phaser.GameObject.Lights	(coming soon)
+-  Phaser.GameObject.Mesh	(coming soon)
+-  Phaser.GameObject.Particles	(coming soon)
+-  Phaser.GameObject.Pathfollower	(coming soon)
+-  Phaser.GameObject.Quad	(coming soon)
+-  Phaser.GameObject.Rendertexture	(coming soon)
+-  Phaser.GameObject.Sprite3d	(coming soon)
+-  Phaser.GameObject.Text	(coming soon)
+-  Phaser.GameObject.Tilesprite	(coming soon)
+-  Phaser.GameObject.Zone	(coming soon)
 
 ## External Resources
 
