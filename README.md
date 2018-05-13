@@ -30,7 +30,8 @@ Alternatively to build a version `npm run build`.
 - [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
 - [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
 - [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md)
-- Blockade (coming soon)
+- [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade/blockade.md)
+- [Asteroid](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/asteroid.md)
 - Candy Crush (coming soon)
 
 ## Cheat Sheets

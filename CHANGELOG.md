@@ -1,5 +1,34 @@
 # Change Log
 
+## Version 1.1.0 - 13th May 2018
+
+### Features
+
+* NEW GAME Flappy Bird (*digitsensitive*)
+* NEW GAME Blockade (*digitsensitive*)
+* NEW GAME Asteroid (*digitsensitive*)
+
+### Updates
+
+* small changes in the tsconfig.json (*digitsensitive*)
+* update README.md with external resources links (*digitsensitive*)
+* new cheatsheets: group, image, gameobject, alpha, blendMode, depth, flip, transform, getBounds, mask, origin, pipeline, scaleMode, scrollFactor, size (*digitsensitive*)
+* update cheatsheets: game-config, scene-config (*digitsensitive*)
+* update Coin Runner game (*digitsensitive*)
+* update Snake game (*digitsensitive*)
+* update phaser version from 3.5.0 to 3.7.1 (*digitsensitive*)
+* update typescript version from 2.8.1 to 2.8.3 (*digitsensitive*)
+* update webpack-cli version from 2.0.14 to 2.1.3 (*digitsensitive*)
+* update ts-loader version from 4.2.0 to 4.3.0 (*digitsensitive*)
+* update webpack version from to 4.6.0 to 4.8.3 (*digitsensitive*)
+* update webpack-dev-server version from 3.1.3 to 3.1.4 (*digitsensitive*)
+
+## Bugfixes
+
+* fix config error in game.ts (constructor(config: GameConfig)) files after updating to official phaser.d.ts (*vladfaust*)
+* workaround for intersect in the phaser.d.ts file (*digitsensitive*)
+
+
 ## Version 1.0.9 - 17th April 2018
 
 ### Updates

@@ -26,7 +26,6 @@ Adjust the `webpack.config.js` file as follows:
 * Learn to use Phaser.Actions.Call
 * Learn to use Arcade Physics Overlap
 
-
 ## Fixes of the TypeScript definition file
 
 Awaiting [issue](https://github.com/photonstorm/phaser3-docs/issues/19) to be fixed.
