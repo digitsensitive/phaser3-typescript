@@ -16,7 +16,8 @@
 
 ### Bugfixes
 
-* ...
+* correct path for assets loading (*digitsensitive*)
+
 
 ## Version 1.1.0 - 13th May 2018
 
