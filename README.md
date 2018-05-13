@@ -25,7 +25,7 @@ Building and running is as easy as the three following steps:
 
 Alternatively to build a version `npm run build`.
 
-## :gem: Game Examples
+## :video_game: Game Examples
 
 - [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
 - [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
@@ -35,7 +35,7 @@ Alternatively to build a version `npm run build`.
 - Candy Crush (coming soon)
 - If you have any suggestion for a next game example, let me know!
 
-## :love_letter: Cheat Sheets
+## :gem: Cheat Sheets
 
 - [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
 - [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
@@ -63,3 +63,12 @@ Alternatively to build a version `npm run build`.
 - [Phaser 3 Docs with TypeScript Definition File](https://github.com/photonstorm/phaser3-docs)
 - [Phaser 3 Online Docs](https://photonstorm.github.io/phaser3-docs/index.html)
 - [Phaser 3 Official Examples](https://github.com/photonstorm/phaser3-examples)
+
+## :love_letter: Changelog
+
+[Learn about the latest improvements][changelog].
+
+
+## :rocket: Want to help?
+
+Want to correct a bug, contribute some code, or improve the codes? Excellent! Let me know!
