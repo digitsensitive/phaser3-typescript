@@ -66,7 +66,7 @@ Alternatively to build a version `npm run build`.
 
 ## :love_letter: Changelog
 
-[Learn about the latest improvements][changelog].
+[Learn about the latest improvements](https://github.com/digitsensitive/phaser3-typescript/blob/master/CHANGELOG.md).
 
 
 ## :rocket: Want to help?
