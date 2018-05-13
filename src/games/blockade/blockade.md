@@ -1,6 +1,6 @@
 # Blockade
 
-***
+![Blockade](/assets/games/blockade/README.gif)
 
 ## Description
 
