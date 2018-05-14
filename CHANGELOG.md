@@ -12,6 +12,7 @@
 * new cheatsheet texture (*digitsensitive*)
 * new cheatsheet tint (*digitsensitive*)
 * new cheatsheet visible (*digitsensitive*)
+* new cheatsheet mesh (*digitsensitive*)
 * update cheatsheet image (*digitsensitive*)
 * update CHANGELOG.md (*digitsensitive*)
 

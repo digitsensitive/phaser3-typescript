@@ -47,7 +47,7 @@ Alternatively to build a version `npm run build`.
 -  Phaser.GameObject.Container	(coming soon)
 -  Phaser.GameObject.Graphics	(coming soon)
 -  Phaser.GameObject.Lights	(coming soon)
--  Phaser.GameObject.Mesh	(coming soon)
+-  [Phaser.GameObject.Mesh](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/mesh.md)
 -  Phaser.GameObject.Particles	(coming soon)
 -  Phaser.GameObject.Pathfollower	(coming soon)
 -  Phaser.GameObject.Quad	(coming soon)
