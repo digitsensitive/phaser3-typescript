@@ -2,6 +2,24 @@
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
+#### Example
+
+```
+let newMesh = this.add.mesh(
+  300,
+  300,
+  [-250, -250, -250, 250, 250, 250, -250, -250, 250, 250, 250, -250],
+  [0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0],
+  [0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff],
+  [1, 1, 1, 1, 1, 1],
+  "texture"
+);
+```
+
+> You can access and manipulate the vertices with newMesh.vertices[0], newMesh.vertices[1] etc.
+
+> You can access and manipulate the uvs with newMesh.uv[0], newMesh.uv[1] etc.
+
 #### Parameters
 
 ```
@@ -21,24 +39,6 @@ The texture is mapped using the UV coordinates.
 > The exact positions in the coordinate system (x and y) are specified under vertices
 
 > The texture coordinates (U and V = UV) are defined in uv
-
-#### Example
-
-```
-let newMesh = this.add.mesh(
-  300,
-  300,
-  [-250, -250, -250, 250, 250, 250, -250, -250, 250, 250, 250, -250],
-  [0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0],
-  [0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff, 0xffffff],
-  [1, 1, 1, 1, 1, 1],
-  "texture"
-);
-```
-
-> You can access and manipulate the vertices with newMesh.vertices[0], newMesh.vertices[1] etc.
-
-> You can access and manipulate the uvs with newMesh.uv[0], newMesh.uv[1] etc.
 
 #### Extends
 
