@@ -19,6 +19,7 @@ When you render a standard Sprite in WebGL it consists of 2 triangles drawn as a
 The texture is mapped using the UV coordinates.
 
 > The exact positions in the coordinate system (x and y) are specified under vertices
+
 > The texture coordinates (U and V = UV) are defined in uv
 
 #### Example
@@ -36,6 +37,7 @@ let newMesh = this.add.mesh(
 ```
 
 > You can access and manipulate the vertices with newMesh.vertices[0], newMesh.vertices[1] etc.
+
 > You can access and manipulate the uvs with newMesh.uv[0], newMesh.uv[1] etc.
 
 #### Extends
