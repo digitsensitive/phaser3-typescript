@@ -11,8 +11,8 @@ vertices             : array of x and y positions relative to center of mesh obj
 uv                   : mapping of the uv coordinates
 colors               : array of colors for each uv texture coordinate
 alphas               : array of alphas for each uv texture coordinate
-texture              : image string
-frame                : ?
+texture              : sprite name
+frame                : the sprite frame
 ```
 
 When you render a standard Sprite in WebGL it consists of 2 triangles drawn as a [quad](https://cascade.madmimi.com/promotion_images/1776/7835/original/quad.png?1495210535).
