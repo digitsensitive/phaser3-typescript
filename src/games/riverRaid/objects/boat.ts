@@ -5,8 +5,11 @@
  * @license      Digitsensitive
  */
 
+import { CONST } from "../const/levelData";
+
 export class Boat extends Phaser.GameObjects.Sprite {
   private lifeSpan: number;
+  private movingToRight: boolean;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
@@ -15,22 +18,34 @@ export class Boat extends Phaser.GameObjects.Sprite {
 
     // variables
     this.lifeSpan = 50;
+    this.movingToRight = true;
 
     // physics
     params.scene.physics.world.enable(this);
-    this.body.setSize(6, 6);
+    this.body.setSize(CONST.TILESIZE, CONST.TILESIZE);
+    this.body.setVelocityY(30);
     params.scene.add.existing(this);
   }
 
   update(): void {
     if (!this.active) {
-      this.body.enable = false;
+      this.body.setVelocityY(30);
       this.setFrame(1);
       this.lifeSpan--;
 
       if (this.lifeSpan < 0) {
         this.destroy();
       }
+    }
+  }
+
+  public turn(): void {
+    if (this.movingToRight) {
+      this.movingToRight = false;
+      this.x -= 10;
+    } else {
+      this.movingToRight = true;
+      this.x += 10;
     }
   }
 }

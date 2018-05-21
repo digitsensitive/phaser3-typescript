@@ -28,16 +28,16 @@ export class Bullet extends Phaser.GameObjects.Graphics {
     // init bullet
     this.x = params.x + 3;
     this.y = params.y + 3;
-    this.velocity = new Phaser.Math.Vector2(0, -2);
+    this.velocity = new Phaser.Math.Vector2(0, -4);
 
     // define bullet graphics and draw it
     this.fillStyle(this.selectedColor, 1);
-    this.fillRect(0, 0, 1, 1);
+    this.fillRect(0, 0, 1, 4);
 
     // physics
     scene.physics.world.enable(this);
     this.body.allowGravity = false;
-    this.body.setSize(1, 1);
+    this.body.setSize(1, 4);
     scene.add.existing(this);
   }
 

@@ -4,6 +4,7 @@
  * @description  River Raid: Boot Scene
  * @license      Digitsensitive
  */
+import { CONST } from "../const/levelData";
 
 export class BootScene extends Phaser.Scene {
   constructor() {
@@ -17,17 +18,21 @@ export class BootScene extends Phaser.Scene {
       "landscape",
       "./assets/games/riverRaid/landscape.png",
       {
-        frameWidth: 6,
-        frameHeight: 6
+        frameWidth: CONST.TILESIZE,
+        frameHeight: CONST.TILESIZE
       }
     );
     this.load.spritesheet("player", "./assets/games/riverRaid/player.png", {
-      frameWidth: 6,
-      frameHeight: 6
+      frameWidth: CONST.TILESIZE,
+      frameHeight: CONST.TILESIZE
     });
     this.load.spritesheet("boat", "./assets/games/riverRaid/boat.png", {
-      frameWidth: 6,
-      frameHeight: 6
+      frameWidth: CONST.TILESIZE,
+      frameHeight: CONST.TILESIZE
+    });
+    this.load.spritesheet("bridge", "./assets/games/riverRaid/bridge.png", {
+      frameWidth: CONST.TILESIZE,
+      frameHeight: CONST.TILESIZE
     });
   }
 

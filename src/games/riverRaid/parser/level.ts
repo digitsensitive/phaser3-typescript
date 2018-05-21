@@ -6,6 +6,7 @@
  */
 
 import { LEVELDATA } from "../const/levelData";
+import { CONST } from "../const/levelData";
 
 export class LevelParser {
   private gameHeight: number;
@@ -17,7 +18,7 @@ export class LevelParser {
   }
 
   public parseMapSection(aLevelSection: any, aIndex: number): {} {
-    let mapObject = { groundTiles: [], waterTiles: [], boats: [] };
+    let mapObject = { tiles: [], bridges: [], boats: [] };
 
     let levelSection = LEVELDATA.find(
       section => section.SHORTNAME === aLevelSection
@@ -25,29 +26,34 @@ export class LevelParser {
 
     // parse level data
     let tiles = levelSection.DATA;
+    let bridges = levelSection.BRIDGES;
     let boats = levelSection.BOATS;
 
     // put all the tiles into separate arrays
     for (let y = 0; y < tiles.length; y++) {
       for (let x = 0; x < tiles[y].length; x++) {
         let tile = tiles[y][x];
-        let xPos = x * 6;
-        let yPos = y * 6 - aIndex * this.gameHeight;
-        if (tile === 1) {
-          mapObject.groundTiles.push({
+        let xPos = x * CONST.TILESIZE;
+        let yPos = y * CONST.TILESIZE - aIndex * this.gameHeight;
+        if (tile !== 0) {
+          mapObject.tiles.push({
             x: xPos,
-            y: yPos
-          });
-        } else if (tile === 0) {
-          mapObject.waterTiles.push({
-            x: xPos,
-            y: yPos
+            y: yPos,
+            frame: tile
           });
         }
       }
     }
 
-    // put all the objects in separate arrays
+    // put all the bridges in separate array
+    for (let i = 0; i < bridges.length; i++) {
+      mapObject.bridges.push({
+        x: bridges[i].x * CONST.TILESIZE,
+        y: bridges[i].y * CONST.TILESIZE - aIndex * this.gameHeight
+      });
+    }
+
+    // put all the objects in separate array
     for (let i = 0; i < boats; i++) {
       mapObject.boats.push(this.createBoat(aIndex, tiles));
     }
@@ -61,12 +67,12 @@ export class LevelParser {
     let y = 0;
     // create random x and y position for the object
     do {
-      x = Math.floor(Math.random() * this.gameWidth / 6) + 0;
-      y = Math.floor(Math.random() * this.gameHeight / 6) + 0;
+      x = Math.floor(Math.random() * this.gameWidth / CONST.TILESIZE) + 0;
+      y = Math.floor(Math.random() * this.gameHeight / CONST.TILESIZE) + 0;
 
       object = {
-        x: x * 6,
-        y: y * 6 - aSectionIndex * this.gameHeight
+        x: x * CONST.TILESIZE,
+        y: y * CONST.TILESIZE - aSectionIndex * this.gameHeight
       };
     } while (!this.overlap(aTiles[y][x]));
 

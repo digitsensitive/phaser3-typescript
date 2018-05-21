@@ -11,14 +11,15 @@ import "phaser";
 import { BootScene } from "./scenes/bootScene";
 import { MainMenuScene } from "./scenes/mainMenuScene";
 import { GameScene } from "./scenes/gameScene";
+import { CONST } from "./const/levelData";
 
 const config: GameConfig = {
   title: "River Raid",
   url: "https://github.com/digitsensitive/phaser3-typescript",
   version: "1.0",
-  width: 96,
-  height: 72,
-  zoom: 8,
+  width: 16 * CONST.TILESIZE,
+  height: 12 * CONST.TILESIZE,
+  zoom: 6,
   type: Phaser.AUTO,
   parent: "game",
   scene: [BootScene, MainMenuScene, GameScene],
@@ -35,7 +36,7 @@ const config: GameConfig = {
       debug: false
     }
   },
-  backgroundColor: "#5cf687",
+  backgroundColor: "#3a93d2",
   pixelArt: true,
   antialias: false
 };

@@ -6,6 +6,7 @@
  */
 
 import { Bullet } from "../objects/bullet";
+import { CONST } from "../const/levelData";
 
 export class Player extends Phaser.GameObjects.Sprite {
   private currentScene: Phaser.Scene;
@@ -32,8 +33,7 @@ export class Player extends Phaser.GameObjects.Sprite {
 
     // physics
     this.currentScene.physics.world.enable(this);
-    this.body.setVelocityY(-15);
-    this.body.setSize(6, 6);
+    this.body.setSize(CONST.TILESIZE, CONST.TILESIZE);
 
     // input
     this.cursors = this.currentScene.input.keyboard.createCursorKeys();
@@ -57,10 +57,10 @@ export class Player extends Phaser.GameObjects.Sprite {
 
   private handleInput(): void {
     if (this.cursors.right.isDown) {
-      this.body.setVelocityX(20);
+      this.body.setVelocityX(35);
       this.setFrame(2);
     } else if (this.cursors.left.isDown) {
-      this.body.setVelocityX(-20);
+      this.body.setVelocityX(-35);
       this.setFrame(1);
     } else {
       this.body.setVelocityX(0);
