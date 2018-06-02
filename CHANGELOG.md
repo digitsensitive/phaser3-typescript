@@ -30,7 +30,6 @@
 * update phaser version from 3.7.1 to 3.9.0 (*digitsensitive*)
 * update typescript version from 2.8.3 to 2.9.1 (*digitsensitive*)
 * update webpack version from to 4.8.3 to 4.10.2 (*digitsensitive*)
-* update webpack-cli version from 2.1.3 to 3.0.0 (*digitsensitive*)
 * update intro text README.md (*digitsensitive*)
 
 ### Bugfixes
