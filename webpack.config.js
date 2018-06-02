@@ -5,8 +5,8 @@ var phaser = path.join(pathToPhaser, 'dist/phaser.js');
 module.exports = {
   entry: './src/boilerplate/game.ts',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js'
   },
   devServer: {
     contentBase: path.resolve(__dirname, './'),

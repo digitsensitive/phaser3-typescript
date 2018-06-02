@@ -1,10 +1,22 @@
 # Change Log
 
-## Version 1.2.0 - ..th ... 2018
+
+## Version 1.X.X (...) - ...th ... 2018
 
 ### Features
 
 * ...
+
+### Updates
+
+* ...
+
+### Bugfixes
+
+* ...
+
+
+## Version 1.2.0 (Sliver) - 2th June 2018
 
 ### Updates
 
@@ -15,10 +27,17 @@
 * new cheatsheet mesh (*digitsensitive*)
 * update cheatsheet image (*digitsensitive*)
 * update CHANGELOG.md (*digitsensitive*)
+* update phaser version from 3.7.1 to 3.9.0 (*digitsensitive*)
+* update typescript version from 2.8.3 to 2.9.1 (*digitsensitive*)
+* update webpack version from to 4.8.3 to 4.10.2 (*digitsensitive*)
+* update webpack-cli version from 2.1.3 to 3.0.0 (*digitsensitive*)
+* update intro text README.md (*digitsensitive*)
 
 ### Bugfixes
 
 * correct path for assets loading (*digitsensitive*)
+* add mode to webpack in package.json (*emedws*)
+* small change in output of the webpack.config.js file (*digitsensitive*)
 
 
 ## Version 1.1.0 - 13th May 2018

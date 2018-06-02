@@ -1,13 +1,12 @@
 # Phaser 3 and TypeScript [![dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/status.svg?style=flat-square)](https://david-dm.org/digitsensitive/phaser3-typescript) [![development dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/dev-status.svg?style=flat-square)](https://david-dm.org/digitsensitive/phaser3-typescript/?type=dev)
 
-## Boilerplate, Game Examples and Tutorials for Phaser 3 in Typescript
-
-[Phaser](https://github.com/photonstorm/phaser) is a fast, free, and fun open source HTML5 game framework.
-Here you will find a boilerplate for Phaser 3 in TypeScript and Webpack, Game Examples and Tutorials.
-
-Feedback is always welcome!
-
 ![Phaser](/assets/github/phaser3-typescript.png)
+
+`Hello and welcome game developer!`
+
+[Phaser](https://github.com/photonstorm/phaser) is a fast, free, and the only true open source HTML5 game framework. Here you will find everything you need to develop games with Phaser 3 in TypeScript. Have fun discovering, developing and playing! Feedback is always welcome!
+
+
 
 ### Install
 
