@@ -1,11 +1,12 @@
 # Change Log
 
 
-## Version 1.2.1 (Juno) - ...th July 2018
+## Version 1.2.1 (Juno) - 7th July 2018
 
 ### Features
 
-* ...
+* update to newest phaser.d.ts (7th July 2018) (*digitsensitive*)
+* add loading bar to flappy bird (*digitsensitive*)
 
 ### Updates
 
@@ -14,10 +15,12 @@
 * update typescript version from 2.9.1 to 2.9.2 (*digitsensitive*)
 * update webpack version from 4.10.2 to 4.15.0 (*digitsensitive*)
 * update webpack-cli version from 2.1.3 to 3.0.8 (*digitsensitive*)
+* update asteroid.md, blockade.md,coinRunner.md and flappyBird.md (*digitsensitive*)
 
 ### Bugfixes
 
-* ...
+* fixes in mainMenuScene of blockade and in gameScene of snake (*digitsensitive*)
+* fix startKey Problem in mainMenuScene of flappy bird (*digitsensitive*)
 
 
 ## Version 1.2.0 (Sliver) - 2th June 2018
