@@ -29,9 +29,9 @@ Adjust the `webpack.config.js` file as follows:
 ## Fixes of the TypeScript definition file
 
 Awaiting [issue](https://github.com/photonstorm/phaser3-docs/issues/19) to be fixed.
-This is a work around I have done in the phaser.d.ts file, so that the this.body works in bird.ts and pipe.ts.
+This is a work around I have done in the phaser.d.ts file.
 ```
-Line 12079:
+Line 13304:
 /**
  * If this Game Object is enabled for physics then this property will contain a reference to a Physics Body.
  */
@@ -39,7 +39,7 @@ body: any;
 ```
 
 Awaiting [issue](https://github.com/photonstorm/phaser3-docs/issues/27) to be fixed.
-This is a work around I have done in the phaser.d.ts file, so that the this.physics.overlap work with Group.
+This is a work around I have done in the phaser.d.ts file.
 ```
 Line 28958:
 overlap(object1: Phaser.GameObjects.GameObject | any[] | Phaser.GameObjects.Group, object2: Phaser.GameObjects.GameObject | any[] | Phaser.GameObjects.Group, overlapCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;

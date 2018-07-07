@@ -38,7 +38,9 @@ export class MainMenuScene extends Phaser.Scene {
 
   create(): void {
     this.circleGraphic = this.add.graphics({
-      fillStyle: { color: 0xff00ff }
+      x: 0,
+      y: 0,
+      fillStyle: { color: 0xff00ff, alpha: 1 }
     });
 
     this.circleGeom = new Phaser.Geom.Circle(152, 105, 8);

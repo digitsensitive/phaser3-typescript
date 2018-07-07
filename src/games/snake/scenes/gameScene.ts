@@ -61,7 +61,7 @@ export class GameScene extends Phaser.Scene {
             .graphics({
               x: -this.fieldSize + x * this.fieldSize,
               y: -this.fieldSize + y * this.fieldSize,
-              fillStyle: { color: "0x61e85b", alpha: 0.3 }
+              fillStyle: { color: 0x61e85b, alpha: 0.3 }
             })
             .fillRect(
               this.fieldSize,

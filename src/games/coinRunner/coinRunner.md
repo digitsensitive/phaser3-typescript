@@ -29,19 +29,3 @@ Adjust the `webpack.config.js` file as follows:
 ## Thanks to
 
 [Vecteezy](https://www.vecteezy.com "Vecteezy") for the game assets.
-
-
-## Fixes of the TypeScript definition file
-
-Awaiting merge of the [Pull request](https://github.com/photonstorm/phaser3-docs/pull/23).
-This is a work around I have done in the phaser.d.ts file, so that the Intersects.RectangleToRectangle works for this example.
-
-```
-Line 13933:
-/**
- * Gets the bounds of this Game Object, regardless of origin.
- * The values are stored and returned in a Rectangle, or Rectangle-like, object.
- * @param output An object to store the values in. If not provided a new Rectangle will be created.
- */
-getBounds<O extends Phaser.Math.Vector2>(output?: Phaser.Geom.Rectangle): Phaser.Geom.Rectangle;
-```
