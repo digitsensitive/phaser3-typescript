@@ -20,7 +20,7 @@ Building and running is as easy as the three following steps:
 
 | Command | Description |
 |---------|-------------|
-| `npm install` | install dependencies (folder: node_modules).|
+| `npm install` | Install dependencies (folder: node_modules).|
 | `npm run dev` | Perform a quick build (bundle.js) and start server.|
 | `npm run build` | Perform a final build with minification.|
 
