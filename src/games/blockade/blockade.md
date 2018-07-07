@@ -2,6 +2,7 @@
 
 ![Blockade](/assets/games/blockade/README.gif)
 
+
 ## Description
 
 In October 1976 Gremlin published a 2-player Maze Game called Blockade.
@@ -15,10 +16,12 @@ after one player gained six wins ([Wikipedia](https://en.wikipedia.org/wiki/Bloc
 
 We are going to create a blockade clone.
 
+
 ## How to run it
 
 Adjust the `webpack.config.js` file as follows:
 > `entry: './src/games/blockade/game.ts'`
+
 
 ## What will you learn
 
@@ -28,3 +31,25 @@ Adjust the `webpack.config.js` file as follows:
 * Learn to use Phaser.GameObjects.BitmapText
 * Learn to use Phaser.GameObjects.Graphics
 * Learn to use Phaser.Geom.Circle
+
+
+## Fixes of the TypeScript definition file
+
+Awaiting [issue](https://github.com/photonstorm/phaser3-docs/issues/49) to be fixed.
+This is a work around I have done in the phaser.d.ts file:
+```
+Line 1603:
+/**
+ * Options for the Graphics game Object.
+ */
+declare type GraphicsOptions = Partial<GraphicsStyles> & {
+    /**
+     * The x coordinate of the Graphics.
+     */
+    x: number;
+    /**
+     * The y coordinate of the Graphics.
+     */
+    y: number;
+};
+```
