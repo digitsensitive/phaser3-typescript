@@ -56,6 +56,11 @@ Alternatively to build a version `npm run build`.
 -  Phaser.GameObject.Tilesprite	(coming soon)
 -  Phaser.GameObject.Zone	(coming soon)
 
+## :wrench: Experimental projects
+
+- [One Dimensional Cellular Automaton](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/oneDimensionalCellularAutomaton/oneDimensionalCellularAutomaton.md)
+- [Game Of Life](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/gameOfLife/gameOfLife.md)
+
 ## :cookie: External Resources
 
 - [Phaser 3 Framework](https://github.com/photonstorm/phaser)
