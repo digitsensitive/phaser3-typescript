@@ -18,11 +18,11 @@ Navigate to the folder and clone this repository.
 
 Building and running is as easy as the three following steps:
 
-1. `navigate to root folder`
-2. `npm install` to install dependencies (folder: node_modules)
-3. `npm run dev` to build bundle.js & start server.
-
-Alternatively to build a version `npm run build`.
+| Command | Description |
+|---------|-------------|
+| `npm install` | install dependencies (folder: node_modules).|
+| `npm run dev` | Perform a quick build (bundle.js) and start server.|
+| `npm run build` | Perform a final build with minification.|
 
 ## :video_game: Game Examples
 
