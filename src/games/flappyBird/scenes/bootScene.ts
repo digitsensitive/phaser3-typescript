@@ -20,7 +20,7 @@ export class BootScene extends Phaser.Scene {
     this.cameras.main.setBackgroundColor(0x98d687);
     this.createLoadingbar();
 
-    //pass loading progress as value to loading bar and redraw as files load
+    // pass value to change the loading bar fill
     this.load.on(
       "progress",
       function(value) {
@@ -36,7 +36,7 @@ export class BootScene extends Phaser.Scene {
       this
     );
 
-    //cleanup our graphics on complete
+    // delete bar graphics, when loading complete
     this.load.on(
       "complete",
       function() {
@@ -46,7 +46,7 @@ export class BootScene extends Phaser.Scene {
       this
     );
 
-    //start loading
+    // load out package
     this.load.pack("preload", "./assets/games/flappyBird/pack.json", "preload");
   }
 
