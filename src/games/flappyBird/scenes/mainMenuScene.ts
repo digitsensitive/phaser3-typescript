@@ -19,14 +19,7 @@ export class MainMenuScene extends Phaser.Scene {
     this.startKey = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.S
     );
-  }
-
-  preload(): void {
-    this.load.bitmapFont(
-      "flappyBirdFont",
-      "./assets/games/flappyBird/flappyBirdFont.png",
-      "./assets/games/flappyBird/flappyBirdFont.fnt"
-    );
+    this.startKey.isDown = false;
   }
 
   create(): void {
@@ -36,7 +29,7 @@ export class MainMenuScene extends Phaser.Scene {
         this.sys.canvas.height / 2 - 80,
         "flappyBirdFont",
         "FLAPPY BIRD",
-        25
+        40
       )
     );
 
@@ -46,7 +39,7 @@ export class MainMenuScene extends Phaser.Scene {
         this.sys.canvas.height / 2 - 10,
         "flappyBirdFont",
         "S: PLAY",
-        15
+        30
       )
     );
   }
