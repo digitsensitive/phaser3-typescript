@@ -6,6 +6,9 @@
  */
 
 export class BootScene extends Phaser.Scene {
+  private loadingBar: Phaser.GameObjects.Graphics;
+  private progressBar: Phaser.GameObjects.Graphics;
+
   constructor() {
     super({
       key: "BootScene"
@@ -13,15 +16,53 @@ export class BootScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image("background", "./assets/games/flappyBird/bg.png");
-    this.load.image("bird", "./assets/games/flappyBird/bird.png");
-    this.load.spritesheet("pipe", "./assets/games/flappyBird/pipe.png", {
-      frameWidth: 20,
-      frameHeight: 20
-    });
+    // set the background and create loading bar
+    this.cameras.main.setBackgroundColor(0x98d687);
+    this.createLoadingbar();
+
+    //pass loading progress as value to loading bar and redraw as files load
+    this.load.on(
+      "progress",
+      function(value) {
+        this.progressBar.clear();
+        this.progressBar.fillStyle(0xfff6d3, 1);
+        this.progressBar.fillRect(
+          this.cameras.main.width / 4,
+          this.cameras.main.height / 2 - 16,
+          (this.cameras.main.width / 2) * value,
+          16
+        );
+      },
+      this
+    );
+
+    //cleanup our graphics on complete
+    this.load.on(
+      "complete",
+      function() {
+        this.progressBar.destroy();
+        this.loadingBar.destroy();
+      },
+      this
+    );
+
+    //start loading
+    this.load.pack("preload", "./assets/games/flappyBird/pack.json", "preload");
   }
 
   update(): void {
     this.scene.start("MainMenuScene");
+  }
+
+  private createLoadingbar(): void {
+    this.loadingBar = this.add.graphics();
+    this.loadingBar.fillStyle(0x5dae47, 1);
+    this.loadingBar.fillRect(
+      this.cameras.main.width / 4 - 2,
+      this.cameras.main.height / 2 - 18,
+      this.cameras.main.width / 2 + 4,
+      20
+    );
+    this.progressBar = this.add.graphics();
   }
 }

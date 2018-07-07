@@ -18,7 +18,7 @@ const config: GameConfig = {
   version: "1.0",
   width: 405,
   height: 600,
-  zoom: 1.2,
+  zoom: 1,
   type: Phaser.AUTO,
   parent: "game",
   scene: [BootScene, MainMenuScene, GameScene],
@@ -35,7 +35,7 @@ const config: GameConfig = {
       debug: false
     }
   },
-  backgroundColor: "#8abbc1",
+  backgroundColor: "#98d687",
   pixelArt: true,
   antialias: false
 };
