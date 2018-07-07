@@ -51,6 +51,7 @@ export class Bird extends Phaser.GameObjects.Sprite {
   update(): void {
     this.handleAngleChange();
     this.handleInput();
+    this.isOffTheScreen();
   }
 
   private handleAngleChange(): void {
@@ -68,5 +69,11 @@ export class Bird extends Phaser.GameObjects.Sprite {
   public flap(): void {
     this.body.setVelocityY(-350);
     this.anim[0].restart();
+  }
+
+  private isOffTheScreen(): void {
+    if (this.y + this.height > this.scene.sys.canvas.height) {
+      this.isDead = true;
+    }
   }
 }
