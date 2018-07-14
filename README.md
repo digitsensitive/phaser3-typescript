@@ -63,7 +63,7 @@ Building and running is as easy as the three following steps:
 - [Phaser 3 Online Docs](https://photonstorm.github.io/phaser3-docs/index.html)
 - [Phaser 3 Official Examples](https://github.com/photonstorm/phaser3-examples)
 
-## ::wrench: Helpful tools
+## :wrench: Helpful tools
 
 - [Leshy SpriteSheet Tool](https://www.leshylabs.com/apps/sstool)
 - [Tiled](https://www.mapeditor.org)
