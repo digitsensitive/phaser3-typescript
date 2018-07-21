@@ -1,5 +1,7 @@
 <p align="center"><img width=100% src="https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/phaser3-typescript.png"></p>
 
+`Hello and welcome game developer!`
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/status.svg)](https://david-dm.org/digitsensitive/phaser3-typescript)
 [![development dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/dev-status.svg)](https://david-dm.org/digitsensitive/phaser3-typescript/?type=dev)
@@ -9,8 +11,6 @@
 [![GitHub license](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)](https://github.com/digitsensitive/phaser3-typescript)
 
 ## Phaser 3 and TypeScript
-
-`Hello and welcome game developer!`
 
 [Phaser](https://github.com/photonstorm/phaser) is a fast, free, and the only true open source HTML5 game framework. Here you will find everything you need to develop games with Phaser 3 in TypeScript. Have fun discovering, developing and playing! Feedback is always welcome!
 
