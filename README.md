@@ -105,7 +105,7 @@ npm run dev
 
 [Learn about the latest improvements](https://github.com/digitsensitive/phaser3-typescript/blob/master/CHANGELOG.md)
 
-
-## :rocket: Want to help?
+## :rocket: Contributing
 
 Want to correct a bug, contribute some code, or improve the codes? Excellent! Let me know!
+Please read [CONTRIBUTING.md](https://github.com/digitsensitive/phaser3-typescript/blob/master/CONTRIBUTING.md) for details on our code of conduct.
