@@ -58,10 +58,11 @@ npm run dev
 
 ## :video_game: Game Examples
 
-### ![Difficulty](https://img.shields.io/badge/-Beginner-green.svg)
 ```
 Coin Runner
 ```
+![Difficulty](https://img.shields.io/badge/-Beginner-green.svg)
+
 [![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/coinRunner.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
 
 
