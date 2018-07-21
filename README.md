@@ -12,7 +12,7 @@
 [![GitHub license](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)](https://github.com/digitsensitive/phaser3-typescript)
 
 <div align="center">
-  <sub>Built with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a>
+  <sub>Written with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a></sub>
 </div>
 
 ## Phaser 3 and TypeScript
