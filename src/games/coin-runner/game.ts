@@ -8,7 +8,7 @@
 /// <reference path="../../phaser.d.ts"/>
 
 import "phaser";
-import { GameScene } from "./scenes/gameScene";
+import { GameScene } from "./scenes/game-scene";
 
 const config: GameConfig = {
   title: "Coin Runner",
