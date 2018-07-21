@@ -13,7 +13,7 @@
 
 ## Phaser 3 and TypeScript
 
-[Phaser](https://github.com/photonstorm/phaser) is a fast, free, and the only true open source HTML5 game framework. Here you will find everything you need to develop games with Phaser 3 in TypeScript. Have fun discovering, developing and playing! Feedback is always welcome!
+[Phaser](https://github.com/photonstorm/phaser) is a wonderful, fast and free open source HTML5 game framework. Here you will find everything you need to develop games with Phaser 3 in TypeScript. Have fun discovering, developing and playing! Feedback is always welcome!
 
 ### Install
 
