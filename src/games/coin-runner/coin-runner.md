@@ -4,11 +4,11 @@
 
 ## Description
 
-A very small and simple game to learn the basics of Phaser 3.
+A very simple game to learn the basics of Phaser 3.
 
 ## How to run it
 
-Adjust the `webpack.config.js` file as follows:
+Adjust the entry path in the `webpack.config.js` file as follows:
 ```
 entry: './src/games/coin-runner/game.ts'
 ```
