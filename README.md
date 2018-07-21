@@ -12,8 +12,8 @@
 [![GitHub license](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)](https://github.com/digitsensitive/phaser3-typescript)
 
 <div align="center">
-  <sub>Examples made with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a></sub>
-  <sub>Framework created by <a href="https://github.com/photonstorm">Photonstorm</a></sub>
+  <sub>Examples made with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a></br>
+  Framework created by <a href="https://github.com/photonstorm">Photonstorm</a></sub>
 </div>
 
 ## Phaser 3 and TypeScript
