@@ -26,11 +26,19 @@ Ideas and corrections are highly desirable to constantly improve this repository
 
 ## Getting started
 
+### Prerequisites
+
+```
+Download and install npm with ![Node.js](https://nodejs.org/en/)
+```
+
 ### Installing
 
 Navigate to the folder and clone this repository.
 
-`git clone https://github.com/digitsensitive/phaser3-typescript.git`
+```
+git clone https://github.com/digitsensitive/phaser3-typescript.git
+```
 
 ### Building and Running
 
