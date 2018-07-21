@@ -15,7 +15,7 @@ entry: './src/games/coin-runner/game.ts'
 
 ## Related topics
 
-* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/tutorials/phaser-game.md)
+* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/references/phaser-game.md)
 * Phaser.Scene
 * Create two classes (player and coin) in two separate files
 * Learn to use [Phaser.GameObjects.Image](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
