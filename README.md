@@ -58,12 +58,9 @@ npm run dev
 
 ## :video_game: Game Examples
 
-| Game | Screenshot | Difficulty | Details ... |
+| Game | Screenshot | Difficulty | Details |
 | :----- | :---------- | :----- | :---------- |
-| Coin Runner
-| ![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/coinRunner.png)
-| https://img.shields.io/badge/Difficulty-Easy-green.svg
-| [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md) |
+| Coin Runner | ![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/coinRunner.png) | https://img.shields.io/badge/Difficulty-Easy-green.svg | [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md) |
 
 
 - [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
