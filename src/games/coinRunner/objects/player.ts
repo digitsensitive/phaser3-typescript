@@ -26,6 +26,7 @@ export class Player extends Phaser.GameObjects.Image {
     this.setOrigin(0.4, 0.4);
     this.setAngle(0);
   }
+
   private initInput(params): void {
     this.cursors = params.scene.input.keyboard.createCursorKeys();
   }
