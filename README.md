@@ -22,19 +22,21 @@
 free open source HTML5 game framework.
 Here you will find everything you need to develop games with Phaser 3
 in TypeScript. Have fun discovering, developing and playing!
-Ideas and corrections are highly desirable to constantly improve this repository!
+Ideas and corrections are highly desirable to constantly
+improve this repository!
 
 ## Getting started
 
 ### Prerequisites
 
 ```
-Download and install npm with ![Node.js](https://nodejs.org/en/)
+Download and install npm with Node.js @ https://nodejs.org/en
 ```
 
 ### Installing
 
-Navigate to the folder and clone this repository.
+Select a folder, navigate to it, and clone this repository
+with this command-line.
 
 ```
 git clone https://github.com/digitsensitive/phaser3-typescript.git
