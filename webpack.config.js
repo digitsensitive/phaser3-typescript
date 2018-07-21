@@ -6,7 +6,13 @@ module.exports = {
   entry: './src/boilerplate/game.ts',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+  },
+  module: {
+    rules: [
+      { test: /\.ts$/, loader: 'ts-loader', exclude: '/node_modules/' },
+      { test: /phaser\.js$/, loader: 'expose-loader?Phaser' }
+    ]
   },
   devServer: {
     contentBase: path.resolve(__dirname, './'),
@@ -20,11 +26,5 @@ module.exports = {
     alias: {
       phaser: phaser
     }
-  },
-  module: {
-    rules: [
-      { test: /\.ts$/, loader: 'ts-loader', exclude: '/node_modules/' },
-      { test: /phaser\.js$/, loader: 'expose-loader?Phaser' }
-    ]
   }
 };

@@ -59,13 +59,12 @@ npm run dev
 ## Game Examples
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
+
 ```
 Coin Runner
 ```
 
-
-[![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/coinRunner.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
-
+[![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/coin-runner.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coinRunner.md)
 
 - [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
 - [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md)
@@ -81,20 +80,20 @@ Coin Runner
 - [Phaser.GameObject.Image](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
 - [Phaser.GameObject.Sprite](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/sprite.md)
 - [Phaser.GameObject.Group](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/group.md)
--  Phaser.GameObject.Bitmaptext	(coming soon)
--  Phaser.GameObject.Blitter	(coming soon)
--  Phaser.GameObject.Container	(coming soon)
--  Phaser.GameObject.Graphics	(coming soon)
--  Phaser.GameObject.Lights	(coming soon)
--  [Phaser.GameObject.Mesh](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/mesh.md)
--  Phaser.GameObject.Particles	(coming soon)
--  Phaser.GameObject.Pathfollower	(coming soon)
--  Phaser.GameObject.Quad	(coming soon)
--  Phaser.GameObject.Rendertexture	(coming soon)
--  Phaser.GameObject.Sprite3d	(coming soon)
--  Phaser.GameObject.Text	(coming soon)
--  Phaser.GameObject.Tilesprite	(coming soon)
--  Phaser.GameObject.Zone	(coming soon)
+- Phaser.GameObject.Bitmaptext (coming soon)
+- Phaser.GameObject.Blitter (coming soon)
+- Phaser.GameObject.Container (coming soon)
+- Phaser.GameObject.Graphics (coming soon)
+- Phaser.GameObject.Lights (coming soon)
+- [Phaser.GameObject.Mesh](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/mesh.md)
+- Phaser.GameObject.Particles (coming soon)
+- Phaser.GameObject.Pathfollower (coming soon)
+- Phaser.GameObject.Quad (coming soon)
+- Phaser.GameObject.Rendertexture (coming soon)
+- Phaser.GameObject.Sprite3d (coming soon)
+- Phaser.GameObject.Text (coming soon)
+- Phaser.GameObject.Tilesprite (coming soon)
+- Phaser.GameObject.Zone (coming soon)
 
 ## :cookie: External Resources
 
