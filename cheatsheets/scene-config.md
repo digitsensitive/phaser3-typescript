@@ -2,7 +2,7 @@
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-#### Example
+### Example
 
 ```
 {
@@ -16,7 +16,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 }
 ```
 
-#### Interesting parameters with default values
+### Interesting parameters with default values
 
 ```
 Informations about the scene
@@ -27,7 +27,7 @@ Informations about the scene
 * mapAdd            : extends the injection map for a scene
 ```
 
-#### List of parameters with default values
+### List of parameters with default values
 
 ```
 Takes a scene configuration object (= Phaser.Scenes.Settings.Config)
@@ -91,3 +91,9 @@ physics               : ?
 loader                : ?
 plugins               : ?
 ```
+
+#### Registry: Game Data Manager (Global)
+
+With `registry` you can save and access data from every scene and
+exchange these informations between all your scenes. Using `this.registry.set`
+you can save data, using `this.registry.get`you can access data.
