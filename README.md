@@ -36,21 +36,25 @@ Download and install npm with Node.js @ https://nodejs.org/en
 ### Installing
 
 Select a folder, navigate to it, and clone this repository
-with this command-line.
+with this command-line:
 
 ```
 git clone https://github.com/digitsensitive/phaser3-typescript.git
 ```
 
+Install the dependencies with this command-line:
+
+```
+npm install
+```
+
 ### Building and Running
 
-Building and running is as easy as the three following steps:
+Perform a quick build (bundle.js) and start server:
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install dependencies (folder: node_modules).|
-| `npm run dev` | Perform a quick build (bundle.js) and start server.|
-| `npm run build` | Perform a final build with minification.|
+```
+npm run dev
+```
 
 ## :video_game: Game Examples
 
