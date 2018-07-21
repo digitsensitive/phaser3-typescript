@@ -64,7 +64,7 @@ npm run dev
 Coin Runner
 ```
 
-[![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/coin-runner.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coinRunner.md)
+[![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/coin-runner.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md)
 
 - [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
 - [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md)

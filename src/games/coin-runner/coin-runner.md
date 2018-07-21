@@ -2,7 +2,7 @@
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-[![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/coinRunner.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coinRunner/coinRunner.md)
+![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/coin-runner.png)]
 
 ## Description
 
