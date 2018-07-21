@@ -13,7 +13,7 @@ A very small and simple game to learn the basics of Phaser 3.
 Adjust the `webpack.config.js` file as follows:
 > `entry: './src/games/coin-runner/game.ts'`
 
-## Discussion
+## Related topics
 
 * [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/tutorials/phaser-game.md)
 * Phaser.Scene
