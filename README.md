@@ -1,6 +1,6 @@
 <p align="center">
   <img width=100% src="https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/phaser3-typescript.png">
-  Hello and welcome game developer!
+  Phaser 3 Game Examples written in TypeScript.
 </p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -12,7 +12,8 @@
 [![GitHub license](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)](https://github.com/digitsensitive/phaser3-typescript)
 
 <div align="center">
-  <sub>Written with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a></sub>
+  <sub>Examples made with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a></sub>
+  <sub>Framework created by <a href="https://github.com/photonstorm">Photonstorm</a></sub>
 </div>
 
 ## Phaser 3 and TypeScript
