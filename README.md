@@ -11,9 +11,9 @@
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 [![GitHub license](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)](https://github.com/digitsensitive/phaser3-typescript)
 
-<p align="center">
-  Build with ❤ by <a href="https://github.com/digitsensitive">digitsensitive</a>
-</p>
+<div align="center">
+  <sub>Built with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a>
+</div>
 
 ## Phaser 3 and TypeScript
 
