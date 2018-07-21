@@ -24,13 +24,15 @@ Here you will find everything you need to develop games with Phaser 3
 in TypeScript. Have fun discovering, developing and playing!
 Ideas and corrections are highly desirable to constantly improve this repository!
 
-### Install
+## Getting started
+
+### Installing
 
 Navigate to the folder and clone this repository.
 
 `git clone https://github.com/digitsensitive/phaser3-typescript.git`
 
-### Build and Run
+### Building and Running
 
 Building and running is as easy as the three following steps:
 
