@@ -4,6 +4,7 @@
 [![dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/status.svg)](https://david-dm.org/digitsensitive/phaser3-typescript)
 [![development dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/dev-status.svg)](https://david-dm.org/digitsensitive/phaser3-typescript/?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg)](https://github.com/digitsensitive/phaser3-typescript/issues)
+[![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg)](https://github.com/digitsensitive/phaser3-typescript/stargazers)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
