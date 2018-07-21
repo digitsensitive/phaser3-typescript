@@ -1,12 +1,17 @@
-# Phaser 3 and TypeScript [![dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/status.svg?style=flat-square)](https://david-dm.org/digitsensitive/phaser3-typescript) [![development dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/dev-status.svg?style=flat-square)](https://david-dm.org/digitsensitive/phaser3-typescript/?type=dev)
+<p align="center"><img width=60% src="https://github.com/digitsensitive/phaser3-typescript/assets/github/phaser3-typescript.png"></p>
 
-![Phaser](/assets/github/phaser3-typescript.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/status.svg)](https://david-dm.org/digitsensitive/phaser3-typescript)
+[![development dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/dev-status.svg)](https://david-dm.org/digitsensitive/phaser3-typescript/?type=dev)
+[![GitHub issues](https://img.shields.io/github/issues/badges/shields.svg)](https://github.com/digitsensitive/phaser3-typescript/issues)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+## Phaser 3 and TypeScript
 
 `Hello and welcome game developer!`
 
 [Phaser](https://github.com/photonstorm/phaser) is a fast, free, and the only true open source HTML5 game framework. Here you will find everything you need to develop games with Phaser 3 in TypeScript. Have fun discovering, developing and playing! Feedback is always welcome!
-
-
 
 ### Install
 
