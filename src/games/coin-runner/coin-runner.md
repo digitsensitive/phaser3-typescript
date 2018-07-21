@@ -1,4 +1,4 @@
-# Coin Runner ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
+# Coin Runner     ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
 ![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/coin-runner.png)
 
