@@ -1,6 +1,6 @@
-<p align="center"><img width=100% src="https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/phaser3-typescript.png"></p>
-
+<p align="center"><img width=100% src="https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/phaser3-typescript.png">
 `Hello and welcome game developer!`
+</p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![dependencies status badge](https://david-dm.org/digitsensitive/phaser3-typescript/status.svg)](https://david-dm.org/digitsensitive/phaser3-typescript)
