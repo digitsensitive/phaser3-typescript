@@ -1,5 +1,20 @@
 # Change Log
 
+## Version 1.2.2 (...) - ...th July 2018
+
+### Features
+
+* ...
+
+### Updates
+
+* small changes in the coin-runner game: new version 1.1.1 (*digitsensitive*)
+* redesign the main README.md file
+
+### Bugfixes
+
+* ...
+
 
 ## Version 1.2.1 (Juno) - 7th July 2018
 
