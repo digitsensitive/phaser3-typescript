@@ -13,10 +13,10 @@ if you have a deeper look into the GameConfig object you will see all the
 parameters you can choose when setting-up your Phaser.Game Instance.
 
 Next you will create your first Phaser.Scene and load up your game objects from
-separate files. Each object in this game will be of type Phaser.GameObjects.Image,
-what will make your life easier, because you do not have to bother about
-physics for now. You will learn everything about Phaser.GameObjects.Image and
-what variables you can set.
+separate files. Each object in this game will be of type Phaser.GameObjects.Image.
+You will learn everything about Phaser.GameObjects.Image and
+what variables you can set. We will make your life easier for now and not work
+with physic objects.
 
 Last but not least you will setup the player input, use a TimerEvent, a Text
 and even check for RectangleToRectangle collision.
