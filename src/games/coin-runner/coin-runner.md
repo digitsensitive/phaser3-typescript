@@ -6,6 +6,21 @@
 
 A very simple game to learn the basics of Phaser 3.
 
+## Learning objectives
+
+You will learn how to create and initialize the core class Phaser.Game and
+if you have a deeper look into the GameConfig object you will see all the
+parameters you can choose when setting-up your Phaser.Game Instance.
+
+Next you will create your first Phaser.Scene and load up your game objects from
+separate files. Each object in this game will be of type Phaser.GameObjects.Image,
+what will make your life easier, because you do not have to bother about
+physics for now. You will learn everything about Phaser.GameObjects.Image and
+what variables you can set.
+
+Last but not least you will setup the player input, use a TimerEvent, a Text
+and even check for RectangleToRectangle collision.
+
 ## How to run it
 
 Adjust the entry path in the `webpack.config.js` file as follows:
@@ -17,9 +32,7 @@ entry: './src/games/coin-runner/game.ts'
 
 * [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/references/phaser-game.md)
 * Phaser.Scene
-* Create two classes (player and coin) in two separate files
-* Learn to use [Phaser.GameObjects.Image](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
-* Setup player input (Keyboard)
-* Learn to use [Phaser.Time.TimerEvent](https://github.com/photonstorm/phaser/blob/7c46cffdbadd56ab12d829519919c54402185642/src/time/TimerEvent.js)
-* Learn to use [Phaser.GameObjects.Text](https://github.com/photonstorm/phaser/blob/31bf979eb25c70441b8228d5c9643a97746ea7fa/src/gameobjects/text/TextStyle.js)
-* Learn to use [Phaser.Geom.Intersects.RectangleToRectangle](https://github.com/photonstorm/phaser/blob/d1f5f8a82b4a64d2a6a6a269e148232b51661a19/src/geom/intersects/RectangleToRectangle.js)
+* CursorKeys
+* Phaser.Time.TimerEvent
+* Phaser.GameObjects.Text
+* Phaser.Geom.Intersects.RectangleToRectangle

@@ -7,7 +7,7 @@
 
 export class Player extends Phaser.GameObjects.Image {
   private currentScene: Phaser.Scene;
-  private cursors: any;
+  private cursors: CursorKeys;
   private walkingSpeed: number;
 
   constructor(params) {
