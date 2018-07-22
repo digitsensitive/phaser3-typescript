@@ -6,29 +6,34 @@
  */
 
 export class Coin extends Phaser.GameObjects.Image {
-  private lastPosition: string;
-  private moveToBottom: boolean = true;
+  private centerOfScreen: number;
   private changePositionTimer: Phaser.Time.TimerEvent;
+  private currentScene: Phaser.Scene;
+  private lastPosition: string;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key);
 
-    this.setFieldSide();
+    this.initVariables(params);
     this.initImage();
-    this.initEvents(params);
+    this.initEvents();
 
-    params.scene.add.existing(this);
+    this.currentScene.add.existing(this);
+  }
+
+  private initVariables(params): void {
+    this.currentScene = params.scene;
+    this.centerOfScreen = this.currentScene.sys.canvas.width / 2;
+    this.changePositionTimer = null;
+    this.setFieldSide();
   }
 
   private initImage(): void {
-    this.setScale(0.8);
-    this.setSize(56, 56);
-    this.setAlpha(1);
-    this.setOrigin(0, 0);
+    this.setOrigin(0.5, 0.5);
   }
 
-  private initEvents(params): void {
-    this.changePositionTimer = params.scene.time.addEvent({
+  private initEvents(): void {
+    this.changePositionTimer = this.currentScene.time.addEvent({
       delay: 2000,
       callback: this.changePosition,
       callbackScope: this,
@@ -52,7 +57,7 @@ export class Coin extends Phaser.GameObjects.Image {
 
   private setNewPosition(): void {
     if (this.lastPosition == "right") {
-      this.x = Phaser.Math.RND.integerInRange(100, 384);
+      this.x = Phaser.Math.RND.integerInRange(100, this.centerOfScreen);
     } else {
       this.x = Phaser.Math.RND.integerInRange(385, 700);
     }
@@ -60,7 +65,7 @@ export class Coin extends Phaser.GameObjects.Image {
   }
 
   private setFieldSide(): void {
-    if (this.x <= 384) {
+    if (this.x <= this.centerOfScreen) {
       this.lastPosition = "left";
     } else {
       this.lastPosition = "right";

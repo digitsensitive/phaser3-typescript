@@ -6,29 +6,31 @@
  */
 
 export class Player extends Phaser.GameObjects.Image {
+  private currentScene: Phaser.Scene;
   private cursors: any;
-  private walkingSpeed: number = 5;
+  private walkingSpeed: number;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key);
 
+    this.initVariables(params);
     this.initImage();
-    this.initInput(params);
+    this.initInput();
 
-    params.scene.add.existing(this);
+    this.currentScene.add.existing(this);
+  }
+
+  private initVariables(params): void {
+    this.currentScene = params.scene;
+    this.walkingSpeed = 5;
   }
 
   private initImage(): void {
-    this.setScale(0.8);
-    this.setSize(40, 50);
-    this.setAlpha(1);
-    this.setFlip(false, false);
-    this.setOrigin(0.4, 0.4);
-    this.setAngle(0);
+    this.setOrigin(0.5, 0.5);
   }
 
-  private initInput(params): void {
-    this.cursors = params.scene.input.keyboard.createCursorKeys();
+  private initInput(): void {
+    this.cursors = this.currentScene.input.keyboard.createCursorKeys();
   }
 
   update(): void {

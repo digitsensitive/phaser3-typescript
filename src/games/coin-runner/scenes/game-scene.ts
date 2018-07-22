@@ -11,10 +11,9 @@ import { Player } from "../objects/player";
 export class GameScene extends Phaser.Scene {
   private background: Phaser.GameObjects.Image;
   private coin: Coin;
-  private player: Player;
-
-  private collectedCoins: number = 0;
   private coinsCollectedText: Phaser.GameObjects.Text;
+  private collectedCoins: number;
+  private player: Player;
 
   constructor() {
     super({
@@ -23,9 +22,16 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image("background", "./assets/games/coinRunner/background.png");
-    this.load.image("player", "./assets/games/coinRunner/player.png");
-    this.load.image("coin", "./assets/games/coinRunner/coin.png");
+    this.load.image(
+      "background",
+      "./src/games/coin-runner/assets/background.png"
+    );
+    this.load.image("player", "./src/games/coin-runner/assets/player.png");
+    this.load.image("coin", "./src/games/coin-runner/assets/coin.png");
+  }
+
+  init(): void {
+    this.collectedCoins = 0;
   }
 
   create(): void {
@@ -40,7 +46,12 @@ export class GameScene extends Phaser.Scene {
       y: Phaser.Math.RND.integerInRange(100, 500),
       key: "coin"
     });
-    this.player = new Player({ scene: this, x: 150, y: 300, key: "player" });
+    this.player = new Player({
+      scene: this,
+      x: this.sys.canvas.width / 2,
+      y: this.sys.canvas.height / 2,
+      key: "player"
+    });
 
     // create texts
     this.coinsCollectedText = this.add.text(
@@ -58,7 +69,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   update(): void {
-    // update player and coin
+    // update objects
     this.player.update();
     this.coin.update();
 
@@ -77,9 +88,5 @@ export class GameScene extends Phaser.Scene {
     this.collectedCoins++;
     this.coinsCollectedText.setText(this.collectedCoins + "");
     this.coin.changePosition();
-  }
-
-  private gameover(): void {
-    this.scene.start("GameScene");
   }
 }
