@@ -60,19 +60,9 @@ npm run dev
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-<a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md"><img align="left" width="500" src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/assets/github/coin-runner-small.png"></a>
+[![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/assets/github/coin-runner-small.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md)
 
-
-<img align="left" width="500" src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/assets/github/alpha-adjust-small.png">
-
-![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
-
-```
-Alpha Adjust
-```
-[Details](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/alpha-adjust.md)
-
-
+[![Alpha Adjust](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/assets/github/alpha-adjust-small.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/alpha-adjust.md)
 
 - [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
 - [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md)
