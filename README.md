@@ -58,13 +58,11 @@ npm run dev
 
 ## Game Examples
 
+<img align="left" width="100" height="100" src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/assets/github/coin-runner-small.png">
+
 ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-```
-Coin Runner
-```
-
-[![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/assets/github/coin-runner-small.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md)
+[Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md)
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
