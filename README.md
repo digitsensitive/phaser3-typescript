@@ -81,7 +81,7 @@ Alpha Adjust
 - Candy Crush (coming soon)
 - If you have any suggestion for a next game example, let me know!
 
-## :gem: Cheat Sheets
+## Cheat Sheets
 
 - [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
 - [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
