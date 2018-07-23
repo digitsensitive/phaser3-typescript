@@ -25,11 +25,6 @@ entry: './src/games/alpha-adjust/game.ts'
 ## Further reading
 
 * [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/references/phaser-game.md)
-* Phaser.Scene
-* CursorKeys
-* Phaser.Time.TimerEvent
-* Phaser.GameObjects.Text
-* Phaser.Geom.Intersects.RectangleToRectangle
 
 ## Acknowledgments
 

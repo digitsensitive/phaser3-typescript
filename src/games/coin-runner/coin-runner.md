@@ -10,7 +10,7 @@ A very simple game to learn the basics of Phaser 3.
 
 You will learn how to create and initialize the core class Phaser.Game and
 if you have a deeper look into the GameConfig object you will see all the
-parameters you can choose when setting-up your Phaser.Game Instance.
+parameters you can choose when setting-up your Phaser.Game Instance (see further reading).
 
 Next you will create your first Phaser.Scene and load up your game objects from
 separate files. Each object in this game will be of type Phaser.GameObjects.Image.
@@ -28,11 +28,6 @@ Adjust the entry path in the `webpack.config.js` file as follows:
 entry: './src/games/coin-runner/game.ts'
 ```
 
-## Related topics
+## Further reading
 
 * [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/references/phaser-game.md)
-* Phaser.Scene
-* CursorKeys
-* Phaser.Time.TimerEvent
-* Phaser.GameObjects.Text
-* Phaser.Geom.Intersects.RectangleToRectangle
