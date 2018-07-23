@@ -66,6 +66,14 @@ Coin Runner
 
 [![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/assets/github/coin-runner-small.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md)
 
+![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
+
+```
+Alpha Adjust
+```
+
+[![Alpha Adjust](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/assets/github/alpha-adjust-small.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/alpha-adjust.md)
+
 - [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
 - [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md)
 - [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade/blockade.md)

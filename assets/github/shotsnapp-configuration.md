@@ -8,7 +8,7 @@ https://shotsnapp.com
 width: 1200 px,
 height: 800 px,
 background fill: #ffffff,
-opacity: 100%,
+opacity: 0%,
 style: chrome,
 scale: 75%,
 shadow: 20%
@@ -20,7 +20,7 @@ shadow: 20%
 width: 1000 px,
 height: 500 px,
 background fill: #ffffff,
-opacity: 100%,
+opacity: 0%,
 style: chrome,
 scale: 43%,
 shadow: 20%
