@@ -6,9 +6,8 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 In `game.ts` we extend our Game Class with the Phaser Class `Phaser.Game`.
 This is the core class of our game, which is responsible for the core systems.
-We can specify a number of important parameters ([see parameters](#parameters)) when
-initiating the game (using the GameConfig), then the scene manager is loaded
-and the main game loop is started.
+We can specify a number of important [parameters](#parameters) when
+initiating the game (using the GameConfig) and access some [functions](functions).
 
 ## Example
 
@@ -30,6 +29,9 @@ const config: GameConfig = {
 ```
 
 ## Functions
+
+For more details have a look in the official [game.js](https://github.com/photonstorm/phaser/blob/master/src/boot/Game.js)
+file.
 
 ### resize
 
