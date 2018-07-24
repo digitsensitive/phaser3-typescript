@@ -10,10 +10,6 @@ We can specify a number of important parameters (see parameters) when
 initiating the game (using the GameConfig), then the scene manager is loaded
 and the main game loop is started.
 
-> scene is a very important parameter. Here you put all the scenes of your game.
-For example you might have a boot scene, a main menu scene and a game scene.
-Important: If you have more then one scene, create an array and NOT an object.
-
 ## Example
 
 ```
