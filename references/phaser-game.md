@@ -7,7 +7,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 In `game.ts` we extend our Game Class with the Phaser Class `Phaser.Game`.
 This is the core class of our game, which is responsible for the core systems.
 We can specify a number of important [parameters](#parameters) when
-initiating the game (using the GameConfig) and access some [functions](functions).
+initiating the game (using the GameConfig) and access some [functions](#functions).
 
 ## Example
 
