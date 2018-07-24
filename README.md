@@ -60,8 +60,8 @@ npm run dev
 
 
 
-![Beginner](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
-:-------------------------:|
+![Beginner](https://img.shields.io/badge/Difficulty-Beginner-green.svg)             |  
+:-------------------------:|:-------------------------:
 [![Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/assets/github/coin-runner-small.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md)  | [![Alpha Adjust](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/assets/github/alpha-adjust-small.png)](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/alpha-adjust.md)
 
 
