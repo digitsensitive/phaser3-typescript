@@ -4,12 +4,12 @@
 
 ### Features
 
-* ...
+* New small beginner Game Alpha Adjust (*digitsensitive*)
 
 ### Updates
 
-* small changes in the coin-runner game: new version 1.1.1 (*digitsensitive*)
-* redesign the main README.md file
+* Small changes in the coin-runner game: new version 1.1.1 (*digitsensitive*)
+* Redesign the main README.md file
 
 ### Bugfixes
 
