@@ -1,0 +1,42 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "atlas",
+        "key": "atlas",
+        "textureURL": "src/games/thePowerful/assets/atlas/atlas.png",
+        "atlasURL": "src/games/thePowerful/assets/atlas/atlas.json"
+      },
+      {
+        "type": "xml",
+        "key": "powerfulXML",
+        "url": "src/games/thePowerful/assets/font/powerful.fnt"
+      },
+      {
+        "type": "tilemapTiledJSON",
+        "key": "Level1Map",
+        "url": "src/games/thePowerful/assets/maps/level1.json"
+      },
+      {
+        "type": "tilemapTiledJSON",
+        "key": "Level2Map",
+        "url": "src/games/thePowerful/assets/maps/level2.json"
+      },
+      {
+        "type": "image",
+        "key": "tiles",
+        "url": "src/games/thePowerful/assets/tiles/tiles.png"
+      },
+      {
+        "type": "image",
+        "key": "knightBadge",
+        "url": "src/games/thePowerful/plainAssets/design/Knight-Badge.png"
+      },
+      {
+        "type": "json",
+        "key": "animationJSON",
+        "url": "src/games/thePowerful/assets/animations/animations.json"
+      }
+    ]
+  }
+}
