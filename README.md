@@ -61,15 +61,20 @@ npm run dev
 ![Beginner](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
 <p float="left">
-  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/assets/github/coin-runner.png" width="420" /></a>
-  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/alpha-adjust.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/assets/github/alpha-adjust.png" width="420" /></a>
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/coin-runner.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner/assets/github/coinRunner.png" width="420" /></a>
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/alpha-adjust.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/assets/github/alphaAdjust.png" width="420" /></a>
+</p>
+<p float="left">
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md">
+  <img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/assets/github/snake.png" width="420" /></a>
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade/blockade.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade/assets/github/blockade.png" width="420" /></a>
+</p>
+<p float="left">
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/asteroid.md">
+  <img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/assets/github/asteroid.png" width="420" /></a>
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/assets/github/flappyBird.png" width="420" /></a>
 </p>
 
-- [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/snake.md)
-- [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md)
-- [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade/blockade.md)
-- [Asteroid](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/asteroid.md)
-- Candy Crush (coming soon)
 - If you have any suggestion for a next game example, let me know!
 
 ## Cheat Sheets
