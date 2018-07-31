@@ -2,20 +2,14 @@
 
 https://shotsnapp.com
 
-## Image Size in Photoshop
-
-```
-1228 x 922 px @ 144 ppi
-```
-
 ## Image Size in Shotsnapp
 
 ```
-width: 500 px,
-height: 400 px,
+width: 1000 px,
+height: 900 px,
 background fill: #ffffff,
 opacity: 0%,
 style: chrome,
-scale: 36%,
+scale: 100%,
 shadow: 0%
 ```
