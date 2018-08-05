@@ -75,6 +75,12 @@ npm run dev
   <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/assets/github/flappyBird.png" width="420" /></a>
 </p>
 
+![Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-blue.svg)
+
+<p float="left">
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders/space-invaders.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders/assets/github/spaceInvaders.png" width="420" /></a>
+</p>
+
 - If you have any suggestion for a next game example, let me know!
 
 ## Cheat Sheets
