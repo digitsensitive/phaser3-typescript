@@ -5,6 +5,7 @@
 ### Features
 
 * New small beginner Game Alpha Adjust (*digitsensitive*)
+* New Game Space Invader (*digitsensitive*)
 
 ### Updates
 

@@ -1,0 +1,70 @@
+{
+  "anims": [
+    {
+      "key": "octopusFly",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "octopus",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 4
+    },
+    {
+      "key": "octopusDead",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "octopus",
+        "start": 2,
+        "end": 2
+      },
+      "repeat": 0,
+      "frameRate": 4
+    },
+    {
+      "key": "crabFly",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "crab",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 4
+    },
+    {
+      "key": "crabDead",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "crab",
+        "start": 2,
+        "end": 2
+      },
+      "repeat": 0,
+      "frameRate": 4
+    },
+    {
+      "key": "squidFly",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "squid",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 4
+    },
+    {
+      "key": "squidDead",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "squid",
+        "start": 2,
+        "end": 2
+      },
+      "repeat": 0,
+      "frameRate": 4
+    }
+  ]
+}
