@@ -1,4 +1,4 @@
-# Space Invaders ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
+# Space Invaders ![Difficulty](https://img.shields.io/badge/Difficulty-Intermediate-blue.svg)
 
 ![Space Invaders](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders/assets/github/spaceInvaders.png)
 
