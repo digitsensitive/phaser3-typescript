@@ -31,10 +31,20 @@ export class GameScene extends Phaser.Scene {
       key: "player"
     });
 
-    let enemyTypes = ["octopus", "crab", "squid"];
+    // if you want to make it random:
+    // let enemyTypes = ["octopus", "crab", "squid"];
     for (let y = 0; y < 5; y++) {
       for (let x = 0; x < 10; x++) {
-        var type = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
+        let type;
+        if (y === 0) {
+          type = "squid";
+        } else if (y === 1 || y === 2) {
+          type = "crab";
+        } else {
+          type = "octopus";
+        }
+        // if you want to make it random:
+        // let type = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
         this.enemies.add(
           new Enemy({
             scene: this,

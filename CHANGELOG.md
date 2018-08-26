@@ -14,7 +14,7 @@
 
 ### Bugfixes
 
-* ...
+* Small changes in space-invaders (*digitsensitive*)
 
 
 ## Version 1.2.1 (Juno) - 7th July 2018

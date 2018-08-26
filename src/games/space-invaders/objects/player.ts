@@ -32,7 +32,6 @@ export class Player extends Phaser.GameObjects.Image {
   private initVariables(params): void {
     this.currentScene = params.scene;
     this.bullets = this.currentScene.add.group({
-      maxSize: 10,
       runChildUpdate: true
     });
     this.lastShoot = 0;
@@ -78,9 +77,7 @@ export class Player extends Phaser.GameObjects.Image {
       this.shootingKey.isDown &&
       this.currentScene.time.now > this.lastShoot
     ) {
-      let numberOfBullets = this.bullets.getLength();
-
-      if (numberOfBullets < 10) {
+      if (this.bullets.getLength() < 1) {
         this.bullets.add(
           new Bullet({
             scene: this.currentScene,
