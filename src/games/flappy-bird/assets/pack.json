@@ -4,23 +4,23 @@
       {
         "type": "bitmapFont",
         "key": "flappyBirdFont",
-        "textureURL": "assets/games/flappy-bird/font/font.png",
-        "fontDataURL": "assets/games/flappy-bird/font/font.fnt"
+        "textureURL": "src/games/flappy-bird/assets/font/font.png",
+        "fontDataURL": "src/games/flappy-bird/assets/font/font.fnt"
       },
       {
         "type": "image",
         "key": "background",
-        "url": "assets/games/flappy-bird/other/bg.png"
+        "url": "src/games/flappy-bird/assets/other/bg.png"
       },
       {
         "type": "image",
         "key": "bird",
-        "url": "assets/games/flappy-bird/sprites/bird.png"
+        "url": "src/games/flappy-bird/assets/sprites/bird.png"
       },
       {
         "type": "spritesheet",
         "key": "pipe",
-        "url": "assets/games/flappy-bird/sprites/pipe.png",
+        "url": "src/games/flappy-bird/assets/sprites/pipe.png",
         "frameConfig": {
           "frameWidth": 20,
           "frameHeight": 20
