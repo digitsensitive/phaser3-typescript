@@ -1,6 +1,6 @@
 # Flappy Bird
 
-![FlappyBird](/assets/games/flappy-bird/readme/README.gif)
+![FlappyBird](./src/games/flappy-bird/assets/readme/README.gif)
 
 ## Description
 
