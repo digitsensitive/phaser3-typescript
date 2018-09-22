@@ -72,7 +72,7 @@ npm run dev
 <p float="left">
   <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/asteroid.md">
   <img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/assets/github/asteroid.png" width="420" /></a>
-  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/flappyBird.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappyBird/assets/github/flappyBird.png" width="420" /></a>
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappy-bird/flappy-bird.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappy-bird/assets/github/flappyBird.png" width="420" /></a>
 </p>
 
 ![Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-blue.svg)

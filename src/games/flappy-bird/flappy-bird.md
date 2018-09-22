@@ -1,6 +1,6 @@
 # Flappy Bird
 
-![FlappyBird](/assets/games/flappyBird/readme/README.gif)
+![FlappyBird](/assets/games/flappy-bird/readme/README.gif)
 
 ## Description
 
@@ -9,7 +9,7 @@ Clone of the famous flappy bird game released in May 24, 2013.
 ## How to run it
 
 Adjust the `webpack.config.js` file as follows:
-> `entry: './src/games/flappyBird/game.ts'`
+> `entry: './src/games/flappy-bird/game.ts'`
 
 ## What will you learn
 
