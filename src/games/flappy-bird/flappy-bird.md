@@ -1,6 +1,6 @@
 # Flappy Bird
 
-![FlappyBird](./src/games/flappy-bird/assets/readme/README.gif)
+![FlappyBird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappy-bird/assets/readme/README.gif)
 
 ## Description
 
