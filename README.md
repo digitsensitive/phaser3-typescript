@@ -90,39 +90,26 @@ npm run dev
 - [Phaser.GameObject.Image](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
 - [Phaser.GameObject.Sprite](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/sprite.md)
 - [Phaser.GameObject.Group](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/group.md)
-- Phaser.GameObject.Bitmaptext (coming soon)
-- Phaser.GameObject.Blitter (coming soon)
-- Phaser.GameObject.Container (coming soon)
-- Phaser.GameObject.Graphics (coming soon)
-- Phaser.GameObject.Lights (coming soon)
 - [Phaser.GameObject.Mesh](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/mesh.md)
-- Phaser.GameObject.Particles (coming soon)
-- Phaser.GameObject.Pathfollower (coming soon)
-- Phaser.GameObject.Quad (coming soon)
-- Phaser.GameObject.Rendertexture (coming soon)
-- Phaser.GameObject.Sprite3d (coming soon)
-- Phaser.GameObject.Text (coming soon)
-- Phaser.GameObject.Tilesprite (coming soon)
-- Phaser.GameObject.Zone (coming soon)
 
-## :cookie: External Resources
+## External Resources
 
 - [Phaser 3 Framework](https://github.com/photonstorm/phaser)
 - [Phaser 3 Docs with TypeScript Definition File](https://github.com/photonstorm/phaser3-docs)
 - [Phaser 3 Online Docs](https://photonstorm.github.io/phaser3-docs/index.html)
 - [Phaser 3 Official Examples](https://github.com/photonstorm/phaser3-examples)
 
-## :wrench: Helpful tools
+## Helpful tools
 
 - [Leshy SpriteSheet Tool](https://www.leshylabs.com/apps/sstool)
 - [Tiled](https://www.mapeditor.org)
 - [Littera](http://kvazars.com/littera)
 
-## :love_letter: Changelog
+## Changelog
 
 [Learn about the latest improvements](https://github.com/digitsensitive/phaser3-typescript/blob/master/CHANGELOG.md)
 
-## :rocket: Contributing
+## Contributing
 
 Want to correct a bug, contribute some code, or improve the codes? Excellent! Let me know!
 Please read [CONTRIBUTING.md](https://github.com/digitsensitive/phaser3-typescript/blob/master/CONTRIBUTING.md) for details on our code of conduct.
