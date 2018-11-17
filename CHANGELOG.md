@@ -1,6 +1,21 @@
 # Change Log
 
-## Version 1.2.2 (...) - ...th July 2018
+## Version 1.2.X - XYZth XYZ 2018
+
+### Features
+
+* ...
+
+### Updates
+
+* ...
+
+### Bugfixes
+
+* ...
+
+
+## Version 1.2.2 - 17th November 2018
 
 ### Features
 
@@ -9,6 +24,10 @@
 
 ### Updates
 
+* update ts-loader version from 4.4.2 to 5.3.0 (*digitsensitive*)
+* update webpack version from 4.15.0 to 4.25.1 (*digitsensitive*)
+* update webpack-cli version from 3.0.8 to 3.2.1 (*digitsensitive*)
+* update webpack-dev-server version from 3.1.4 to 3.1.10 (*digitsensitive*)
 * Small changes in the coin-runner game: new version 1.1.1 (*digitsensitive*)
 * Redesign the main README.md file
 
