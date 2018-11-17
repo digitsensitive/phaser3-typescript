@@ -14,7 +14,7 @@
   "devDependencies": {
     "expose-loader": "0.7.5",
     "ts-loader": "5.3.0",
-    "typescript": "2.9.2",
+    "typescript": "3.1.6",
     "webpack": "4.25.1",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.10"

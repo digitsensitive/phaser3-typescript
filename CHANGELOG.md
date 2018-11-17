@@ -24,6 +24,7 @@
 
 ### Updates
 
+* update typescript version from 2.9.2 to 3.1.6 (*digitsensitive*)
 * update ts-loader version from 4.4.2 to 5.3.0 (*digitsensitive*)
 * update webpack version from 4.15.0 to 4.25.1 (*digitsensitive*)
 * update webpack-cli version from 3.0.8 to 3.2.1 (*digitsensitive*)
