@@ -42,11 +42,11 @@ We will go deeper into just some of the parameters here.
 
 ### The injection map
 
-You can find more informations about how to use the `map` object [here](https://github.com/digitsensitive/phaser3-typescript/blob/feature/update-cheatsheets/cheatsheets/data/systems.md).
+You can find more informations about how to use the `map` object [here](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/data/systems.md).
 
 ### Plugins
 
-You can find more informations about how to use the `plugins` object [here](https://github.com/digitsensitive/phaser3-typescript/blob/feature/update-cheatsheets/cheatsheets/data/systems.md).
+You can find more informations about how to use the `plugins` object [here](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/data/systems.md).
 
 ### References
 
