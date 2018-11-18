@@ -1,0 +1,22 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "assets/games/the-balloons/font/font.png",
+        "fontDataURL": "assets/games/the-balloons/font/font.fnt"
+      },
+      {
+        "type": "json",
+        "key": "animationJSON",
+        "url": "assets/games/the-balloons/animations/animations.json"
+      },
+      {
+        "type": "image",
+        "key": "player",
+        "url": "assets/games/the-balloons/sprites/player.png"
+      }
+    ]
+  }
+}
