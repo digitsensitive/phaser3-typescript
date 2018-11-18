@@ -33,9 +33,6 @@ export class MyScene extends Phaser.Scene {
 }
 ```
 
-Consult the official [Settings.js](https://github.com/photonstorm/phaser/blob/master/src/scene/Settings.js)
-to see a list of parameters to use.
-
 ### Parameters
 
 Consult the official [Settings.js](https://github.com/photonstorm/phaser/blob/master/src/scene/Settings.js)
