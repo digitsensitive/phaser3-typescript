@@ -10,6 +10,7 @@ let newGroup = this.add.group();
 
 When you create a new group you can attach a config file.
 As format you can choose from GroupConfig or GroupCreateConfig (see below).
+
 > If key is set, createMultiple will be called with these settings
 
 #### Parameters

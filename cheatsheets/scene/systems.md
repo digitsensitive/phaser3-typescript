@@ -1,8 +1,8 @@
-# :ballot_box_with_check: Scene.Systems
+## :ballot_box_with_check: Scene.Systems
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-## Introduction
+### Introduction
 
 > When you create a new scene the Scene Manager creates an object called `sys`.
 > This class is the core and it controls quite a lot (also your plugins).
@@ -30,7 +30,7 @@ The default plugins are:
 The core plugins are `non-optional`. The default plugins are `optional`, but still
 they are installed into your scene unless you specify otherwise.
 
-## How to add and remove plugins
+### How to add and remove plugins
 
 If you do not want any of the seven default plugins you can pass an empty array
 to the constructor of the scene as follows:
@@ -71,7 +71,7 @@ init() {
 }
 ```
 
-## How to access the plugins
+### How to access the plugins
 
 Phaser 3 uses the so called `Scene Injection Map`. This map is an object, that
 maps every plugin to a property within the corresponding scene. For example the
@@ -84,7 +84,8 @@ obviously.
 > scene, you will have to send the `this` with it. You will see plenty examples in
 > my repository.
 
-[Injection Map](https://github.com/photonstorm/phaser/blob/master/src/scene/InjectionMap.js)
+Find a list of all the properties here:
+[Injection Map Phaser 3](https://github.com/photonstorm/phaser/blob/master/src/scene/InjectionMap.js).
 
 You can access the properties within the `map` object in the scene constructor.
 It is possible to rename the properties (here we rename add to add2):
@@ -124,6 +125,7 @@ Everything will work fine, but you will get a property error:
 
 So for me, I decided not to use the map at all.
 
-## References
+### References
 
 - [Phaser World Issue 119](https://madmimi.com/p/a2dddb)
+- [Phaser 3 Systems Github](https://github.com/photonstorm/phaser/blob/master/src/scene/Systems.js)
