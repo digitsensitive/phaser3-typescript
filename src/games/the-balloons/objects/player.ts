@@ -9,6 +9,10 @@ export class Player extends Phaser.GameObjects.Image {
   private currentScene: Phaser.Scene;
   private cursors: CursorKeys;
   private flyKey: Phaser.Input.Keyboard.Key;
+  private playerParams = {
+    width: 15,
+    height: 24
+  };
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key);
@@ -38,11 +42,12 @@ export class Player extends Phaser.GameObjects.Image {
 
   private initPhysics(): void {
     this.currentScene.physics.world.enable(this);
-    this.body.setSize(15, 24);
+    this.body.setSize(this.playerParams.width, this.playerParams.height);
   }
 
   update(): void {
     this.handleInput();
+    this.checkIfOffScreenHorizontally();
   }
 
   private handleInput(): void {
@@ -58,6 +63,17 @@ export class Player extends Phaser.GameObjects.Image {
     } else if (this.cursors.left.isDown) {
       this.x -= 1;
       this.flipX = false;
+    }
+  }
+
+  private checkIfOffScreenHorizontally(): void {
+    if (
+      this.x >
+      this.currentScene.sys.canvas.width + this.playerParams.width / 2
+    ) {
+      this.x = -this.playerParams.width / 2;
+    } else if (this.x < -this.playerParams.width / 2) {
+      this.x = this.currentScene.sys.canvas.width + this.playerParams.width / 2;
     }
   }
 }
