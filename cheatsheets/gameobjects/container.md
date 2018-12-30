@@ -34,7 +34,8 @@ latest container defined.
 
 > If you set both containers to false, Phaser will also render the child at the
 position you defined it (see [official example](http://labs.phaser.io/edit.html?src=src\game%20objects\container\non%20exclusive%20containers.js))
-> In other words the child will stay in the internal display list of the scene
+In other words the child will stay in the internal display list of the scene
+and the two containers will reference to that game object
 
 #### getBounds()
 This function returns a `Phaser.Geom.Rectangle` object (amongst other things
