@@ -85,12 +85,7 @@ npm run dev
 
 ## Cheat Sheets
 
-- [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
-- [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
-- [Phaser.GameObject.Image](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/image.md)
-- [Phaser.GameObject.Sprite](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/sprite.md)
-- [Phaser.GameObject.Group](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/group.md)
-- [Phaser.GameObject.Mesh](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/mesh.md)
+- [Browse to folder](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets)
 
 ## External Resources
 
