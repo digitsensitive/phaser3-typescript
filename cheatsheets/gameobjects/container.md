@@ -34,6 +34,7 @@ latest container defined.
 
 > If you set both containers to false, Phaser will also render the child at the
 position you defined it (see [official example](http://labs.phaser.io/edit.html?src=src\game%20objects\container\non%20exclusive%20containers.js))
+> In other words the child will stay in the internal display list of the scene
 
 #### getBounds()
 This function returns a `Phaser.Geom.Rectangle` object (amongst other things
@@ -41,6 +42,9 @@ containing the x and y position and the weight and height) of the container.
 It will go through all the children and calculate a min-max rectangle.
 
 > Using a Graphic object you can stroke for example the rectangle shape
+
+> You can use the rectangle to make it interactive for input:
+> CONTAINER.setInteractive(CONTAINER.getBounds(), Phaser.Geom.Rectangle.Contains);
 
 #### pointToContainer()
 Takes a Point-like object (Vector2, Geom.Point or object), transforms it
@@ -178,3 +182,4 @@ Loop through all game objects in the container.
 - [Phaser Github](https://github.com/photonstorm/phaser)
 - [Phaser 3 Examples Github](https://github.com/photonstorm/phaser3-examples)
 - [Phaser 3 Examples Labs](http://labs.phaser.io)
+- [Phaser 3 Dev Log #120](https://phaser.io/phaser3/devlog/120)
