@@ -9,6 +9,7 @@
 ### Updates
 
 * Add container to cheatsheets (*digitsensitive*)
+* Update transform cheatsheet (*digitsensitive*)
 
 ### Bugfixes
 

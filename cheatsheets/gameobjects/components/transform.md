@@ -1,26 +1,39 @@
-## :ballot_box_with_check: Phaser.Components.Transform
+## Phaser.Components.Transform
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-#### Parameters
+### Public Functions
 
-```
-x                              : get x position
-y                              : get y position
-z                              : get z position
-w                              : get w position
-scaleX                         : the horizontal scale
-scaleY                         : the vertical scale
-angle                          : get angle in degrees
-rotation                       : get angle in radians
-setPosition()                  : set position
-setRotation()                  : set angle in radians
-setAngle()                     : set angle in degrees
-setScale()                     : set scale
-setX()                         : set x position
-setY()                         : set y position
-setZ()                         : set z position
-setW()                         : set w position
-getLocalTransformMatrix()      : get local transform matrix
-getWorldTransformMatrix()      : get world transform matrix
-```
+#### setPosition()
+Set position of the game object.
+
+#### setRandomPosition
+Set a random position of the game object within the given area.
+If you do not specify an area, it will place it between 0 x 0 and the game width x height.
+
+#### setRotation()
+Set rotation of the game object (in radians).
+
+#### setAngle()
+Set angle of the game object (in degrees)
+
+#### setScale()
+Set scale of the game object.
+
+#### setX()
+Set x position of the game object.
+
+#### setY()
+Set y position of the game object.
+
+#### setZ()
+Set z position of the game object.
+
+#### setW()
+Set w position of the game object.
+
+#### getLocalTransformMatrix()
+Get local transform matrix.
+
+#### getWorldTransformMatrix()
+Get world transform matrix
