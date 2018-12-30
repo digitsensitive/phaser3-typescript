@@ -39,7 +39,7 @@ and the two containers will reference to that game object
 
 #### getBounds()
 This function returns a `Phaser.Geom.Rectangle` object (amongst other things
-containing the x and y position and the weight and height) of the container.
+containing the x and y position and the width and height) of the container.
 It will go through all the children and calculate a min-max rectangle.
 
 > Using a Graphic object you can stroke for example the rectangle shape
