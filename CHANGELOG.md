@@ -8,7 +8,7 @@
 
 ### Updates
 
-* ...
+* Add container to cheatsheets (*digitsensitive*)
 
 ### Bugfixes
 
