@@ -99,11 +99,11 @@ Move a game object to a new position within the container.
 #### remove()
 Remove a game object or array of game objects from the container.
 ```
-container.remove(SPRITE);
+myContainer.remove(sprite1);
 ```
 or
 ```
-SPRITE.destroy();
+sprite1.destroy();
 ```
 
 #### removeAt()
