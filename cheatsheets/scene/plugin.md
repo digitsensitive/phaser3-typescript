@@ -1,4 +1,4 @@
-## :ballot_box_with_check: ScenePlugin
+## ScenePlugin
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
