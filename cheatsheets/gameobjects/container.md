@@ -5,22 +5,22 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 ### Example
 
 ```
-let newContainer = this.add.container(200, 300, [ sprite1, sprite2 ]);
+let myContainer = this.add.container(200, 300, [ sprite1, sprite2 ]);
 ```
 
 or
 
 ```
-let newContainer = this.add.container(200, 300);
-newContainer.add(sprite1);
-newContainer.add(sprite2);
+let myContainer = this.add.container(200, 300);
+myContainer.add(sprite1);
+myContainer.add(sprite2);
 ```
 
 or
 
 ```
-let newContainer = this.add.container(200, 300);
-newContainer.add([ sprite1, sprite2 ]);
+let myContainer = this.add.container(200, 300);
+myContainer.add([ sprite1, sprite2 ]);
 ```
 
 ### Public Functions
@@ -45,7 +45,7 @@ It will go through all the children and calculate a min-max rectangle.
 > Using a Graphic object you can stroke for example the rectangle shape
 
 > You can use the rectangle to make it interactive for input:
-> CONTAINER.setInteractive(CONTAINER.getBounds(), Phaser.Geom.Rectangle.Contains);
+> myContainer.setInteractive(myContainer.getBounds(), Phaser.Geom.Rectangle.Contains);
 
 #### pointToContainer()
 Takes a Point-like object (Vector2, Geom.Point or object), transforms it
