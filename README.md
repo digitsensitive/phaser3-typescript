@@ -117,3 +117,7 @@ Please read [CONTRIBUTING.md](https://github.com/digitsensitive/phaser3-typescri
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE) file for details
+
+<div align="center">
+<a href="https://www.buymeacoffee.com/JZDVjsT26" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+</div>
