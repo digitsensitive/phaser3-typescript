@@ -8,6 +8,12 @@
 
 ### Updates
 
+* update phaser.d.ts to 3.15 TS Defs (*digitsensitive*)
+* update phaser version from 3.10.1 to 3.15.1 (*digitsensitive*)
+* update webpack-dev-server version from 3.1.10 to 3.1.14 (*digitsensitive*)
+* update webpack version from 4.25.1 to 4.28.3 (*digitsensitive*)
+* update typescript version from 3.1.6 to 3.2.2 (*digitsensitive*)
+* update ts-loader version from 5.3.0 to 5.3.2 (*digitsensitive*)
 * Add container to cheatsheets (*digitsensitive*)
 * Update transform cheatsheet (*digitsensitive*)
 * Add scene folder with `plugin.md`, `settings.md` and `systems.md` to cheatsheets (*digitsensitive*)
@@ -15,7 +21,7 @@
 
 ### Bugfixes
 
-* ...
+* update syntax after the upgrade to phaser 3.15.1 (*digitsensitive*)
 
 
 ## Version 1.2.2 - 17th November 2018

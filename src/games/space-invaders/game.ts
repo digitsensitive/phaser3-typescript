@@ -19,7 +19,7 @@ const config: GameConfig = {
   version: "1.0",
   width: 224,
   height: 240,
-  zoom: 2.5,
+  zoom: 3,
   type: Phaser.AUTO,
   parent: "game",
   scene: [BootScene, MenuScene, GameScene, HUDScene],
@@ -34,8 +34,7 @@ const config: GameConfig = {
     }
   },
   backgroundColor: "#f5cc69",
-  pixelArt: true,
-  antialias: false
+  render: { pixelArt: true, antialias: false, autoResize: false }
 };
 
 export class Game extends Phaser.Game {

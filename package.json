@@ -13,14 +13,14 @@
   ],
   "devDependencies": {
     "expose-loader": "0.7.5",
-    "ts-loader": "5.3.0",
-    "typescript": "3.1.6",
-    "webpack": "4.25.1",
+    "ts-loader": "5.3.2",
+    "typescript": "3.2.2",
+    "webpack": "4.28.3",
     "webpack-cli": "3.1.2",
-    "webpack-dev-server": "3.1.10"
+    "webpack-dev-server": "3.1.14"
   },
   "dependencies": {
-    "phaser": "3.10.1"
+    "phaser": "3.15.1"
   },
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server --mode development",

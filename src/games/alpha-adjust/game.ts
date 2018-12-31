@@ -23,7 +23,7 @@ const config: GameConfig = {
     mouse: true
   },
   backgroundColor: "#1d2b53",
-  pixelArt: true
+  render: { pixelArt: true, antialias: false, autoResize: false }
 };
 
 export class Game extends Phaser.Game {

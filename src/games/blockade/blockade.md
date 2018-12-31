@@ -31,25 +31,3 @@ Adjust the `webpack.config.js` file as follows:
 * Learn to use Phaser.GameObjects.BitmapText
 * Learn to use Phaser.GameObjects.Graphics
 * Learn to use Phaser.Geom.Circle
-
-
-## Fixes of the TypeScript definition file
-
-Awaiting [issue](https://github.com/photonstorm/phaser3-docs/issues/49) to be fixed.
-This is a work around I have done in the phaser.d.ts file:
-```
-Line 1603:
-/**
- * Options for the Graphics game Object.
- */
-declare type GraphicsOptions = Partial<GraphicsStyles> & {
-    /**
-     * The x coordinate of the Graphics.
-     */
-    x: number;
-    /**
-     * The y coordinate of the Graphics.
-     */
-    y: number;
-};
-```
