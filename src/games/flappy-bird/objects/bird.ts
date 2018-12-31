@@ -9,6 +9,7 @@ export class Bird extends Phaser.GameObjects.Sprite {
   private jumpKey: Phaser.Input.Keyboard.Key;
   private anim: Phaser.Tweens.Tween[];
   private isDead: boolean = false;
+  private isFlapping: boolean = false;
 
   public getDead(): boolean {
     return this.isDead;
@@ -61,12 +62,15 @@ export class Bird extends Phaser.GameObjects.Sprite {
   }
 
   private handleInput(): void {
-    if (this.jumpKey.isDown) {
+    if (this.jumpKey.isDown && !this.isFlapping) {
       this.flap();
+    } else if (this.jumpKey.isUp && this.isFlapping) {
+      this.isFlapping = false;
     }
   }
 
   public flap(): void {
+    this.isFlapping = true;
     this.body.setVelocityY(-350);
     this.anim[0].restart();
   }
