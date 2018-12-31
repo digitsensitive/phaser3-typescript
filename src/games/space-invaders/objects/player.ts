@@ -10,7 +10,7 @@ import { Bullet } from "./bullet";
 export class Player extends Phaser.GameObjects.Image {
   private bullets: Phaser.GameObjects.Group;
   private currentScene: Phaser.Scene;
-  private cursors: CursorKeys;
+  private cursors: Phaser.Input.Keyboard.CursorKeys;
   private flyingSpeed: number;
   private lastShoot: number;
   private shootingKey: Phaser.Input.Keyboard.Key;

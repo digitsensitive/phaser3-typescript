@@ -21,7 +21,7 @@
 
 ### Bugfixes
 
-* ...
+* update syntax after the upgrade to phaser 3.15.1 (*digitsensitive*)
 
 
 ## Version 1.2.2 - 17th November 2018
