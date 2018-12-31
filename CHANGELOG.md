@@ -16,6 +16,8 @@
 * update ts-loader version from 5.3.0 to 5.3.2 (*digitsensitive*)
 * Add container to cheatsheets (*digitsensitive*)
 * Update transform cheatsheet (*digitsensitive*)
+* Update alpha cheatsheet (*digitsensitive*)
+* Update blendMode cheatsheet (*digitsensitive*)
 * Add scene folder with `plugin.md`, `settings.md` and `systems.md` to cheatsheets (*digitsensitive*)
 * Add data folder with `data-manager-plugin.md` to cheatsheets (*digitsensitive*)
 
