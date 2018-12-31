@@ -93,6 +93,7 @@ npm run dev
 - [Phaser 3 Docs with TypeScript Definition File](https://github.com/photonstorm/phaser3-docs)
 - [Phaser 3 Online Docs](https://photonstorm.github.io/phaser3-docs/index.html)
 - [Phaser 3 Official Examples](https://github.com/photonstorm/phaser3-examples)
+- [Phaser 3 Discourse](https://phaser.discourse.group)
 
 ## Helpful tools
 
