@@ -18,6 +18,7 @@
 * Update transform cheatsheet (*digitsensitive*)
 * Update alpha cheatsheet (*digitsensitive*)
 * Update blendMode cheatsheet (*digitsensitive*)
+* Update depth cheatsheet (*digitsensitive*)
 * Add scene folder with `plugin.md`, `settings.md` and `systems.md` to cheatsheets (*digitsensitive*)
 * Add data folder with `data-manager-plugin.md` to cheatsheets (*digitsensitive*)
 
