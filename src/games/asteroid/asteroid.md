@@ -37,19 +37,9 @@ Adjust the `game.ts` as follows:
 Awaiting [issue](https://github.com/photonstorm/phaser3-docs/issues/19) to be fixed.
 This is a work around I have done in the phaser.d.ts file:
 ```
-Line 13304:
+Line 15222:
 /**
  * If this Game Object is enabled for physics then this property will contain a reference to a Physics Body.
  */
 body: any;
-```
-
-Awaiting merge of the [Pull request](https://github.com/photonstorm/phaser3-docs/issues/50).
-This is a work around I have done in the phaser.d.ts file:
-```
-Line 438:
-  pixelArt?: boolean;
-
-Line 434:
-  antialias?: boolean;
 ```

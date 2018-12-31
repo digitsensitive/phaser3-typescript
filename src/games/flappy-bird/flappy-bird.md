@@ -31,16 +31,16 @@ Adjust the `webpack.config.js` file as follows:
 Awaiting [issue](https://github.com/photonstorm/phaser3-docs/issues/19) to be fixed.
 This is a work around I have done in the phaser.d.ts file.
 ```
-Line 13304:
+Line 15222:
 /**
  * If this Game Object is enabled for physics then this property will contain a reference to a Physics Body.
  */
 body: any;
 ```
 
-Awaiting [issue](https://github.com/photonstorm/phaser3-docs/issues/27) to be fixed.
 This is a work around I have done in the phaser.d.ts file.
 ```
-Line 28958:
-overlap(object1: Phaser.GameObjects.GameObject | any[] | Phaser.GameObjects.Group, object2: Phaser.GameObjects.GameObject | any[] | Phaser.GameObjects.Group, overlapCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
+Line 46963:
+overlap(object1: ArcadeColliderType | any, object2?: ArcadeColliderType | any, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
+
 ```
