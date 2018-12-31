@@ -32,9 +32,8 @@ const config: GameConfig = {
       debug: false
     }
   },
-  backgroundColor: "#7C7C7C",
-  pixelArt: true,
-  antialias: false
+  backgroundColor: "#000000",
+  render: { pixelArt: true, antialias: false, autoResize: false }
 };
 
 export class Game extends Phaser.Game {

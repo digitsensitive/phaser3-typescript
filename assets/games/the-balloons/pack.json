@@ -14,8 +14,18 @@
       },
       {
         "type": "image",
-        "key": "player",
-        "url": "assets/games/the-balloons/sprites/player.png"
+        "key": "playerMain",
+        "url": "assets/games/the-balloons/sprites/playerMain.png"
+      },
+      {
+        "type": "image",
+        "key": "playerBalloon",
+        "url": "assets/games/the-balloons/sprites/playerBalloon.png"
+      },
+      {
+        "type": "image",
+        "key": "plattform",
+        "url": "assets/games/the-balloons/sprites/plattform.png"
       }
     ]
   }

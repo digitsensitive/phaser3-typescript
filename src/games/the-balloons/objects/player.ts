@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-export class Player extends Phaser.GameObjects.Image {
+export class Player extends Phaser.GameObjects.Sprite {
   private currentScene: Phaser.Scene;
   private cursors: CursorKeys;
   private flyKey: Phaser.Input.Keyboard.Key;

@@ -6,9 +6,13 @@
  */
 
 import { Player } from "../objects/player";
+import { PlayerContainer } from "../objects/player-container";
 
 export class GameScene extends Phaser.Scene {
-  private player: Player;
+  private playerContainer: Phaser.GameObjects.Container;
+  private plattform: Phaser.Physics.Arcade.Image;
+  private plattform2: Phaser.Physics.Arcade.Image;
+  private plattform3: Phaser.Physics.Arcade.Image;
 
   constructor() {
     super({
@@ -19,18 +23,28 @@ export class GameScene extends Phaser.Scene {
   init(): void {}
 
   create(): void {
-    // create game objects
-    this.player = new Player({
+    this.playerContainer = new PlayerContainer({
       scene: this,
-      x: this.sys.canvas.width / 2,
-      y: this.sys.canvas.height - 40,
-      key: "player"
+      x: 0,
+      y: 0
     });
+   
+    this.plattform = this.physics.add.staticImage(40, 200, "plattform");
+    this.plattform2 = this.physics.add.staticImage(216, 200, "plattform");
+    this.plattform3 = this.physics.add.staticImage(120, 100, "plattform");
+
+    this.physics.add.collider(this.playerContainer, [
+      this.plattform,
+      this.plattform2,
+      this.plattform3
+    ]);
   }
 
   update(): void {
-    if (this.player.active) {
-      this.player.update();
+    if (this.playerContainer.active) {
+      this.playerContainer.update();
     }
+
+    //this.physics.collide(this.playerContainer, this.plattform);
   }
 }
