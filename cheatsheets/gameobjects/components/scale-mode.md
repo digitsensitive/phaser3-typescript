@@ -1,9 +1,10 @@
-## :ballot_box_with_check: Phaser.Components.ScaleMode
+## Phaser.Components.ScaleMode
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-#### Parameters
+### Public Functions
 
-```
-setScaleMode()       : set the scale mode (Phaser.ScaleModes.LINEAR or Phaser.ScaleModes.NEAREST)
-```
+#### setScaleMode()
+Set the scale mode.
+
+> Either Phaser.ScaleModes.LINEAR or Phaser.ScaleModes.NEAREST).

@@ -1,14 +1,17 @@
-## :ballot_box_with_check: Phaser.Components.Pipeline
+## Phaser.Components.Pipeline
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-#### Parameters
+### Public Functions
 
-```
-defaultPipeline      : default pipeline
-pipeline             : pipeline
-initPipeline()       : set initial WebGL pipeline of game object
-setPipeline()        : set active WebGL pipeline of game object
-resetPipeline()      : reset WebGL pipeline of game object back to default
-getPipelineName()    : get name of WebGL pipeline of game object
-```
+#### initPipeline()
+Set initial WebGL pipeline of game object.
+
+#### setPipeline()
+Set active WebGL pipeline of game object.
+
+#### resetPipeline()
+Reset WebGL pipeline of game object back to default.
+
+#### getPipelineName()
+Get name of WebGL pipeline of game object.

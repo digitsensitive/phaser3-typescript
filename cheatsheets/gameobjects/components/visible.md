@@ -1,10 +1,10 @@
-## :ballot_box_with_check: Phaser.Components.Visible
+## Phaser.Components.Visible
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-#### Parameters
+### Public Functions
 
-```
-visible            : the visible state
-setVisible()       : set the visibility
-```
+#### setVisible()
+Set the visibility.
+
+> An invisible game object will skip rendering, but will still process update logic.
