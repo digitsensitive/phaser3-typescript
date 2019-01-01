@@ -108,23 +108,19 @@ export class GameScene extends Phaser.Scene {
   }
 
   private checkCollision(): void {
+    const { x: headX, y: headY } = this.player.getHead();
+
     // player vs. apple collision
-    if (
-      this.player.getHead().x === this.apple.x &&
-      this.player.getHead().y === this.apple.y
-    ) {
+    if (headX === this.apple.x && headY === this.apple.y) {
       this.player.growSnake(this);
       CONST.SCORE++;
-      this.scoreText.setText("" + CONST.SCORE);
+      this.scoreText.setText('' + CONST.SCORE);
       this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
     }
 
     // border vs. snake collision
-    for (let i = 0; i < this.gameBorder.length; i++) {
-      if (
-        this.player.getHead().x === this.gameBorder[i].x &&
-        this.player.getHead().y === this.gameBorder[i].y
-      ) {
+    for (const { x, y } of this.gameBorder) {
+      if (headX === x && headY === y) {
         this.player.setDead(true);
       }
     }

@@ -39,9 +39,9 @@ Call this function to update the game width and height.
 A possible usage would be to call that function as follows in the `game.ts`:
 
 ```
-window.onresize = () => {
+window.addEventListener('resize', () => {
   game.resize(window.innerWidth, window.innerHeight);
-};
+});
 ```
 
 ### runDestroy
