@@ -20,6 +20,7 @@
 * Update blendMode cheatsheet (*digitsensitive*)
 * Update depth cheatsheet (*digitsensitive*)
 * Update flip cheatsheet (*digitsensitive*)
+* Update getBounds cheatsheet (*digitsensitive*)
 * Add scene folder with `plugin.md`, `settings.md` and `systems.md` to cheatsheets (*digitsensitive*)
 * Add data folder with `data-manager-plugin.md` to cheatsheets (*digitsensitive*)
 * rename window.onload to window.addEventListener (*digitsensitive*)
