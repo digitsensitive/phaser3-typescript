@@ -21,6 +21,9 @@
 * Update depth cheatsheet (*digitsensitive*)
 * Add scene folder with `plugin.md`, `settings.md` and `systems.md` to cheatsheets (*digitsensitive*)
 * Add data folder with `data-manager-plugin.md` to cheatsheets (*digitsensitive*)
+* rename window.onload to window.addEventListener (*digitsensitive*)
+* Merge PR #19 (*iliyaZelenko*)
+* Merge PR #21 (*ItsMTC*)
 
 ### Bugfixes
 
