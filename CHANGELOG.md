@@ -30,6 +30,7 @@
 * Update texture cheatsheet (*digitsensitive*)
 * Update tint cheatsheet (*digitsensitive*)
 * Update visible cheatsheet (*digitsensitive*)
+* Add computed-size cheatsheet (*digitsensitive*)
 * Add scene folder with `plugin.md`, `settings.md` and `systems.md` to cheatsheets (*digitsensitive*)
 * Add data folder with `data-manager-plugin.md` to cheatsheets (*digitsensitive*)
 * rename window.onload to window.addEventListener (*digitsensitive*)
