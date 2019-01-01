@@ -56,6 +56,9 @@ export class GameScene extends Phaser.Scene {
       })
     );
 
+    this.scoreText[0].setDepth(2);
+    this.scoreText[1].setDepth(3);
+
     this.addRowOfPipes();
 
     this.bird = new Bird({
