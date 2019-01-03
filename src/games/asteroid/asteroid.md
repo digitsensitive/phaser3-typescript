@@ -22,7 +22,7 @@ Adjust the `game.ts` as follows:
 
 ## What will you learn
 
-* Learn to use [GameConfig](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/game-config.md)
+* Learn to use [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
 * Learn to use [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
 * Learn to use Phaser.Loader.LoaderPlugin
 * Learn to use Phaser.GameObjects.BitmapText
