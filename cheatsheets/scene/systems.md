@@ -33,11 +33,14 @@ The core plugins are `non-optional`.
 The default plugins are `optional`, but still they are installed into your
 scene unless you specify otherwise.
 
-#### Scene config
+#### Scene class
+
+You can pass a configuration object into the constructor of a scene to define
+multiple parameters.
 
 ```
-const config = {
-  key: "MyScene",
+const SceneConfig = {
+  key: "YourScene",
   active: false,
   visible: true,
   pack: false,
@@ -47,7 +50,7 @@ const config = {
   physics:{},
   loader: {},
   plugins: false
-}
+};
 ```
 
 #### How to add and remove plugins
@@ -91,6 +94,22 @@ init() {
 }
 ```
 
+And last but no least, you can define the config of the scene outside of the class:
+
+```
+const MySceneConfig = {
+  key: "YourScene",
+  plugins: []
+};
+
+export class YourScene extends Phaser.Scene {
+
+  constructor() {
+    super(MySceneConfig);
+  }
+}
+```
+
 #### How to access the plugins
 
 Phaser 3 uses the so called `Scene Injection Map`. This map is an object, that
@@ -104,8 +123,33 @@ get a reference to the scene. This means, that if you create the object in your
 scene, you will have to send the `this` with it. You will see plenty examples in
 my repository.
 
-Find a list of all the properties here:
-[Injection Map Phaser 3](https://github.com/photonstorm/phaser/blob/master/src/scene/InjectionMap.js).
+This is a list of the properties:
+
+| Property | Value |
+| -------|------|
+| game | game |
+| anims | anims |
+| cache | cache |
+| plugins | plugins |
+| registry | registry |
+| scale | scale |
+| sound | sound |
+| textures | textures |
+| events | events |
+| cameras | cameras |
+| add | add |
+| make | make |
+| scenePlugin | scene |
+| displayList | children |
+| lights | lights |
+| data | data |
+| input | input |
+| load | load |
+| time | time |
+| tweens | tweens |
+| arcadePhysics | physics |
+| impactPhysics | impact |
+| matterPhysics | matter |
 
 You can access the properties within the `map` object in the scene constructor.
 It is possible to rename the properties (here we rename add to add2):
