@@ -1,14 +1,11 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 Digitsensitive
- * @description  Space Invaders: Boot Scene
+ * @copyright    2019 Digitsensitive
+ * @description  Tank: Boot Scene
  * @license      Digitsensitive
  */
 
-import { AnimationHelper } from "../helpers/animation-helper";
-
 export class BootScene extends Phaser.Scene {
-  private animationHelperInstance: AnimationHelper;
   private loadingBar: Phaser.GameObjects.Graphics;
   private progressBar: Phaser.GameObjects.Graphics;
 
@@ -43,10 +40,6 @@ export class BootScene extends Phaser.Scene {
     this.load.on(
       "complete",
       function() {
-        this.animationHelperInstance = new AnimationHelper(
-          this,
-          this.cache.json.get("animationJSON")
-        );
         this.progressBar.destroy();
         this.loadingBar.destroy();
       },
@@ -54,11 +47,7 @@ export class BootScene extends Phaser.Scene {
     );
 
     // load out package
-    this.load.pack(
-      "preload",
-      "./src/games/space-invaders/assets/pack.json",
-      "preload"
-    );
+    this.load.pack("preload", "./src/games/tank/assets/pack.json", "preload");
   }
 
   update(): void {

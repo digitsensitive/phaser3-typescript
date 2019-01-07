@@ -1,23 +1,28 @@
-## :ballot_box_with_check: Phaser.GameObject.Sprite
+## Phaser.GameObject.Sprite
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-#### Example
+### Introduction
+
+Useful to display both static and animated images.
+
+> A sprite can be animated. As such, they take a fraction longer to precess than images.
+
+### Example
 
 ```
-let newSprite = this.add.sprite(20, 30, "spriteTexture", 2);
-```
-> The main difference between a Sprite and an Image Game Object is that you cannot animate Images.
-
-#### Parameters
-
-```
-preUpdate()       : ?
-play()            : ?
-toJSON()          : returns a JSON representation of the game object
+let mySprite = this.add.sprite(20, 30, "spriteTexture", "imageFrame");
 ```
 
-#### Extends
+### Public Functions
+
+#### play()
+Start playing the given animation.
+
+#### toJSON()
+Build a JSON representation of this sprite.
+
+### Extends
 
 - [GameObject](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/gameobject.md)
 
@@ -34,7 +39,7 @@ toJSON()          : returns a JSON representation of the game object
 - [Components.ScaleMode](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/scaleMode.md)
 - [Components.ScrollFactor](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/scroll-factor.md)
 - [Components.Size](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/size.md)
-- [Components.Texture](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/texture.md)
+- [Components.TextureCrop](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/texture-crop.md)
 - [Components.Tint](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/tint.md)
 - [Components.Transform](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/transform.md)
 - [Components.Visible](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/visible.md)

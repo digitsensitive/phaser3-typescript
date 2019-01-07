@@ -17,9 +17,9 @@ const config: GameConfig = {
   title: "Tank",
   url: "https://github.com/digitsensitive/phaser3-typescript",
   version: "1.0",
-  width: 224,
-  height: 240,
-  zoom: 1,
+  width: 800,
+  height: 600,
+  zoom: 1.2,
   type: Phaser.AUTO,
   parent: "game",
   scene: [BootScene, MenuScene, GameScene, HUDScene],
@@ -33,8 +33,8 @@ const config: GameConfig = {
       debug: false
     }
   },
-  backgroundColor: "#f5cc69",
-  render: { pixelArt: true, antialias: false, autoResize: false }
+  backgroundColor: "#80be1f",
+  render: { pixelArt: false, antialias: true, autoResize: false }
 };
 
 export class Game extends Phaser.Game {

@@ -5,7 +5,20 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 #### Example
 
 ```
-let newGroup = this.add.group();
+const GroupConfig = {
+  classType: Sprite,
+  active: true,
+  maxSize: -1,
+  defaultKey: null,
+  defaultFrame: null,
+  runChildUpdate: false,
+  createCallback: null,
+  removeCallback: null,
+  createMultipleCallback: null
+}
+
+
+let myGroup = this.add.group(GroupConfig);
 ```
 
 When you create a new group you can attach a config file.

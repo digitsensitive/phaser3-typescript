@@ -1,7 +1,7 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 Digitsensitive
- * @description  Space Invaders: HUD Scene
+ * @copyright    2019 Digitsensitive
+ * @description  Tank: HUD Scene
  * @license      Digitsensitive
  */
 

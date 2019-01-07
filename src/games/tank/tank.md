@@ -15,7 +15,8 @@ entry: './src/games/tank/game.ts'
 
 ## References
 
-* [XXX](XXX)
+* [OpenGameArt Topdown Tanks](https://opengameart.org/content/topdown-tanks)
+* [Phaser 2 Tank Example](https://phaser.io/examples/v2/games/tanks)
 
 ## Fixes of the TypeScript definition file
 

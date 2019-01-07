@@ -23,7 +23,7 @@ The core plugins are `non-optional`.
 #### Default plugins
 
 - The 3D Camera Manager
-- The Clock
+- [The Clock](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/time/time.md)
 - The Input Plugin
 - The Data Manager Plugin
 - The Loader Plugin
