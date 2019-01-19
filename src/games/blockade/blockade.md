@@ -23,10 +23,11 @@ Adjust the `webpack.config.js` file as follows:
 > `entry: './src/games/blockade/game.ts'`
 
 
-## What will you learn
+## Learn to use
 
-* Learn to use [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
-* Learn to use [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
+* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
+* [Phaser.Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md)
+* [Phaser.Scenes.ScenePlugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
 * Learn to use Phaser.Input.Keyboard.Key
 * Learn to use Phaser.GameObjects.BitmapText
 * Learn to use Phaser.GameObjects.Graphics

@@ -45,11 +45,15 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image("border", "./assets/games/blockade/border.png");
-    this.load.spritesheet("player", "./assets/games/blockade/player.png", {
-      frameWidth: 8,
-      frameHeight: 8
-    });
+    this.load.image("border", "./src/games/blockade/assets/images/border.png");
+    this.load.spritesheet(
+      "player",
+      "./src/games/blockade/assets/images/player.png",
+      {
+        frameWidth: 8,
+        frameHeight: 8
+      }
+    );
   }
 
   create(): void {
