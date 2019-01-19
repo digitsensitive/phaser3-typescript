@@ -14,8 +14,12 @@ If you do not specify an area, it will place it between 0 x 0 and the game width
 #### setRotation()
 Set rotation of the game object (in radians).
 
+> You can also access rotation directly to change the value.
+
 #### setAngle()
 Set angle of the game object (in degrees)
+
+> You can also access angle directly to change the value.
 
 #### setScale()
 Set scale of the game object.

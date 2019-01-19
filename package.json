@@ -1,15 +1,21 @@
 {
   "name": "phaser3-typescript",
-  "version": "1.2.2",
-  "description": "Boilerplate, Tutorials, Cheat Sheets and more for Phaser 3 in Typescript",
+  "version": "1.2.3",
+  "description": "Boilerplate, Game Examples, Cheat Sheets and Tutorials for Phaser 3 in TypeScript",
   "keywords": [
     "Phaser",
     "Phaser 3",
     "Phaser3",
+    "Html5-game",
+    "Phaser-boilerplate",
     "TypeScript",
     "Webpack",
     "Tutorials",
-    "Game Examples"
+    "Phaser-tutorial",
+    "Game Examples",
+    "Phaser-game",
+    "Phaser-framework",
+    "Phaser3-example"
   ],
   "devDependencies": {
     "expose-loader": "0.7.5",

@@ -5,32 +5,55 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 ### Introduction
 
 > When you create a new scene the Scene Manager creates an object called `sys`.
-> This class is the core and it controls quite a lot (also your plugins).
+This class is the core and it controls quite a lot. It also contains references
+to global systems belonging to game.
 
-The core plugins are:
+#### Core plugins
 
 - The Event Emitter
 - The 2D Camera Manager
-- The Game Object Creator
+- [The Game Object Creator](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/game-object-creator-plugin.md)
 - The Game Object Factory
-- The Scene Plugin
+- [The Scene Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
 - The Display List
 - The Update List
 
-The default plugins are:
+The core plugins are `non-optional`.
+
+#### Default plugins
 
 - The 3D Camera Manager
-- The Clock
+- [The Clock](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/time/time.md)
 - The Input Plugin
 - The Data Manager Plugin
-- The Loader Plugin
-- The Tween Manager
+- [The Loader Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/loader/loader-plugin.md)
+- [The Tween Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md)
 - The Lights Plugin
 
-The core plugins are `non-optional`. The default plugins are `optional`, but still
-they are installed into your scene unless you specify otherwise.
+The default plugins are `optional`, but still they are installed into your
+scene unless you specify otherwise.
 
-### How to add and remove plugins
+#### Scene class
+
+You can pass a configuration object into the constructor of a scene to define
+multiple parameters.
+
+```
+const SceneConfig = {
+  key: "YourScene",
+  active: false,
+  visible: true,
+  pack: false,
+  cameras: null,
+  map: {},
+  mapAdd: {},
+  physics:{},
+  loader: {},
+  plugins: false
+};
+```
+
+#### How to add and remove plugins
 
 If you do not want any of the seven default plugins you can pass an empty array
 to the constructor of the scene as follows:
@@ -71,7 +94,23 @@ init() {
 }
 ```
 
-### How to access the plugins
+And last but no least, you can define the config of the scene outside of the class:
+
+```
+const MySceneConfig = {
+  key: "YourScene",
+  plugins: []
+};
+
+export class YourScene extends Phaser.Scene {
+
+  constructor() {
+    super(MySceneConfig);
+  }
+}
+```
+
+#### How to access the plugins
 
 Phaser 3 uses the so called `Scene Injection Map`. This map is an object, that
 maps every plugin to a property within the corresponding scene. For example the
@@ -80,12 +119,37 @@ within your scene with `this.input`. The `this` refers to your scene
 obviously.
 
 > If you separate the game code of a game object to another file, you will have to
-> get a reference to the scene. This means, that if you create the object in your
-> scene, you will have to send the `this` with it. You will see plenty examples in
-> my repository.
+get a reference to the scene. This means, that if you create the object in your
+scene, you will have to send the `this` with it. You will see plenty examples in
+my repository.
 
-Find a list of all the properties here:
-[Injection Map Phaser 3](https://github.com/photonstorm/phaser/blob/master/src/scene/InjectionMap.js).
+This is a list of the properties:
+
+| Property | Value |
+| -------|------|
+| game | game |
+| anims | anims |
+| cache | cache |
+| plugins | plugins |
+| registry | registry |
+| scale | scale |
+| sound | sound |
+| textures | textures |
+| events | events |
+| cameras | cameras |
+| add | add |
+| make | make |
+| scenePlugin | scene |
+| displayList | children |
+| lights | lights |
+| data | data |
+| input | input |
+| load | load |
+| time | time |
+| tweens | tweens |
+| arcadePhysics | physics |
+| impactPhysics | impact |
+| matterPhysics | matter |
 
 You can access the properties within the `map` object in the scene constructor.
 It is possible to rename the properties (here we rename add to add2):
