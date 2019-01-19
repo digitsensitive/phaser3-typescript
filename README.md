@@ -83,10 +83,10 @@ npm run dev
 ![Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-blue.svg)
 
 <p float="left">
-  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders/space-invaders.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders/assets/github/spaceInvaders.png" width="420" /></a>
-</p>
-<p float="left">
-  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/tank/tank.md"><img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/tank/assets/github/tank.png" width="420" /></a>
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders/space-invaders.md">
+  <img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders/assets/github/spaceInvaders.png" width="420" /></a>
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/tank/tank.md">
+  <img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/tank/assets/github/tank.png" width="420" /></a>
 </p>
 
 - If you have any suggestion for a next game example, let me know!
