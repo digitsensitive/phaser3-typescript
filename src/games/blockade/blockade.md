@@ -2,7 +2,6 @@
 
 ![Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade/assets/github/blockade.png)
 
-
 ## Description
 
 In October 1976 Gremlin published a 2-player Maze Game called Blockade.
@@ -16,12 +15,10 @@ after one player gained six wins ([Wikipedia](https://en.wikipedia.org/wiki/Bloc
 
 We are going to create a blockade clone.
 
-
 ## How to run it
 
 Adjust the `webpack.config.js` file as follows:
 > `entry: './src/games/blockade/game.ts'`
-
 
 ## Learn to use
 
