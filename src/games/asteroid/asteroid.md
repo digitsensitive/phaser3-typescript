@@ -1,6 +1,6 @@
 # Asteroid ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-![Asteroid](ttps://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/assets/github/asteroid.png)
+![Asteroid](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/assets/github/asteroid.png)
 
 ## Description
 
