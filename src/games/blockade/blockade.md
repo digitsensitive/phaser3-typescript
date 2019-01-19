@@ -1,6 +1,6 @@
-# Blockade
+# Blockade ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-![Blockade](/assets/games/blockade/README.gif)
+![Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade/assets/github/blockade.png)
 
 
 ## Description
