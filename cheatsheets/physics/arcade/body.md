@@ -25,3 +25,6 @@ Sets the body's horizontal acceleration.
 
 #### setAccelerationY()
 Sets the body's vertical acceleration.
+
+#### setImmovable()
+Set the body to be immovable.

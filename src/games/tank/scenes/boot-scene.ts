@@ -16,16 +16,16 @@ export class BootScene extends Phaser.Scene {
   }
 
   preload(): void {
-    // set the background and create loading bar
-    this.cameras.main.setBackgroundColor(0x98d687);
-    this.createLoadingbar();
+    // set the background, create the loading and progress bar
+    this.cameras.main.setBackgroundColor(0x000000);
+    this.createLoadingGraphics();
 
     // pass value to change the loading bar fill
     this.load.on(
       "progress",
       function(value) {
         this.progressBar.clear();
-        this.progressBar.fillStyle(0xfff6d3, 1);
+        this.progressBar.fillStyle(0x88e453, 1);
         this.progressBar.fillRect(
           this.cameras.main.width / 4,
           this.cameras.main.height / 2 - 16,
@@ -46,7 +46,7 @@ export class BootScene extends Phaser.Scene {
       this
     );
 
-    // load out package
+    // load our package
     this.load.pack("preload", "./src/games/tank/assets/pack.json", "preload");
   }
 
@@ -54,9 +54,9 @@ export class BootScene extends Phaser.Scene {
     this.scene.start("MenuScene");
   }
 
-  private createLoadingbar(): void {
+  private createLoadingGraphics(): void {
     this.loadingBar = this.add.graphics();
-    this.loadingBar.fillStyle(0x5dae47, 1);
+    this.loadingBar.fillStyle(0xffffff, 1);
     this.loadingBar.fillRect(
       this.cameras.main.width / 4 - 2,
       this.cameras.main.height / 2 - 18,

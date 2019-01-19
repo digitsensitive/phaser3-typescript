@@ -13,7 +13,7 @@ Adjust the entry path in the `webpack.config.js` file as follows:
 entry: './src/games/space-invaders/game.ts'
 ```
 
-## References used
+## References
 
 * [Bullets Pool](https://labs.phaser.io/edit.html?src=src\pools\bullets.js)
 * [Phaser 2 Invaders](https://phaser.io/examples/v2/games/invaders)

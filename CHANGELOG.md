@@ -16,7 +16,7 @@
 
 ---
 
-## Version 1.2.3 - 1th January 2019
+## Version 1.2.3 - 19th January 2019
 
 ### Features
 
@@ -57,6 +57,13 @@
 * Add time-event cheatsheet (*digitsensitive*)
 * Add arcade-physics cheatsheet (*digitsensitive*)
 * Add body cheatsheet (*digitsensitive*)
+* Add tilemap cheatsheet (*digitsensitive*)
+* Add game-object-creator-plugin cheatsheet (*digitsensitive*)
+* Add tween-manager-plugin cheatsheet (*digitsensitive*)
+* Add ease-map cheatsheet (*digitsensitive*)
+* Add tween cheatsheet (*digitsensitive*)
+* Add loader-plugin cheatsheet (*digitsensitive*)
+* Add pack-file cheatsheet (*digitsensitive*)
 * Add scene folder with `plugin.md`, `settings.md` and `systems.md` to cheatsheets (*digitsensitive*)
 * Add data folder with `data-manager-plugin.md` to cheatsheets (*digitsensitive*)
 * rename window.onload to window.addEventListener (*digitsensitive*)

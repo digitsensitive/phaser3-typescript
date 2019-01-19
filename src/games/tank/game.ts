@@ -10,19 +10,18 @@
 import "phaser";
 import { BootScene } from "./scenes/boot-scene";
 import { GameScene } from "./scenes/game-scene";
-import { HUDScene } from "./scenes/hud-scene";
 import { MenuScene } from "./scenes/menu-scene";
 
 const config: GameConfig = {
   title: "Tank",
   url: "https://github.com/digitsensitive/phaser3-typescript",
   version: "1.0",
-  width: 800,
-  height: 600,
-  zoom: 1.2,
+  width: 1600,
+  height: 1200,
+  zoom: 0.6,
   type: Phaser.AUTO,
   parent: "game",
-  scene: [BootScene, MenuScene, GameScene, HUDScene],
+  scene: [BootScene, MenuScene, GameScene],
   input: {
     keyboard: true
   },
@@ -33,7 +32,7 @@ const config: GameConfig = {
       debug: false
     }
   },
-  backgroundColor: "#80be1f",
+  backgroundColor: "#000000",
   render: { pixelArt: false, antialias: true, autoResize: false }
 };
 
