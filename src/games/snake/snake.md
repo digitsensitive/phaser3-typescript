@@ -1,6 +1,6 @@
-# Snake
+# Snake ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-![Snake](/assets/games/snake/README.gif)
+![Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/assets/github/snake.png)
 
 ## Description
 
@@ -14,13 +14,14 @@ We are going to create a simple 1-player Snake clone.
 Adjust the `webpack.config.js` file as follows:
 > `entry: './src/games/snake/game.ts'`
 
-## What will you learn
+## Learn to use
 
-* Setup your own [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
-* Learn to use [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
+* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
+* [Phaser.Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md)
+* [Phaser.Scenes.ScenePlugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
 * Create two classes (player and apple) in two separate files
-* Learn to use [Phaser.GameObjects.Graphics](https://github.com/photonstorm/phaser/blob/31bf979eb25c70441b8228d5c9643a97746ea7fa/src/gameobjects/graphics/Graphics.js)
+* Phaser.GameObjects.Graphics
 * Basic collision detection
 * Setup player input (Keyboard)
-* Learn to use Phaser.GameObjects.BitmapText
-* Learn to use [Phaser.Math.RandomDataGenerator](https://github.com/photonstorm/phaser/blob/31bf979eb25c70441b8228d5c9643a97746ea7fa/src/math/random-data-generator/RandomDataGenerator.js)
+* Phaser.GameObjects.BitmapText
+* Phaser.Math.RandomDataGenerator

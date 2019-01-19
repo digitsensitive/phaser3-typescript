@@ -31,8 +31,8 @@ export class MainMenuScene extends Phaser.Scene {
   preload(): void {
     this.load.bitmapFont(
       "snakeFont",
-      "./assets/games/snake/snakeFont.png",
-      "./assets/games/snake/snakeFont.fnt"
+      "./src/games/snake/assets/font/snakeFont.png",
+      "./src/games/snake/assets/font/snakeFont.fnt"
     );
   }
 
