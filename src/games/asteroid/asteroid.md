@@ -1,6 +1,6 @@
-# Asteroid
+# Asteroid ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-![Asteroid](/assets/games/asteroid/README.gif)
+![Asteroid](ttps://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid/assets/github/asteroid.png)
 
 ## Description
 
@@ -20,17 +20,17 @@ Adjust the `game.ts` as follows:
 > width: window.innerWidth
 > height: window.innerHeight
 
-## What will you learn
+## Learn to use
 
-* Learn to use [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
-* Learn to use [Phaser.Scene](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene-config.md)
-* Learn to use Phaser.Loader.LoaderPlugin
-* Learn to use Phaser.GameObjects.BitmapText
-* Learn to use Phaser.Input.Keyboard.Key
-* Learn to use Phaser.GameObjects.Graphics
-* Learn to use [Phaser.Geom.Intersects.RectangleToRectangle](https://github.com/photonstorm/phaser/blob/d1f5f8a82b4a64d2a6a6a269e148232b51661a19/src/geom/intersects/RectangleToRectangle.js)
-* Learn to use [Phaser.Math.RandomDataGenerator](https://github.com/photonstorm/phaser/blob/31bf979eb25c70441b8228d5c9643a97746ea7fa/src/math/random-data-generator/RandomDataGenerator.js)
-
+* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
+* [Phaser.Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md)
+* [Phaser.Scenes.ScenePlugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
+* [Phaser.Loader](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/loader/loader-plugin.md)
+* Phaser.GameObjects.BitmapText
+* Phaser.Input.Keyboard.Key
+* Phaser.GameObjects.Graphics
+* Phaser.Geom.Intersects.RectangleToRectangle
+* Phaser.Math.RandomDataGenerator
 
 ## Fixes of the TypeScript definition file
 
