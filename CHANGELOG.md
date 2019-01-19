@@ -16,6 +16,25 @@
 
 ---
 
+## Version 1.2.X - XYZth XYZ 2019
+
+### Features
+
+* ...
+
+### Updates
+
+* update webpack-cli version from 3.1.2 to 3.2.1 (*digitsensitive*)
+* update webpack version from 4.28.3 to 4.28.4 (*digitsensitive*)
+* update typescript version from 3.2.2 to 3.2.4 (*digitsensitive*)
+* update ts-loader version from 5.3.2 to 5.3.3 (*digitsensitive*)
+
+### Bugfixes
+
+* ...
+
+---
+
 ## Version 1.2.3 - 19th January 2019
 
 ### Features
