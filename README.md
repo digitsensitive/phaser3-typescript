@@ -108,6 +108,7 @@ npm run dev
 - [Leshy SpriteSheet Tool](https://www.leshylabs.com/apps/sstool)
 - [Tiled](https://www.mapeditor.org)
 - [Littera](http://kvazars.com/littera)
+- [Tile Extruder](https://github.com/sporadic-labs/tile-extruder)
 
 ## Changelog
 
