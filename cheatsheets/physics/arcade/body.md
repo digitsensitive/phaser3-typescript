@@ -28,3 +28,8 @@ Sets the body's vertical acceleration.
 
 #### setImmovable()
 Set the body to be immovable.
+
+#### setSize()
+Size and position of the body boundary (rectangle).
+
+> If not set and the parent game object has a frame, it will use the frame width and height.

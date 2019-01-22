@@ -5,7 +5,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 ### Introduction
 
 A Tilemap is simply a container for tilemap data (tilesets and tilemap layers).
-A map can have one or more tilemap layers (StaticTilemapLayer or DynamicTilemapLayer).
+A map can have one or more tilemap layers ([StaticTilemapLayer](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tilemaps/static-tilemap-layer.md) or DynamicTilemapLayer).
 The tilemap layers do actually render tiles.
 
 The Tilemap data be parsed from a Tiled JSON file, a CSV file or a 2D array.
@@ -34,6 +34,18 @@ let myTilemap = this.make.tilemap(TilemapConfig);
 > When loading from CSV or a 2D array, you should specify the tileWidth and tileHeight.
 > When parsing from a map from Tiled, the tileWidth, tileHeight, width and height will be pulled from the map data.
 > For an empty map, you should specify tileWidth, tileHeight, width and height.
+
+### Public Functions
+
+#### createStaticLayer()
+Create a new `StaticTilemapLayer` that renders the LayerData associated with the given `layerID`.
+The currently selected layer in the map is set to this new layer.
+
+```
+let myLayer = myTilemap.createStaticLayer("nameOfLayer", myTileset, 0, 0);
+```
+
+> It is important to remember that a static layer cannot be modified!
 
 ### References
 

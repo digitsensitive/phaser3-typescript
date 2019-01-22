@@ -20,7 +20,7 @@
 
 ### Features
 
-* ...
+* New Game Super-Mario-Land (*digitsensitive*)
 
 ### Updates
 
@@ -28,6 +28,9 @@
 * update webpack version from 4.28.3 to 4.28.4 (*digitsensitive*)
 * update typescript version from 3.2.2 to 3.2.4 (*digitsensitive*)
 * update ts-loader version from 5.3.2 to 5.3.3 (*digitsensitive*)
+* Add static-tilemap-layer cheatsheet (*digitsensitive*)
+* update tilemap cheatsheet (*digitsensitive*)
+* update body cheatsheet (*digitsensitive*)
 
 ### Bugfixes
 

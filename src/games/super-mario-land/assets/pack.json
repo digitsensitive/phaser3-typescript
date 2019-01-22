@@ -2,20 +2,34 @@
   "preload": {
     "files": [
       {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "src/games/super-mario-land/assets/font/font.png",
+        "fontDataURL": "src/games/super-mario-land/assets/font/font.fnt"
+      },
+      {
         "type": "tilemapTiledJSON",
         "key": "level1",
         "url": "src/games/super-mario-land/assets/maps/level1.json"
       },
       {
-        "type": "bitmapFont",
-        "key": "font",
-        "textureURL": "src/games/tank/assets/font/font.png",
-        "fontDataURL": "src/games/tank/assets/font/font.fnt"
-      },
-      {
         "type": "image",
         "key": "tiles",
         "url": "src/games/super-mario-land/assets/tiles/tiles.png"
+      },
+      {
+        "type": "json",
+        "key": "animationJSON",
+        "url": "src/games/super-mario-land/assets/animations/animations.json"
+      },
+      {
+        "type": "spritesheet",
+        "key": "mario",
+        "url": "./src/games/super-mario-land/assets/sprites/mario.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
       }
     ]
   }

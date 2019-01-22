@@ -1,0 +1,15 @@
+{
+  "anims": [
+    {
+      "key": "smallMarioWalk",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "mario",
+        "start": 0,
+        "end": 3
+      },
+      "repeat": -1,
+      "frameRate": 15
+    }
+  ]
+}
