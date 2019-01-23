@@ -35,30 +35,10 @@ export class Mario extends Phaser.GameObjects.Sprite {
 
     // input
     this.keys = new Map([
-      [
-        "LEFT",
-        this.currentScene.input.keyboard.addKey(
-          Phaser.Input.Keyboard.KeyCodes.LEFT
-        )
-      ],
-      [
-        "RIGHT",
-        this.currentScene.input.keyboard.addKey(
-          Phaser.Input.Keyboard.KeyCodes.RIGHT
-        )
-      ],
-      [
-        "DOWN",
-        this.currentScene.input.keyboard.addKey(
-          Phaser.Input.Keyboard.KeyCodes.DOWN
-        )
-      ],
-      [
-        "JUMP",
-        this.currentScene.input.keyboard.addKey(
-          Phaser.Input.Keyboard.KeyCodes.SPACE
-        )
-      ]
+      ["LEFT", this.addKey("LEFT")],
+      ["RIGHT", this.addKey("RIGHT")],
+      ["DOWN", this.addKey("DOWN")],
+      ["JUMP", this.addKey("SPACE")]
     ]);
 
     // physics
@@ -66,6 +46,10 @@ export class Mario extends Phaser.GameObjects.Sprite {
     this.body.setSize(7, 15);
     this.body.maxVelocity.x = 50;
     this.body.maxVelocity.y = 180;
+  }
+
+  private addKey(key: string): Phaser.Input.Keyboard.Key {
+    return this.currentScene.input.keyboard.addKey(key);
   }
 
   update(): void {
@@ -94,6 +78,10 @@ export class Mario extends Phaser.GameObjects.Sprite {
       if (!this.isJumping) {
         this.anims.play(this.marioSize + "MarioWalk", true);
       }
+    } else if (this.keys.get("DOWN").isDown && !this.isJumping) {
+      this.body.setVelocityX(0);
+      this.body.setAccelerationX(0);
+      this.setFrame(13);
     } else {
       this.body.setVelocityX(0);
       this.body.setAccelerationX(0);
