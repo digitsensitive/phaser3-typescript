@@ -9,10 +9,11 @@ export class Mario extends Phaser.GameObjects.Sprite {
   // variables
   private currentScene: Phaser.Scene;
   private marioSize: string;
+  private acceleration: number;
+  private isJumping: boolean;
 
   // input
-  private cursors: Phaser.Input.Keyboard.CursorKeys;
-  private jumpKey: Phaser.Input.Keyboard.Key;
+  private keys: Map<string, Phaser.Input.Keyboard.Key>;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
@@ -25,20 +26,46 @@ export class Mario extends Phaser.GameObjects.Sprite {
   private initSprite() {
     // variables
     this.marioSize = "small";
+    this.acceleration = 500;
+    this.isJumping = false;
 
     // sprite
     this.setOrigin(0.5, 0.5);
     this.setFlipX(false);
 
     // input
-    this.cursors = this.currentScene.input.keyboard.createCursorKeys();
-    this.jumpKey = this.currentScene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE
-    );
+    this.keys = new Map([
+      [
+        "LEFT",
+        this.currentScene.input.keyboard.addKey(
+          Phaser.Input.Keyboard.KeyCodes.LEFT
+        )
+      ],
+      [
+        "RIGHT",
+        this.currentScene.input.keyboard.addKey(
+          Phaser.Input.Keyboard.KeyCodes.RIGHT
+        )
+      ],
+      [
+        "DOWN",
+        this.currentScene.input.keyboard.addKey(
+          Phaser.Input.Keyboard.KeyCodes.DOWN
+        )
+      ],
+      [
+        "JUMP",
+        this.currentScene.input.keyboard.addKey(
+          Phaser.Input.Keyboard.KeyCodes.SPACE
+        )
+      ]
+    ]);
 
     // physics
     this.currentScene.physics.world.enable(this);
-    this.body.setSize(10, 16);
+    this.body.setSize(7, 15);
+    this.body.maxVelocity.x = 50;
+    this.body.maxVelocity.y = 180;
   }
 
   update(): void {
@@ -46,22 +73,41 @@ export class Mario extends Phaser.GameObjects.Sprite {
   }
 
   private handleInput() {
-    // handle movements to left and right
-    if (this.cursors.right.isDown) {
-      this.body.setVelocityX(80);
-      this.setFlipX(false);
-      this.anims.play(this.marioSize + "MarioWalk", true);
-    } else if (this.cursors.left.isDown) {
-      this.body.setVelocityX(-80);
-      this.setFlipX(true);
+    // evaluate if player is on the floor
+    // if not on the floor, set the player to be jumping
+    if (this.body.onFloor()) {
+      this.isJumping = false;
     } else {
-      this.body.setVelocity(0, 0);
+      this.isJumping = true;
+    }
+
+    // handle movements to left and right
+    if (this.keys.get("RIGHT").isDown) {
+      this.body.setAccelerationX(this.acceleration);
+      this.setFlipX(false);
+      if (!this.isJumping) {
+        this.anims.play(this.marioSize + "MarioWalk", true);
+      }
+    } else if (this.keys.get("LEFT").isDown) {
+      this.body.setAccelerationX(-this.acceleration);
+      this.setFlipX(true);
+      if (!this.isJumping) {
+        this.anims.play(this.marioSize + "MarioWalk", true);
+      }
+    } else {
+      this.body.setVelocityX(0);
+      this.body.setAccelerationX(0);
       this.anims.stop();
+      if (!this.isJumping) {
+        this.setFrame(0);
+      }
     }
 
     // handle jumping
-    if (this.jumpKey.isDown) {
-      this.body.setVelocityY(-200);
+    if (this.keys.get("JUMP").isDown && !this.isJumping) {
+      this.body.setVelocityY(-180);
+      this.anims.stop();
+      this.setFrame(4);
     }
   }
 }
