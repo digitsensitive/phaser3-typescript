@@ -5,6 +5,7 @@
  * @license      Digitsensitive
  */
 
+import { Box } from "../objects/box";
 import { Mario } from "../objects/mario";
 
 export class GameScene extends Phaser.Scene {
@@ -15,6 +16,7 @@ export class GameScene extends Phaser.Scene {
   private foregroundLayer: Phaser.Tilemaps.StaticTilemapLayer;
 
   // game objects
+  private boxes: Phaser.GameObjects.Group;
   private player: Mario;
 
   constructor() {
@@ -49,10 +51,15 @@ export class GameScene extends Phaser.Scene {
     this.foregroundLayer.setCollisionByProperty({ collide: true });
 
     // game objects
+    this.boxes = this.add.group({
+      classType: Box
+    });
+
     this.loadObjectsFromTilemap();
 
     // add colliders
     this.physics.add.collider(this.player, this.foregroundLayer);
+    this.physics.add.collider(this.player, this.boxes);
 
     // set our main camera
     this.cameras.main.startFollow(this.player);
@@ -80,6 +87,18 @@ export class GameScene extends Phaser.Scene {
           y: object.y,
           key: "mario"
         });
+      }
+
+      if (object.type === "boxWithCoin") {
+        this.boxes.add(
+          new Box({
+            scene: this,
+            x: object.x,
+            y: object.y,
+            key: "boxQuestion",
+            insideBox: "coin"
+          })
+        );
       }
     });
   }

@@ -108,7 +108,6 @@ export class Mario extends Phaser.GameObjects.Sprite {
       } else {
         this.setFrame(10);
       }
-      this.growMario();
     }
   }
 

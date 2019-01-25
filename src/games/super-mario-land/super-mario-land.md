@@ -4,7 +4,8 @@
 
 ## Description
 
-...
+A remake of the famous and great Super Mario Land released in 1989 on the Game Boy.
+I have used the original screen resolution of 160 x 144 Pixels.
 
 ## How to run it
 
@@ -19,11 +20,10 @@ entry: './src/games/super-mario-land/game.ts'
 
 ## Technical data Game Boy (Classic)
 
-* Screen resolution: 160 x 144 Pixels
-* Screen size: 4.7 x 4.3 cm
-* Colours: Grey, transparent, black, white, red, green, yellow, blue
 
-## References
+
+## References and Resources
 
 * [Spriters Resource](https://www.spriters-resource.com/game_boy_gbc/sml)
+* [Super Mario Land Font by Patrick Lauke, CC BY 3.0 license](https://smartfonts.com/super-mario-land.font)
 * [Nintendo Technical Data](https://www.nintendo.co.uk/Support/Game-Boy-Pocket-Color/Product-information/Technical-data/Technical-data-619585.html)

@@ -4,8 +4,8 @@
       {
         "type": "bitmapFont",
         "key": "font",
-        "textureURL": "src/games/super-mario-land/assets/font/font.png",
-        "fontDataURL": "src/games/super-mario-land/assets/font/font.fnt"
+        "textureURL": "src/games/super-mario-land/assets/font/superMarioLand.png",
+        "fontDataURL": "src/games/super-mario-land/assets/font/superMarioLand.fnt"
       },
       {
         "type": "tilemapTiledJSON",
@@ -29,6 +29,15 @@
         "frameConfig": {
           "frameWidth": 16,
           "frameHeight": 16
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "boxQuestion",
+        "url": "./src/games/super-mario-land/assets/sprites/boxQuestion.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
         }
       }
     ]

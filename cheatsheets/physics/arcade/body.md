@@ -44,4 +44,7 @@ Set the body bounce.
 #### setOffset
 Set the offset of the body's position from its game object's position.
 
+#### setAllowGravity
+Enables or disables gravity's effect on this body.
+
 > If not set and the parent game object has a frame, it will use the frame width and height.
