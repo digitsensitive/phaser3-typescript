@@ -54,7 +54,7 @@ export class GameScene extends Phaser.Scene {
     // add colliders
     this.physics.add.collider(this.player, this.foregroundLayer);
 
-    // camera --> TODO WRITE CHEATSHEEET BEFORE CONTINUE!!!
+    // set our main camera
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBounds(
       0,

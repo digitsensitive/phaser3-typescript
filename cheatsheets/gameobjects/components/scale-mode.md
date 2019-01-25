@@ -4,7 +4,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### setScaleMode()
+#### setScaleMode
 Set the scale mode.
 
 > Either Phaser.ScaleModes.LINEAR or Phaser.ScaleModes.NEAREST).

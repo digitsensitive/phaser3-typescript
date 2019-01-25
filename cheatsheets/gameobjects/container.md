@@ -25,7 +25,7 @@ myContainer.add([ sprite1, sprite2 ]);
 
 ### Public Functions
 
-#### setExclusive()
+#### setExclusive
 If you want to add a child (= a game object) to more than one container, you
 have to set the variable `exclusive` of one of the two containers to `false`.
 
@@ -37,7 +37,7 @@ position you defined it (see [official example](http://labs.phaser.io/edit.html?
 In other words the child will stay in the internal display list of the scene
 and the two containers will reference to that game object
 
-#### getBounds()
+#### getBounds
 This function returns a `Phaser.Geom.Rectangle` object (amongst other things
 containing the x and y position and the width and height) of the container.
 It will go through all the children and calculate a min-max rectangle.
@@ -47,56 +47,56 @@ It will go through all the children and calculate a min-max rectangle.
 > You can use the rectangle to make it interactive for input:
 > myContainer.setInteractive(myContainer.getBounds(), Phaser.Geom.Rectangle.Contains);
 
-#### pointToContainer()
+#### pointToContainer
 Takes a Point-like object (Vector2, Geom.Point or object), transforms it
 into the space of the container and returns it.
 
-#### getBoundsTransformMatrix()
+#### getBoundsTransformMatrix
 Returns the world transform matrix.
 
-#### add()
+#### add
 Adds a game object or array of game objects to container.
 Every game object in a container must be unique.
 
-#### addAt()
+#### addAt
 Add a game object or array of game objects to the container at a
 specific position.
 
-#### getAt()
+#### getAt
 Get a game object at the given position.
 
-#### getIndex()
+#### getIndex
 Get the index of the game object.
 
-#### sort()
+#### sort
 Sort contents of container in order based on the given property.
 For example sort by `alpha` value, `x` or `y` position.
 
-#### getByName()
+#### getByName
 Search for the first instance of a child matching the given `name`.
 
-#### getRandom()
+#### getRandom
 Get a random game object of the container.
 
-#### getFirst()
+#### getFirst
 Get the first game object in the container or specify a property and value
 of a game object you want to return.
 
-#### getAll()
+#### getAll
 Get all the game objects in the container or specify a property and value
 of the game objects you want to return.
 
-#### count()
+#### count
 Get number of all game objects in the container or specify a property and value
 to get only the number of game objects matching these criteria.
 
-#### swap()
+#### swap
 Swap to game objects in the container.
 
-#### moveTo()
+#### moveTo
 Move a game object to a new position within the container.
 
-#### remove()
+#### remove
 Remove a game object or array of game objects from the container.
 ```
 myContainer.remove(sprite1);
@@ -106,45 +106,45 @@ or
 sprite1.destroy();
 ```
 
-#### removeAt()
+#### removeAt
 Remove a game object or array of game objects from the container at a
 specific position.
 
-#### removeBetween()
+#### removeBetween
 Remove the game objects between two positions in the container.
 
-#### removeAll()
+#### removeAll
 Remove all game objects from the container.
 
-#### bringToTop()
+#### bringToTop
 Bring the given game object to the top of the container.
 
-#### sendToBack()
+#### sendToBack
 Send the given game object to the bottom of the container.
 
-#### moveUp()
+#### moveUp
 Move the given game object up one place in the container.
 
-#### moveDown()
+#### moveDown
 Move the given game object down one place in the container.
 
-#### reverse()
+#### reverse
 Reverse the order of all game objects.
 
-#### shuffle()
+#### shuffle
 Shuffle all game objects using the Fisher-Yates implementation.
 
-#### replace()
+#### replace
 Replace the game object with a new one.
 
-#### exists()
+#### exists
 Check if a given game object is a child of the container.
 Will return `true` if the case.
 
-#### setAll()
+#### setAll
 Set a property to a given value on all game objects.
 
-#### each()
+#### each
 Loop through all game objects in the container.
 Using this function, you will get a copy of the container.
 
@@ -157,7 +157,7 @@ container.each(function(child) {
 });
 ```
 
-#### iterate()
+#### iterate
 Loop through all game objects in the container.
 
 > Do not use this function if you change the size of the container

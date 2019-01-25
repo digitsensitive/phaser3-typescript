@@ -4,20 +4,20 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### toggleFlipX()
+#### toggleFlipX
 Toggle horizontal flipped state.
 
-#### toggleFlipY()
+#### toggleFlipY
 Toggle vertical flipped state.
 
-#### setFlipX()
+#### setFlipX
 Set horizontal flipped state.
 
-#### setFlipY()
+#### setFlipY
 Set vertical flipped state.
 
-#### setFlip()
+#### setFlip
 Set horizontal and vertical flipped states.
 
-#### resetFlip()
+#### resetFlip
 Reset horizontal and vertical flipped states.

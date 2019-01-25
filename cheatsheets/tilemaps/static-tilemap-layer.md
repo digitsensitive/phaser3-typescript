@@ -13,14 +13,14 @@ Use a Static Tilemap Layer instead of a Dynamic Tilemap Layer when you don't nee
 
 ### Public Functions
 
-#### setCollisionByProperty()
+#### setCollisionByProperty
 Sets collision on the tiles within a layer by checking tile properties.
 If a tile has a property that matches the given properties object, its collision flag will be set.
 
 > You can also use an array of values, e.g. `{ types: ["stone", "lava", "sand" ] }`
 If a tile has a "types" property that matches any of those values, its collision flag will be updated.
 
-#### renderDebug()
+#### renderDebug
 Draws a debug representation of the layer to the given graphics.
 
 > Helpful if you want to get a quick idea, which of your tiles are colliding

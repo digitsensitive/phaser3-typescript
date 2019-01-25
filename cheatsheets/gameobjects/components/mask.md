@@ -4,7 +4,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### setMask()
+#### setMask
 Set mask of the game object.
 
 > You must create a musk before, either a GeometryMask or a BitmapMask.
@@ -14,16 +14,16 @@ Set mask of the game object.
 | BitmapMask | X |  |
 | GeometryMask | X | X |
 
-#### clearMask()
+#### clearMask
 Clear mask of the game object.
 
-#### createBitmapMask()
+#### createBitmapMask
 Creates and returns a bitmap mask.
 
 > Pass a reference to a renderable Game Object (must use a texture):
 For example Image, Sprite, Render Texture or BitmapText.
 
-#### createGeometryMask()
+#### createGeometryMask
 Creates and returns a geometry mask.
 
 > Pass a reference to a graphics game object.

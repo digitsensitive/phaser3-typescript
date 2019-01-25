@@ -11,7 +11,7 @@ to global systems belonging to game.
 #### Core plugins
 
 - The Event Emitter
-- The 2D Camera Manager
+- [The 2D Camera Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/cameras/camera-manager.md)
 - [The Game Object Creator](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/game-object-creator-plugin.md)
 - The Game Object Factory
 - [The Scene Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)

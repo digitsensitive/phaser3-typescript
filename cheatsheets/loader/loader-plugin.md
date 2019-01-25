@@ -13,12 +13,12 @@ with `maxParallelDownloads`.
 
 ### Public Functions
 
-#### setBaseURL()
+#### setBaseURL
 Append a URL before the path of any asset.
 > Once a base URL is set it will affect every file loaded by the Loader from that point on.
 It does not change any file already being loaded. To reset it, call this method with no arguments.
 
-#### setPath()
+#### setPath
 The value of `path`, if set, is placed before any relative file path given.
 
 ```
@@ -29,46 +29,46 @@ this.load.image("boom", "http://server.com/explode.png"); -> http://server.com/e
 
 > Please note that the path is added before the filename but after the baseURL (if set.)
 
-#### setPrefix()
+#### setPrefix
 An optional prefix that is automatically prepended to the start of every file key.
 
-#### setCORS()
+#### setCORS
 Set the Cross Origin Resource Sharing value used when loading files.
 
 > https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
-#### keyExists()
+#### keyExists
 Check the key and type of the given file to see if it will conflict with anything already
 in a Cache, the Texture Manager, or the list or inflight queues.
 
-#### addPack()
+#### addPack
 Takes a well formed, fully parsed pack file object and adds its entries into the load queue.
 
 > Usually you do not call this method directly, but instead use `Loader.pack` and
 supply a path to a JSON file that holds the pack data.
 
-#### isLoading()
+#### isLoading
 Is the Loader actively loading, or processing loaded files?
 
-#### isReady()
+#### isReady
 Is the Loader ready to start a new load?
 
-#### flagForRemoval()
+#### flagForRemoval
 Add a file into the pending-deletion queue.
 
-#### saveJSON()
+#### saveJSON
 Convert the given JSON data into a file that the browser then prompts you
 to download so you can save it locally.
 
 > The data must be well formed JSON and ready-parsed, not a JavaScript object.
 
-#### save()
+#### save
 Causes the browser to save the given data as a file to its default Downloads folder.
 
 > Creates a DOM level anchor link, assigns it as being a `download` anchor, sets the href
 to be an ObjectURL based on the given data, and then invokes a click event.
 
-#### reset()
+#### reset
 Reset the Loader.
 
 > This will clear all lists and reset the base URL, path and prefix.

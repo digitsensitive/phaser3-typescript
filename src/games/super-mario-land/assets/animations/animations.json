@@ -10,6 +10,17 @@
       },
       "repeat": -1,
       "frameRate": 18
+    },
+    {
+      "key": "bigMarioWalk",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "mario",
+        "start": 6,
+        "end": 9
+      },
+      "repeat": -1,
+      "frameRate": 18
     }
   ]
 }

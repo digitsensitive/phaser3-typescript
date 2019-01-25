@@ -4,16 +4,16 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### clearTint()
+#### clearTint
 Clears all tint values (color back to 0xffffff and tint type 'additive').
 
-#### setTint()
+#### setTint
 Set an additive tint on the game object.
 
 > Additive Tinting = Pixel color values from the Game Objects texture multiplying
 by the color value of the tint
 
-#### setTintFill()
+#### setTintFill
 Sets a fill-based tint on the game object.
 
 > Fill Tinting = Replaces the pixel colors from the texture with those in the tint.

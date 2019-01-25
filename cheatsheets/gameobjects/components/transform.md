@@ -4,40 +4,40 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### setPosition()
+#### setPosition
 Set position of the game object.
 
 #### setRandomPosition
 Set a random position of the game object within the given area.
 If you do not specify an area, it will place it between 0 x 0 and the game width x height.
 
-#### setRotation()
+#### setRotation
 Set rotation of the game object (in radians).
 
 > You can also access rotation directly to change the value.
 
-#### setAngle()
+#### setAngle
 Set angle of the game object (in degrees)
 
 > You can also access angle directly to change the value.
 
-#### setScale()
+#### setScale
 Set scale of the game object.
 
-#### setX()
+#### setX
 Set x position of the game object.
 
-#### setY()
+#### setY
 Set y position of the game object.
 
-#### setZ()
+#### setZ
 Set z position of the game object.
 
-#### setW()
+#### setW
 Set w position of the game object.
 
-#### getLocalTransformMatrix()
+#### getLocalTransformMatrix
 Get local transform matrix.
 
-#### getWorldTransformMatrix()
+#### getWorldTransformMatrix
 Get world transform matrix

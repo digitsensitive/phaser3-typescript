@@ -31,6 +31,9 @@
 * Add static-tilemap-layer cheatsheet (*digitsensitive*)
 * update tilemap cheatsheet (*digitsensitive*)
 * update body cheatsheet (*digitsensitive*)
+* add camera-manager cheatsheet (*digitsensitive*)
+* add camera cheatsheet (*digitsensitive*)
+* add base-camera cheatsheet (*digitsensitive*)
 
 ### Bugfixes
 

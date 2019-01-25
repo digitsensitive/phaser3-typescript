@@ -30,46 +30,46 @@ This is all done by the [Tween Manager](https://github.com/digitsensitive/phaser
 
 ### Public Functions
 
-#### getValue()
+#### getValue
 Returns the current value of the tween.
 
-#### setTimeScale()
+#### setTimeScale
 Set the scale the time applied to this tween.
 
 > A value of 1 runs in real-time. A value of 0.5 runs 50% slower, and so on.
 
-#### getTimeScale()
+#### getTimeScale
 Returns the scale of the time applied to this tween.
 
-#### isPlaying()
+#### isPlaying
 Checks if the tween is currently active.
 
-#### isPaused()
+#### isPaused
 Checks if the tween is currently paused.
 
-#### hasTarget()
+#### hasTarget
 See if this tween is currently acting upon the given target.
 
-#### restart()
+#### restart
 Restarts the tween from the beginning.
 
-#### pause()
+#### pause
 Pause the tween.
 
-#### play()
+#### play
 Play the tween.
 
-#### resume()
+#### resume
 Resumes the playback of a previously paused tween.
 
-#### complete()
+#### complete
 Flags the tween as being complete, whatever stage of progress it is at.
 
 > If an onComplete callback has been defined it will automatically invoke it, unless a `delay`
 argument is provided, in which case the tween will delay for that period of time before calling the callback.
 > If you don't need a delay, or have an onComplete callback, then call `Tween.stop` instead.
 
-#### stop()
+#### stop
 Stops the tween immediately, whatever stage of progress it is at
 and flags it for removal by the tween manager.
 

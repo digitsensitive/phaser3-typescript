@@ -25,21 +25,21 @@ export class MenuScene extends Phaser.Scene {
   create(): void {
     this.bitmapTexts.push(
       this.add.bitmapText(
-        this.sys.canvas.width / 2 - 120,
+        this.sys.canvas.width / 2 - 50,
         this.sys.canvas.height / 2,
         "font",
         "PRESS S TO PLAY",
-        30
+        12
       )
     );
 
     this.bitmapTexts.push(
       this.add.bitmapText(
-        this.sys.canvas.width / 2 - 120,
-        this.sys.canvas.height / 2 - 100,
+        this.sys.canvas.width / 2 - 40,
+        this.sys.canvas.height / 2 - 40,
         "font",
-        "TANK",
-        100
+        "Super Mario Land",
+        12
       )
     );
   }

@@ -4,7 +4,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### setBlendMode()
+#### setBlendMode
 Set blend mode. You can use an Integer or Const.
 
 | Integer | Const | WebGL | Canvas |
