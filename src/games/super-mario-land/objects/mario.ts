@@ -57,9 +57,9 @@ export class Mario extends Phaser.GameObjects.Sprite {
   }
 
   private handleInput() {
-    // evaluate if player is on the floor
-    // if not on the floor, set the player to be jumping
-    if (this.body.onFloor()) {
+    // evaluate if player is on the floor or on object
+    // if neither of that, set the player to be jumping
+    if (this.body.onFloor() || this.body.touching.down) {
       this.isJumping = false;
     } else {
       this.isJumping = true;

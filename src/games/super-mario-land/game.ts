@@ -10,6 +10,7 @@
 import "phaser";
 import { BootScene } from "./scenes/boot-scene";
 import { GameScene } from "./scenes/game-scene";
+import { HUDScene } from "./scenes/hud-scene";
 import { MenuScene } from "./scenes/menu-scene";
 
 const config: GameConfig = {
@@ -21,7 +22,7 @@ const config: GameConfig = {
   zoom: 5,
   type: Phaser.AUTO,
   parent: "game",
-  scene: [BootScene, MenuScene, GameScene],
+  scene: [BootScene, MenuScene, HUDScene, GameScene],
   input: {
     keyboard: true
   },
@@ -29,7 +30,7 @@ const config: GameConfig = {
     default: "arcade",
     arcade: {
       gravity: { y: 475 },
-      debug: true
+      debug: false
     }
   },
   backgroundColor: "#ffffff",

@@ -52,7 +52,8 @@ export class GameScene extends Phaser.Scene {
 
     // game objects
     this.boxes = this.add.group({
-      classType: Box
+      classType: Box,
+      runChildUpdate: true
     });
 
     this.loadObjectsFromTilemap();

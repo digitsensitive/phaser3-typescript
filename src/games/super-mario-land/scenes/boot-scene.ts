@@ -22,9 +22,11 @@ export class BootScene extends Phaser.Scene {
   }
 
   preload(): void {
-    // set the background, create the loading and progress bar
+    // set the background, create the loading and progress bar and init values
+    // with the global data manager (= this.registry)
     this.cameras.main.setBackgroundColor(0x000000);
     this.createLoadingGraphics();
+    this.initGlobalDataManager();
 
     // pass value to change the loading bar fill
     this.load.on(
@@ -78,5 +80,14 @@ export class BootScene extends Phaser.Scene {
       20
     );
     this.progressBar = this.add.graphics();
+  }
+
+  private initGlobalDataManager(): void {
+    this.registry.set("time", 400);
+    this.registry.set("world", "1-1");
+    this.registry.set("worldTime", "WORLD TIME");
+    this.registry.set("score", 0);
+    this.registry.set("coins", 0);
+    this.registry.set("lives", 2);
   }
 }
