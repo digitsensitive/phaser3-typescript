@@ -9,6 +9,7 @@ export class Box extends Phaser.GameObjects.Sprite {
   // variables
   private currentScene: Phaser.Scene;
   private boxContent: string;
+  private content: Phaser.GameObjects.Sprite;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
@@ -35,7 +36,6 @@ export class Box extends Phaser.GameObjects.Sprite {
 
   update(): void {
     if (this.body.touching.down && this.active) {
-      // OPTIMIZE TWEEN WITH FUNCTION TO SET ACTIVE TO FALSE AND FRAME TO 1
       this.currentScene.tweens.add({
         targets: this,
         props: { y: this.y - 10 },
@@ -47,11 +47,37 @@ export class Box extends Phaser.GameObjects.Sprite {
         repeat: 0,
         repeatDelay: 0,
         yoyo: true,
+        flipX: false,
+        flipY: false,
         paused: false
       });
 
       this.active = false;
       this.setFrame(1);
+
+      this.content = this.currentScene.add
+        .sprite(this.x, this.y - 8, "rotatingCoin")
+        .setOrigin(0, 0)
+        .play("coinRotating");
+      this.currentScene.tweens.add({
+        targets: this.content,
+        props: { y: this.y - 40, alpha: 0 },
+        delay: 0,
+        duration: 800,
+        ease: "Power0",
+        easeParams: null,
+        hold: 0,
+        repeat: 0,
+        repeatDelay: 0,
+        yoyo: false,
+        flipX: false,
+        flipY: false,
+        paused: false
+      });
+      this.currentScene.registry.values.coins += 1;
+      this.currentScene.events.emit("coinsChanged");
+      this.currentScene.registry.values.score += 100;
+      this.currentScene.events.emit("scoreChanged");
     }
   }
 }

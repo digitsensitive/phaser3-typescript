@@ -4,10 +4,13 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-The Tween Manager is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#core-plugins) from a scene. It controls and updates Tweens and Timelines.
+The tween manager is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#core-
+plugins) from a scene. It controls and updates tweens and timelines.
+It is installed into every scene and you can access it with `this.tweens`.
 
 ### Example
 
+Basic tween data config:
 ```
 const TweenDataConfig = {
   targets: null,

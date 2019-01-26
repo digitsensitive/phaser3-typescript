@@ -54,59 +54,80 @@ export class Mario extends Phaser.GameObjects.Sprite {
 
   update(): void {
     this.handleInput();
+    this.handleAnimations();
   }
 
   private handleInput() {
     // evaluate if player is on the floor or on object
     // if neither of that, set the player to be jumping
-    if (this.body.onFloor() || this.body.touching.down) {
+    if (
+      this.body.onFloor() ||
+      this.body.touching.down ||
+      this.body.blocked.down
+    ) {
       this.isJumping = false;
-    } else {
-      this.isJumping = true;
+      this.body.setVelocityY(0);
     }
 
     // handle movements to left and right
     if (this.keys.get("RIGHT").isDown) {
       this.body.setAccelerationX(this.acceleration);
       this.setFlipX(false);
-      if (!this.isJumping) {
-        this.anims.play(this.marioSize + "MarioWalk", true);
-      }
     } else if (this.keys.get("LEFT").isDown) {
       this.body.setAccelerationX(-this.acceleration);
       this.setFlipX(true);
-      if (!this.isJumping) {
-        this.anims.play(this.marioSize + "MarioWalk", true);
-      }
-    } else if (
-      this.keys.get("DOWN").isDown &&
-      !this.isJumping &&
-      this.marioSize === "big"
-    ) {
-      this.body.setVelocityX(0);
-      this.body.setAccelerationX(0);
-      this.setFrame(13);
     } else {
       this.body.setVelocityX(0);
       this.body.setAccelerationX(0);
-      this.anims.stop();
-      if (!this.isJumping) {
-        if (this.marioSize === "small") {
-          this.setFrame(0);
-        } else {
-          this.setFrame(6);
-        }
-      }
     }
 
     // handle jumping
     if (this.keys.get("JUMP").isDown && !this.isJumping) {
       this.body.setVelocityY(-180);
+      this.isJumping = true;
+    }
+  }
+
+  private handleAnimations(): void {
+    if (this.body.velocity.y !== 0) {
+      // mario is jumping or falling
       this.anims.stop();
       if (this.marioSize === "small") {
         this.setFrame(4);
       } else {
         this.setFrame(10);
+      }
+    } else if (this.body.velocity.x !== 0) {
+      // mario is moving horizontal
+
+      // check if mario is making a quick direction change
+      if (
+        (this.body.velocity.x < 0 && this.body.acceleration.x > 0) ||
+        (this.body.velocity.x > 0 && this.body.acceleration.x < 0)
+      ) {
+        if (this.marioSize === "small") {
+          this.setFrame(5);
+        } else {
+          this.setFrame(11);
+        }
+      }
+
+      if (this.body.velocity.x > 0) {
+        this.anims.play(this.marioSize + "MarioWalk", true);
+      } else {
+        this.anims.play(this.marioSize + "MarioWalk", true);
+      }
+    } else {
+      // mario is standing still
+      this.anims.stop();
+      if (this.marioSize === "small") {
+        this.setFrame(0);
+      } else {
+        if (this.keys.get("DOWN").isDown) {
+          this.setFrame(13);
+        } else {
+          this.setFrame(6);
+        }
       }
     }
   }

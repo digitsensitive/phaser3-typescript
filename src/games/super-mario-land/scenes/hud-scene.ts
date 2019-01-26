@@ -20,14 +20,15 @@ export class HUDScene extends Phaser.Scene {
       ["LIVES", this.addText(0, 0, `MARIOx ${this.registry.get("lives")}`)],
       ["WORLDTIME", this.addText(80, 0, `${this.registry.get("worldTime")}`)],
       ["SCORE", this.addText(40, 8, `${this.registry.get("score")}`)],
-      ["COINS", this.addText(64, 8, `${this.registry.get("coins")}`)],
+      ["COINS", this.addText(80, 8, `${this.registry.get("coins")}`)],
       ["WORLD", this.addText(96, 8, `${this.registry.get("world")}`)],
       ["TIME", this.addText(136, 8, `${this.registry.get("time")}`)]
     ]);
 
     // create events
     const level = this.scene.get("GameScene");
-    level.events.on("pointsChanged", this.updatePoints, this);
+    level.events.on("coinsChanged", this.updateCoins, this);
+    level.events.on("scoreChanged", this.updateScore, this);
     level.events.on("livesChanged", this.updateLives, this);
 
     // add timer
@@ -52,10 +53,18 @@ export class HUDScene extends Phaser.Scene {
     this.textElements.get("TIME").setText(`${this.registry.get("time")}`);
   }
 
-  private updatePoints() {
+  private updateCoins() {
     this.textElements
-      .get("POINTS")
-      .setText(`Points: ${this.registry.get("points")}`);
+      .get("COINS")
+      .setText(`${this.registry.get("coins")}`)
+      .setX(80 - 8 * (this.registry.get("coins").toString().length - 1));
+  }
+
+  private updateScore() {
+    this.textElements
+      .get("SCORE")
+      .setText(`${this.registry.get("score")}`)
+      .setX(40 - 8 * (this.registry.get("score").toString().length - 1));
   }
 
   private updateLives() {

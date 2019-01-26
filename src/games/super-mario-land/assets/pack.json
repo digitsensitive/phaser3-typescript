@@ -39,6 +39,15 @@
           "frameWidth": 8,
           "frameHeight": 8
         }
+      },
+      {
+        "type": "spritesheet",
+        "key": "rotatingCoin",
+        "url": "./src/games/super-mario-land/assets/sprites/rotatingCoin.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
       }
     ]
   }

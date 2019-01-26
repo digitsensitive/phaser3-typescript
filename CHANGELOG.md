@@ -36,6 +36,7 @@
 * add base-camera cheatsheet (*digitsensitive*)
 * add data-manager-plugin cheatsheet (*digitsensitive*)
 * add data-manager cheatsheet (*digitsensitive*)
+* add timeline cheatsheet (*digitsensitive*)
 
 ### Bugfixes
 
