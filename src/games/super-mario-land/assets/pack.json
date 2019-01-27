@@ -68,9 +68,23 @@
         }
       },
       {
+        "type": "spritesheet",
+        "key": "goomba",
+        "url": "./src/games/super-mario-land/assets/sprites/goomba.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      },
+      {
         "type": "image",
         "key": "platform",
         "url": "./src/games/super-mario-land/assets/images/platform.png"
+      },
+      {
+        "type": "image",
+        "key": "title",
+        "url": "./src/games/super-mario-land/assets/images/title.png"
       }
     ]
   }

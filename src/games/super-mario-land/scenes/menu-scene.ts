@@ -20,23 +20,16 @@ export class MenuScene extends Phaser.Scene {
       Phaser.Input.Keyboard.KeyCodes.S
     );
     this.startKey.isDown = false;
+    this.initGlobalDataManager();
   }
 
   create(): void {
-    this.bitmapTexts.push(
-      this.add.bitmapText(
-        this.sys.canvas.width / 2 - 30,
-        this.sys.canvas.height / 2,
-        "font",
-        "TOP-",
-        8
-      )
-    );
+    this.add.image(0, 0, "title").setOrigin(0, 0);
 
     this.bitmapTexts.push(
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 22,
-        this.sys.canvas.height / 2 + 20,
+        105,
         "font",
         "START",
         8
@@ -50,5 +43,14 @@ export class MenuScene extends Phaser.Scene {
       this.scene.start("GameScene");
       this.scene.bringToTop("HUDScene");
     }
+  }
+
+  private initGlobalDataManager(): void {
+    this.registry.set("time", 400);
+    this.registry.set("world", "1-1");
+    this.registry.set("worldTime", "WORLD TIME");
+    this.registry.set("score", 0);
+    this.registry.set("coins", 0);
+    this.registry.set("lives", 2);
   }
 }

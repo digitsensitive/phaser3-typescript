@@ -7,6 +7,7 @@
 
 import { Box } from "../objects/box";
 import { Brick } from "../objects/brick";
+import { Goomba } from "../objects/goomba";
 import { Mario } from "../objects/mario";
 import { Platform } from "../objects/platform";
 
@@ -20,6 +21,7 @@ export class GameScene extends Phaser.Scene {
   // game objects
   private boxes: Phaser.GameObjects.Group;
   private bricks: Phaser.GameObjects.Group;
+  private enemies: Phaser.GameObjects.Group;
   private platforms: Phaser.GameObjects.Group;
   private player: Mario;
 
@@ -50,6 +52,7 @@ export class GameScene extends Phaser.Scene {
       0,
       0
     );
+    this.foregroundLayer.setName("foregroundLayer");
 
     // set collision for tiles with the property collide set to true
     this.foregroundLayer.setCollisionByProperty({ collide: true });
@@ -65,6 +68,10 @@ export class GameScene extends Phaser.Scene {
       runChildUpdate: true
     });
 
+    this.enemies = this.add.group({
+      runChildUpdate: true
+    });
+
     this.platforms = this.add.group({
       classType: Platform,
       runChildUpdate: true
@@ -76,6 +83,13 @@ export class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.foregroundLayer);
     this.physics.add.collider(this.player, this.boxes);
     this.physics.add.collider(this.player, this.bricks);
+    this.physics.add.overlap(
+      this.player,
+      this.enemies,
+      this.handlePlayerEnemyCollision,
+      null,
+      this
+    );
 
     this.physics.add.collider(
       this.player,
@@ -111,6 +125,17 @@ export class GameScene extends Phaser.Scene {
           y: object.y,
           key: "mario"
         });
+      }
+
+      if (object.type === "goomba") {
+        this.enemies.add(
+          new Goomba({
+            scene: this,
+            x: object.x,
+            y: object.y,
+            key: "goomba"
+          })
+        );
       }
 
       if (object.type === "boxWithCoin") {
@@ -193,6 +218,32 @@ export class GameScene extends Phaser.Scene {
       platform.body.touching.up &&
       player.body.touching.down
     ) {
+    }
+  }
+
+  private handlePlayerEnemyCollision(player, enemy): void {
+    if (player.body.touching.down && enemy.body.touching.up) {
+      this.add.tween({
+        targets: player,
+        props: { y: player.y - 5 },
+        duration: 50,
+        ease: "Power2",
+        yoyo: false
+      });
+      enemy.gotHitOnHead();
+      this.add.tween({
+        targets: enemy,
+        props: { alpha: 0 },
+        duration: 1000,
+        ease: "Power0",
+        yoyo: false,
+        onComplete: function() {
+          enemy.destroy();
+        }
+      });
+    } else {
+      // player got hit
+      player.gotHit();
     }
   }
 }

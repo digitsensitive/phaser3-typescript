@@ -11,6 +11,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
   private marioSize: string;
   private acceleration: number;
   private isJumping: boolean;
+  private isDying: boolean;
 
   // input
   private keys: Map<string, Phaser.Input.Keyboard.Key>;
@@ -28,6 +29,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
     this.marioSize = "small";
     this.acceleration = 500;
     this.isJumping = false;
+    this.isDying = false;
 
     // sprite
     this.setOrigin(0.5, 0.5);
@@ -53,8 +55,17 @@ export class Mario extends Phaser.GameObjects.Sprite {
   }
 
   update(): void {
-    this.handleInput();
-    this.handleAnimations();
+    if (!this.isDying) {
+      this.handleInput();
+      this.handleAnimations();
+    } else {
+      this.setFrame(12);
+      if (this.y > this.currentScene.sys.canvas.height) {
+        this.currentScene.scene.stop("GameScene");
+        this.currentScene.scene.stop("HUDScene");
+        this.currentScene.scene.start("MenuScene");
+      }
+    }
   }
 
   private handleInput() {
@@ -150,5 +161,23 @@ export class Mario extends Phaser.GameObjects.Sprite {
   private adjustPhysicBodyToBigSize(): void {
     this.body.setSize(8, 16);
     this.body.setOffset(4, 0);
+  }
+
+  protected gotHit(): void {
+    if (this.marioSize === "big") {
+      this.shrinkMario();
+    } else {
+      // mario is dying
+      this.isDying = true;
+
+      // reset velocity and acceleration and stop animation
+      this.body.setVelocity(0, 0);
+      this.body.setAcceleration(0, 0);
+      this.anims.stop();
+
+      // make last dead jump and turn off collision check
+      this.body.setVelocityY(-180);
+      this.body.checkCollision.none = true;
+    }
   }
 }
