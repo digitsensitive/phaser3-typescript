@@ -42,12 +42,35 @@
       },
       {
         "type": "spritesheet",
+        "key": "brick",
+        "url": "./src/games/super-mario-land/assets/sprites/brick.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "spritesheet",
         "key": "rotatingCoin",
         "url": "./src/games/super-mario-land/assets/sprites/rotatingCoin.png",
         "frameConfig": {
           "frameWidth": 8,
           "frameHeight": 8
         }
+      },
+      {
+        "type": "spritesheet",
+        "key": "coin",
+        "url": "./src/games/super-mario-land/assets/sprites/coin.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "image",
+        "key": "platform",
+        "url": "./src/games/super-mario-land/assets/images/platform.png"
       }
     ]
   }

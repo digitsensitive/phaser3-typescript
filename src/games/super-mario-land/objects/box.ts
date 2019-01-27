@@ -36,44 +36,38 @@ export class Box extends Phaser.GameObjects.Sprite {
 
   update(): void {
     if (this.body.touching.down && this.active) {
-      this.currentScene.tweens.add({
+      let timeline = this.currentScene.tweens.createTimeline({});
+
+      timeline.add({
         targets: this,
         props: { y: this.y - 10 },
-        delay: 0,
         duration: 60,
         ease: "Power0",
-        easeParams: null,
-        hold: 0,
-        repeat: 0,
-        repeatDelay: 0,
         yoyo: true,
-        flipX: false,
-        flipY: false,
-        paused: false
+        onComplete: function() {
+          this.targets[0].active = false;
+          this.targets[0].setFrame(1);
+        }
       });
-
-      this.active = false;
-      this.setFrame(1);
 
       this.content = this.currentScene.add
-        .sprite(this.x, this.y - 8, "rotatingCoin")
+        .sprite(this.x, this.y - 8, this.boxContent)
         .setOrigin(0, 0)
-        .play("coinRotating");
-      this.currentScene.tweens.add({
+        .play(this.boxContent);
+
+      timeline.add({
         targets: this.content,
-        props: { y: this.y - 40, alpha: 0 },
+        props: { y: this.y - 40, alpha: 1 },
         delay: 0,
-        duration: 800,
+        duration: 700,
         ease: "Power0",
-        easeParams: null,
-        hold: 0,
-        repeat: 0,
-        repeatDelay: 0,
-        yoyo: false,
-        flipX: false,
-        flipY: false,
-        paused: false
+        onComplete: function() {
+          this.targets[0].destroy();
+        }
       });
+
+      timeline.play();
+
       this.currentScene.registry.values.coins += 1;
       this.currentScene.events.emit("coinsChanged");
       this.currentScene.registry.values.score += 100;

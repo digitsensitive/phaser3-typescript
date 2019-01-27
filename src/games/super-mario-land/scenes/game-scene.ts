@@ -6,7 +6,9 @@
  */
 
 import { Box } from "../objects/box";
+import { Brick } from "../objects/brick";
 import { Mario } from "../objects/mario";
+import { Platform } from "../objects/platform";
 
 export class GameScene extends Phaser.Scene {
   // tilemap
@@ -17,6 +19,8 @@ export class GameScene extends Phaser.Scene {
 
   // game objects
   private boxes: Phaser.GameObjects.Group;
+  private bricks: Phaser.GameObjects.Group;
+  private platforms: Phaser.GameObjects.Group;
   private player: Mario;
 
   constructor() {
@@ -56,11 +60,30 @@ export class GameScene extends Phaser.Scene {
       runChildUpdate: true
     });
 
+    this.bricks = this.add.group({
+      classType: Brick,
+      runChildUpdate: true
+    });
+
+    this.platforms = this.add.group({
+      classType: Platform,
+      runChildUpdate: true
+    });
+
     this.loadObjectsFromTilemap();
 
     // add colliders
     this.physics.add.collider(this.player, this.foregroundLayer);
     this.physics.add.collider(this.player, this.boxes);
+    this.physics.add.collider(this.player, this.bricks);
+
+    this.physics.add.collider(
+      this.player,
+      this.platforms,
+      this.handlePlayerOnPlatform,
+      null,
+      this
+    );
 
     // set our main camera
     this.cameras.main.startFollow(this.player);
@@ -101,6 +124,75 @@ export class GameScene extends Phaser.Scene {
           })
         );
       }
+
+      if (object.type === "boxWithRotatingCoin") {
+        this.boxes.add(
+          new Box({
+            scene: this,
+            x: object.x,
+            y: object.y,
+            key: "boxQuestion",
+            insideBox: "rotatingCoin"
+          })
+        );
+      }
+
+      if (object.type === "brick") {
+        this.boxes.add(
+          new Brick({
+            scene: this,
+            x: object.x,
+            y: object.y,
+            key: "brick"
+          })
+        );
+      }
+
+      if (object.type === "platformMovingUpAndDown") {
+        this.platforms.add(
+          new Platform({
+            scene: this,
+            x: object.x,
+            y: object.y,
+            key: "platform",
+            tweenProps: {
+              y: {
+                value: 50,
+                duration: 1500,
+                ease: "Power0"
+              }
+            }
+          })
+        );
+      }
+
+      if (object.type === "platformMovingLeftAndRight") {
+        this.platforms.add(
+          new Platform({
+            scene: this,
+            x: object.x,
+            y: object.y,
+            key: "platform",
+            tweenProps: {
+              x: {
+                value: object.x + 50,
+                duration: 1200,
+                ease: "Power0"
+              }
+            }
+          })
+        );
+      }
     });
+  }
+
+  // TODO!!!
+  private handlePlayerOnPlatform(player, platform): void {
+    if (
+      platform.body.moves &&
+      platform.body.touching.up &&
+      player.body.touching.down
+    ) {
+    }
   }
 }

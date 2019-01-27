@@ -16,7 +16,7 @@ or run multiple tweens at once during given parts of the timeline.
 ```
 const TimelineDataConfig = {
   tweens,
-  targets,
+  targets: this,
   totalDuration,
   duration,
   delay,
