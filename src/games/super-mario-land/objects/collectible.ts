@@ -29,7 +29,6 @@ export class Collectible extends Phaser.GameObjects.Sprite {
     this.currentScene.physics.world.enable(this);
     this.body.setSize(8, 8);
     this.body.setAllowGravity(false);
-    this.body.setImmovable(true);
   }
 
   update(): void {}

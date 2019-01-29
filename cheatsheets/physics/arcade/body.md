@@ -51,3 +51,6 @@ Enables or disables gravity's effect on this body.
 
 #### setCollideWorldBounds
 Set whether this body collides with the world boundary.
+
+#### stop
+Set acceleration, velocity, and speed to zero.

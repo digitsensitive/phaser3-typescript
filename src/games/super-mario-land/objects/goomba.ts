@@ -8,13 +8,10 @@
 import { Enemy } from "./enemy";
 
 export class Goomba extends Enemy {
-  private isDying: boolean;
-  private speed: number;
-
   constructor(params) {
     super(params);
-    this.isDying = false;
     this.speed = -20;
+    this.dyingScoreValue = 100;
   }
 
   update(): void {
@@ -53,9 +50,7 @@ export class Goomba extends Enemy {
   protected gotHitOnHead(): void {
     this.isDying = true;
     this.setFrame(2);
-    this.showKillScore(100);
-    this.currentScene.registry.values.score += 100;
-    this.currentScene.events.emit("scoreChanged");
+    this.showAndAddScore();
   }
 
   protected gotHitFromBulletOrMarioHasStar(): void {
@@ -63,5 +58,9 @@ export class Goomba extends Enemy {
     this.body.setVelocityX(20);
     this.body.setVelocityY(-20);
     this.setFlipY(true);
+  }
+
+  protected isDead(): void {
+    this.destroy();
   }
 }

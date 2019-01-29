@@ -9,6 +9,9 @@ export class Enemy extends Phaser.GameObjects.Sprite {
   // variables
   protected currentScene: Phaser.Scene;
   protected isActivated: boolean;
+  protected isDying: boolean;
+  protected speed: number;
+  protected dyingScoreValue: number;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
@@ -22,6 +25,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
   protected initSprite() {
     // variables
     this.isActivated = false;
+    this.isDying = false;
 
     // sprite
     this.setOrigin(0, 0);
@@ -32,9 +36,18 @@ export class Enemy extends Phaser.GameObjects.Sprite {
     this.body.setSize(8, 8);
   }
 
-  protected showKillScore(score: number): void {
+  protected showAndAddScore(): void {
+    this.currentScene.registry.values.score += this.dyingScoreValue;
+    this.currentScene.events.emit("scoreChanged");
+
     let scoreText = this.currentScene.add
-      .dynamicBitmapText(this.x, this.y - 20, "font", score.toString(), 4)
+      .dynamicBitmapText(
+        this.x,
+        this.y - 20,
+        "font",
+        this.dyingScoreValue.toString(),
+        4
+      )
       .setOrigin(0, 0);
 
     this.currentScene.add.tween({

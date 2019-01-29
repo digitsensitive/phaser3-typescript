@@ -11,6 +11,7 @@ import { Collectible } from "../objects/collectible";
 import { Goomba } from "../objects/goomba";
 import { Mario } from "../objects/mario";
 import { Platform } from "../objects/platform";
+import { Portal } from "../objects/portal";
 
 export class GameScene extends Phaser.Scene {
   // tilemap
@@ -26,6 +27,7 @@ export class GameScene extends Phaser.Scene {
   private enemies: Phaser.GameObjects.Group;
   private platforms: Phaser.GameObjects.Group;
   private player: Mario;
+  private portals: Phaser.GameObjects.Group;
 
   constructor() {
     super({
@@ -41,8 +43,7 @@ export class GameScene extends Phaser.Scene {
     // *****************************************************************
 
     // create our tilemap from Tiled JSON
-    this.map = this.make.tilemap({ key: "level1" });
-
+    this.map = this.make.tilemap({ key: this.registry.get("level") });
     // add our tileset and layers to our tilemap
     this.tileset = this.map.addTilesetImage("tiles");
     this.backgroundLayer = this.map.createStaticLayer(
@@ -65,6 +66,11 @@ export class GameScene extends Phaser.Scene {
     // *****************************************************************
     // GAME OBJECTS
     // *****************************************************************
+    this.portals = this.add.group({
+      classType: Portal,
+      runChildUpdate: true
+    });
+
     this.boxes = this.add.group({
       classType: Box,
       runChildUpdate: true
@@ -96,17 +102,34 @@ export class GameScene extends Phaser.Scene {
     // *****************************************************************
     this.physics.add.collider(this.player, this.foregroundLayer);
     this.physics.add.collider(this.enemies, this.foregroundLayer);
-    /*this.physics.add.collider(this.player, this.boxes);
-    this.physics.add.collider(this.player, this.bricks);
     this.physics.add.collider(this.enemies, this.boxes);
+    this.physics.add.collider(this.player, this.bricks);
+
+    this.physics.add.collider(
+      this.player,
+      this.boxes,
+      this.playerHitBox,
+      null,
+      this
+    );
 
     this.physics.add.overlap(
       this.player,
       this.enemies,
-      this.handlePlayerEnemyCollision,
+      this.handlePlayerEnemyOverlap,
       null,
       this
     );
+
+    this.physics.add.overlap(
+      this.player,
+      this.portals,
+      this.handlePlayerPortalOverlap,
+      null,
+      this
+    );
+
+    /*
 
     this.physics.add.collider(
       this.player,
@@ -114,15 +137,17 @@ export class GameScene extends Phaser.Scene {
       this.handlePlayerOnPlatform,
       null,
       this
-    );
+    );*/
 
     this.physics.add.overlap(
       this.player,
       this.collectibles,
-      function(collectable) {},
+      function() {
+        console.log("GREAT");
+      },
       null,
       this
-    );*/
+    );
 
     // *****************************************************************
     // CAMERA
@@ -156,11 +181,27 @@ export class GameScene extends Phaser.Scene {
     const objects = this.map.getObjectLayer("objects").objects as any[];
 
     objects.forEach(object => {
+      if (object.type === "portal") {
+        this.portals.add(
+          new Portal({
+            scene: this,
+            x: object.x,
+            y: object.y,
+            height: object.width,
+            width: object.height,
+            spawn: {
+              x: object.properties.marioSpawnX,
+              y: object.properties.marioSpawnY
+            }
+          }).setName(object.name)
+        );
+      }
+
       if (object.type === "player") {
         this.player = new Mario({
           scene: this,
-          x: object.x,
-          y: object.y,
+          x: this.registry.get("spawn").x,
+          y: this.registry.get("spawn").y,
           key: "mario"
         });
       }
@@ -176,14 +217,14 @@ export class GameScene extends Phaser.Scene {
         );
       }
 
-      if (object.type === "collectible") {
-        this.collectibles.add(
-          new Collectible({
+      if (object.type === "brick") {
+        this.bricks.add(
+          new Brick({
             scene: this,
             x: object.x,
             y: object.y,
-            key: object.properties.kindOfCollectible,
-            points: 100
+            key: "brick",
+            value: 50
           })
         );
       }
@@ -195,18 +236,19 @@ export class GameScene extends Phaser.Scene {
             x: object.x,
             y: object.y,
             key: "box",
-            insideBox: object.properties.content
+            content: object.properties.content
           })
         );
       }
 
-      if (object.type === "brick") {
-        this.boxes.add(
-          new Brick({
+      if (object.type === "collectible") {
+        this.collectibles.add(
+          new Collectible({
             scene: this,
             x: object.x,
             y: object.y,
-            key: "brick"
+            key: object.properties.kindOfCollectible,
+            points: 100
           })
         );
       }
@@ -249,6 +291,100 @@ export class GameScene extends Phaser.Scene {
     });
   }
 
+  /**
+   * Player <-> Enemy Overlap
+   * @param _player [Mario]
+   * @param _enemy  [Enemy]
+   */
+  private handlePlayerEnemyOverlap(_player, _enemy): void {
+    if (_player.body.touching.down && _enemy.body.touching.up) {
+      // player hit enemy on top
+      _player.bounceUpAfterHitEnemyOnHead();
+      _enemy.gotHitOnHead();
+      this.add.tween({
+        targets: _enemy,
+        props: { alpha: 0 },
+        duration: 1000,
+        ease: "Power0",
+        yoyo: false,
+        onComplete: function() {
+          _enemy.isDead();
+        }
+      });
+    } else {
+      // player got hit from the side or on the head
+      _player.gotHit();
+    }
+  }
+
+  /**
+   * Player <-> Box Collision
+   * @param _player [Mario]
+   * @param _box    [Box]
+   */
+  private playerHitBox(_player, _box): void {
+    if (_box.body.touching.down && _box.active) {
+      // ok, mario has really hit a box on the downside
+      _box.yoyoTheBoxUpAndDown();
+      this.collectibles.add(_box.spawnBoxContent());
+
+      switch (_box.boxContent) {
+        // have a look what is inside the box! Christmas time!
+        case "coin": {
+          _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function() {
+            _box.getContent().destroy();
+          });
+          _box.startHitTimeline();
+          _box.addCoinAndScore(1, 100);
+          break;
+        }
+        case "rotatingCoin": {
+          _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function() {
+            _box.getContent().destroy();
+          });
+          _box.startHitTimeline();
+          _box.addCoinAndScore(1, 100);
+          break;
+        }
+        case "flower": {
+          _box.tweenBoxContent({ y: _box.y - 8 }, 200, function() {
+            _box.getContent().anims.play("flower");
+          });
+          _box.startHitTimeline();
+          break;
+        }
+        case "mushroom": {
+          _box.popUpCollectible();
+          break;
+        }
+        case "star": {
+          _box.popUpCollectible();
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    }
+  }
+
+  private handlePlayerPortalOverlap(_player, _portal): void {
+    if (
+      (_portal.body.wasTouching.down && _player.keys.get("DOWN").isDown) ||
+      (_portal.body.wasTouching.right && _player.keys.get("RIGHT").isDown)
+    ) {
+      // set new level and new destination for mario
+      this.registry.set("level", _portal.name);
+      this.registry.set("spawn", {
+        x: _portal.getPortalDestination().x,
+        y: _portal.getPortalDestination().y
+      });
+
+      // restart the game scene
+      this.scene.restart();
+    }
+  }
+
   // TODO!!!
   private handlePlayerOnPlatform(player, platform): void {
     if (
@@ -256,32 +392,6 @@ export class GameScene extends Phaser.Scene {
       platform.body.touching.up &&
       player.body.touching.down
     ) {
-    }
-  }
-
-  private handlePlayerEnemyCollision(player, enemy): void {
-    if (player.body.touching.down && enemy.body.touching.up) {
-      this.add.tween({
-        targets: player,
-        props: { y: player.y - 5 },
-        duration: 50,
-        ease: "Power2",
-        yoyo: false
-      });
-      enemy.gotHitOnHead();
-      this.add.tween({
-        targets: enemy,
-        props: { alpha: 0 },
-        duration: 1000,
-        ease: "Power0",
-        yoyo: false,
-        onComplete: function() {
-          enemy.destroy();
-        }
-      });
-    } else {
-      // player got hit
-      player.gotHit();
     }
   }
 }

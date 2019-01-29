@@ -11,20 +11,28 @@ export class Box extends Phaser.GameObjects.Sprite {
   // variables
   private currentScene: Phaser.Scene;
   private boxContent: string;
-  private content: Phaser.GameObjects.Sprite;
+  private content: Collectible;
+  private hitBoxTimeline: Phaser.Tweens.Timeline;
 
+  public getContent(): Phaser.GameObjects.Sprite {
+    return this.content;
+  }
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
 
     // variables
     this.currentScene = params.scene;
-    this.boxContent = params.insideBox;
+    this.boxContent = params.content;
 
     this.initSprite();
     this.currentScene.add.existing(this);
   }
 
   private initSprite() {
+    // variables
+    this.content = null;
+    this.hitBoxTimeline = this.currentScene.tweens.createTimeline({});
+
     // sprite
     this.setOrigin(0, 0);
     this.setFrame(0);
@@ -36,32 +44,10 @@ export class Box extends Phaser.GameObjects.Sprite {
     this.body.setImmovable(true);
   }
 
-  update(): void {
-    if (this.body.touching.down && this.active) {
-      switch (this.boxContent) {
-        case "coin": {
-          this.spawnCoinGoingUpTheSky();
-          break;
-        }
-        case "rotatingCoin": {
-          this.spawnCoinGoingUpTheSky();
-          break;
-        }
-        case "flower": {
-          this.spawnBeautifulFlower();
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-    }
-  }
+  update(): void {}
 
-  private spawnCoinGoingUpTheSky(): void {
-    let timeline = this.currentScene.tweens.createTimeline({});
-
-    timeline.add({
+  private yoyoTheBoxUpAndDown(): void {
+    this.hitBoxTimeline.add({
       targets: this,
       props: { y: this.y - 10 },
       duration: 60,
@@ -72,65 +58,48 @@ export class Box extends Phaser.GameObjects.Sprite {
         this.targets[0].setFrame(1);
       }
     });
-
-    this.content = this.currentScene.add
-      .sprite(this.x, this.y - 8, this.boxContent)
-      .setOrigin(0, 0)
-      .play(this.boxContent);
-
-    timeline.add({
-      targets: this.content,
-      props: { y: this.y - 40, alpha: 1 },
-      delay: 0,
-      duration: 700,
-      ease: "Power0",
-      onComplete: function() {
-        this.targets[0].destroy();
-      }
-    });
-
-    timeline.play();
-
-    this.currentScene.registry.values.coins += 1;
-    this.currentScene.events.emit("coinsChanged");
-    this.currentScene.registry.values.score += 100;
-    this.currentScene.events.emit("scoreChanged");
   }
 
-  private spawnBeautifulFlower(): void {
-    let timeline = this.currentScene.tweens.createTimeline({});
-
-    timeline.add({
-      targets: this,
-      props: { y: this.y - 10 },
-      duration: 60,
-      ease: "Power0",
-      yoyo: true,
-      onComplete: function() {
-        this.targets[0].active = false;
-        this.targets[0].setFrame(1);
-      }
-    });
-
+  private spawnBoxContent(): Collectible {
     this.content = new Collectible({
       scene: this.currentScene,
       x: this.x,
       y: this.y - 8,
-      key: "flower",
+      key: this.boxContent,
       points: 1000
     });
+    return this.content;
+  }
 
-    timeline.add({
+  private tweenBoxContent(
+    props: {},
+    duration: number,
+    complete: () => void
+  ): void {
+    this.hitBoxTimeline.add({
       targets: this.content,
-      props: { y: this.y - 8 },
+      props: props,
       delay: 0,
-      duration: 200,
+      duration: duration,
       ease: "Power0",
-      onComplete: function() {
-        this.targets[0].anims.play("flower");
-      }
+      onComplete: complete
     });
+  }
 
-    timeline.play();
+  private startHitTimeline(): void {
+    this.hitBoxTimeline.play();
+  }
+
+  private popUpCollectible(): void {
+    this.content.body.setVelocity(30, -50);
+    this.content.body.setAllowGravity(true);
+    this.content.body.setGravityY(-300);
+  }
+
+  private addCoinAndScore(coin: number, score: number): void {
+    this.currentScene.registry.values.coins += coin;
+    this.currentScene.events.emit("coinsChanged");
+    this.currentScene.registry.values.score += score;
+    this.currentScene.events.emit("scoreChanged");
   }
 }

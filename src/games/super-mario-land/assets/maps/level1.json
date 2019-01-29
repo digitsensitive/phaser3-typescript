@@ -89,8 +89,8 @@
                  "type":"player",
                  "visible":true,
                  "width":8,
-                 "x":26,
-                 "y":38
+                 "x":12,
+                 "y":44
                 }, 
                 {
                  "height":8,
@@ -1189,6 +1189,65 @@
                  "width":8,
                  "x":2216,
                  "y":40
+                }, 
+                {
+                 "height":8,
+                 "id":287,
+                 "name":"box",
+                 "properties":
+                    {
+                     "content":"mushroom"
+                    },
+                 "propertytypes":
+                    {
+                     "content":"string"
+                    },
+                 "rotation":0,
+                 "type":"box",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":88
+                }, 
+                {
+                 "height":8,
+                 "id":288,
+                 "name":"box",
+                 "properties":
+                    {
+                     "content":"star"
+                    },
+                 "propertytypes":
+                    {
+                     "content":"string"
+                    },
+                 "rotation":0,
+                 "type":"box",
+                 "visible":true,
+                 "width":8,
+                 "x":88,
+                 "y":88
+                }, 
+                {
+                 "height":6,
+                 "id":289,
+                 "name":"level1Room1",
+                 "properties":
+                    {
+                     "marioSpawnX":16,
+                     "marioSpawnY":16
+                    },
+                 "propertytypes":
+                    {
+                     "marioSpawnX":"int",
+                     "marioSpawnY":"int"
+                    },
+                 "rotation":0,
+                 "type":"portal",
+                 "visible":true,
+                 "width":12,
+                 "x":10,
+                 "y":109
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1220,7 +1279,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":287,
+ "nextobjectid":292,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",

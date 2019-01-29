@@ -13,6 +13,11 @@
         "url": "src/games/super-mario-land/assets/maps/level1.json"
       },
       {
+        "type": "tilemapTiledJSON",
+        "key": "level1Room1",
+        "url": "src/games/super-mario-land/assets/maps/level1Room1.json"
+      },
+      {
         "type": "image",
         "key": "tiles",
         "url": "src/games/super-mario-land/assets/tiles/tiles.png"

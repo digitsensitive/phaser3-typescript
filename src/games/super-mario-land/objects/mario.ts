@@ -16,6 +16,10 @@ export class Mario extends Phaser.GameObjects.Sprite {
   // input
   private keys: Map<string, Phaser.Input.Keyboard.Key>;
 
+  public getKeys(): Map<string, Phaser.Input.Keyboard.Key> {
+    return this.keys;
+  }
+
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
 
@@ -47,7 +51,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
     this.currentScene.physics.world.enable(this);
     this.adjustPhysicBodyToSmallSize();
     this.body.maxVelocity.x = 50;
-    this.body.maxVelocity.y = 180;
+    this.body.maxVelocity.y = 300;
   }
 
   private addKey(key: string): Phaser.Input.Keyboard.Key {
@@ -69,6 +73,11 @@ export class Mario extends Phaser.GameObjects.Sprite {
   }
 
   private handleInput() {
+    if (this.y > this.currentScene.sys.canvas.height) {
+      // mario fell into a hole
+      this.isDying = true;
+    }
+
     // evaluate if player is on the floor or on object
     // if neither of that, set the player to be jumping
     if (
@@ -77,7 +86,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
       this.body.blocked.down
     ) {
       this.isJumping = false;
-      //  this.body.setVelocityY(0);
+      //this.body.setVelocityY(0);
     }
 
     // handle movements to left and right
@@ -163,6 +172,16 @@ export class Mario extends Phaser.GameObjects.Sprite {
     this.body.setOffset(4, 0);
   }
 
+  private bounceUpAfterHitEnemyOnHead(): void {
+    this.currentScene.add.tween({
+      targets: this,
+      props: { y: this.y - 5 },
+      duration: 200,
+      ease: "Power1",
+      yoyo: true
+    });
+  }
+
   protected gotHit(): void {
     if (this.marioSize === "big") {
       this.shrinkMario();
@@ -170,14 +189,19 @@ export class Mario extends Phaser.GameObjects.Sprite {
       // mario is dying
       this.isDying = true;
 
-      // reset velocity and acceleration and stop animation
-      this.body.setVelocity(0, 0);
-      this.body.setAcceleration(0, 0);
+      // sets acceleration, velocity and speed to zero
+      // stop all animations
+      this.body.stop();
       this.anims.stop();
 
       // make last dead jump and turn off collision check
       this.body.setVelocityY(-180);
-      this.body.checkCollision.none = true;
+
+      // this.body.checkCollision.none did not work for me
+      this.body.checkCollision.up = false;
+      this.body.checkCollision.down = false;
+      this.body.checkCollision.left = false;
+      this.body.checkCollision.right = false;
     }
   }
 }

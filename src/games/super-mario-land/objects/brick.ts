@@ -8,13 +8,14 @@
 export class Brick extends Phaser.GameObjects.Sprite {
   // variables
   private currentScene: Phaser.Scene;
+  protected destroyingValue: number;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
 
     // variables
     this.currentScene = params.scene;
-
+    this.destroyingValue = params.value;
     this.initSprite();
     this.currentScene.add.existing(this);
   }
@@ -32,8 +33,10 @@ export class Brick extends Phaser.GameObjects.Sprite {
   }
 
   update(): void {
-    if (this.body.touching.down && this.active) {
+    if (this.body.touching.down) {
+      // something touches the downside of the brick: probably mario?
       for (let i = -2; i < 2; i++) {
+        // create smaller bricks
         let brick = this.currentScene.add
           .sprite(this.x, this.y, "brick")
           .setOrigin(0, 0)
@@ -43,10 +46,11 @@ export class Brick extends Phaser.GameObjects.Sprite {
         brick.body.setSize(4, 4);
       }
 
+      // destroy brick
       this.destroy();
-      this.currentScene.registry.values.coins += 1;
-      this.currentScene.events.emit("coinsChanged");
-      this.currentScene.registry.values.score += 100;
+
+      // add some score for killing the brick
+      this.currentScene.registry.values.score += this.destroyingValue;
       this.currentScene.events.emit("scoreChanged");
     }
   }
