@@ -138,7 +138,13 @@ export class GameScene extends Phaser.Scene {
       this
     );
 
-    this.physics.add.overlap(this.player, this.collectibles);
+    this.physics.add.overlap(
+      this.player,
+      this.collectibles,
+      this.handlePlayerCollectiblesOverlap,
+      null,
+      this
+    );
 
     // *****************************************************************
     // CAMERA
@@ -154,17 +160,6 @@ export class GameScene extends Phaser.Scene {
 
   update(): void {
     this.player.update();
-    /*this.collectibles.children.each(function(collectible) {
-      this.physics.add.overlap(
-        this.player,
-        collectible,
-        function() {
-          collectible.collected();
-        },
-        null,
-        this
-      );
-    }, this);*/
   }
 
   private loadObjectsFromTilemap(): void {
@@ -182,7 +177,8 @@ export class GameScene extends Phaser.Scene {
             width: object.height,
             spawn: {
               x: object.properties.marioSpawnX,
-              y: object.properties.marioSpawnY
+              y: object.properties.marioSpawnY,
+              dir: object.properties.direction
             }
           }).setName(object.name)
         );
@@ -304,7 +300,9 @@ export class GameScene extends Phaser.Scene {
       });
     } else {
       // player got hit from the side or on the head
-      _player.gotHit();
+      if (_player.isVulnerable) {
+        _player.gotHit();
+      }
     }
   }
 
@@ -325,7 +323,7 @@ export class GameScene extends Phaser.Scene {
           _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function() {
             _box.getContent().destroy();
           });
-          _box.startHitTimeline();
+
           _box.addCoinAndScore(1, 100);
           break;
         }
@@ -333,7 +331,7 @@ export class GameScene extends Phaser.Scene {
           _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function() {
             _box.getContent().destroy();
           });
-          _box.startHitTimeline();
+
           _box.addCoinAndScore(1, 100);
           break;
         }
@@ -341,7 +339,7 @@ export class GameScene extends Phaser.Scene {
           _box.tweenBoxContent({ y: _box.y - 8 }, 200, function() {
             _box.getContent().anims.play("flower");
           });
-          _box.startHitTimeline();
+
           break;
         }
         case "mushroom": {
@@ -356,24 +354,51 @@ export class GameScene extends Phaser.Scene {
           break;
         }
       }
+      _box.startHitTimeline();
     }
   }
 
   private handlePlayerPortalOverlap(_player, _portal): void {
     if (
-      (_portal.body.wasTouching.down && _player.keys.get("DOWN").isDown) ||
-      (_portal.body.wasTouching.right && _player.keys.get("RIGHT").isDown)
+      (_player.keys.get("DOWN").isDown &&
+        _portal.getPortalDestination().dir === "down") ||
+      (_player.keys.get("RIGHT").isDown &&
+        _portal.getPortalDestination().dir === "right")
     ) {
       // set new level and new destination for mario
       this.registry.set("level", _portal.name);
       this.registry.set("spawn", {
         x: _portal.getPortalDestination().x,
-        y: _portal.getPortalDestination().y
+        y: _portal.getPortalDestination().y,
+        dir: _portal.getPortalDestination().dir
       });
 
       // restart the game scene
       this.scene.restart();
+    } else if (_portal.name === "exit") {
+      this.scene.stop("GameScene");
+      this.scene.stop("HUDScene");
+      this.scene.start("MenuScene");
     }
+  }
+
+  private handlePlayerCollectiblesOverlap(_player, _collectible): void {
+    switch (_collectible.texture.key) {
+      case "flower": {
+        break;
+      }
+      case "mushroom": {
+        _player.growMario();
+        break;
+      }
+      case "star": {
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+    _collectible.collected();
   }
 
   // TODO!!!

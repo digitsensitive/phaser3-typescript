@@ -12,6 +12,8 @@ export class Mario extends Phaser.GameObjects.Sprite {
   private acceleration: number;
   private isJumping: boolean;
   private isDying: boolean;
+  private isVulnerable: boolean;
+  private vulnerableCounter: number;
 
   // input
   private keys: Map<string, Phaser.Input.Keyboard.Key>;
@@ -30,10 +32,12 @@ export class Mario extends Phaser.GameObjects.Sprite {
 
   private initSprite() {
     // variables
-    this.marioSize = "small";
+    this.marioSize = this.currentScene.registry.get("marioSize");
     this.acceleration = 500;
     this.isJumping = false;
     this.isDying = false;
+    this.isVulnerable = true;
+    this.vulnerableCounter = 100;
 
     // sprite
     this.setOrigin(0.5, 0.5);
@@ -68,6 +72,15 @@ export class Mario extends Phaser.GameObjects.Sprite {
         this.currentScene.scene.stop("GameScene");
         this.currentScene.scene.stop("HUDScene");
         this.currentScene.scene.start("MenuScene");
+      }
+    }
+
+    if (!this.isVulnerable) {
+      if (this.vulnerableCounter > 0) {
+        this.vulnerableCounter -= 1;
+      } else {
+        this.vulnerableCounter = 100;
+        this.isVulnerable = true;
       }
     }
   }
@@ -154,11 +167,13 @@ export class Mario extends Phaser.GameObjects.Sprite {
 
   private growMario(): void {
     this.marioSize = "big";
+    this.currentScene.registry.set("marioSize", "big");
     this.adjustPhysicBodyToBigSize();
   }
 
   private shrinkMario(): void {
     this.marioSize = "small";
+    this.currentScene.registry.set("marioSize", "small");
     this.adjustPhysicBodyToSmallSize();
   }
 
@@ -183,6 +198,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
   }
 
   protected gotHit(): void {
+    this.isVulnerable = false;
     if (this.marioSize === "big") {
       this.shrinkMario();
     } else {

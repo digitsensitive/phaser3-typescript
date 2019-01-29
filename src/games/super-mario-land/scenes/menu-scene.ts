@@ -53,6 +53,7 @@ export class MenuScene extends Phaser.Scene {
     this.registry.set("score", 0);
     this.registry.set("coins", 0);
     this.registry.set("lives", 2);
-    this.registry.set("spawn", { x: 12, y: 44 });
+    this.registry.set("spawn", { x: 12, y: 44, dir: "down" });
+    this.registry.set("marioSize", "small");
   }
 }
