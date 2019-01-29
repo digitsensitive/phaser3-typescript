@@ -8,6 +8,7 @@
 export class Enemy extends Phaser.GameObjects.Sprite {
   // variables
   protected currentScene: Phaser.Scene;
+  protected isActivated: boolean;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
@@ -19,6 +20,9 @@ export class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   protected initSprite() {
+    // variables
+    this.isActivated = false;
+
     // sprite
     this.setOrigin(0, 0);
     this.setFrame(0);
@@ -26,5 +30,22 @@ export class Enemy extends Phaser.GameObjects.Sprite {
     // physics
     this.currentScene.physics.world.enable(this);
     this.body.setSize(8, 8);
+  }
+
+  protected showKillScore(score: number): void {
+    let scoreText = this.currentScene.add
+      .dynamicBitmapText(this.x, this.y - 20, "font", score.toString(), 4)
+      .setOrigin(0, 0);
+
+    this.currentScene.add.tween({
+      targets: scoreText,
+      props: { y: scoreText.y - 25 },
+      duration: 800,
+      ease: "Power0",
+      yoyo: false,
+      onComplete: function() {
+        scoreText.destroy();
+      }
+    });
   }
 }

@@ -5,6 +5,8 @@
  * @license      Digitsensitive
  */
 
+import { Collectible } from "./collectible";
+
 export class Box extends Phaser.GameObjects.Sprite {
   // variables
   private currentScene: Phaser.Scene;
@@ -36,42 +38,99 @@ export class Box extends Phaser.GameObjects.Sprite {
 
   update(): void {
     if (this.body.touching.down && this.active) {
-      let timeline = this.currentScene.tweens.createTimeline({});
-
-      timeline.add({
-        targets: this,
-        props: { y: this.y - 10 },
-        duration: 60,
-        ease: "Power0",
-        yoyo: true,
-        onComplete: function() {
-          this.targets[0].active = false;
-          this.targets[0].setFrame(1);
+      switch (this.boxContent) {
+        case "coin": {
+          this.spawnCoinGoingUpTheSky();
+          break;
         }
-      });
-
-      this.content = this.currentScene.add
-        .sprite(this.x, this.y - 8, this.boxContent)
-        .setOrigin(0, 0)
-        .play(this.boxContent);
-
-      timeline.add({
-        targets: this.content,
-        props: { y: this.y - 40, alpha: 1 },
-        delay: 0,
-        duration: 700,
-        ease: "Power0",
-        onComplete: function() {
-          this.targets[0].destroy();
+        case "rotatingCoin": {
+          this.spawnCoinGoingUpTheSky();
+          break;
         }
-      });
-
-      timeline.play();
-
-      this.currentScene.registry.values.coins += 1;
-      this.currentScene.events.emit("coinsChanged");
-      this.currentScene.registry.values.score += 100;
-      this.currentScene.events.emit("scoreChanged");
+        case "flower": {
+          this.spawnBeautifulFlower();
+          break;
+        }
+        default: {
+          break;
+        }
+      }
     }
+  }
+
+  private spawnCoinGoingUpTheSky(): void {
+    let timeline = this.currentScene.tweens.createTimeline({});
+
+    timeline.add({
+      targets: this,
+      props: { y: this.y - 10 },
+      duration: 60,
+      ease: "Power0",
+      yoyo: true,
+      onComplete: function() {
+        this.targets[0].active = false;
+        this.targets[0].setFrame(1);
+      }
+    });
+
+    this.content = this.currentScene.add
+      .sprite(this.x, this.y - 8, this.boxContent)
+      .setOrigin(0, 0)
+      .play(this.boxContent);
+
+    timeline.add({
+      targets: this.content,
+      props: { y: this.y - 40, alpha: 1 },
+      delay: 0,
+      duration: 700,
+      ease: "Power0",
+      onComplete: function() {
+        this.targets[0].destroy();
+      }
+    });
+
+    timeline.play();
+
+    this.currentScene.registry.values.coins += 1;
+    this.currentScene.events.emit("coinsChanged");
+    this.currentScene.registry.values.score += 100;
+    this.currentScene.events.emit("scoreChanged");
+  }
+
+  private spawnBeautifulFlower(): void {
+    let timeline = this.currentScene.tweens.createTimeline({});
+
+    timeline.add({
+      targets: this,
+      props: { y: this.y - 10 },
+      duration: 60,
+      ease: "Power0",
+      yoyo: true,
+      onComplete: function() {
+        this.targets[0].active = false;
+        this.targets[0].setFrame(1);
+      }
+    });
+
+    this.content = new Collectible({
+      scene: this.currentScene,
+      x: this.x,
+      y: this.y - 8,
+      key: "flower",
+      points: 1000
+    });
+
+    timeline.add({
+      targets: this.content,
+      props: { y: this.y - 8 },
+      delay: 0,
+      duration: 200,
+      ease: "Power0",
+      onComplete: function() {
+        this.targets[0].anims.play("flower");
+      }
+    });
+
+    timeline.play();
   }
 }

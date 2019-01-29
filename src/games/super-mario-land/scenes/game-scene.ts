@@ -7,6 +7,7 @@
 
 import { Box } from "../objects/box";
 import { Brick } from "../objects/brick";
+import { Collectible } from "../objects/collectible";
 import { Goomba } from "../objects/goomba";
 import { Mario } from "../objects/mario";
 import { Platform } from "../objects/platform";
@@ -21,6 +22,7 @@ export class GameScene extends Phaser.Scene {
   // game objects
   private boxes: Phaser.GameObjects.Group;
   private bricks: Phaser.GameObjects.Group;
+  private collectibles: Phaser.GameObjects.Group;
   private enemies: Phaser.GameObjects.Group;
   private platforms: Phaser.GameObjects.Group;
   private player: Mario;
@@ -34,7 +36,10 @@ export class GameScene extends Phaser.Scene {
   init(): void {}
 
   create(): void {
-    // tilemap
+    // *****************************************************************
+    // SETUP TILEMAP
+    // *****************************************************************
+
     // create our tilemap from Tiled JSON
     this.map = this.make.tilemap({ key: "level1" });
 
@@ -57,7 +62,9 @@ export class GameScene extends Phaser.Scene {
     // set collision for tiles with the property collide set to true
     this.foregroundLayer.setCollisionByProperty({ collide: true });
 
-    // game objects
+    // *****************************************************************
+    // GAME OBJECTS
+    // *****************************************************************
     this.boxes = this.add.group({
       classType: Box,
       runChildUpdate: true
@@ -65,6 +72,11 @@ export class GameScene extends Phaser.Scene {
 
     this.bricks = this.add.group({
       classType: Brick,
+      runChildUpdate: true
+    });
+
+    this.collectibles = this.add.group({
+      classType: Collectible,
       runChildUpdate: true
     });
 
@@ -79,10 +91,15 @@ export class GameScene extends Phaser.Scene {
 
     this.loadObjectsFromTilemap();
 
-    // add colliders
+    // *****************************************************************
+    // COLLIDERS
+    // *****************************************************************
     this.physics.add.collider(this.player, this.foregroundLayer);
-    this.physics.add.collider(this.player, this.boxes);
+    this.physics.add.collider(this.enemies, this.foregroundLayer);
+    /*this.physics.add.collider(this.player, this.boxes);
     this.physics.add.collider(this.player, this.bricks);
+    this.physics.add.collider(this.enemies, this.boxes);
+
     this.physics.add.overlap(
       this.player,
       this.enemies,
@@ -99,7 +116,17 @@ export class GameScene extends Phaser.Scene {
       this
     );
 
-    // set our main camera
+    this.physics.add.overlap(
+      this.player,
+      this.collectibles,
+      function(collectable) {},
+      null,
+      this
+    );*/
+
+    // *****************************************************************
+    // CAMERA
+    // *****************************************************************
     this.cameras.main.startFollow(this.player);
     this.cameras.main.setBounds(
       0,
@@ -111,6 +138,17 @@ export class GameScene extends Phaser.Scene {
 
   update(): void {
     this.player.update();
+    /*this.collectibles.children.each(function(collectible) {
+      this.physics.add.overlap(
+        this.player,
+        collectible,
+        function() {
+          collectible.collected();
+        },
+        null,
+        this
+      );
+    }, this);*/
   }
 
   private loadObjectsFromTilemap(): void {
@@ -138,26 +176,26 @@ export class GameScene extends Phaser.Scene {
         );
       }
 
-      if (object.type === "boxWithCoin") {
-        this.boxes.add(
-          new Box({
+      if (object.type === "collectible") {
+        this.collectibles.add(
+          new Collectible({
             scene: this,
             x: object.x,
             y: object.y,
-            key: "boxQuestion",
-            insideBox: "coin"
+            key: object.properties.kindOfCollectible,
+            points: 100
           })
         );
       }
 
-      if (object.type === "boxWithRotatingCoin") {
+      if (object.type === "box") {
         this.boxes.add(
           new Box({
             scene: this,
             x: object.x,
             y: object.y,
-            key: "boxQuestion",
-            insideBox: "rotatingCoin"
+            key: "box",
+            insideBox: object.properties.content
           })
         );
       }

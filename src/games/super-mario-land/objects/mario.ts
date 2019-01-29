@@ -77,7 +77,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
       this.body.blocked.down
     ) {
       this.isJumping = false;
-      this.body.setVelocityY(0);
+      //  this.body.setVelocityY(0);
     }
 
     // handle movements to left and right

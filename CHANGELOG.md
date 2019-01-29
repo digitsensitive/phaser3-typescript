@@ -37,6 +37,7 @@
 * add data-manager-plugin cheatsheet (*digitsensitive*)
 * add data-manager cheatsheet (*digitsensitive*)
 * add timeline cheatsheet (*digitsensitive*)
+* add scale-manager cheatsheet (*digitsensitive*)
 
 ### Bugfixes
 

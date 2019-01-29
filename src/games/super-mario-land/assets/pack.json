@@ -33,8 +33,8 @@
       },
       {
         "type": "spritesheet",
-        "key": "boxQuestion",
-        "url": "./src/games/super-mario-land/assets/sprites/boxQuestion.png",
+        "key": "box",
+        "url": "./src/games/super-mario-land/assets/sprites/box.png",
         "frameConfig": {
           "frameWidth": 8,
           "frameHeight": 8
@@ -85,6 +85,51 @@
         "type": "image",
         "key": "title",
         "url": "./src/games/super-mario-land/assets/images/title.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "coin2",
+        "url": "./src/games/super-mario-land/assets/collectibles/coin2.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "flower",
+        "url": "./src/games/super-mario-land/assets/collectibles/flower.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "heart",
+        "url": "./src/games/super-mario-land/assets/collectibles/heart.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "mushroom",
+        "url": "./src/games/super-mario-land/assets/collectibles/mushroom.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "star",
+        "url": "./src/games/super-mario-land/assets/collectibles/star.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
       }
     ]
   }
