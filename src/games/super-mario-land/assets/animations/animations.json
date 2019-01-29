@@ -1,0 +1,70 @@
+{
+  "anims": [
+    {
+      "key": "smallMarioWalk",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "mario",
+        "start": 0,
+        "end": 3
+      },
+      "repeat": -1,
+      "frameRate": 18
+    },
+    {
+      "key": "bigMarioWalk",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "mario",
+        "start": 6,
+        "end": 9
+      },
+      "repeat": -1,
+      "frameRate": 18
+    },
+    {
+      "key": "rotatingCoin",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "rotatingCoin",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 18
+    },
+    {
+      "key": "goombaWalk",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "goomba",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 9
+    },
+    {
+      "key": "coin",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "coin",
+        "start": 0,
+        "end": 0
+      },
+      "repeat": -1,
+      "frameRate": 18
+    },
+    {
+      "key": "flower",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "flower",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 18
+    }
+  ]
+}

@@ -4,14 +4,14 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### initPipeline()
+#### initPipeline
 Set initial WebGL pipeline of game object.
 
-#### setPipeline()
+#### setPipeline
 Set active WebGL pipeline of game object.
 
-#### resetPipeline()
+#### resetPipeline
 Reset WebGL pipeline of game object back to default.
 
-#### getPipelineName()
+#### getPipelineName
 Get name of WebGL pipeline of game object.

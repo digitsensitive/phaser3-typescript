@@ -4,12 +4,12 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### setSize()
+#### setSize
 Set the size of the game object.
 
 > This function will not change the size that the game object is rendered in-game.
 
-#### setDisplaySize()
+#### setDisplaySize
 Set the display size of the game object.
 
 > This function will adjust the scale.

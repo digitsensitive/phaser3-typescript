@@ -11,7 +11,7 @@ to global systems belonging to game.
 #### Core plugins
 
 - The Event Emitter
-- The 2D Camera Manager
+- [The 2D Camera Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/cameras/camera-manager.md)
 - [The Game Object Creator](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/game-object-creator-plugin.md)
 - The Game Object Factory
 - [The Scene Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
@@ -25,7 +25,7 @@ The core plugins are `non-optional`.
 - The 3D Camera Manager
 - [The Clock](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/time/time.md)
 - The Input Plugin
-- The Data Manager Plugin
+- [The Data Manager Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/data/data-manager-plugin.md)
 - [The Loader Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/loader/loader-plugin.md)
 - [The Tween Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md)
 - The Lights Plugin

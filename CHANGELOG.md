@@ -16,11 +16,11 @@
 
 ---
 
-## Version 1.2.X - XYZth XYZ 2019
+## Version 1.2.4 - 29th January 2019
 
 ### Features
 
-* ...
+* New Game Super-Mario-Land (*digitsensitive*)
 
 ### Updates
 
@@ -28,10 +28,16 @@
 * update webpack version from 4.28.3 to 4.28.4 (*digitsensitive*)
 * update typescript version from 3.2.2 to 3.2.4 (*digitsensitive*)
 * update ts-loader version from 5.3.2 to 5.3.3 (*digitsensitive*)
-
-### Bugfixes
-
-* ...
+* Add static-tilemap-layer cheatsheet (*digitsensitive*)
+* update tilemap cheatsheet (*digitsensitive*)
+* update body cheatsheet (*digitsensitive*)
+* add camera-manager cheatsheet (*digitsensitive*)
+* add camera cheatsheet (*digitsensitive*)
+* add base-camera cheatsheet (*digitsensitive*)
+* add data-manager-plugin cheatsheet (*digitsensitive*)
+* add data-manager cheatsheet (*digitsensitive*)
+* add timeline cheatsheet (*digitsensitive*)
+* add scale-manager cheatsheet (*digitsensitive*)
 
 ---
 

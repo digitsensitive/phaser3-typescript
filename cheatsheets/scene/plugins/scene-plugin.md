@@ -9,7 +9,7 @@ It is installed into every scene and you can access it with `this.scene`.
 
 ### Public Functions
 
-#### start()
+#### start
 Shutdown the scene you call this function from and run the given one.
 
 You can not only pass the scene you want to start, but also the scene config.
@@ -28,10 +28,10 @@ this.scene.start("MyScene", {
 });
 ```
 
-#### restart()
+#### restart
 Restart the current scene.
 
-#### transition()
+#### transition
 Do a transition from current to target scene.
 You can use the following object to specify some transition parameters.
 
@@ -57,81 +57,81 @@ There are 5 transition related events to use:
 - transitionwake
 - transitioncomplete
 
-#### add()
+#### add
 Add the given scene into the scene .
 
-#### launch()
+#### launch
 Launch the given scene and run it in parallel with this one.
 
-#### run()
+#### run
 Run the given scene.
 
 > If the given Scene is paused, it will resume it. If sleeping, it will wake it.
 If not running at all, it will be started.
 
-#### pause()
+#### pause
 Pause the given scene (stops update step but not render).
 
-#### resume()
+#### resume
 Resume the given scene (starts the update loop again).
 
-#### sleep()
+#### sleep
 Sleep the given scene (stops update and render steps, but no shutdown).
 
-#### wake()
+#### wake
 Wake up the given scene (starts update and render).
 
-#### switch()
+#### switch
 Sleep the scene and start the given scene.
 
-#### stop()
+#### stop
 Shutdown the given scene, clearing display list, timers, etc.
 
-#### remove()
+#### remove
 Remove a scene from the scene manager.
 
-#### setActive()
+#### setActive
 Set the active state of the given scene.
 
-#### setVisible()
+#### setVisible
 Set the visible state of the given scene.
 
-#### isSleeping()
+#### isSleeping
 Check if the given scene is sleeping or not.
 
-#### isActive()
+#### isActive
 Check if the given scene is active or not.
 
-#### isVisible()
+#### isVisible
 Check if the given scene is visible or not.
 
-#### swapPosition()
+#### swapPosition
 Swap the position of two scenes in the scenes list.
 
-#### moveAbove()
+#### moveAbove
 Swap the position of two scenes in the scenes list, so that scene B is
 directly above scene A.
 
-#### moveBelow()
+#### moveBelow
 Swap the position of two scenes in the scenes list, so that scene B is
 directly below scene A.
 
-#### moveUp()
+#### moveUp
 Move a scene up one position in the scenes list.
 
-#### moveDown()
+#### moveDown
 Move a scene down one position in the scenes list.
 
-#### bringToTop()
+#### bringToTop
 Bring a scene to the top of the scenes list.
 
-#### sendToBack()
+#### sendToBack
 Send a scene to the back of the scenes list.
 
-#### get()
+#### get
 Retrieve a scene.
 
-#### getIndex()
+#### getIndex
 Retrieve the numeric index of a scene in the scenes list.
 
 ### References

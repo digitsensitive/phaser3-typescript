@@ -15,17 +15,17 @@ and instead use those made available to you via the Phaser.Scene class
 
 ### Public Functions
 
-#### resize()
+#### resize
 Updates game config with new width and height values.
 It will resize renderer and input manager scale.
 
-#### getFrame()
+#### getFrame
 Get the current frame.
 
-#### getTime()
+#### getTime
 Get the current game timestamp.
 
-#### destroy()
+#### destroy
 Will destroy the game instance on the next frame.
 
 > Set `noReturn` to `true` if you do not want to run Phaser again, so it will free-up

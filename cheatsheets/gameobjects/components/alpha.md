@@ -4,9 +4,9 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### clearAlpha()
+#### clearAlpha
 Clear all alpha values.
 
-#### setAlpha()
+#### setAlpha
 Set alpha values. 0 = fully transparent, 1 = fully opaque.
 If the game runs under WebGL you can optionally specify four different alpha values.

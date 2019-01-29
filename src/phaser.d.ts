@@ -46970,7 +46970,7 @@ declare namespace Phaser {
                  * @param processCallback An optional callback function that lets you perform additional checks against the two objects if they collide. If this is set then `collideCallback` will only be called if this callback returns `true`.
                  * @param callbackContext The context in which to run the callbacks.
                  */
-                collide(object1: ArcadeColliderType, object2?: ArcadeColliderType, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
+                collide(object1: ArcadeColliderType | any, object2?: ArcadeColliderType | any, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
 
                 /**
                  * Pauses the simulation.
@@ -50459,7 +50459,7 @@ declare namespace Phaser {
                  * @param processCallback An optional callback function that lets you perform additional checks against the two objects if they collide. If this is set then `collideCallback` will only be called if this callback returns `true`.
                  * @param callbackContext The context in which to run the callbacks.
                  */
-                collide(object1: ArcadeColliderType, object2?: ArcadeColliderType, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
+                collide(object1: ArcadeColliderType | any, object2?: ArcadeColliderType | any, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
 
                 /**
                  * Helper for Phaser.Physics.Arcade.World#collide.

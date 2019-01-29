@@ -88,6 +88,10 @@ npm run dev
   <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/tank/tank.md">
   <img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/tank/assets/github/tank.png" width="420" /></a>
 </p>
+<p float="left">
+  <a href="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/super-mario-land/super-mario-land.md">
+  <img src="https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/super-mario-land/assets/github/super-mario-land.png" width="420" /></a>
+</p>
 
 - If you have any suggestion for a next game example, let me know!
 
@@ -108,6 +112,7 @@ npm run dev
 - [Leshy SpriteSheet Tool](https://www.leshylabs.com/apps/sstool)
 - [Tiled](https://www.mapeditor.org)
 - [Littera](http://kvazars.com/littera)
+- [Tile Extruder](https://github.com/sporadic-labs/tile-extruder)
 
 ## Changelog
 

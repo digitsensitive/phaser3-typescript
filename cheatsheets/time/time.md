@@ -29,15 +29,15 @@ let myEvent = this.time.addEvent(TimerEventConfig);
 
 ### Public Functions
 
-#### addEvent()
+#### addEvent
 Create a timer event and add it to the clock at the start of the frame.
 
-#### delayedCall()
+#### delayedCall
 Create a timer event and add it to the clock at the start of the frame.
 It is a shortcut for addEvent(). It is compatible with the syntax of the [GreenSock Animation Platform (GSAP)](https://greensock.com).
 
-#### clearPendingEvents()
+#### clearPendingEvents
 Clear and recreate the array of pending timer events.
 
-#### removeAllEvents()
+#### removeAllEvents
 Schedule all active timer events for removal at the start of the frame.

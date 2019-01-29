@@ -4,6 +4,6 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Public Functions
 
-#### setDepth()
+#### setDepth
 Depth (= z-index) of the game object.
 A game object with a higher depth value will render in front of one with a lower value.

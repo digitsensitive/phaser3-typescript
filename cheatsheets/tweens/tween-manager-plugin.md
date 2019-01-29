@@ -4,10 +4,13 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-The Tween Manager is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#core-plugins) from a scene. It controls and updates Tweens and Timelines.
+The tween manager is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#core-
+plugins) from a scene. It controls and updates tweens and timelines.
+It is installed into every scene and you can access it with `this.tweens`.
 
 ### Example
 
+Basic tween data config:
 ```
 const TweenDataConfig = {
   targets: null,
@@ -54,65 +57,65 @@ const TweenDataConfig = {
 
 ### Public Functions
 
-#### createTimeline()
+#### createTimeline
 Create a tween timeline and return it, but do NOT add it to the active or pending tween lists.
 
-#### timeline()
+#### timeline
 Create a tween timeline and add it to the active tween list.
 
-#### create()
+#### create
 Create a tween and return it, but do NOT add it to the active or pending tween lists.
 
-#### add()
+#### add
 Create a tween and add it to the active tween list.
 
-#### existing()
+#### existing
 Add an existing tween into the active tween list.
 
-#### addCounter()
+#### addCounter
 Create a tween and add it to the active tween list.
 
-#### makeActive()
+#### makeActive
 Checks if a tween or timeline is active and adds it to the tween Manager
 at the start of the frame if it isn't.
 
-#### each()
+#### each
 Passes all tweens to the given callback.
 
-#### getAllTweens()
+#### getAllTweens
 Returns an array of all active tweens and timelines in the tween manager.
 
-#### getGlobalTimeScale()
+#### getGlobalTimeScale
 Returns the scale of the time delta for all tweens and timelines owned by this tween manager.
 
-#### getTweensOf()
+#### getTweensOf
 Returns an array of all tweens or timelines in the tween manager which affect
 the given target or array of targets.
 
-#### isTweening()
+#### isTweening
 Checks if the given object is being affected by a playing tween.
 
-#### killAll()
+#### killAll
 Stops all tweens in this tween manager. They will be removed at the start of the frame.
 
-#### killTweensOf()
+#### killTweensOf
 Stops all tweens which affect the given target or array of targets.
 The tweens will be removed from the tween manager at the start of the frame.
 
-#### pauseAll()
+#### pauseAll
 Pauses all tweens in this tween manager.
 
-#### resumeAll()
+#### resumeAll
 Resumes all tweens in this tween manager.
 
-#### setGlobalTimeScale()
+#### setGlobalTimeScale
 Sets a new scale of the time delta for this tween manager.
 
-#### shutdown()
+#### shutdown
 The scene that owns this plugin is shutting down.
 
 > We need to kill and reset all internal properties as well as stop listening to scene events.
 
-#### destroy()
+#### destroy
 The scene that owns this plugin is being destroyed.
 We need to shutdown and then kill off all external references.
