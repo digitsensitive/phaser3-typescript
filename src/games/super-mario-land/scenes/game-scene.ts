@@ -103,6 +103,7 @@ export class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.foregroundLayer);
     this.physics.add.collider(this.enemies, this.foregroundLayer);
     this.physics.add.collider(this.enemies, this.boxes);
+    this.physics.add.collider(this.enemies, this.bricks);
     this.physics.add.collider(this.player, this.bricks);
 
     this.physics.add.collider(
@@ -129,15 +130,13 @@ export class GameScene extends Phaser.Scene {
       this
     );
 
-    /*
-
     this.physics.add.collider(
       this.player,
       this.platforms,
       this.handlePlayerOnPlatform,
       null,
       this
-    );*/
+    );
 
     this.physics.add.overlap(this.player, this.collectibles);
 
