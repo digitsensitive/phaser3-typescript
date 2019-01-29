@@ -15775,7 +15775,7 @@ declare namespace Phaser {
              * @param children Game Objects to add to this Group; or the `config` argument.
              * @param config A Group Configuration object.
              */
-            group(children?: Phaser.GameObjects.GameObject[] | GroupConfig | GroupConfig[], config?: GroupConfig): Phaser.GameObjects.Group;
+            group(children?: Phaser.GameObjects.GameObject[] | GroupConfig | GroupConfig[] | GroupCreateConfig, config?: GroupConfig): Phaser.GameObjects.Group;
 
             /**
              * Creates a new Image Game Object and adds it to the Scene.
