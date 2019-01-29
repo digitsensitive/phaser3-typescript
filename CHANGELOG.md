@@ -16,7 +16,7 @@
 
 ---
 
-## Version 1.2.X - XYZth XYZ 2019
+## Version 1.2.4 - 29th January 2019
 
 ### Features
 
@@ -38,10 +38,6 @@
 * add data-manager cheatsheet (*digitsensitive*)
 * add timeline cheatsheet (*digitsensitive*)
 * add scale-manager cheatsheet (*digitsensitive*)
-
-### Bugfixes
-
-* ...
 
 ---
 
