@@ -1191,44 +1191,6 @@
                  "y":40
                 }, 
                 {
-                 "height":8,
-                 "id":287,
-                 "name":"box",
-                 "properties":
-                    {
-                     "content":"mushroom"
-                    },
-                 "propertytypes":
-                    {
-                     "content":"string"
-                    },
-                 "rotation":0,
-                 "type":"box",
-                 "visible":true,
-                 "width":8,
-                 "x":72,
-                 "y":88
-                }, 
-                {
-                 "height":8,
-                 "id":288,
-                 "name":"box",
-                 "properties":
-                    {
-                     "content":"star"
-                    },
-                 "propertytypes":
-                    {
-                     "content":"string"
-                    },
-                 "rotation":0,
-                 "type":"box",
-                 "visible":true,
-                 "width":8,
-                 "x":88,
-                 "y":88
-                }, 
-                {
                  "height":6,
                  "id":289,
                  "name":"level1Room1",

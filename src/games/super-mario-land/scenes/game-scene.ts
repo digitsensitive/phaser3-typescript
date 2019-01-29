@@ -139,15 +139,7 @@ export class GameScene extends Phaser.Scene {
       this
     );*/
 
-    this.physics.add.overlap(
-      this.player,
-      this.collectibles,
-      function() {
-        console.log("GREAT");
-      },
-      null,
-      this
-    );
+    this.physics.add.overlap(this.player, this.collectibles);
 
     // *****************************************************************
     // CAMERA
