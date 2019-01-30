@@ -16,6 +16,22 @@
 
 ---
 
+## Version 1.X.X - XXth XXXX 2019
+
+### Features
+
+* ...
+
+### Updates
+
+* Rename output folder from `build` to `dist` *[Author: digitsensitive (2019-01-30)]*
+
+### Bugfixes
+
+* ...
+
+---
+
 ## Version 1.2.4 - 29th January 2019
 
 ### Features
