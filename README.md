@@ -50,7 +50,7 @@ git clone https://github.com/digitsensitive/phaser3-typescript.git
 Install the dependencies with this command-line:
 
 ```
-npm install
+npm install or yarn install
 ```
 
 ### Building and Running
@@ -58,7 +58,7 @@ npm install
 Perform a quick build (bundle.js) and start server:
 
 ```
-npm run dev
+npm run dev or yarn run dev
 ```
 
 ## Game Examples
