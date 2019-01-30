@@ -122,16 +122,13 @@ npm run dev
 
 The following `Compiler Options` have been set in the `tsconfig.json` file:
 
-#### target: ES2016
-
-#### module: CommonJS
-
-#### sourceMap: true
-
-#### noImplicitAny: true [WIP]
-Expressions and declarations with an implied 'any' type are not allowed.
-
-#### strict: true [WIP]
+| Option | Value     |
+| :------------- | :------------- |
+| target       | ES2016 |
+| module       | CommonJS |
+| sourceMap    | true |
+| noImplicitAny| true [WIP] |
+| strict       | true [WIP] |
 
 You can see the complete list of the available options at [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 Interesting read about [setting up a nodejs-project](https://codeburst.io/tips-for-setting-up-a-typescript-nodejs-project-5d1c48dc1a2d).
