@@ -99,7 +99,7 @@ npm run dev
 
 ## Cheat Sheets
 
-- [Browse to folder](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets)
+- [Browse through the Cheat Sheets](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets)
 
 ## External Resources
 
@@ -115,6 +115,26 @@ npm run dev
 - [Tiled](https://www.mapeditor.org)
 - [Littera](http://kvazars.com/littera)
 - [Tile Extruder](https://github.com/sporadic-labs/tile-extruder)
+
+## TypeScript Configuration
+
+### tsconfig.json
+
+The following `Compiler Options` have been set in the `tsconfig.json` file:
+
+#### target: ES2016
+
+#### module: CommonJS
+
+#### sourceMap: true
+
+#### noImplicitAny: true [WIP]
+Expressions and declarations with an implied 'any' type are not allowed.
+
+#### strict: true [WIP]
+
+You can see the complete list of the available options at [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+Interesting read about [setting up a nodejs-project](https://codeburst.io/tips-for-setting-up-a-typescript-nodejs-project-5d1c48dc1a2d).
 
 ## Changelog
 

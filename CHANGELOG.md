@@ -25,6 +25,7 @@
 ### Updates
 
 * Rename output folder from `build` to `dist` *[Author: digitsensitive (2019-01-30)]*
+* Refactor `tsconfig.json` with explanations in the README.md *[Author: digitsensitive (2019-01-30)]*
 
 ### Bugfixes
 
