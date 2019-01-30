@@ -16,8 +16,17 @@ and instead use those made available to you via the Phaser.Scene class
 ### Public Functions
 
 #### resize
-Updates game config with new width and height values.
+Call this function to update the game width and height.
 It will resize renderer and input manager scale.
+
+A possible usage would be to call that function as follows in the `game.ts`:
+
+```
+window.addEventListener('resize', () => {
+  game.resize(window.innerWidth, window.innerHeight);
+});
+```
+
 
 #### getFrame
 Get the current frame.

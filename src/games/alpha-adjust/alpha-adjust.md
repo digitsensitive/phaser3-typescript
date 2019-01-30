@@ -24,7 +24,7 @@ entry: './src/games/alpha-adjust/game.ts'
 
 ## Further reading
 
-* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/references/phaser-game.md)
+* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
 
 ## Acknowledgments
 
