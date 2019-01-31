@@ -29,7 +29,7 @@ this.load.image("boom", "http://server.com/explode.png"); -> http://server.com/e
 
 > Please note that the path is added before the filename but after the baseURL (if set.)
 
-#### setPrefix
+#### setPrefix
 An optional prefix that is automatically prepended to the start of every file key.
 
 #### setCORS
@@ -37,7 +37,7 @@ Set the Cross Origin Resource Sharing value used when loading files.
 
 > https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
-#### keyExists
+#### keyExists
 Check the key and type of the given file to see if it will conflict with anything already
 in a Cache, the Texture Manager, or the list or inflight queues.
 
@@ -53,7 +53,7 @@ Is the Loader actively loading, or processing loaded files?
 #### isReady
 Is the Loader ready to start a new load?
 
-#### flagForRemoval
+#### flagForRemoval
 Add a file into the pending-deletion queue.
 
 #### saveJSON

@@ -34,11 +34,11 @@ Completely reinitializes the timer event.
 Get the progress of the current iteration, not factoring in repeats.
 A number between 0 and 1 representing the current progress.
 
-#### getOverallProgress
+#### getOverallProgress
 Get the progress of the timer overall, factoring in repeats.
 The overall progress of the timer event, between 0 and 1.
 
-#### getRepeatCount
+#### getRepeatCount
 Returns the number of times this timer event will repeat before finishing.
 
 > Not to be confused with the number of times the timer event will fire before finishing.
@@ -49,10 +49,10 @@ Returns the local elapsed time for the current iteration of the timer event.
 #### getElapsedSeconds
 Returns the local elapsed time for the current iteration of the timer event in seconds.
 
-#### remove
+#### remove
 Forces the timer event to immediately expire. Will be removed in the next frame.
 
-#### destroy
+#### destroy
 Destroys all object references in the timer event.
 
 > If called manually, the timer event will still be updated by the Clock, but it won't do anything when it fires.

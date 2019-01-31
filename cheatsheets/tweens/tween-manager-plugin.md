@@ -72,7 +72,7 @@ Create a tween and add it to the active tween list.
 #### existing
 Add an existing tween into the active tween list.
 
-#### addCounter
+#### addCounter
 Create a tween and add it to the active tween list.
 
 #### makeActive
@@ -85,17 +85,17 @@ Passes all tweens to the given callback.
 #### getAllTweens
 Returns an array of all active tweens and timelines in the tween manager.
 
-#### getGlobalTimeScale
+#### getGlobalTimeScale
 Returns the scale of the time delta for all tweens and timelines owned by this tween manager.
 
-#### getTweensOf
+#### getTweensOf
 Returns an array of all tweens or timelines in the tween manager which affect
 the given target or array of targets.
 
-#### isTweening
+#### isTweening
 Checks if the given object is being affected by a playing tween.
 
-#### killAll
+#### killAll
 Stops all tweens in this tween manager. They will be removed at the start of the frame.
 
 #### killTweensOf
@@ -105,13 +105,13 @@ The tweens will be removed from the tween manager at the start of the frame.
 #### pauseAll
 Pauses all tweens in this tween manager.
 
-#### resumeAll
+#### resumeAll
 Resumes all tweens in this tween manager.
 
-#### setGlobalTimeScale
+#### setGlobalTimeScale
 Sets a new scale of the time delta for this tween manager.
 
-#### shutdown
+#### shutdown
 The scene that owns this plugin is shutting down.
 
 > We need to kill and reset all internal properties as well as stop listening to scene events.

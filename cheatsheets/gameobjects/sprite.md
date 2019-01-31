@@ -2,7 +2,7 @@
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-### Introduction
+### Introduction
 
 Useful to display both static and animated images.
 
@@ -16,7 +16,7 @@ let mySprite = this.add.sprite(20, 30, "spriteTexture", "imageFrame");
 
 ### Public Functions
 
-#### play
+#### play
 Start playing the given animation.
 
 #### toJSON

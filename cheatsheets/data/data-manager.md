@@ -31,7 +31,7 @@ this.data.get([ 'gold', 'armor', 'health' ]);
 #### getAll
 Retrieve all data values in a new object.
 
-#### set
+#### set
 Set a value for the given key. If the key doesn't already exist in the data manager then it is created.
 
 ```

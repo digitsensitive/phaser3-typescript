@@ -69,10 +69,10 @@ Set the value of the time scale applied to this timeline.
 #### getTimeScale
 Get the value of the time scale applied to this timeline.
 
-#### isPlaying
+#### isPlaying
 Check if the timeline is playing.
 
-#### add
+#### add
 Add a new timeline.
 
 #### queue
@@ -81,16 +81,16 @@ Add a new timeline.
 #### hasOffset
 ???
 
-#### isOffsetAbsolute
+#### isOffsetAbsolute
 Check whether the offset value is a number or a directive that is relative to previous tweens.
 
 #### isOffsetRelative
 Check if the offset is a relative value rather than an absolute one. If the value is just a number, this returns false.
 
-#### getRelativeOffset
+#### getRelativeOffset
 Parses the relative offset value, returning a positive or negative number.
 
-#### calcDuration
+#### calcDuration
 Calculates the total duration of the timeline.
 Computes all tweens durations and returns the full duration of the timeline.
 
@@ -108,7 +108,7 @@ The boolean parameter indicates whether tweens that are looping should reset as 
 #### setCallback
 Seta callback for the timeline.
 
-#### makeActive
+#### makeActive
 Delegates [makeActive](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md#makeActive) to the tween manager.
 
 #### play
@@ -124,14 +124,14 @@ whatever stage of progress it is at and flags it for removal by the tween manage
 #### pause
 Pause the timeline, retaining its internal state.
 
-#### resume
+#### resume
 Resume the timeline from where it was when it was paused.
 
-#### hasTarget
+#### hasTarget
 Check if any of the tweens has the target as the object they are operating on.
 Retuns false if no tweens operate on the target object.
 
-#### destroy
+#### destroy
 Stops all the tweens in the timeline immediately,
 whatever stage of progress they are at and flags them for removal by the TweenManager.
 

@@ -114,7 +114,7 @@ See if this tween is currently acting upon the given target.
 #### restart
 Restarts the tween from the beginning.
 
-#### pause
+#### pause
 Pause the tween.
 
 #### play
@@ -123,7 +123,7 @@ Play the tween.
 #### resume
 Resumes the playback of a previously paused tween.
 
-#### complete
+#### complete
 Flags the tween as being complete, whatever stage of progress it is at.
 
 > If an onComplete callback has been defined it will automatically invoke it, unless a `delay`

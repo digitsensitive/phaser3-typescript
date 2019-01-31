@@ -69,7 +69,7 @@ Run the given scene.
 > If the given Scene is paused, it will resume it. If sleeping, it will wake it.
 If not running at all, it will be started.
 
-#### pause
+#### pause
 Pause the given scene (stops update step but not render).
 
 #### resume
@@ -81,19 +81,19 @@ Sleep the given scene (stops update and render steps, but no shutdown).
 #### wake
 Wake up the given scene (starts update and render).
 
-#### switch
+#### switch
 Sleep the scene and start the given scene.
 
 #### stop
 Shutdown the given scene, clearing display list, timers, etc.
 
-#### remove
+#### remove
 Remove a scene from the scene manager.
 
 #### setActive
 Set the active state of the given scene.
 
-#### setVisible
+#### setVisible
 Set the visible state of the given scene.
 
 #### isSleeping
@@ -102,13 +102,13 @@ Check if the given scene is sleeping or not.
 #### isActive
 Check if the given scene is active or not.
 
-#### isVisible
+#### isVisible
 Check if the given scene is visible or not.
 
-#### swapPosition
+#### swapPosition
 Swap the position of two scenes in the scenes list.
 
-#### moveAbove
+#### moveAbove
 Swap the position of two scenes in the scenes list, so that scene B is
 directly above scene A.
 
@@ -119,19 +119,19 @@ directly below scene A.
 #### moveUp
 Move a scene up one position in the scenes list.
 
-#### moveDown
+#### moveDown
 Move a scene down one position in the scenes list.
 
-#### bringToTop
+#### bringToTop
 Bring a scene to the top of the scenes list.
 
 #### sendToBack
 Send a scene to the back of the scenes list.
 
-#### get
+#### get
 Retrieve a scene.
 
-#### getIndex
+#### getIndex
 Retrieve the numeric index of a scene in the scenes list.
 
 ### References

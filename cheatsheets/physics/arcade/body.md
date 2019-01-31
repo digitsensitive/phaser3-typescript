@@ -2,7 +2,7 @@
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-### Introduction
+### Introduction
 
 ### Example
 
@@ -17,7 +17,7 @@ Sets the body's horizontal velocity.
 #### setVelocityY
 Sets the body's vertical velocity.
 
-#### setAcceleration
+#### setAcceleration
 Sets the body's acceleration.
 
 #### setAccelerationX
@@ -29,7 +29,7 @@ Sets the body's vertical acceleration.
 #### setImmovable
 Set the body to be immovable.
 
-#### setSize
+#### setSize
 Size and position of the body boundary (rectangle).
 
 #### setMass
@@ -38,10 +38,10 @@ Set the body mass.
 #### setFriction
 Set the body friction.
 
-#### setBounce
+#### setBounce
 Set the body bounce.
 
-#### setOffset
+#### setOffset
 Set the offset of the body's position from its game object's position.
 
 #### setAllowGravity

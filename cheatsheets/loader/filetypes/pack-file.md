@@ -2,7 +2,7 @@
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-### Introduction
+### Introduction
 
 A single JSON Pack File suitable for loading by the Loader.
 

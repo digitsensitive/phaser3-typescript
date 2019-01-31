@@ -21,12 +21,12 @@ Add an existing camera into the camera manager.
 
 > If this method returns `null` then the camera already exists in this camera manager.
 
-#### getTotal
+#### getTotal
 Get the total number of cameras in this camera manager.
 
 > If the optional `isVisible` argument is set it will only count cameras that are currently visible.
 
-#### getCamera
+#### getCamera
 Get a camera based on its name.
 
 > Camera names are optional and do not have to be set
@@ -36,13 +36,13 @@ Returns an array of all cameras below the given pointer.
 
 > The first camera in the array is the top-most camera in the camera list.
 
-#### remove
+#### remove
 Remove the given camera, or an array of cameras, from this camera manager.
 
-#### resetAll
+#### resetAll
 Resets this camera manager.
 
-#### resize
+#### resize
 Resizes all cameras to the given dimensions.
 
 #### fromJSON

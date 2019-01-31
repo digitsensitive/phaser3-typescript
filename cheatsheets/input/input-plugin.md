@@ -6,7 +6,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 The input plugin is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#default-plugins). It is installed into every scene unless you specify otherwise and can be accessed with `this.input`.
 
-### Examples
+### Examples
 Since the input plugin extends `EventEmitter` you can do the following,
 to listen for a pointer down event anywhere on the game canvas:
 
@@ -30,13 +30,13 @@ Check to see if both this plugin and the scene to which it belongs is active.
 #### clear
 Clear a game object from the interactive object associated with it.
 
-#### disable
+#### disable
 Disable input on a single game object.
 
 > An input disabled game object still retains its interactive object component
 and can be re-enabled at any time, by passing it to `InputPlugin.enable`
 
-#### enable
+#### enable
 Enable a game object for interaction.
 
 If the game object already has an interactive object component, it is enabled and returned.
@@ -65,7 +65,7 @@ const InputConfiguration = {
 };
 ```
 
-#### hitTestPointer
+#### hitTestPointer
 Takes the given pointer and performs a hit test against it, to see which interactive game objects
 it is currently above.
 
@@ -87,15 +87,15 @@ Get the drag state of the given pointer for this input plugin.
 | 4 | Pointer actively dragging the draglist and has moved |
 | 5 | Pointer actively dragging but has been released, notify draglist |
 
-#### setDragState
+#### setDragState
 Set the drag state of the given pointer for this input plugin (see getDragState)
 
-#### setDraggable
+#### setDraggable
 Set the draggable state of the given array of game objects.
 
 > A game object will not fire drag events unless it has been specifically enabled for drag.
 
-#### makePixelPerfect
+#### makePixelPerfect
 Creates a function that can be passed to `setInteractive`, `enable` or `setHitArea` that will handle
 pixel-perfect input detection on an Image or Sprite based game object, or any custom class that extends them.
 
@@ -125,11 +125,11 @@ or `Phaser.Geom.Circle`. However, it can be any object as long as it works with 
 
 > If no hit area is provided a Rectangle is created based on the size of the Game Object, if possible to calculate.
 
-#### setHitAreaCircle
+#### setHitAreaCircle
 Set the hit area for an array of game objects to be a `Phaser.Geom.Circle` shape, using
 the given coordinates and radius to control its position and size.
 
-#### setHitAreaEllipse
+#### setHitAreaEllipse
 Set the hit area for an array of game objects to be a `Phaser.Geom.Ellipse` shape, using
 the given coordinates and dimensions to control its position and size.
 
@@ -141,11 +141,11 @@ the game objects texture frame to define the position and size of the hit area.
 Set the hit area for an array of game objects to be a `Phaser.Geom.Rectangle` shape, using
 the given coordinates and dimensions to control its position and size.
 
-#### setHitAreaTriangle
+#### setHitAreaTriangle
 Set the hit area for an array of game objects to be a `Phaser.Geom.Triangle` shape, using
 the given coordinates to control the position of its points.
 
-#### setPollAlways
+#### setPollAlways
 Sets the pointers to always poll.
 
 When a pointer is polled it runs a hit test to see which game objects are currently below it,
@@ -161,7 +161,7 @@ Set the pointers to only poll when they are moved or updated.
 > When a pointer is polled it runs a hit test to see which game objects are currently below it,
 or being interacted with it.
 
-#### setPollRate
+#### setPollRate
 Set the poll rate value. This is the amount of time that should have elapsed before a pointer
 will be polled again. See the `setPollAlways` and `setPollOnMove` methods.
 
@@ -181,7 +181,7 @@ If set to `false` it will emit events from all game objects below a pointer, not
 Given an array of game objects, sort the array and return it, so that the objects are in depth index order
 with the lowest at the bottom.
 
-#### stopPropagation
+#### stopPropagation
 Causes the input manager to stop emitting any events for the remainder of this game step.
 
 #### addPointer
@@ -190,7 +190,7 @@ Add new pointer objects to the input manager.
 > Calls the [addPointer method](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-manager.md#addPointer)
 from the [input manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-manager.md).
 
-#### setDefaultCursor
+#### setDefaultCursor
 Tells the input system to set a custom cursor.
 
 This cursor will be the default cursor used when interacting with the game canvas.

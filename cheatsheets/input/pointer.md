@@ -24,25 +24,25 @@ Returns a Vector2 with the translated position of the pointer within the camera.
 
 > Use this to convert pointer positions into camera space.
 
-#### noButtonDown
+#### noButtonDown
 Check if any buttons are being held down by this pointer.
 
-#### leftButtonDown
+#### leftButtonDown
 Check if the left button is held down by this pointer.
 
 #### rightButtonDown
 Check if the right button is held down by this pointer.
 
-#### middleButtonDown
+#### middleButtonDown
 Check if the middle button is held down by this pointer.
 
-#### backButtonDown
+#### backButtonDown
 Check if the back button is held down by this pointer.
 
 #### forwardButtonDown
 Check if the forward button is held down by this pointer.
 
-#### getDistance
+#### getDistance
 If the pointer has a button pressed down at the time this method is called, it will return the
 distance between the pointer's `downX` and `downY` values and the current position.
 
@@ -66,14 +66,14 @@ vertical distance between the pointer's `downX` and `downY` values and the curre
 If no button is held down, it will return the last recorded vertical distance, based on where
 the pointer was when the button was released.
 
-#### getDuration
+#### getDuration
 If the pointer has a button pressed down at the time this method is called, it will return the
 duration since the pointer's was pressed down.
 
 If no button is held down, it will return the last recorded duration, based on the time
 the pointer button was released.
 
-#### getAngle
+#### getAngle
 If the pointer has a button pressed down at the time this method is called, it will return the
 angle between the pointer's `downX` and `downY` values and the current position.
 

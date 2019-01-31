@@ -2,7 +2,7 @@
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-### Introduction
+### Introduction
 
 Light-weight game object. Useful for static images in game (f.e. logos, background or
 non-animated elements).
