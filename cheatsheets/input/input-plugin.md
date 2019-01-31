@@ -171,7 +171,7 @@ the top-most game objects in the Display List.
 
 If set to `false` it will emit events from all game objects below a pointer, not just the top one.
 
-#### setTopOnly
+#### setTopOnly
 When set to `true` this input plugin will emulate DOM behavior by only emitting events from
 the top-most game objects in the Display List.
 
