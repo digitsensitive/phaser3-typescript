@@ -27,6 +27,11 @@
 * Rename output folder from `build` to `dist` *[Author: digitsensitive (2019-01-30)]*
 * Refactor `tsconfig.json` with explanations in the README.md *[Author: digitsensitive (2019-01-30)]*
 * Update webpack version from 4.28.4 to 4.29.0 *[Author: digitsensitive (2019-01-30)]*
+* Add touch-manager cheatsheet *[Author: digitsensitive (2019-01-31)]*
+* Add mouse-manager cheatsheet *[Author: digitsensitive (2019-01-31)]*
+* Add input-manager cheatsheet *[Author: digitsensitive (2019-01-31)]*
+* Add input-plugin cheatsheet *[Author: digitsensitive (2019-01-31)]*
+* Add pointer cheatsheet *[Author: digitsensitive (2019-01-31)]*
 
 ### Bugfixes
 

@@ -24,7 +24,7 @@ The core plugins are `non-optional`.
 
 - The 3D Camera Manager
 - [The Clock](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/time/time.md)
-- The Input Plugin
+- [The Input Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-plugin.md)
 - [The Data Manager Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/data/data-manager-plugin.md)
 - [The Loader Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/loader/loader-plugin.md)
 - [The Tween Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md)
