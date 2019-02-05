@@ -4,8 +4,6 @@
  * @license      Digitsensitive
  */
 
-/// <reference path="../phaser.d.ts"/>
-
 import "phaser";
 import { MainScene } from "./scenes/mainScene";
 
