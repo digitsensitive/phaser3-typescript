@@ -35,7 +35,7 @@
 
 ### Bugfixes
 
-* ...
+* Delete `<reference path>` *[Author: digitsensitive (2019-02-05)]*
 
 ---
 
