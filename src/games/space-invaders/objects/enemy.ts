@@ -9,7 +9,6 @@ import { Bullet } from "./bullet";
 
 export class Enemy extends Phaser.GameObjects.Sprite {
   private bullets: Phaser.GameObjects.Group;
-  private currentScene: Phaser.Scene;
   private dyingTime: number;
   private enemyTint: number;
   private enemyType: string;
@@ -32,12 +31,11 @@ export class Enemy extends Phaser.GameObjects.Sprite {
 
     this.initTweens();
 
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   private initVariables(params): void {
-    this.currentScene = params.scene;
-    this.bullets = this.currentScene.add.group({
+    this.bullets = this.scene.add.group({
       maxSize: 10,
       runChildUpdate: true
     });
@@ -81,12 +79,12 @@ export class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   private initPhysics(): void {
-    this.currentScene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
     this.body.setSize(12, 8);
   }
 
   private initTweens(): void {
-    this.moveTween = this.currentScene.tweens.add({
+    this.moveTween = this.scene.tweens.add({
       targets: this,
       x: this.x + 50,
       ease: "Power0",
@@ -103,7 +101,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
       if (Phaser.Math.RND.between(0, this.reloadTime) === 0) {
         this.bullets.add(
           new Bullet({
-            scene: this.currentScene,
+            scene: this.scene,
             x: this.x,
             y: this.y,
             key: "bullet",
@@ -150,8 +148,8 @@ export class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   private addPoints(): void {
-    let getCurrentPoints = this.currentScene.registry.get("points");
-    this.currentScene.registry.set("points", getCurrentPoints + this.valueKill);
-    this.currentScene.events.emit("pointsChanged");
+    let getCurrentPoints = this.scene.registry.get("points");
+    this.scene.registry.set("points", getCurrentPoints + this.valueKill);
+    this.scene.events.emit("pointsChanged");
   }
 }

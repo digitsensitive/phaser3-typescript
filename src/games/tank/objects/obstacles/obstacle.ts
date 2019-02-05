@@ -6,14 +6,11 @@
  */
 
 export class Obstacle extends Phaser.GameObjects.Image {
-  private currentScene: Phaser.Scene;
-
   constructor(params) {
     super(params.scene, params.x, params.y, params.key);
 
-    this.currentScene = params.scene;
     this.initImage();
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   private initImage(): void {
@@ -21,7 +18,7 @@ export class Obstacle extends Phaser.GameObjects.Image {
     this.setOrigin(0, 0);
 
     // physics
-    this.currentScene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
     this.body.setImmovable(true);
   }
 

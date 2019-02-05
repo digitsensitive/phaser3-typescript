@@ -9,7 +9,6 @@ import { Bullet } from "../objects/bullet";
 import { CONST } from "../const/const";
 
 export class Ship extends Phaser.GameObjects.Graphics {
-  private currentScene: Phaser.Scene;
   private velocity: Phaser.Math.Vector2;
   private cursors: any;
   private bullets: Bullet[];
@@ -28,7 +27,6 @@ export class Ship extends Phaser.GameObjects.Graphics {
     super(params.scene, params.opt);
 
     // variables
-    this.currentScene = params.scene;
     this.bullets = [];
     this.isShooting = false;
 
@@ -36,24 +34,24 @@ export class Ship extends Phaser.GameObjects.Graphics {
     this.initShip();
 
     // input
-    this.cursors = this.currentScene.input.keyboard.createCursorKeys();
-    this.shootKey = this.currentScene.input.keyboard.addKey(
+    this.cursors = this.scene.input.keyboard.createCursorKeys();
+    this.shootKey = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
 
     // physics
-    this.currentScene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
     this.body.allowGravity = false;
     this.body.setSize(CONST.SHIP_SIZE * 2, CONST.SHIP_SIZE * 2);
     this.body.setOffset(-CONST.SHIP_SIZE, -CONST.SHIP_SIZE);
 
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   private initShip(): void {
     // define ship properties
-    this.x = this.currentScene.sys.canvas.width / 2;
-    this.y = this.currentScene.sys.canvas.height / 2;
+    this.x = this.scene.sys.canvas.width / 2;
+    this.y = this.scene.sys.canvas.height / 2;
     this.velocity = new Phaser.Math.Vector2(0, 0);
 
     // define ship graphics and draw it
@@ -123,23 +121,23 @@ export class Ship extends Phaser.GameObjects.Graphics {
 
   private checkIfOffScreen(): void {
     // horizontal check
-    if (this.x > this.currentScene.sys.canvas.width + CONST.SHIP_SIZE) {
+    if (this.x > this.scene.sys.canvas.width + CONST.SHIP_SIZE) {
       this.x = -CONST.SHIP_SIZE;
     } else if (this.x < -CONST.SHIP_SIZE) {
-      this.x = this.currentScene.sys.canvas.width + CONST.SHIP_SIZE;
+      this.x = this.scene.sys.canvas.width + CONST.SHIP_SIZE;
     }
 
     // vertical check
-    if (this.y > this.currentScene.sys.canvas.height + CONST.SHIP_SIZE) {
+    if (this.y > this.scene.sys.canvas.height + CONST.SHIP_SIZE) {
       this.y = -CONST.SHIP_SIZE;
     } else if (this.y < -CONST.SHIP_SIZE) {
-      this.y = this.currentScene.sys.canvas.height + CONST.SHIP_SIZE;
+      this.y = this.scene.sys.canvas.height + CONST.SHIP_SIZE;
     }
   }
 
   private shoot(): void {
     this.bullets.push(
-      new Bullet(this.currentScene, {
+      new Bullet(this.scene, {
         x: this.x,
         y: this.y,
         rotation: this.rotation

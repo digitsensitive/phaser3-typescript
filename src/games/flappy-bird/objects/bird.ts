@@ -27,14 +27,14 @@ export class Bird extends Phaser.GameObjects.Sprite {
     this.setOrigin(0, 0);
 
     // physics
-    params.scene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
     this.body.setGravityY(1000);
     this.body.setSize(17, 12);
 
     // animations & tweens
     this.anim = [];
     this.anim.push(
-      params.scene.tweens.add({
+      this.scene.tweens.add({
         targets: this,
         duration: 100,
         angle: -20
@@ -42,11 +42,11 @@ export class Bird extends Phaser.GameObjects.Sprite {
     );
 
     // input
-    this.jumpKey = params.scene.input.keyboard.addKey(
+    this.jumpKey = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
 
-    params.scene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   update(): void {

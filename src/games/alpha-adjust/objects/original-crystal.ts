@@ -6,7 +6,6 @@
  */
 
 export class OriginalCrystal extends Phaser.GameObjects.Image {
-  private currentScene: Phaser.Scene;
   private randomAlpha: number;
 
   constructor(params) {
@@ -14,11 +13,10 @@ export class OriginalCrystal extends Phaser.GameObjects.Image {
 
     this.initVariables(params);
     this.initImage();
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   private initVariables(params): void {
-    this.currentScene = params.scene;
     this.randomAlpha = params.alpha;
   }
 
@@ -27,6 +25,4 @@ export class OriginalCrystal extends Phaser.GameObjects.Image {
     this.setScale(2);
     this.setAlpha(this.randomAlpha);
   }
-
-  update(): void {}
 }

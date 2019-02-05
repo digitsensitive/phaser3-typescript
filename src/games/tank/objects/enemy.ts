@@ -9,7 +9,6 @@ import { Bullet } from "./bullet";
 
 export class Enemy extends Phaser.GameObjects.Image {
   // variables
-  private currentScene: Phaser.Scene;
   private health: number;
   private lastShoot: number;
   private speed: number;
@@ -32,9 +31,8 @@ export class Enemy extends Phaser.GameObjects.Image {
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
 
-    this.currentScene = params.scene;
     this.initContainer();
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   private initContainer() {
@@ -46,15 +44,15 @@ export class Enemy extends Phaser.GameObjects.Image {
     // image
     this.setDepth(0);
 
-    this.barrel = this.currentScene.add.image(0, 0, "barrelRed");
+    this.barrel = this.scene.add.image(0, 0, "barrelRed");
     this.barrel.setOrigin(0.5, 1);
     this.barrel.setDepth(1);
 
-    this.lifeBar = this.currentScene.add.graphics();
+    this.lifeBar = this.scene.add.graphics();
     this.redrawLifebar();
 
     // game objects
-    this.bullets = this.currentScene.add.group({
+    this.bullets = this.scene.add.group({
       classType: Bullet,
       active: true,
       maxSize: 10,
@@ -62,7 +60,7 @@ export class Enemy extends Phaser.GameObjects.Image {
     });
 
     // tweens
-    this.currentScene.tweens.add({
+    this.scene.tweens.add({
       targets: this,
       props: { y: this.y - 200 },
       delay: 0,
@@ -76,7 +74,7 @@ export class Enemy extends Phaser.GameObjects.Image {
     });
 
     // physics
-    this.currentScene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
   }
 
   update(): void {
@@ -94,11 +92,11 @@ export class Enemy extends Phaser.GameObjects.Image {
   }
 
   private handleShooting(): void {
-    if (this.currentScene.time.now > this.lastShoot) {
+    if (this.scene.time.now > this.lastShoot) {
       if (this.bullets.getLength() < 10) {
         this.bullets.add(
           new Bullet({
-            scene: this.currentScene,
+            scene: this.scene,
             x: this.barrel.x,
             y: this.barrel.y,
             key: "bulletRed",
@@ -106,7 +104,7 @@ export class Enemy extends Phaser.GameObjects.Image {
           })
         );
 
-        this.lastShoot = this.currentScene.time.now + 400;
+        this.lastShoot = this.scene.time.now + 400;
       }
     }
   }

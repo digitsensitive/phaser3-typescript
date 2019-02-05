@@ -8,22 +8,20 @@
 export class Coin extends Phaser.GameObjects.Image {
   private centerOfScreen: number;
   private changePositionTimer: Phaser.Time.TimerEvent;
-  private currentScene: Phaser.Scene;
   private lastPosition: string;
 
   constructor(params) {
     super(params.scene, params.x, params.y, params.key);
 
-    this.initVariables(params);
+    this.initVariables();
     this.initImage();
     this.initEvents();
 
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
-  private initVariables(params): void {
-    this.currentScene = params.scene;
-    this.centerOfScreen = this.currentScene.sys.canvas.width / 2;
+  private initVariables(): void {
+    this.centerOfScreen = this.scene.sys.canvas.width / 2;
     this.changePositionTimer = null;
     this.setFieldSide();
   }
@@ -33,7 +31,7 @@ export class Coin extends Phaser.GameObjects.Image {
   }
 
   private initEvents(): void {
-    this.changePositionTimer = this.currentScene.time.addEvent({
+    this.changePositionTimer = this.scene.time.addEvent({
       delay: 2000,
       callback: this.changePosition,
       callbackScope: this,

@@ -12,7 +12,7 @@ export class Apple extends Phaser.GameObjects.Graphics {
     this.y = params.yPos;
     this.fillStyle(0x61e85b, 0.8);
     this.fillRect(params.fSize, params.fSize, params.fSize, params.fSize);
-    scene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   /**

@@ -8,7 +8,6 @@
 import { CONST } from "../const/const";
 
 export class Asteroid extends Phaser.GameObjects.Graphics {
-  private currentScene: Phaser.Scene;
   private velocity: Phaser.Math.Vector2;
   private radius: number;
   private asteroidRadius: number;
@@ -26,7 +25,6 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
     super(params.scene, params);
 
     // variables
-    this.currentScene = params.scene;
     this.numberOfSides = 12;
     this.asteroidRadius = 0;
     this.sizeOfAsteroid = params.size;
@@ -35,12 +33,12 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
     this.initAsteroid(params.x, params.y, this.sizeOfAsteroid);
 
     // physics
-    this.currentScene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
     this.body.allowGravity = false;
     this.body.setCircle(this.asteroidRadius);
     this.body.setOffset(-this.asteroidRadius, -this.asteroidRadius);
 
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   private initAsteroid(aX: number, aY: number, aSizeOfAsteroid: number): void {
@@ -87,8 +85,8 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
       if (this.radius > this.asteroidRadius) {
         this.asteroidRadius = this.radius;
       }
-      let x = this.radius * Math.cos(2 * Math.PI * i / this.numberOfSides);
-      let y = this.radius * Math.sin(2 * Math.PI * i / this.numberOfSides);
+      let x = this.radius * Math.cos((2 * Math.PI * i) / this.numberOfSides);
+      let y = this.radius * Math.sin((2 * Math.PI * i) / this.numberOfSides);
 
       points.push(new Phaser.Math.Vector2(x, y));
     }
@@ -129,17 +127,17 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
 
   private checkIfOffScreen(): void {
     // horizontal check
-    if (this.x > this.currentScene.sys.canvas.width + CONST.SHIP_SIZE) {
+    if (this.x > this.scene.sys.canvas.width + CONST.SHIP_SIZE) {
       this.x = -CONST.SHIP_SIZE;
     } else if (this.x < -CONST.SHIP_SIZE) {
-      this.x = this.currentScene.sys.canvas.width + CONST.SHIP_SIZE;
+      this.x = this.scene.sys.canvas.width + CONST.SHIP_SIZE;
     }
 
     // vertical check
-    if (this.y > this.currentScene.sys.canvas.height + CONST.SHIP_SIZE) {
+    if (this.y > this.scene.sys.canvas.height + CONST.SHIP_SIZE) {
       this.y = -CONST.SHIP_SIZE;
     } else if (this.y < -CONST.SHIP_SIZE) {
-      this.y = this.currentScene.sys.canvas.height + CONST.SHIP_SIZE;
+      this.y = this.scene.sys.canvas.height + CONST.SHIP_SIZE;
     }
   }
 

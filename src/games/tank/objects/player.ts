@@ -9,7 +9,6 @@ import { Bullet } from "./bullet";
 
 export class Player extends Phaser.GameObjects.Image {
   // variables
-  private currentScene: Phaser.Scene;
   private health: number;
   private lastShoot: number;
   private speed: number;
@@ -34,9 +33,8 @@ export class Player extends Phaser.GameObjects.Image {
   constructor(params) {
     super(params.scene, params.x, params.y, params.key, params.frame);
 
-    this.currentScene = params.scene;
     this.initImage();
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   private initImage() {
@@ -50,16 +48,16 @@ export class Player extends Phaser.GameObjects.Image {
     this.setDepth(0);
     this.angle = 180;
 
-    this.barrel = this.currentScene.add.image(this.x, this.y, "barrelBlue");
+    this.barrel = this.scene.add.image(this.x, this.y, "barrelBlue");
     this.barrel.setOrigin(0.5, 1);
     this.barrel.setDepth(1);
     this.barrel.angle = 180;
 
-    this.lifeBar = this.currentScene.add.graphics();
+    this.lifeBar = this.scene.add.graphics();
     this.redrawLifebar();
 
     // game objects
-    this.bullets = this.currentScene.add.group({
+    this.bullets = this.scene.add.group({
       classType: Bullet,
       active: true,
       maxSize: 10,
@@ -67,19 +65,19 @@ export class Player extends Phaser.GameObjects.Image {
     });
 
     // input
-    this.cursors = this.currentScene.input.keyboard.createCursorKeys();
-    this.rotateKeyLeft = this.currentScene.input.keyboard.addKey(
+    this.cursors = this.scene.input.keyboard.createCursorKeys();
+    this.rotateKeyLeft = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.A
     );
-    this.rotateKeyRight = this.currentScene.input.keyboard.addKey(
+    this.rotateKeyRight = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.D
     );
-    this.shootingKey = this.currentScene.input.keyboard.addKey(
+    this.shootingKey = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
 
     // physics
-    this.currentScene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
   }
 
   update(): void {
@@ -101,13 +99,13 @@ export class Player extends Phaser.GameObjects.Image {
     // move tank forward
     // small corrections with (- MATH.PI / 2) to align tank correctly
     if (this.cursors.up.isDown) {
-      this.currentScene.physics.velocityFromRotation(
+      this.scene.physics.velocityFromRotation(
         this.rotation - Math.PI / 2,
         this.speed,
         this.body.velocity
       );
     } else if (this.cursors.down.isDown) {
-      this.currentScene.physics.velocityFromRotation(
+      this.scene.physics.velocityFromRotation(
         this.rotation - Math.PI / 2,
         -this.speed,
         this.body.velocity
@@ -132,12 +130,9 @@ export class Player extends Phaser.GameObjects.Image {
   }
 
   private handleShooting(): void {
-    if (
-      this.shootingKey.isDown &&
-      this.currentScene.time.now > this.lastShoot
-    ) {
-      this.currentScene.cameras.main.shake(20, 0.005);
-      this.currentScene.tweens.add({
+    if (this.shootingKey.isDown && this.scene.time.now > this.lastShoot) {
+      this.scene.cameras.main.shake(20, 0.005);
+      this.scene.tweens.add({
         targets: this,
         props: { alpha: 0.8 },
         delay: 0,
@@ -154,7 +149,7 @@ export class Player extends Phaser.GameObjects.Image {
       if (this.bullets.getLength() < 10) {
         this.bullets.add(
           new Bullet({
-            scene: this.currentScene,
+            scene: this.scene,
             x: this.barrel.x,
             y: this.barrel.y,
             key: "bulletBlue",
@@ -162,7 +157,7 @@ export class Player extends Phaser.GameObjects.Image {
           })
         );
 
-        this.lastShoot = this.currentScene.time.now + 80;
+        this.lastShoot = this.scene.time.now + 80;
       }
     }
   }
@@ -188,7 +183,7 @@ export class Player extends Phaser.GameObjects.Image {
     } else {
       this.health = 0;
       this.active = false;
-      this.currentScene.scene.start("MenuScene");
+      this.scene.scene.start("MenuScene");
     }
   }
 }

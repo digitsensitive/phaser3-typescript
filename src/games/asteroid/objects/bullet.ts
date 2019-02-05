@@ -8,7 +8,6 @@
 export class Bullet extends Phaser.GameObjects.Graphics {
   private colors: number[];
   private selectedColor: number;
-  private currentScene: Phaser.Scene;
   private velocity: Phaser.Math.Vector2;
   private lifeSpan: number;
   private isOffScreen: boolean;
@@ -26,7 +25,6 @@ export class Bullet extends Phaser.GameObjects.Graphics {
     this.colors.push(0xe08639);
     let rndColor = Phaser.Math.RND.between(0, 2);
     this.selectedColor = this.colors[rndColor];
-    this.currentScene = scene;
     this.lifeSpan = 100;
     this.isOffScreen = false;
 
@@ -43,11 +41,11 @@ export class Bullet extends Phaser.GameObjects.Graphics {
     this.fillCircle(0, 0, 3);
 
     // physics
-    this.currentScene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
     this.body.allowGravity = false;
     this.body.setCircle(3);
     this.body.setOffset(-3, -3);
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   update(): void {
@@ -66,8 +64,8 @@ export class Bullet extends Phaser.GameObjects.Graphics {
 
   private checkIfOffScreen(): void {
     if (
-      this.x > this.currentScene.sys.canvas.width + 1 ||
-      this.y > this.currentScene.sys.canvas.height + 1
+      this.x > this.scene.sys.canvas.width + 1 ||
+      this.y > this.scene.sys.canvas.height + 1
     ) {
       this.isOffScreen = true;
     }
