@@ -33,7 +33,6 @@
 * Add input-plugin cheatsheet *[Author: digitsensitive (2019-01-31)]*
 * Add pointer cheatsheet *[Author: digitsensitive (2019-01-31)]*
 * Refactor `this.currentScene` *[Author: digitsensitive (2019-02-05)]*
-* Load `phaser.d.ts` file with `tsconfig.json` *[Author: digitsensitive (2019-02-06)]*
 
 ### Bugfixes
 
