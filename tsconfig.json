@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    /* Basic Options */
-    "target": "ES2016",                   /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
-    "module": "CommonJS",                 /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-    "sourceMap": true,                    /* Generates corresponding '.map' file. */
-
-    /* Strict Type-Checking Options */
-    "noImplicitAny": false,               /* Raise error on expressions and declarations with an implied 'any' type. */
-    "strict": false                       /* Enable all strict type-checking options. */
-  }
+    "target": "ES2016",
+    "module": "CommonJS",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "strict": false
+  },
+  "files": [
+    "src/phaser.d.ts"
+  ]
 }
