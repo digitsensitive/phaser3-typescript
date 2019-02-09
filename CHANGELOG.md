@@ -33,6 +33,7 @@
 * Add input-plugin cheatsheet *[Author: digitsensitive (2019-01-31)]*
 * Add pointer cheatsheet *[Author: digitsensitive (2019-01-31)]*
 * Refactor `this.currentScene` *[Author: digitsensitive (2019-02-05)]*
+* Link to first tutorial in `README.md` file  *[Author: digitsensitive (2019-02-09)]*
 
 ### Bugfixes
 

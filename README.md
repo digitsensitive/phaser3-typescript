@@ -101,6 +101,10 @@ npm run dev
 
 - [Browse through the Cheat Sheets](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets)
 
+## Tutorials
+
+- [Learn to create a HTML5 Game in 5 Minutes](https://medium.com/@digit.sensitivee/learn-to-create-a-html5-game-in-5-minutes-604118f5d0ab)
+
 ## External Resources
 
 - [Phaser 3 Framework](https://github.com/photonstorm/phaser)
