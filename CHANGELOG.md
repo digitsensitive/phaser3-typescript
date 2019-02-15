@@ -33,7 +33,10 @@
 * Add input-plugin cheatsheet *[Author: digitsensitive (2019-01-31)]*
 * Add pointer cheatsheet *[Author: digitsensitive (2019-01-31)]*
 * Refactor `this.currentScene` *[Author: digitsensitive (2019-02-05)]*
-* Link to first tutorial in `README.md` file  *[Author: digitsensitive (2019-02-09)]*
+* Link to first tutorial in `README.md` file *[Author: digitsensitive (2019-02-09)]*
+* Update phaser version from 3.15.1 to 3.16.2 *[Author: digitsensitive (2019-02-15)]*
+* Update `config.md`: Delete `autoResize` after phaser update from  3.15.1 to 3.16.2 *[Author: digitsensitive (2019-02-15)]*
+* Comment `classType` in group after phaser update from  3.15.1 to 3.16.2 *[Author: digitsensitive (2019-02-15)]*
 
 ### Bugfixes
 
