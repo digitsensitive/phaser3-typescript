@@ -19,12 +19,3 @@ entry: './src/games/space-invaders/game.ts'
 * [Phaser 2 Invaders](https://phaser.io/examples/v2/games/invaders)
 * [Wikipedia Invaders](https://de.wikipedia.org/wiki/Space_Invaders)
 * [YouTube Space Invaders](https://www.youtube.com/watch?v=kR2fjwr-TzA)
-
-## Fixes of the TypeScript definition file
-
-This is a work around I have done in the phaser.d.ts file.
-```
-Line 46963:
-overlap(object1: ArcadeColliderType | any, object2?: ArcadeColliderType | any, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
-
-```

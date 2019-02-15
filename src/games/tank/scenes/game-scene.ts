@@ -37,12 +37,12 @@ export class GameScene extends Phaser.Scene {
     this.layer.setCollisionByProperty({ collide: true });
 
     this.obstacles = this.add.group({
-      classType: Obstacle,
+      /*classType: Obstacle,*/
       runChildUpdate: true
     });
 
     this.enemies = this.add.group({
-      classType: Enemy
+      /*classType: Enemy*/
     });
     this.convertObjects();
 
@@ -67,7 +67,7 @@ export class GameScene extends Phaser.Scene {
       this
     );
 
-    this.enemies.children.each(function(enemy) {
+    this.enemies.children.each((enemy: Enemy) => {
       this.physics.add.overlap(
         this.player.getBullets(),
         enemy,
@@ -102,7 +102,7 @@ export class GameScene extends Phaser.Scene {
   update(): void {
     this.player.update();
 
-    this.enemies.children.each(function(enemy) {
+    this.enemies.children.each((enemy: Enemy) => {
       enemy.update();
       if (this.player.active && enemy.active) {
         var angle = Phaser.Math.Angle.Between(

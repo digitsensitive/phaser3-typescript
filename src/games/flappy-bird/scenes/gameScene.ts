@@ -28,7 +28,9 @@ export class GameScene extends Phaser.Scene {
   init(): void {
     // objects
     this.bird = null;
-    this.pipes = this.add.group({ classType: Pipe });
+    this.pipes = this.add.group({
+      /*classType: Pipe*/
+    });
     this.bg = null;
 
     // variables

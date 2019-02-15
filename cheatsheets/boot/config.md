@@ -80,17 +80,16 @@ const config: GameConfig = {
     panicMax: 120
   },
   render: {
-    autoResize: true,
     antialias: true,
-    roundPixels: false,
     pixelArt: false,
+    roundPixels: false,
     transparent: false,
     clearBeforeRender: true,
     premultipliedAlpha: true,
     failIfMajorPerformanceCaveat: false,
     powerPreference: "default",
     batchSize: 2000,
-    maxLights: 10
+    maxLights: 10  
   },
   backgroundColor: 0,
   callbacks: {

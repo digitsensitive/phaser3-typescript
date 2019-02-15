@@ -61,7 +61,7 @@ export class GameScene extends Phaser.Scene {
     if (this.player.active) {
       this.player.update();
 
-      this.enemies.children.each(function(enemy) {
+      this.enemies.children.each((enemy: Enemy) => {
         enemy.update();
         if (enemy.getBullets().getLength() > 0) {
           this.physics.overlap(

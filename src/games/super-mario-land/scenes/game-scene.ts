@@ -67,22 +67,22 @@ export class GameScene extends Phaser.Scene {
     // GAME OBJECTS
     // *****************************************************************
     this.portals = this.add.group({
-      classType: Portal,
+      /*classType: Portal,*/
       runChildUpdate: true
     });
 
     this.boxes = this.add.group({
-      classType: Box,
+      /*classType: Box,*/
       runChildUpdate: true
     });
 
     this.bricks = this.add.group({
-      classType: Brick,
+      /*classType: Brick,*/
       runChildUpdate: true
     });
 
     this.collectibles = this.add.group({
-      classType: Collectible,
+      /*classType: Collectible,*/
       runChildUpdate: true
     });
 
@@ -91,7 +91,7 @@ export class GameScene extends Phaser.Scene {
     });
 
     this.platforms = this.add.group({
-      classType: Platform,
+      /*classType: Platform,*/
       runChildUpdate: true
     });
 

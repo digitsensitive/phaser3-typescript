@@ -53,7 +53,7 @@ export class Enemy extends Phaser.GameObjects.Image {
 
     // game objects
     this.bullets = this.scene.add.group({
-      classType: Bullet,
+      /*classType: Bullet,*/
       active: true,
       maxSize: 10,
       runChildUpdate: true

@@ -21,7 +21,7 @@ const config: GameConfig = {
     keyboard: true
   },
   backgroundColor: "#3A99D9",
-  render: { pixelArt: false, antialias: false, autoResize: false }
+  render: { pixelArt: false, antialias: false }
 };
 
 export class Game extends Phaser.Game {

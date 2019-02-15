@@ -31,11 +31,3 @@ entry: './src/games/tank/game.ts'
 * [OpenGameArt Topdown Tanks](https://opengameart.org/content/topdown-tanks)
 * [Phaser 2 Tank Example](https://phaser.io/examples/v2/games/tanks)
 * [Raleway-Black Font](https://www.fontsquirrel.com/fonts/raleway)
-
-## Fixes of the TypeScript definition file
-
-This is a work around I have done in the phaser.d.ts file.
-```
-Line 46963:
-overlap(object1: ArcadeColliderType | any, object2?: ArcadeColliderType | any, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
-```

@@ -40,17 +40,6 @@ entry: './src/games/super-mario-land/game.ts'
 * [Phaser.Physics.Arcade.ArcadePhysics](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/physics/arcade/arcade-physics.md)
 * [Phaser.Cameras.Scene2D](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/cameras/camera-manager.md)
 
-## Fixes of the TypeScript definition file
-
-This is a work around I have done in the phaser.d.ts file.
-```
-Line 46973:
-collide(object1: ArcadeColliderType | any, object2?: ArcadeColliderType | any, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
-
-Line 50462:
-collide(object1: ArcadeColliderType | any, object2?: ArcadeColliderType | any, collideCallback?: ArcadePhysicsCallback, processCallback?: ArcadePhysicsCallback, callbackContext?: any): boolean;
-```
-
 ## References and Resources
 
 * [Spriters Resource](https://www.spriters-resource.com/game_boy_gbc/sml)
