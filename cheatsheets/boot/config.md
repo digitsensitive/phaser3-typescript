@@ -24,12 +24,27 @@ const config: GameConfig = {
   zoom: 1,
   resolution: 1,
   parent: null,
-  // scaleMode: 0,
-  // expandParent: false,
-  // minWidth: 0,
-  // maxWidth: 0,
-  // minHeight: 0,
-  // maxHeight: 0,
+  scale: {
+    width: 1024,
+    height: 768,
+    zoom: 1,
+    resolution: 1,
+    parent: null,
+    mode: Phaser.Scale.NONE,
+    expandParent: true,
+    autoRound: false,
+    autoCenter: Phaser.Scale.Center.NO_CENTER,
+    resizeInterval: 500,
+    fullscreenTarget: null,
+    min: {
+      width: 0,
+      height: 0
+    },
+    max: {
+      width: 0,
+      height: 0
+    }
+  },
   type: Phaser.AUTO,
   canvas: null,
   context: null,
