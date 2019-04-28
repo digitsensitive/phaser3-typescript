@@ -38,6 +38,7 @@
 * Update webpack-cli version from 3.2.1 to 3.2.3 *[Author: digitsensitive (2019-02-17)]*
 * Update webpack version from 4.28.4 to 4.29.4 *[Author: digitsensitive (2019-02-17)]*
 * Update typescript version from 3.2.4 to 3.3.3 *[Author: digitsensitive (2019-02-17)]*
+* Update `camera.md` *[Author: digitsensitive (2019-04-28)]*
 
 ### Bugfixes
 
