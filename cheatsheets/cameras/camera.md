@@ -46,10 +46,10 @@ Shake camera by the given intensity over the duration specified.
 #### pan
 Effect to scroll camera so that the center of the viewport finishes at the given destionation.
 
-#### zoomTo
+#### zoomTo
 Effect to zoom camera to the given scale.
 
-#### setLerp
+#### setLerp
 Set linear interpolation value to use when following a target.
 
 > Default value is 1 = camera instantly snaps to the target coordinates
@@ -68,10 +68,10 @@ Use low [lerp](https://github.com/digitsensitive/phaser3-typescript/blob/master/
 rendering of the targets position. This can be rounded by setting the `roundPixels` argument to `true` to
 force full pixel rounding rendering.
 
-#### stopFollow
+#### stopFollow
 Stop camera from following the game object.
 
-#### resetFX
+#### resetFX
 Reset any active FX, such as a fade, flash or shake.
 
 ### Extends
