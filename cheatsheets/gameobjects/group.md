@@ -1,4 +1,4 @@
-## Phaser.GameObject.Group
+## Phaser.GameObjects.Group
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

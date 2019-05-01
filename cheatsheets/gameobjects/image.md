@@ -1,4 +1,4 @@
-## Phaser.GameObject.Image
+## Phaser.GameObjects.Image
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 

@@ -1,4 +1,4 @@
-## Phaser.GameObject.Sprite
+## Phaser.GameObjects.Sprite
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
