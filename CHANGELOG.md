@@ -40,6 +40,7 @@
 * Update typescript version from 3.2.4 to 3.3.3 *[Author: digitsensitive (2019-02-17)]*
 * Update `camera.md` *[Author: digitsensitive (2019-04-28)]*
 * Update `group.md` *[Author: digitsensitive (2019-05-01)]*
+* Add `pathfollower.md` and `path-follower.md` *[Author: digitsensitive (2019-05-02)]*
 
 ### Bugfixes
 
