@@ -1,6 +1,6 @@
 {
   "name": "phaser3-typescript",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Boilerplate, Game Examples, Cheat Sheets and Tutorials for Phaser 3 in TypeScript",
   "keywords": [
     "Phaser",
@@ -19,11 +19,11 @@
   ],
   "devDependencies": {
     "expose-loader": "0.7.5",
-    "ts-loader": "5.3.3",
-    "typescript": "3.3.3",
-    "webpack": "4.29.4",
-    "webpack-cli": "3.2.3",
-    "webpack-dev-server": "3.1.14"
+    "ts-loader": "6.0.0",
+    "typescript": "3.4.5",
+    "webpack": "4.31.0",
+    "webpack-cli": "3.3.2",
+    "webpack-dev-server": "3.3.1"
   },
   "dependencies": {
     "phaser": "3.16.2"

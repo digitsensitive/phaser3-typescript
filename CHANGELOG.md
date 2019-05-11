@@ -16,11 +16,7 @@
 
 ---
 
-## Version 1.X.X - XXth XXXX 2019
-
-### Features
-
-* ...
+## Version 1.2.5 - 11th May 2019
 
 ### Updates
 
@@ -42,6 +38,11 @@
 * Update `group.md` *[Author: digitsensitive (2019-05-01)]*
 * Add `pathfollower.md` and `path-follower.md` *[Author: digitsensitive (2019-05-02)]*
 * Update Flappy Bird *[Author: digitsensitive (2019-05-11)]*
+* Update typescript version from 3.3.3 to 3.4.5 *[Author: digitsensitive (2019-05-11)]*
+* Update ts-loader version from 5.3.3 to 6.0.0 *[Author: digitsensitive (2019-05-11)]*
+* Update webpack version from 4.29.4 to 4.31.0 *[Author: digitsensitive (2019-05-11)]*
+* Update webpack-cli version from 3.2.3 to 3.3.2 *[Author: digitsensitive (2019-05-11)]*
+* Update webpack-dev-server version from 3.1.14	to 3.3.1 *[Author: digitsensitive (2019-05-11)]*
 
 ### Bugfixes
 
@@ -59,20 +60,20 @@
 
 ### Updates
 
-* update webpack-cli version from 3.1.2 to 3.2.1 (*digitsensitive*)
-* update webpack version from 4.28.3 to 4.28.4 (*digitsensitive*)
-* update typescript version from 3.2.2 to 3.2.4 (*digitsensitive*)
-* update ts-loader version from 5.3.2 to 5.3.3 (*digitsensitive*)
+* Update webpack-cli version from 3.1.2 to 3.2.1 (*digitsensitive*)
+* Update webpack version from 4.28.3 to 4.28.4 (*digitsensitive*)
+* Update typescript version from 3.2.2 to 3.2.4 (*digitsensitive*)
+* Update ts-loader version from 5.3.2 to 5.3.3 (*digitsensitive*)
 * Add static-tilemap-layer cheatsheet (*digitsensitive*)
-* update tilemap cheatsheet (*digitsensitive*)
-* update body cheatsheet (*digitsensitive*)
-* add camera-manager cheatsheet (*digitsensitive*)
-* add camera cheatsheet (*digitsensitive*)
-* add base-camera cheatsheet (*digitsensitive*)
-* add data-manager-plugin cheatsheet (*digitsensitive*)
-* add data-manager cheatsheet (*digitsensitive*)
-* add timeline cheatsheet (*digitsensitive*)
-* add scale-manager cheatsheet (*digitsensitive*)
+* Update tilemap cheatsheet (*digitsensitive*)
+* Update body cheatsheet (*digitsensitive*)
+* Add camera-manager cheatsheet (*digitsensitive*)
+* Add camera cheatsheet (*digitsensitive*)
+* Add base-camera cheatsheet (*digitsensitive*)
+* Add data-manager-plugin cheatsheet (*digitsensitive*)
+* Add data-manager cheatsheet (*digitsensitive*)
+* Add timeline cheatsheet (*digitsensitive*)
+* Add scale-manager cheatsheet (*digitsensitive*)
 
 ---
 
@@ -84,12 +85,12 @@
 
 ### Updates
 
-* update phaser.d.ts to 3.15 TS Defs (*digitsensitive*)
-* update phaser version from 3.10.1 to 3.15.1 (*digitsensitive*)
-* update webpack-dev-server version from 3.1.10 to 3.1.14 (*digitsensitive*)
-* update webpack version from 4.25.1 to 4.28.3 (*digitsensitive*)
-* update typescript version from 3.1.6 to 3.2.2 (*digitsensitive*)
-* update ts-loader version from 5.3.0 to 5.3.2 (*digitsensitive*)
+* Update phaser.d.ts to 3.15 TS Defs (*digitsensitive*)
+* Update phaser version from 3.10.1 to 3.15.1 (*digitsensitive*)
+* Update webpack-dev-server version from 3.1.10 to 3.1.14 (*digitsensitive*)
+* Update webpack version from 4.25.1 to 4.28.3 (*digitsensitive*)
+* Update typescript version from 3.1.6 to 3.2.2 (*digitsensitive*)
+* Update ts-loader version from 5.3.0 to 5.3.2 (*digitsensitive*)
 * Add container to cheatsheets (*digitsensitive*)
 * Update transform cheatsheet (*digitsensitive*)
 * Update alpha cheatsheet (*digitsensitive*)
@@ -126,13 +127,13 @@
 * Add pack-file cheatsheet (*digitsensitive*)
 * Add scene folder with `plugin.md`, `settings.md` and `systems.md` to cheatsheets (*digitsensitive*)
 * Add data folder with `data-manager-plugin.md` to cheatsheets (*digitsensitive*)
-* rename window.onload to window.addEventListener (*digitsensitive*)
+* Rename window.onload to window.addEventListener (*digitsensitive*)
 * Merge PR #19 (*iliyaZelenko*)
 * Merge PR #21 (*ItsMTC*)
 
 ### Bugfixes
 
-* update syntax after the upgrade to phaser 3.15.1 (*digitsensitive*)
+* Update syntax after the upgrade to phaser 3.15.1 (*digitsensitive*)
 
 ---
 
@@ -145,11 +146,11 @@
 
 ### Updates
 
-* update typescript version from 2.9.2 to 3.1.6 (*digitsensitive*)
-* update ts-loader version from 4.4.2 to 5.3.0 (*digitsensitive*)
-* update webpack version from 4.15.0 to 4.25.1 (*digitsensitive*)
-* update webpack-cli version from 3.0.8 to 3.2.1 (*digitsensitive*)
-* update webpack-dev-server version from 3.1.4 to 3.1.10 (*digitsensitive*)
+* Update typescript version from 2.9.2 to 3.1.6 (*digitsensitive*)
+* Update ts-loader version from 4.4.2 to 5.3.0 (*digitsensitive*)
+* Update webpack version from 4.15.0 to 4.25.1 (*digitsensitive*)
+* Update webpack-cli version from 3.0.8 to 3.2.1 (*digitsensitive*)
+* Update webpack-dev-server version from 3.1.4 to 3.1.10 (*digitsensitive*)
 * Small changes in the coin-runner game: new version 1.1.1 (*digitsensitive*)
 * Redesign the main README.md file
 
@@ -163,22 +164,22 @@
 
 ### Features
 
-* update to newest phaser.d.ts (7th July 2018) (*digitsensitive*)
-* add loading bar to flappy bird (*digitsensitive*)
+* Update to newest phaser.d.ts (7th July 2018) (*digitsensitive*)
+* Add loading bar to flappy bird (*digitsensitive*)
 
 ### Updates
 
-* update phaser version from 3.9.0 to 3.10.1 (*digitsensitive*)
-* update ts-loader version from 4.3.0 to 4.4.2 (*digitsensitive*)
-* update typescript version from 2.9.1 to 2.9.2 (*digitsensitive*)
-* update webpack version from 4.10.2 to 4.15.0 (*digitsensitive*)
-* update webpack-cli version from 2.1.3 to 3.0.8 (*digitsensitive*)
-* update asteroid.md, blockade.md,coinRunner.md and flappyBird.md (*digitsensitive*)
+* Update phaser version from 3.9.0 to 3.10.1 (*digitsensitive*)
+* Update ts-loader version from 4.3.0 to 4.4.2 (*digitsensitive*)
+* Update typescript version from 2.9.1 to 2.9.2 (*digitsensitive*)
+* Update webpack version from 4.10.2 to 4.15.0 (*digitsensitive*)
+* Update webpack-cli version from 2.1.3 to 3.0.8 (*digitsensitive*)
+* Update asteroid.md, blockade.md,coinRunner.md and flappyBird.md (*digitsensitive*)
 
 ### Bugfixes
 
-* fixes in mainMenuScene of blockade and in gameScene of snake (*digitsensitive*)
-* fix startKey Problem in mainMenuScene of flappy bird (*digitsensitive*)
+* Fixes in mainMenuScene of blockade and in gameScene of snake (*digitsensitive*)
+* Fix startKey Problem in mainMenuScene of flappy bird (*digitsensitive*)
 
 ---
 
@@ -186,23 +187,23 @@
 
 ### Updates
 
-* new cheatsheet sprite (*digitsensitive*)
-* new cheatsheet texture (*digitsensitive*)
-* new cheatsheet tint (*digitsensitive*)
-* new cheatsheet visible (*digitsensitive*)
-* new cheatsheet mesh (*digitsensitive*)
-* update cheatsheet image (*digitsensitive*)
-* update CHANGELOG.md (*digitsensitive*)
-* update phaser version from 3.7.1 to 3.9.0 (*digitsensitive*)
-* update typescript version from 2.8.3 to 2.9.1 (*digitsensitive*)
-* update webpack version from 4.8.3 to 4.10.2 (*digitsensitive*)
-* update intro text README.md (*digitsensitive*)
+* New cheatsheet sprite (*digitsensitive*)
+* New cheatsheet texture (*digitsensitive*)
+* New cheatsheet tint (*digitsensitive*)
+* New cheatsheet visible (*digitsensitive*)
+* New cheatsheet mesh (*digitsensitive*)
+* Update cheatsheet image (*digitsensitive*)
+* Update CHANGELOG.md (*digitsensitive*)
+* Update phaser version from 3.7.1 to 3.9.0 (*digitsensitive*)
+* Update typescript version from 2.8.3 to 2.9.1 (*digitsensitive*)
+* Update webpack version from 4.8.3 to 4.10.2 (*digitsensitive*)
+* Update intro text README.md (*digitsensitive*)
 
 ### Bugfixes
 
-* correct path for assets loading (*digitsensitive*)
-* add mode to webpack in package.json (*emedws*)
-* small change in output of the webpack.config.js file (*digitsensitive*)
+* Correct path for assets loading (*digitsensitive*)
+* Add mode to webpack in package.json (*emedws*)
+* Small change in output of the webpack.config.js file (*digitsensitive*)
 
 ---
 
@@ -210,29 +211,29 @@
 
 ### Features
 
-* NEW GAME Flappy Bird (*digitsensitive*)
-* NEW GAME Blockade (*digitsensitive*)
-* NEW GAME Asteroid (*digitsensitive*)
+* New game Flappy Bird (*digitsensitive*)
+* New game Blockade (*digitsensitive*)
+* New game Asteroid (*digitsensitive*)
 
 ### Updates
 
-* small changes in the tsconfig.json (*digitsensitive*)
-* update README.md with external resources links (*digitsensitive*)
-* new cheatsheets: group, image, gameobject, alpha, blendMode, depth, flip, transform, getBounds, mask, origin, pipeline, scaleMode, scrollFactor, size (*digitsensitive*)
-* update cheatsheets: game-config, scene-config (*digitsensitive*)
-* update Coin Runner game (*digitsensitive*)
-* update Snake game (*digitsensitive*)
-* update phaser version from 3.5.0 to 3.7.1 (*digitsensitive*)
-* update typescript version from 2.8.1 to 2.8.3 (*digitsensitive*)
-* update webpack-cli version from 2.0.14 to 2.1.3 (*digitsensitive*)
-* update ts-loader version from 4.2.0 to 4.3.0 (*digitsensitive*)
-* update webpack version from to 4.6.0 to 4.8.3 (*digitsensitive*)
-* update webpack-dev-server version from 3.1.3 to 3.1.4 (*digitsensitive*)
+* Small changes in the tsconfig.json (*digitsensitive*)
+* Update README.md with external resources links (*digitsensitive*)
+* New cheatsheets: group, image, gameobject, alpha, blendMode, depth, flip, transform, getBounds, mask, origin, pipeline, scaleMode, scrollFactor, size (*digitsensitive*)
+* Update cheatsheets: game-config, scene-config (*digitsensitive*)
+* Update Coin Runner game (*digitsensitive*)
+* Update Snake game (*digitsensitive*)
+* Update phaser version from 3.5.0 to 3.7.1 (*digitsensitive*)
+* Update typescript version from 2.8.1 to 2.8.3 (*digitsensitive*)
+* Update webpack-cli version from 2.0.14 to 2.1.3 (*digitsensitive*)
+* Update ts-loader version from 4.2.0 to 4.3.0 (*digitsensitive*)
+* Update webpack version from to 4.6.0 to 4.8.3 (*digitsensitive*)
+* Update webpack-dev-server version from 3.1.3 to 3.1.4 (*digitsensitive*)
 
 ### Bugfixes
 
-* fix config error in game.ts (constructor(config: GameConfig)) files after updating to official phaser.d.ts (*vladfaust*)
-* workaround for intersect in the phaser.d.ts file (*digitsensitive*)
+* Fix config error in game.ts (constructor(config: GameConfig)) files after updating to official phaser.d.ts (*vladfaust*)
+* Workaround for intersect in the phaser.d.ts file (*digitsensitive*)
 
 ---
 
@@ -240,9 +241,9 @@
 
 ### Updates
 
-* update phaser version from 3.3.0 to 3.5.0 (*digitsensitive*)
-* update webpack version from 4.5.0 to 4.6.0 (*digitsensitive*)
-* update webpack-dev-server version from 3.1.2 to 3.1.3 (*digitsensitive*)
+* Update phaser version from 3.3.0 to 3.5.0 (*digitsensitive*)
+* Update webpack version from 4.5.0 to 4.6.0 (*digitsensitive*)
+* Update webpack-dev-server version from 3.1.2 to 3.1.3 (*digitsensitive*)
 
 ---
 
@@ -250,15 +251,15 @@
 
 ### Updates
 
-* create new game: snake (*digitsensitive*)
-* create assets folder for snake (*digitsensitive*)
-* update README.md (*digitsensitive*)
-* small changes in the index.html file (*digitsensitive*)
-* update ts-loader version from 4.1.0 to 4.2.0 (*digitsensitive*)
-* update typescript version from 2.7.2 to 2.8.1 (*digitsensitive*)
-* update webpack version from 4.2.0 to 4.5.0 (*digitsensitive*)
-* update webpack-dev-server version from 3.1.1 to 3.1.2 (*digitsensitive*)
-* update webpack-cli version from 2.0.13 to 2.0.14 (*digitsensitive*)
+* Create new game: snake (*digitsensitive*)
+* Create assets folder for snake (*digitsensitive*)
+* Update README.md (*digitsensitive*)
+* Small changes in the index.html file (*digitsensitive*)
+* Update ts-loader version from 4.1.0 to 4.2.0 (*digitsensitive*)
+* Update typescript version from 2.7.2 to 2.8.1 (*digitsensitive*)
+* Update webpack version from 4.2.0 to 4.5.0 (*digitsensitive*)
+* Update webpack-dev-server version from 3.1.1 to 3.1.2 (*digitsensitive*)
+* Update webpack-cli version from 2.0.13 to 2.0.14 (*digitsensitive*)
 
 ---
 
@@ -266,10 +267,10 @@
 
 ### Updates
 
-* update cheatsheets/game-config.md (*digitsensitive*)
-* new cheatsheet: scene-config.md (*digitsensitive*)
-* update README.md (*digitsensitive*)
-* new assets: cheatsheets/sceneConfig.png (*digitsensitive*)
+* Update cheatsheets/game-config.md (*digitsensitive*)
+* New cheatsheet: scene-config.md (*digitsensitive*)
+* Update README.md (*digitsensitive*)
+* New assets: cheatsheets/sceneConfig.png (*digitsensitive*)
 
 ### Bugfixes
 
@@ -284,13 +285,13 @@
 
 ### Updates
 
-* first game: coin runner (*digitsensitive*)
-* small changes in the README.md (*digitsensitive*)
-* create coin runner folder in assets/games (*digitsensitive*)
-* upload assets for the coin runner game (*digitsensitive*)
-* small changes in the README.md (*digitsensitive*)
-* small changes in the package.json (*digitsensitive*)
-* rename tutorials folder to cheatsheets (*digitsensitive*)
+* First game: coin runner (*digitsensitive*)
+* Small changes in the README.md (*digitsensitive*)
+* Create coin runner folder in assets/games (*digitsensitive*)
+* Upload assets for the coin runner game (*digitsensitive*)
+* Small changes in the README.md (*digitsensitive*)
+* Small changes in the package.json (*digitsensitive*)
+* Rename tutorials folder to cheatsheets (*digitsensitive*)
 
 ### Bugfixes
 
@@ -302,17 +303,17 @@
 
 ### Updates
 
-* update phaser version from 3.2.1 to 3.3.0 (*digitsensitive*)
-* update expose-loader version from 0.7.4 to 0.7.5 (*digitsensitive*)
-* update ts-loader version from 4.0.1 to 4.1.0 (*digitsensitive*)
-* update webpack version from 4.0.1 to 4.2.0 (*digitsensitive*)
-* update webpack-dev-server version from 3.1.0 to 3.1.1 (*digitsensitive*)
-* update webpack-cli version from 2.0.10 to 2.0.13 (*digitsensitive*)
-* create games folder in assets (*digitsensitive*)
-* create endlessRunner folder in assets/games (*digitsensitive*)
-* upload assets for the Endless Runner game (*digitsensitive*)
-* add image to game config tutorial (*digitsensitive*)
-* small changes in the README.md (*digitsensitive*)
+* Update phaser version from 3.2.1 to 3.3.0 (*digitsensitive*)
+* Update expose-loader version from 0.7.4 to 0.7.5 (*digitsensitive*)
+* Update ts-loader version from 4.0.1 to 4.1.0 (*digitsensitive*)
+* Update webpack version from 4.0.1 to 4.2.0 (*digitsensitive*)
+* Update webpack-dev-server version from 3.1.0 to 3.1.1 (*digitsensitive*)
+* Update webpack-cli version from 2.0.10 to 2.0.13 (*digitsensitive*)
+* Create games folder in assets (*digitsensitive*)
+* Create endlessRunner folder in assets/games (*digitsensitive*)
+* Upload assets for the Endless Runner game (*digitsensitive*)
+* Add image to game config tutorial (*digitsensitive*)
+* Small changes in the README.md (*digitsensitive*)
 
 ---
 
@@ -320,7 +321,7 @@
 
 ### Updates
 
-* update phaser version from 3.2.0 to 3.2.1 (*digitsensitive*)
+* Update phaser version from 3.2.0 to 3.2.1 (*digitsensitive*)
 
 ---
 
@@ -328,5 +329,5 @@
 
 ### Updates
 
-* update phaser version from 3.1.2 to 3.2.0 (*digitsensitive*)
-* restructure folders (*digitsensitive*)
+* Update phaser version from 3.1.2 to 3.2.0 (*digitsensitive*)
+* Restructure folders (*digitsensitive*)
