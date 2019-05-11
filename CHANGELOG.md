@@ -41,6 +41,7 @@
 * Update `camera.md` *[Author: digitsensitive (2019-04-28)]*
 * Update `group.md` *[Author: digitsensitive (2019-05-01)]*
 * Add `pathfollower.md` and `path-follower.md` *[Author: digitsensitive (2019-05-02)]*
+* Update Flappy Bird *[Author: digitsensitive (2019-05-11)]*
 
 ### Bugfixes
 
