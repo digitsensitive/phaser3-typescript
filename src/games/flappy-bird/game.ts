@@ -6,31 +6,26 @@
  */
 
 import "phaser";
-import { BootScene } from "./scenes/bootScene";
-import { MainMenuScene } from "./scenes/mainMenuScene";
-import { GameScene } from "./scenes/gameScene";
+import { BootScene } from "./scenes/boot-scene";
+import { GameScene } from "./scenes/game-scene";
+import { MainMenuScene } from "./scenes/main-menu-scene";
 
 const config: GameConfig = {
   title: "Flappy Bird",
   url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "1.0",
-  width: 405,
+  version: "2.0",
+  width: 390,
   height: 600,
-  zoom: 1,
   type: Phaser.AUTO,
   parent: "game",
   scene: [BootScene, MainMenuScene, GameScene],
   input: {
-    keyboard: true,
-    mouse: false,
-    touch: false,
-    gamepad: false
+    keyboard: true
   },
   physics: {
     default: "arcade",
     arcade: {
-      gravity: { y: 300 },
-      debug: false
+      gravity: { y: 300 }
     }
   },
   backgroundColor: "#98d687",

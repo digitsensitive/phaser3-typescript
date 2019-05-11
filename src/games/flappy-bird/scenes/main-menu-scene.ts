@@ -7,7 +7,8 @@
 
 export class MainMenuScene extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
-  private bitmapTexts: Phaser.GameObjects.BitmapText[] = [];
+  private titleBitmapText: Phaser.GameObjects.BitmapText;
+  private playBitmapText: Phaser.GameObjects.BitmapText;
 
   constructor() {
     super({
@@ -23,24 +24,22 @@ export class MainMenuScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.bitmapTexts.push(
-      this.add.bitmapText(
-        this.sys.canvas.width / 2 - 135,
-        this.sys.canvas.height / 2 - 80,
-        "flappyBirdFont",
-        "FLAPPY BIRD",
-        40
-      )
+    this.titleBitmapText = this.add.bitmapText(
+      0,
+      200,
+      "font",
+      "FLAPPY BIRD",
+      30
     );
 
-    this.bitmapTexts.push(
-      this.add.bitmapText(
-        this.sys.canvas.width / 2 - 50,
-        this.sys.canvas.height / 2 - 10,
-        "flappyBirdFont",
-        "S: PLAY",
-        30
-      )
+    this.titleBitmapText.x = this.getCenterXPositionOfBitmapText(
+      this.titleBitmapText.width
+    );
+
+    this.playBitmapText = this.add.bitmapText(0, 300, "font", "S: PLAY", 25);
+
+    this.playBitmapText.x = this.getCenterXPositionOfBitmapText(
+      this.playBitmapText.width
     );
   }
 
@@ -48,5 +47,9 @@ export class MainMenuScene extends Phaser.Scene {
     if (this.startKey.isDown) {
       this.scene.start("GameScene");
     }
+  }
+
+  private getCenterXPositionOfBitmapText(width: number): number {
+    return this.sys.canvas.width / 2 - width / 2;
   }
 }

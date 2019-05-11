@@ -3,19 +3,19 @@
     "files": [
       {
         "type": "bitmapFont",
-        "key": "flappyBirdFont",
+        "key": "font",
         "textureURL": "src/games/flappy-bird/assets/font/font.png",
         "fontDataURL": "src/games/flappy-bird/assets/font/font.fnt"
       },
       {
         "type": "image",
         "key": "background",
-        "url": "src/games/flappy-bird/assets/other/bg.png"
+        "url": "src/games/flappy-bird/assets/images/bg.png"
       },
       {
         "type": "image",
         "key": "bird",
-        "url": "src/games/flappy-bird/assets/sprites/bird.png"
+        "url": "src/games/flappy-bird/assets/images/bird.png"
       },
       {
         "type": "spritesheet",
