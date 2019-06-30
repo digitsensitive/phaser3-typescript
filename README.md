@@ -145,6 +145,12 @@ Interesting read about [setting up a nodejs-project](https://codeburst.io/tips-f
 Want to correct a bug, contribute some code, or improve the codes? Excellent! Let me know!
 Please read [CONTRIBUTING.md](https://github.com/digitsensitive/phaser3-typescript/blob/master/CONTRIBUTING.md) for details on our code of conduct.
 
+I would like to thank the following persons for their support and help:
+[@FakeBarenziah](https://github.com/FakeBarenziah)
+[@emedws](https://github.com/emedws)
+[@evanlanglais](https://github.com/evanlanglais)
+[@iliyaZelenko](https://github.com/iliyaZelenko)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE) file for details.

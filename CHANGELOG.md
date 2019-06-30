@@ -16,6 +16,26 @@
 
 ---
 
+## Version 1.3.0 - 30th June 2019
+
+### Features
+
+* ...
+
+### Updates
+
+* Update ts-loader version from 6.0.0 to 6.0.4 *[Author: digitsensitive (2019-06-30)]*
+* Update typescript version from 3.4.5 to 3.5.2 *[Author: digitsensitive (2019-06-30)]*
+* Update webpack version from 4.31.0 to 4.35.0 *[Author: digitsensitive (2019-06-30)]*
+* Update webpack-cli version from 3.3.2 to 3.3.5 *[Author: digitsensitive (2019-06-30)]*
+* Update webpack-dev-server version fromb 3.3.1 to 3.7.2 *[Author: digitsensitive (2019-06-30)]*
+
+### Bugfixes
+
+* ...
+
+---
+
 ## Version 1.2.5 - 11th May 2019
 
 ### Updates
