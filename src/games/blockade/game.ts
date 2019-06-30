@@ -10,7 +10,7 @@ import { BootScene } from "./scenes/bootScene";
 import { MainMenuScene } from "./scenes/mainMenuScene";
 import { GameScene } from "./scenes/gameScene";
 
-const config: GameConfig = {
+const config: Phaser.Types.Core.GameConfig = {
   title: "Blockade",
   url: "https://github.com/digitsensitive/phaser3-typescript",
   version: "1.0",
@@ -31,7 +31,7 @@ const config: GameConfig = {
 };
 
 export class Game extends Phaser.Game {
-  constructor(config: GameConfig) {
+  constructor(config: Phaser.Types.Core.GameConfig) {
     super(config);
   }
 }

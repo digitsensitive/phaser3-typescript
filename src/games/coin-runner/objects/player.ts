@@ -6,7 +6,7 @@
  */
 
 export class Player extends Phaser.GameObjects.Image {
-  private cursors: Phaser.Input.Keyboard.CursorKeys;
+  private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   private walkingSpeed: number;
 
   constructor(params) {

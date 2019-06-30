@@ -10,7 +10,7 @@ import { BootScene } from "./scenes/boot-scene";
 import { GameScene } from "./scenes/game-scene";
 import { MainMenuScene } from "./scenes/main-menu-scene";
 
-const config: GameConfig = {
+const config: Phaser.Types.Core.GameConfig = {
   title: "Flappy Bird",
   url: "https://github.com/digitsensitive/phaser3-typescript",
   version: "2.0",
@@ -33,7 +33,7 @@ const config: GameConfig = {
 };
 
 export class Game extends Phaser.Game {
-  constructor(config: GameConfig) {
+  constructor(config: Phaser.Types.Core.GameConfig) {
     super(config);
   }
 }

@@ -21,7 +21,7 @@ export class Player extends Phaser.GameObjects.Image {
   private bullets: Phaser.GameObjects.Group;
 
   // input
-  private cursors: Phaser.Input.Keyboard.CursorKeys;
+  private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   private rotateKeyLeft: Phaser.Input.Keyboard.Key;
   private rotateKeyRight: Phaser.Input.Keyboard.Key;
   private shootingKey: Phaser.Input.Keyboard.Key;

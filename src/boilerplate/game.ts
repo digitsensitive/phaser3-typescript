@@ -8,7 +8,7 @@ import "phaser";
 import { MainScene } from "./scenes/mainScene";
 
 // main game configuration
-const config: GameConfig = {
+const config: Phaser.Types.Core.GameConfig = {
   width: 800,
   height: 600,
   type: Phaser.AUTO,
@@ -24,7 +24,7 @@ const config: GameConfig = {
 
 // game class
 export class Game extends Phaser.Game {
-  constructor(config: GameConfig) {
+  constructor(config: Phaser.Types.Core.GameConfig) {
     super(config);
   }
 }
