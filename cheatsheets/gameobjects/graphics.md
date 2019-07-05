@@ -13,7 +13,7 @@ beginPath, moveTo, lineTo, closePath and strokePath.
 
 > Under WebGL the graphics data is decomposed into polygons.
 
-> If your graphic object doesn't change much (or at all) once you have drawn your shape to it, then you will help performance by calling [generate Texture](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/graphics.md# generateTexture).
+> If your graphic object doesn't change much (or at all) once you have drawn your shape to it, then you will help performance by calling [generate Texture](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/graphics.md# generatetexture).
 > This will 'bake' the graphic object into a texture, and return it. You can then use this Texture for Sprites or other display objects.
 
 ### Example
