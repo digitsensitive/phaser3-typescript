@@ -36,7 +36,7 @@ let myGraphic = this.add
 
 Set the default style settings for this graphics object.
 
-#### restore
+#### restore
 
 Restore the most recently saved state of the graphic by popping from the state stack.
 
@@ -55,7 +55,7 @@ Insert a scale command into the graphic object command buffer.
 
 > All objects drawn after calling this method will be scaled by the given amount.
 
-#### rotateCanvas
+#### rotateCanvas
 
 Insert a rotation command into the graphic object command buffer.
 
@@ -65,7 +65,7 @@ Insert a rotation command into the graphic object command buffer.
 
 Clear command buffer and reset the fill and line style to their defaults.
 
-#### generateTexture
+#### generateTexture
 
 Generate a texture out of this graphic object. As the `key` you can pass a string to generate a texture
 and add it to the texture manager. You can also pass a canvas, in that case the texture will be drawn to that context.
