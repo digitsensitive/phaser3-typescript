@@ -18,6 +18,10 @@
 
 ## Version 1.4.0 - XXth XXXX 2019
 
+### Features
+
+* Add new folder `patterns` with first design pattern: `command`
+
 ### Updates
 
 * Update webpack version from 4.35.0 to 4.35.2 *[Author: digitsensitive (2019-07-03)]*
