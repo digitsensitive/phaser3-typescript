@@ -1,20 +1,28 @@
 <p align="center">
-  <img width=100% src="https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/phaser3-typescript.png">
-  Phaser 3 Game Examples written in TypeScript.
-</div>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg)
-![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg)
-![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg)
-![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
-![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-![GitHub licence](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)
+  <img width=60% src="./assets/github/phaser3-typescript.png">
+</p>
 
 <p align="center">
-  <sub>Examples made with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a></br>
-  Framework created by <a href="https://github.com/photonstorm">Photonstorm</a></sub>
+  Phaser 3 Game Examples written in TypeScript.
+</p>
+
+<div align="center">
+
+  ![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg)
+  ![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg)
+  ![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg)
+  ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+  ![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+  ![GitHub licence](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)
+
 </div>
+
+<p align="center">
+  <sub>
+    Examples made with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a></br>
+    Framework created by <a href="https://github.com/photonstorm">Photonstorm</a>
+  </sub>
+</p>
 
 # Phaser 3 and TypeScript
 
