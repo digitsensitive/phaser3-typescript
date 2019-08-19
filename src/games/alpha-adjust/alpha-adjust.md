@@ -1,6 +1,6 @@
 # Alpha Adjust ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-![Alpha Adjust](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust/assets/github/alphaAdjust.png)
+![Alpha Adjust](assets/github/alphaAdjust.png)
 
 ## Description
 

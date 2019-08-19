@@ -1,6 +1,6 @@
 # Super Mario Land ![Difficulty](https://img.shields.io/badge/Difficulty-Intermediate-blue.svg)
 
-![Super Mario Land](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/super-mario-land/assets/github/super-mario-land.png)
+![Super Mario Land](assets/github/super-mario-land.png)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # Tank ![Difficulty](https://img.shields.io/badge/Difficulty-Intermediate-blue.svg)
 
-![Tank](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/tank/assets/github/tank.png)
+![Tank](assets/github/tank.png)
 
 ## Description
 

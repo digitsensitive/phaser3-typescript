@@ -1,6 +1,6 @@
 # Snake ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
-![Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake/assets/github/snake.png)
+![Snake](assets/github/snake.png)
 
 ## Description
 

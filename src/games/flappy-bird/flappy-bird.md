@@ -1,4 +1,6 @@
-# Flappy Bird
+# Flappy Bird ![Difficulty](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
+
+![Coin Runner](assets/github/flappyBird.png)
 
 ## Description
 

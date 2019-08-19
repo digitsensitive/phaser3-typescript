@@ -74,31 +74,26 @@ npm run dev
 ![Beginner](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
 
 <p float="left">
-  <a href="src/games/coin-runner/coin-runner.md"><img src="src/games/coin-runner/assets/github/coinRunner.png" width="420" /></a>
-  <a href="src/games/alpha-adjust/alpha-adjust.md"><img src="src/games/alpha-adjust/assets/github/alphaAdjust.png" width="420" /></a>
+  <a href="src/games/coin-runner/coin-runner.md"><img src="src/games/coin-runner/assets/github/coinRunner.png"></a>
+  <a href="src/games/alpha-adjust/alpha-adjust.md"><img src="src/games/alpha-adjust/assets/github/alphaAdjust.png"></a>
 </p>
 <p float="left">
-  <a href="src/games/snake/snake.md">
-  <img src="src/games/snake/assets/github/snake.png" width="420" /></a>
-  <a href="src/games/blockade/blockade.md"><img src="src/games/blockade/assets/github/blockade.png" width="420" /></a>
+  <a href="src/games/snake/snake.md"><img src="src/games/snake/assets/github/snake.png"></a>
+  <a href="src/games/blockade/blockade.md"><img src="src/games/blockade/assets/github/blockade.png"></a>
 </p>
 <p float="left">
-  <a href="src/games/asteroid/asteroid.md">
-  <img src="src/games/asteroid/assets/github/asteroid.png" width="420" /></a>
-  <a href="src/games/flappy-bird/flappy-bird.md"><img src="src/games/flappy-bird/assets/github/flappyBird.png" width="420" /></a>
+  <a href="src/games/asteroid/asteroid.md"><img src="src/games/asteroid/assets/github/asteroid.png"></a>
+  <a href="src/games/flappy-bird/flappy-bird.md"><img src="src/games/flappy-bird/assets/github/flappyBird.png"></a>
 </p>
 
 ![Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-blue.svg)
 
 <p float="left">
-  <a href="src/games/space-invaders/space-invaders.md">
-  <img src="src/games/space-invaders/assets/github/spaceInvaders.png" width="420" /></a>
-  <a href="src/games/tank/tank.md">
-  <img src="src/games/tank/assets/github/tank.png" width="420" /></a>
+  <a href="src/games/space-invaders/space-invaders.md"><img src="src/games/space-invaders/assets/github/spaceInvaders.png"></a>
+  <a href="src/games/tank/tank.md"><img src="src/games/tank/assets/github/tank.png"></a>
 </p>
 <p float="left">
-  <a href="src/games/super-mario-land/super-mario-land.md">
-  <img src="src/games/super-mario-land/assets/github/super-mario-land.png" width="420" /></a>
+  <a href="src/games/super-mario-land/super-mario-land.md"><img src="src/games/super-mario-land/assets/github/super-mario-land.png"></a>
 </p>
 
 - If you have any suggestion for a next game example, let me know!
