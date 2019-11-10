@@ -5,9 +5,7 @@
 
 #General
 #-------------------------------------------------------------------------------
-dist
-node_modules
-*.tsx
+dist/
+node_modules/
 .vscode
 yarn.lock
-package-lock.json
