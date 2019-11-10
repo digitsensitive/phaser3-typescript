@@ -2,13 +2,13 @@
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
  * @copyright    2018 - 2019 digitsensitive
  * @description  Asteroid: Game
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 import "phaser";
-import { BootScene } from "./scenes/bootScene";
-import { MainMenuScene } from "./scenes/mainMenuScene";
-import { GameScene } from "./scenes/gameScene";
+import { BootScene } from "./scenes/boot-scene";
+import { MainMenuScene } from "./scenes/main-menu-scene";
+import { GameScene } from "./scenes/game-scene";
 
 const config: Phaser.Types.Core.GameConfig = {
   title: "Asteroid",
@@ -42,5 +42,5 @@ export class Game extends Phaser.Game {
 }
 
 window.addEventListener("load", () => {
-  var game = new Game(config);
+  let game = new Game(config);
 });

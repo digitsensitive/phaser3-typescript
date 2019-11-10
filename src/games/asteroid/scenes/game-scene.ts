@@ -2,7 +2,7 @@
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
  * @copyright    2018 - 2019 digitsensitive
  * @description  Asteroid: Game Scene
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 import { Asteroid } from "../objects/asteroid";
@@ -149,7 +149,7 @@ export class GameScene extends Phaser.Scene {
   private getRandomSpawnPostion(aScreenSize: number): number {
     let rndPos = Phaser.Math.RND.between(0, aScreenSize);
 
-    while (rndPos > aScreenSize / 3 && rndPos < aScreenSize * 2 / 3) {
+    while (rndPos > aScreenSize / 3 && rndPos < (aScreenSize * 2) / 3) {
       rndPos = Phaser.Math.RND.between(0, aScreenSize);
     }
 
