@@ -31,6 +31,8 @@
   "scripts": {
     "start-boilerplate": "cd src/boilerplate && yarn install && yarn run dev",
     "build-boilerplate": "cd src/boilerplate && yarn install && yarn run build",
+    "start-alpha-adjust": "cd src/games/alpha-adjust && yarn install && yarn run dev",
+    "build-alpha-adjust": "cd src/games/alpha-adjust && yarn install && yarn run build",
     "dev": "webpack --mode development && webpack-dev-server --mode development",
     "build": "webpack --mode production && webpack-dev-server --mode production"
   },

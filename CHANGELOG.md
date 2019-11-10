@@ -25,6 +25,7 @@
 ### Updates
 
 * Refactor boilerplate *[Author: digitsensitive (2019-11-10)]*
+* Refactor alpha-adjust *[Author: digitsensitive (2019-11-10)]*
 
 ### Bugfixes
 
