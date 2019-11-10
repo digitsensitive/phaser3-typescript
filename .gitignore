@@ -8,5 +8,6 @@
 dist
 node_modules
 *.tsx
+.vscode
 yarn.lock
 package-lock.json

@@ -16,7 +16,23 @@
 
 ---
 
-## Version 1.4.0 - XXth XXXX 2019
+## Version 1.4.X - XXth XXXX 2019
+
+### Features
+
+* ...
+
+### Updates
+
+* ...
+
+### Bugfixes
+
+* ...
+
+---
+
+## Version 1.4.0 - 10th November 2019
 
 ### Features
 
@@ -25,6 +41,7 @@
 ### Updates
 
 * Update webpack version from 4.35.0 to 4.35.2 *[Author: digitsensitive (2019-07-03)]*
+* Update phaser version from 3.18.1 to 3.20.1 *[Author: digitsensitive (2019-11-09)]*
 
 ---
 
