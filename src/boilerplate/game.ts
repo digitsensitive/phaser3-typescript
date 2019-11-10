@@ -1,6 +1,7 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
  * @copyright    2018 - 2019 digitsensitive
+ * @description  Boilerplate
  * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
@@ -9,6 +10,9 @@ import { MainScene } from "./scenes/main-scene";
 
 // main game configuration
 const config: Phaser.Types.Core.GameConfig = {
+  title: "Boilerplate",
+  url: "https://github.com/digitsensitive/phaser3-typescript",
+  version: "1.0",
   width: 800,
   height: 600,
   type: Phaser.AUTO,
