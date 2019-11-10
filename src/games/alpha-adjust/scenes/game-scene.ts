@@ -2,7 +2,7 @@
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
  * @copyright    2018 - 2019 digitsensitive
  * @description  Alpha Adjust: Game Scene
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 import { CloneCrystal } from "../objects/clone-crystal";
@@ -22,7 +22,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image("crystal", "./src/games/alpha-adjust/assets/crystal.png");
+    this.load.image("crystal", "../assets/crystal.png");
   }
 
   init(): void {
@@ -48,9 +48,10 @@ export class GameScene extends Phaser.Scene {
       alpha: Phaser.Math.RND.realInRange(0, 1)
     });
 
+    // init input
     this.input.on(
       "pointerdown",
-      function() {
+      () => {
         if (!this.playerHasClicked) {
           this.playerHasClicked = true;
         } else {
@@ -80,7 +81,7 @@ export class GameScene extends Phaser.Scene {
       this.sys.canvas.height / 2 + 100,
       difference.toFixed(2) + "",
       {
-        fontFamily: "Connection",
+        fontFamily: "Arial",
         fontSize: 100,
         stroke: "#000000",
         strokeThickness: 8,
@@ -89,41 +90,29 @@ export class GameScene extends Phaser.Scene {
     );
 
     let textConfig = {
-      fontFamily: "Connection",
+      fontFamily: "Arial",
       fontSize: 50,
       stroke: "#000000",
       strokeThickness: 8,
       fill: "#ffffff"
     };
 
+    let selectedText;
     if (difference >= 0.5) {
-      this.feedbackText = this.add.text(
-        this.sys.canvas.width / 2 - 250,
-        this.sys.canvas.height / 2 - 150,
-        "You can do better!",
-        textConfig
-      );
+      selectedText = "You can do better!";
     } else if (difference < 0.5 && difference >= 0.3) {
-      this.feedbackText = this.add.text(
-        this.sys.canvas.width / 2 - 40,
-        this.sys.canvas.height / 2 - 150,
-        "OK!",
-        textConfig
-      );
+      selectedText = "OK!";
     } else if (difference < 0.3 && difference >= 0.1) {
-      this.feedbackText = this.add.text(
-        this.sys.canvas.width / 2 - 90,
-        this.sys.canvas.height / 2 - 150,
-        "Great!",
-        textConfig
-      );
+      selectedText = "Great!";
     } else if (difference < 0.1) {
-      this.feedbackText = this.add.text(
-        this.sys.canvas.width / 2 - 145,
-        this.sys.canvas.height / 2 - 150,
-        "Wonderful!",
-        textConfig
-      );
+      selectedText = "Wonderful!";
     }
+
+    this.feedbackText = this.add.text(
+      this.sys.canvas.width / 2 - selectedText.length * 12,
+      this.sys.canvas.height / 2 - 150,
+      selectedText,
+      textConfig
+    );
   }
 }

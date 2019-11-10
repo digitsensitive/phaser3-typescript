@@ -2,7 +2,7 @@
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
  * @copyright    2018 - 2019 digitsensitive
  * @description  Alpha Adjust
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 import "phaser";
@@ -31,5 +31,5 @@ export class Game extends Phaser.Game {
 }
 
 window.addEventListener("load", () => {
-  var game = new Game(config);
+  let game = new Game(config);
 });
