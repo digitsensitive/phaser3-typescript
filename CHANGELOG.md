@@ -20,11 +20,11 @@
 
 ### Features
 
-* ...
+* Refactor boilerplate and every game as an independent project
 
 ### Updates
 
-* ...
+* Refactor boilerplate *[Author: digitsensitive (2019-11-10)]*
 
 ### Bugfixes
 

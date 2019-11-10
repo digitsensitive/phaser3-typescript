@@ -1,7 +1,7 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
  * @copyright    2018 - 2019 digitsensitive
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 export class MainScene extends Phaser.Scene {
@@ -14,10 +14,10 @@ export class MainScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image("logo", "./src/boilerplate/assets/phaser.png");
+    this.load.image("myImage", "../assets/phaser.png");
   }
 
   create(): void {
-    this.phaserSprite = this.add.sprite(400, 300, "logo");
+    this.phaserSprite = this.add.sprite(400, 300, "myImage");
   }
 }
