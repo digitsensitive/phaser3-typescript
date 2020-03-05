@@ -32,7 +32,8 @@
     "start-boilerplate": "cd src/boilerplate && yarn install && yarn run dev",
     "build-boilerplate": "cd src/boilerplate && yarn install && yarn run build",
     "dev": "webpack --mode development && webpack-dev-server --mode development",
-    "build": "webpack --mode production && webpack-dev-server --mode production"
+    "build": "webpack --mode production && webpack-dev-server --mode production",
+    "start-raycasting": "cd src/experimental/raycasting && yarn install && yarn run dev"
   },
   "repository": {
     "type": "git",
