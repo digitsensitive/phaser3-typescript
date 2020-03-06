@@ -16,11 +16,13 @@
 
 ---
 
-## Version 1.4.X - XXth XXXX 2019
+## Version 1.4.X - XXth XXXX 2020
 
 ### Features
 
 * Refactor boilerplate and every game as an independent project
+* Add new `experimental` project `raycasting` *[Author: digitsensitive (2020-03-05)]*
+* Add new `experimental` project `untextured-raycaster` *[Author: digitsensitive (2020-03-06)]*
 
 ### Updates
 
