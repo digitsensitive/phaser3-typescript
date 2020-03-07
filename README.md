@@ -98,6 +98,19 @@ npm run dev
 
 - If you have any suggestion for a next game example, let me know!
 
+## Experimental fun projects
+
+Check the `package.json` for the correct scripts to start projects.
+For example you can start the `Game of Life` project with:
+
+```
+npm run game-of-life
+```
+
+- [Game of Life](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/game-of-life)
+- [Raycasting](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/raycasting)
+- [Untextured Raycaster](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/untextured-raycaster)
+
 ## Cheat Sheets
 
 - [Browse through the Cheat Sheets](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets)
