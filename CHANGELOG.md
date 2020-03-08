@@ -24,6 +24,8 @@
 * Add new `experimental` project `raycasting` *[Author: digitsensitive (2020-03-05)]*
 * Add new `experimental` project `untextured-raycaster` *[Author: digitsensitive (2020-03-06)]*
 * Add new `experimental` project `game-of-life` *[Author: digitsensitive (2020-03-07)]*
+* Add new `experimental` project `point-in-polygon` *[Author: digitsensitive (2020-03-08)]*
+
 
 ### Updates
 
