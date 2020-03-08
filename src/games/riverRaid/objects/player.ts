@@ -12,6 +12,7 @@ export class Player extends Phaser.GameObjects.Sprite {
   private currentScene: Phaser.Scene;
   private isShooting: boolean;
   private bullets: Bullet[];
+  private anim: Phaser.Tweens.Tween[];
 
   private cursors: any;
   private shootKey: Phaser.Input.Keyboard.Key;
@@ -34,6 +35,17 @@ export class Player extends Phaser.GameObjects.Sprite {
     // physics
     this.currentScene.physics.world.enable(this);
     this.body.setSize(CONST.TILESIZE, CONST.TILESIZE);
+
+    // animations & tweens
+    this.anim = [];
+    this.anim.push(
+      params.scene.tweens.add({
+        targets: this,
+        duration: 1000,
+        scaleX: 1.2,
+        scaleY: 1.2
+      })
+    );
 
     // input
     this.cursors = this.currentScene.input.keyboard.createCursorKeys();

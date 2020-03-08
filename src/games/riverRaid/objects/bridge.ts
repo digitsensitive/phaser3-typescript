@@ -21,13 +21,13 @@ export class Bridge extends Phaser.GameObjects.Sprite {
     // physics
     params.scene.physics.world.enable(this);
     this.body.setSize(CONST.TILESIZE, CONST.TILESIZE);
-    this.body.setVelocityY(30);
+    this.body.setVelocityY(60);
     params.scene.add.existing(this);
   }
 
   update(): void {
     if (!this.active) {
-      this.body.setVelocityY(30);
+      this.body.setVelocityY(60);
       this.lifeSpan--;
 
       if (this.lifeSpan < 0) {

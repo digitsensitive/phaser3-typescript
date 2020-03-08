@@ -57,6 +57,14 @@ export class GameScene extends Phaser.Scene {
   }
 
   update(): void {
+    if (
+      this.listWithNumberTilesPerSegment[0] === 0 &&
+      this.listWithNumberTilesPerSegment.length !== 0
+    ) {
+      this.pushNewLevelSection(1);
+      this.listWithNumberTilesPerSegment.splice(0, 1);
+    }
+
     this.player.update();
 
     this.enemyBoats.children.each(function(boat) {
@@ -66,14 +74,6 @@ export class GameScene extends Phaser.Scene {
     this.bridges.children.each(function(bridge) {
       bridge.update();
     }, this);
-
-    if (
-      this.listWithNumberTilesPerSegment[0] === 0 &&
-      this.listWithNumberTilesPerSegment.length !== 0
-    ) {
-      this.pushNewLevelSection(1);
-      this.listWithNumberTilesPerSegment.splice(0, 1);
-    }
 
     for (let i = this.groundTiles.length - 1; i >= 0; i--) {
       this.groundTiles[i].update();
@@ -85,7 +85,7 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // check collision player vs. ground tiles
+    //check collision player vs. ground tiles
     this.physics.overlap(
       this.player,
       this.groundTiles,
@@ -105,8 +105,8 @@ export class GameScene extends Phaser.Scene {
 
     // check collision bridges vs. bullets
     this.physics.overlap(
-      this.enemyBoats,
-      this.groundTiles,
+      this.bridges,
+      this.player.getBullets(),
       this.collideBridgesWithBullet,
       null,
       this
@@ -142,8 +142,9 @@ export class GameScene extends Phaser.Scene {
     this.player.setActive(false);
   }
 
-  private collideBridgesWithBullet(aBridge: Bridge): void {
+  private collideBridgesWithBullet(aBridge: Bridge, aBullet: any): void {
     aBridge.setActive(false);
+    aBullet.setActive(false);
   }
 
   private pushNewLevelSection(aNumber: number): void {
@@ -165,47 +166,49 @@ export class GameScene extends Phaser.Scene {
     // parse level data for the selected section
     let data = [];
     data[0] = this.levelParser.parseMapSection(section, aNumber);
-    let tiles = data[0].tiles;
-    let bridges = data[0].bridges;
-    let boats = data[0].boats;
+
+    let mapData = data[0].mapData;
+    let objects = data[0].objects;
 
     // push number of ground tiles into list
     // this number is necessary to track if the segment is gone
-    this.listWithNumberTilesPerSegment.push(tiles.length);
+    this.listWithNumberTilesPerSegment.push(mapData.length);
 
     // make out of the parsed level data the actual sprites
-    for (let j = 0; j < tiles.length; j++) {
+    for (let j = 0; j < mapData.length; j++) {
       this.groundTiles.push(
         new Tile({
           scene: this,
-          x: tiles[j].x,
-          y: tiles[j].y,
+          x: mapData[j].x,
+          y: mapData[j].y,
           key: "landscape",
-          frame: tiles[j].frame
+          frame: mapData[j].frame
         })
       );
     }
 
-    for (let j = 0; j < boats.length; j++) {
-      this.enemyBoats.add(
-        new Boat({
-          scene: this,
-          x: boats[j].x,
-          y: boats[j].y,
-          key: "boat"
-        })
-      );
-    }
-
-    for (let j = 0; j < bridges.length; j++) {
-      this.bridges.add(
-        new Bridge({
-          scene: this,
-          x: bridges[j].x,
-          y: bridges[j].y,
-          key: "bridge"
-        })
-      );
+    for (let j = 0; j < objects.length; j++) {
+      if (objects[j].type === "boat") {
+        this.enemyBoats.add(
+          new Boat({
+            scene: this,
+            x: objects[j].x,
+            y: objects[j].y,
+            key: "boat"
+          })
+        );
+      } else if (objects[j].type === "bridge") {
+        this.bridges.add(
+          new Bridge({
+            scene: this,
+            x: objects[j].x,
+            y: objects[j].y,
+            key: "bridge"
+          })
+        );
+      } else if (objects[j].type === "helicopter") {
+      } else if (objects[j].type === "health") {
+      }
     }
   }
 }

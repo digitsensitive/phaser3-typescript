@@ -11,11 +11,8 @@ export let LEVELDATA = [
   {
     SHORTNAME: "START",
     NAME: "START",
-    BOATS: 0,
-    HELICOPTER: 0,
-    HEALTH: 0,
-    BRIDGES: [],
-    DATA: [
+    OBJECTS: [],
+    MAPDATA: [
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
@@ -33,11 +30,11 @@ export let LEVELDATA = [
   {
     SHORTNAME: "BRIDGE",
     NAME: "BRIDGE",
-    BOATS: 0,
-    HELICOPTER: 0,
-    HEALTH: 0,
-    BRIDGES: [{ x: 7, y: 6 }, { x: 8, y: 6 }],
-    DATA: [
+    OBJECTS: [
+      { type: "bridge", random: false, x: 7, y: 6 },
+      { type: "bridge", random: false, x: 8, y: 6 }
+    ],
+    MAPDATA: [
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
@@ -55,11 +52,12 @@ export let LEVELDATA = [
   {
     SHORTNAME: "ORS",
     NAME: "ONE_RIVER_SMALL",
-    BOATS: 1,
-    HELICOPTER: 1,
-    HEALTH: 1,
-    BRIDGES: [],
-    DATA: [
+    OBJECTS: [
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "helicopter", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 }
+    ],
+    MAPDATA: [
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
@@ -77,11 +75,16 @@ export let LEVELDATA = [
   {
     SHORTNAME: "ORM",
     NAME: "ONE_RIVER_MEDIUM",
-    BOATS: 3,
-    HELICOPTER: 1,
-    HEALTH: 3,
-    BRIDGES: [],
-    DATA: [
+    OBJECTS: [
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "helicopter", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 }
+    ],
+    MAPDATA: [
       [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
       [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
       [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1],
@@ -99,11 +102,19 @@ export let LEVELDATA = [
   {
     SHORTNAME: "ORL",
     NAME: "ONE_RIVER_LARGE",
-    BOATS: 4,
-    HELICOPTER: 3,
-    HEALTH: 3,
-    BRIDGES: [],
-    DATA: [
+    OBJECTS: [
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "helicopter", random: true, x: -1, y: -1 },
+      { type: "helicopter", random: true, x: -1, y: -1 },
+      { type: "helicopter", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 }
+    ],
+    MAPDATA: [
       [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
       [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
       [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
@@ -121,11 +132,19 @@ export let LEVELDATA = [
   {
     SHORTNAME: "TRL",
     NAME: "TWO_RIVER_LARGE",
-    BOATS: 4,
-    HELICOPTER: 3,
-    HEALTH: 3,
-    BRIDGES: [],
-    DATA: [
+    OBJECTS: [
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "boat", random: true, x: -1, y: -1 },
+      { type: "helicopter", random: true, x: -1, y: -1 },
+      { type: "helicopter", random: true, x: -1, y: -1 },
+      { type: "helicopter", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 },
+      { type: "health", random: true, x: -1, y: -1 }
+    ],
+    MAPDATA: [
       [1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1],
       [1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1],
       [1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1],

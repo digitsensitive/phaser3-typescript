@@ -18,25 +18,24 @@ export class LevelParser {
   }
 
   public parseMapSection(aLevelSection: any, aIndex: number): {} {
-    let mapObject = { tiles: [], bridges: [], boats: [] };
+    let mapSectionData = { mapData: [], objects: [] };
 
+    // fetch level data
     let levelSection = LEVELDATA.find(
       section => section.SHORTNAME === aLevelSection
     );
 
-    // parse level data
-    let tiles = levelSection.DATA;
-    let bridges = levelSection.BRIDGES;
-    let boats = levelSection.BOATS;
+    let mapData = levelSection.MAPDATA;
+    let objects = levelSection.OBJECTS;
 
-    // put all the tiles into separate arrays
-    for (let y = 0; y < tiles.length; y++) {
-      for (let x = 0; x < tiles[y].length; x++) {
-        let tile = tiles[y][x];
+    // get map data and put into array
+    for (let y = 0; y < mapData.length; y++) {
+      for (let x = 0; x < mapData[y].length; x++) {
+        let tile = mapData[y][x];
         let xPos = x * CONST.TILESIZE;
         let yPos = y * CONST.TILESIZE - aIndex * this.gameHeight;
         if (tile !== 0) {
-          mapObject.tiles.push({
+          mapSectionData.mapData.push({
             x: xPos,
             y: yPos,
             frame: tile
@@ -45,23 +44,29 @@ export class LevelParser {
       }
     }
 
-    // put all the bridges in separate array
-    for (let i = 0; i < bridges.length; i++) {
-      mapObject.bridges.push({
-        x: bridges[i].x * CONST.TILESIZE,
-        y: bridges[i].y * CONST.TILESIZE - aIndex * this.gameHeight
-      });
+    // get objects and put into array
+    for (let i = 0; i < objects.length; i++) {
+      if (objects[i].random) {
+        mapSectionData.objects.push(
+          this.createObject(objects[i].type, aIndex, mapData)
+        );
+      } else {
+        mapSectionData.objects.push({
+          type: objects[i].type,
+          x: objects[i].x * CONST.TILESIZE,
+          y: objects[i].y * CONST.TILESIZE - aIndex * this.gameHeight
+        });
+      }
     }
 
-    // put all the objects in separate array
-    for (let i = 0; i < boats; i++) {
-      mapObject.boats.push(this.createBoat(aIndex, tiles));
-    }
-
-    return mapObject;
+    return mapSectionData;
   }
 
-  private createBoat(aSectionIndex: number, aTiles: number[][]): object {
+  private createObject(
+    aType: string,
+    aSectionIndex: number,
+    aTiles: number[][]
+  ): object {
     let object = {};
     let x = 0;
     let y = 0;
@@ -71,6 +76,7 @@ export class LevelParser {
       y = Math.floor(Math.random() * this.gameHeight / CONST.TILESIZE) + 0;
 
       object = {
+        type: aType,
         x: x * CONST.TILESIZE,
         y: y * CONST.TILESIZE - aSectionIndex * this.gameHeight
       };
