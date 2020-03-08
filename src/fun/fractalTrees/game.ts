@@ -1,14 +1,12 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 Digitsensitive
+ * @copyright    2020 Digitsensitive
  * @description  Fractal Trees: Game
  * @license      Digitsensitive
  */
 
-/// <reference path="../../phaser.d.ts"/>
-
 import "phaser";
-import { GameScene } from "./scenes/gameScene";
+import { GameScene } from "./scenes/main-scene";
 
 const config: GameConfig = {
   title: "Fractal Trees",

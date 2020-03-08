@@ -1,6 +1,6 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 Digitsensitive
+ * @copyright    2020 Digitsensitive
  * @description  Fractal Trees: Game Scene
  * @license      Digitsensitive
  */
@@ -10,12 +10,8 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: "MainScene"
     });
-  }
-
-  preload(): void {
-    this.load.image("player", "./assets/games/coinRunner/player.png");
   }
 
   create(): void {
