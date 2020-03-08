@@ -29,7 +29,7 @@
  */
 
 import { Ray } from "../objects/ray";
-import { PointLineCollisionService } from "../services/point-line-collision.service";
+import { PointLineCollision } from "../services/collisions.service";
 
 const LINE_SEGMENTS = [
   { a: { x: 150, y: 80 }, b: { x: 480, y: 280 }, active: true },
@@ -116,7 +116,6 @@ export class GameScene extends Phaser.Scene {
 
   update(): void {
     // Update Ray
-
     let buffer = 1;
     if (
       this.ray.x >= this.endPoint.x - buffer &&
@@ -134,7 +133,7 @@ export class GameScene extends Phaser.Scene {
         continue;
       }
       if (
-        PointLineCollisionService.isColliding(
+        PointLineCollision(
           lineSegment.a.x,
           lineSegment.a.y,
           lineSegment.b.x,
