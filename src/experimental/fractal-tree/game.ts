@@ -9,7 +9,7 @@ import "phaser";
 import { GameScene } from "./scenes/game-scene";
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Game Of Life",
+  title: "Fractal tree",
   url: "https://github.com/digitsensitive/phaser3-typescript",
   version: "1.0",
   width: 600,
