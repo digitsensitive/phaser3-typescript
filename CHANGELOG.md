@@ -26,6 +26,7 @@
 * Add new `experimental` project `game-of-life` *[Author: digitsensitive (2020-03-07)]*
 * Add new `experimental` project `point-in-polygon` *[Author: digitsensitive (2020-03-08)]*
 * Add new `experimental` project `fractal-tree` *[Author: digitsensitive (2020-03-08)]*
+* Add new `experimental` project `lissajous-curve` *[Author: digitsensitive (2020-03-21)]*
 
 ### Updates
 

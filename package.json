@@ -37,7 +37,9 @@
     "untextured-raycaster": "cd src/experimental/untextured-raycaster && yarn install && yarn run dev",
     "game-of-life": "cd src/experimental/game-of-life && yarn install && yarn run dev",
     "point-in-polygon": "cd src/experimental/point-in-polygon && yarn install && yarn run dev",
-    "fractal-tree": "cd src/experimental/fractal-tree && yarn install && yarn run dev"
+    "fractal-tree": "cd src/experimental/fractal-tree && yarn install && yarn run dev",
+    "lissajous-curve": "cd src/experimental/lissajous-curve && yarn install && yarn run dev",
+    "fractal-tree-as-objects": "cd src/experimental/fractal-tree-as-objects && yarn install && yarn run dev"
   },
   "repository": {
     "type": "git",
