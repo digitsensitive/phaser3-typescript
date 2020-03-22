@@ -1,6 +1,6 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
+ * @copyright    2020 digitsensitive
  * @description  Blocks
  * @license      Digitsensitive
  */
@@ -9,7 +9,7 @@ import "phaser";
 import { BootScene } from "./scenes/boot-scene";
 import { GameScene } from "./scenes/game-scene";
 
-const config: GameConfig = {
+const config: Phaser.Types.Core.GameConfig = {
   title: "Blocks",
   url: "https://github.com/digitsensitive/phaser3-typescript",
   version: "1.0",
@@ -24,7 +24,7 @@ const config: GameConfig = {
 };
 
 export class Game extends Phaser.Game {
-  constructor(config: GameConfig) {
+  constructor(config: Phaser.Types.Core.GameConfig) {
     super(config);
   }
 }

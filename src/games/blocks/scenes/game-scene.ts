@@ -1,6 +1,6 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
+ * @copyright    2020 Digitsensitive
  * @description  Blocks: Game Scene
  * @license      Digitsensitive
  */
