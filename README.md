@@ -71,30 +71,22 @@ npm run dev
 
 ## Game Examples
 
-![Beginner](https://img.shields.io/badge/Difficulty-Beginner-green.svg)
+Check the `package.json` for the correct scripts to start projects.
+For example you can start the `Candy Crush` project with:
 
-<p float="left">
-  <a href="src/games/coin-runner/coin-runner.md"><img src="src/games/coin-runner/assets/github/coinRunner.png"></a>
-  <a href="src/games/alpha-adjust/alpha-adjust.md"><img src="src/games/alpha-adjust/assets/github/alphaAdjust.png"></a>
-</p>
-<p float="left">
-  <a href="src/games/snake/snake.md"><img src="src/games/snake/assets/github/snake.png"></a>
-  <a href="src/games/blockade/blockade.md"><img src="src/games/blockade/assets/github/blockade.png"></a>
-</p>
-<p float="left">
-  <a href="src/games/asteroid/asteroid.md"><img src="src/games/asteroid/assets/github/asteroid.png"></a>
-  <a href="src/games/flappy-bird/flappy-bird.md"><img src="src/games/flappy-bird/assets/github/flappyBird.png"></a>
-</p>
+```
+npm run candy-crush
+```
 
-![Intermediate](https://img.shields.io/badge/Difficulty-Intermediate-blue.svg)
-
-<p float="left">
-  <a href="src/games/space-invaders/space-invaders.md"><img src="src/games/space-invaders/assets/github/spaceInvaders.png"></a>
-  <a href="src/games/tank/tank.md"><img src="src/games/tank/assets/github/tank.png"></a>
-</p>
-<p float="left">
-  <a href="src/games/super-mario-land/super-mario-land.md"><img src="src/games/super-mario-land/assets/github/super-mario-land.png"></a>
-</p>
+- [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner)
+- [Alpha Adjust](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust)
+- [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake)
+- [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade)
+- [Asteroid](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid)
+- [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappy-bird)
+- [Space Invaders](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders)
+- [Super Mario Land](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/super-mario-land)
+- [Candy Crush](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/candy-crush)
 
 - If you have any suggestion for a next game example, let me know!
 
