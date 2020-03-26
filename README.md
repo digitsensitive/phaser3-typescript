@@ -88,7 +88,7 @@ npm run candy-crush
 - [Super Mario Land](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/super-mario-land)
 - [Candy Crush](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/candy-crush)
 
-- If you have any suggestion for a next game example, let me know!
+If you have any suggestion for a next game example, let me know!
 
 ## Experimental fun projects
 
