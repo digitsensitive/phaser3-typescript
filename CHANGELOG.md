@@ -28,6 +28,7 @@
 * Add new `experimental` project `fractal-tree` *[Author: digitsensitive (2020-03-08)]*
 * Add new `experimental` project `lissajous-curve` *[Author: digitsensitive (2020-03-21)]*
 * Add new game `candy-crush` *[Author: digitsensitive (2020-03-26)]*
+* Add new `experimental` project `procedural-generation` *[Author: digitsensitive (2020-04-12)]*
 
 ### Updates
 
