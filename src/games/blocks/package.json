@@ -9,10 +9,12 @@
     "typescript": "3.8.3",
     "webpack": "4.42.0",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.10.3"
+    "webpack-dev-server": "3.10.3",
+    "@types/lodash": "4.14.149"
   },
   "dependencies": {
-    "phaser": "3.22.0"
+    "phaser": "3.22.0",
+    "lodash": "4.17.15"
   },
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server --mode development",

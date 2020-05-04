@@ -1,6 +1,6 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
+ * @copyright    2020 Digitsensitive
  * @description  Blocks: Boot Scene
  * @license      Digitsensitive
  */
@@ -49,7 +49,7 @@ export class BootScene extends Phaser.Scene {
     );
 
     // load our package
-    this.load.pack("preload", "./src/games/blocks/assets/pack.json", "preload");
+    this.load.pack("preload", "./assets/pack.json", "preload");
   }
 
   update(): void {
