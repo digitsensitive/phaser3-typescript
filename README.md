@@ -108,6 +108,17 @@ npm run game-of-life
 - [Procedural Generation](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/procedural-generation)
 - [Cellular Automaton](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/cellular-automaton)
 
+## Game Programming Patterns
+
+Check the `package.json` for the correct scripts to start projects.
+For example you can start the `Factory Method` project with:
+
+```
+npm run factory-method
+```
+
+- [Factory Method](https://github.com/digitsensitive/phaser3-typescript/blob/master/patterns/creational-design-patterns/factory-method)
+
 ## Cheat Sheets
 
 - [Browse through the Cheat Sheets](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets)

@@ -1,0 +1,17 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "image",
+        "key": "enemy",
+        "url": "./assets/images/enemy.png"
+      },
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "./assets/font/pcsenior.png",
+        "fontDataURL": "./assets/font/pcsenior.fnt"
+      }
+    ]
+  }
+}

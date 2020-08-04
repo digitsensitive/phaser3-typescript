@@ -16,11 +16,11 @@
 
 ---
 
-## Version 1.4.X - XXth XXXX 2020
+## Version 1.4.1 - 04th August 2020
 
 ### Features
 
-* Refactor boilerplate and every game as an independent project
+* Refactor boilerplate as an independent project
 * Add new `experimental` project `raycasting` *[Author: digitsensitive (2020-03-05)]*
 * Add new `experimental` project `untextured-raycaster` *[Author: digitsensitive (2020-03-06)]*
 * Add new `experimental` project `game-of-life` *[Author: digitsensitive (2020-03-07)]*
@@ -30,14 +30,11 @@
 * Add new game `candy-crush` *[Author: digitsensitive (2020-03-26)]*
 * Add new `experimental` project `procedural-generation` *[Author: digitsensitive (2020-04-12)]*
 * Add new `experimental` project `cellular-automaton` *[Author: digitsensitive (2020-05-05)]*
+* Add new project `factory-method` *[Author: digitsensitive (2020-08-04)]*
 
 ### Updates
 
 * Refactor boilerplate *[Author: digitsensitive (2019-11-10)]*
-
-### Bugfixes
-
-* ...
 
 ---
 
