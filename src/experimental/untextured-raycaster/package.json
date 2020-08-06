@@ -5,14 +5,14 @@
   "keywords": [],
   "devDependencies": {
     "expose-loader": "0.7.5",
-    "ts-loader": "6.2.1",
-    "typescript": "3.8.3",
-    "webpack": "4.42.0",
-    "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.10.3"
+    "ts-loader": "8.0.2",
+    "typescript": "3.9.7",
+    "webpack": "4.44.1",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
-    "phaser": "3.22.0"
+    "phaser": "3.24.1"
   },
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server --mode development",
