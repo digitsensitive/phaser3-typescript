@@ -1,6 +1,6 @@
 {
   "name": "boilerplate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Boilerplate for Phaser 3 in TypeScript",
   "keywords": [
     "Phaser",
@@ -18,19 +18,19 @@
     "Phaser3-example"
   ],
   "devDependencies": {
-    "expose-loader": "0.7.5",
-    "ts-loader": "6.2.1",
-    "typescript": "3.7.2",
-    "webpack": "4.41.2",
-    "webpack-cli": "3.3.10",
-    "webpack-dev-server": "3.9.0"
+    "expose-loader": "1.0.3",
+    "ts-loader": "8.0.12",
+    "typescript": "4.1.3",
+    "webpack": "5.10.1",
+    "webpack-cli": "4.2.0",
+    "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
-    "phaser": "3.20.1"
+    "phaser": "3.24.1"
   },
   "scripts": {
-    "dev": "webpack --mode development && webpack-dev-server --mode development",
-    "build": "webpack --mode production && webpack-dev-server --mode production"
+    "dev": "webpack --mode development && webpack serve --mode development",
+    "build": "webpack --mode production && webpack serve --mode production"
   },
   "repository": {
     "type": "git",
