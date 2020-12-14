@@ -8,12 +8,12 @@
 
 <div align="center">
 
-  ![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg)
-  ![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg)
-  ![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg)
-  ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
-  ![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-  ![GitHub licence](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)
+![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg)
+![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg)
+![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+![GitHub licence](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)
 
 </div>
 
@@ -43,7 +43,8 @@ improve this repository!
 ### Prerequisites
 
 ```
-Download and install npm with Node.js @ https://nodejs.org/en
+Download and install Node.js @ https://nodejs.org/en
+Download and install yarn @ https://classic.yarnpkg.com/en/docs/install
 ```
 
 ### Installing
@@ -55,27 +56,13 @@ with this command-line:
 git clone https://github.com/digitsensitive/phaser3-typescript.git
 ```
 
-Install the dependencies with this command-line:
-
-```
-npm install
-```
-
-### Building and Running
-
-Perform a quick build (bundle.js) and start server:
-
-```
-npm run dev
-```
-
 ## Game Examples
 
 Check the `package.json` for the correct scripts to start projects.
 For example you can start the `Candy Crush` project with:
 
 ```
-npm run candy-crush
+yarn candy-crush
 ```
 
 - [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner)
@@ -96,7 +83,7 @@ Check the `package.json` for the correct scripts to start projects.
 For example you can start the `Game of Life` project with:
 
 ```
-npm run game-of-life
+yarn game-of-life
 ```
 
 - [Game of Life](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/game-of-life)
@@ -114,7 +101,7 @@ Check the `package.json` for the correct scripts to start projects.
 For example you can start the `Factory Method` project with:
 
 ```
-npm run factory-method
+yarn factory-method
 ```
 
 - [Factory Method](https://github.com/digitsensitive/phaser3-typescript/blob/master/patterns/creational-design-patterns/factory-method)
@@ -149,13 +136,13 @@ npm run factory-method
 
 The following `Compiler Options` have been set in the `tsconfig.json` file:
 
-| Option | Value     |
-| :------------- | :------------- |
-| target       | ES2016 |
-| module       | CommonJS |
-| sourceMap    | true |
-| noImplicitAny| true [WIP] |
-| strict       | true [WIP] |
+| Option        | Value      |
+| :------------ | :--------- |
+| target        | ES2016     |
+| module        | CommonJS   |
+| sourceMap     | true       |
+| noImplicitAny | true [WIP] |
+| strict        | true [WIP] |
 
 You can see the complete list of the available options at [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 Interesting read about [setting up a nodejs-project](https://codeburst.io/tips-for-setting-up-a-typescript-nodejs-project-5d1c48dc1a2d).
