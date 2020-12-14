@@ -1,9 +1,9 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
+ * @copyright    2019 - 2020 Digitsensitive
  * @description  Design patterns: Behavioral design pattern - Command
  *               This is a basic setup handling input in browser games.
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 import { Command } from "./command.interface";

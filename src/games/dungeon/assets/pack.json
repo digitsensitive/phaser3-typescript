@@ -1,0 +1,31 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "beeb",
+        "textureURL": "./assets/font/beeb.png",
+        "fontDataURL": "./assets/font/beeb.fnt"
+      },
+      {
+        "type": "image",
+        "key": "tiles",
+        "url": "./assets/tiles/tiles.png"
+      },
+      {
+        "type": "json",
+        "key": "animations",
+        "url": "./assets/animations/animations.json"
+      },
+      {
+        "type": "spritesheet",
+        "key": "player",
+        "url": "./assets/sprites/player.png",
+        "frameConfig": {
+          "frameWidth": 15,
+          "frameHeight": 15
+        }
+      }
+    ]
+  }
+}

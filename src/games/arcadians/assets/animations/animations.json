@@ -1,0 +1,26 @@
+{
+  "anims": [
+    {
+      "key": "zellFly",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "zell",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 5
+    },
+    {
+      "key": "sorenFly",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "soren",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 5
+    }
+  ]
+}

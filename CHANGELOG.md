@@ -20,12 +20,19 @@
 
 ### Features
 
-* Refactor boilerplate and every game as an independent project
+* Refactor boilerplate as an independent project *[Author: digitsensitive (2019-11-10)]*
+* Refactor alpha-adjust as an independent project *[Author: digitsensitive (2019-11-10)]*
+* Refactor asteroid as an independent project *[Author: digitsensitive (2019-11-10)]*
+* Add new experimental project custom-textures *[Author: digitsensitive (2020-02-09)]*
 
 ### Updates
 
 * Refactor boilerplate *[Author: digitsensitive (2019-11-10)]*
 * Refactor alpha-adjust *[Author: digitsensitive (2019-11-10)]*
+* Upgrade all examples to phaser version 3.22.0 *[Author: digitsensitive (2020-02-08)]*
+* Upgrade all examples to typescript version 3.7.5 *[Author: digitsensitive (2020-02-08)]*
+* Upgrade all examples to webpack version 4.41.5 *[Author: digitsensitive (2020-02-08)]*
+* Upgrade all examples to webpack-dev-server version 3.10.3 *[Author: digitsensitive (2020-02-08)]*
 
 ### Bugfixes
 

@@ -1,0 +1,35 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "beeb",
+        "textureURL": "./assets/font/beeb.png",
+        "fontDataURL": "./assets/font/beeb.fnt"
+      },
+      {
+        "type": "json",
+        "key": "animations",
+        "url": "./assets/animations/animations.json"
+      },
+      {
+        "type": "spritesheet",
+        "key": "zell",
+        "url": "./assets/sprites/zell.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "soren",
+        "url": "./assets/sprites/soren.png",
+        "frameConfig": {
+          "frameWidth": 8,
+          "frameHeight": 8
+        }
+      }
+    ]
+  }
+}

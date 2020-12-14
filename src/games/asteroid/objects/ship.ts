@@ -1,6 +1,6 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
+ * @copyright    2018 - 2020 digitsensitive
  * @description  Asteroid: Ship
  * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
@@ -9,6 +9,7 @@ import { Bullet } from "../objects/bullet";
 import { CONST } from "../const/const";
 
 export class Ship extends Phaser.GameObjects.Graphics {
+  body: Phaser.Physics.Arcade.Body;
   private velocity: Phaser.Math.Vector2;
   private cursors: any;
   private bullets: Bullet[];

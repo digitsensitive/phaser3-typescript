@@ -1,8 +1,8 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
+ * @copyright    2018 - 2020 digitsensitive
  * @description  Space Invaders
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 import "phaser";

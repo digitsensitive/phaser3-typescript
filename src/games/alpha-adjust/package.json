@@ -20,13 +20,13 @@
   "devDependencies": {
     "expose-loader": "0.7.5",
     "ts-loader": "6.2.1",
-    "typescript": "3.7.2",
-    "webpack": "4.41.2",
+    "typescript": "3.7.5",
+    "webpack": "4.41.5",
     "webpack-cli": "3.3.10",
-    "webpack-dev-server": "3.9.0"
+    "webpack-dev-server": "3.10.3"
   },
   "dependencies": {
-    "phaser": "3.20.1"
+    "phaser": "3.22.0"
   },
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server --mode development",

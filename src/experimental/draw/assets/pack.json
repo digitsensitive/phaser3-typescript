@@ -1,0 +1,21 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "image",
+        "key": "trash",
+        "url": "./assets/trash.png"
+      },
+      {
+        "type": "image",
+        "key": "swapHorizontal",
+        "url": "./assets/swapHorizontal.png"
+      },
+      {
+        "type": "image",
+        "key": "swapVertical",
+        "url": "./assets/swapVertical.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "src/games/flight/assets/font/font.png",
+        "fontDataURL": "src/games/flight/assets/font/font.fnt"
+      },
+      {
+        "type": "json",
+        "key": "animationJSON",
+        "url": "src/games/flight/assets/animations/animations.json"
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "src/games/flight/assets/background.png"
+      },
+      {
+        "type": "image",
+        "key": "bullet",
+        "url": "src/games/flight/assets/objects/bullet.png"
+      },
+      {
+        "type": "image",
+        "key": "cloud",
+        "url": "src/games/flight/assets/objects/cloud.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "player",
+        "url": "src/games/flight/assets/objects/player.png",
+        "frameConfig": {
+          "frameWidth": 24,
+          "frameHeight": 24
+        }
+      }
+    ]
+  }
+}

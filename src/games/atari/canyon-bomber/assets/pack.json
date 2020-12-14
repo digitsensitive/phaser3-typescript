@@ -1,0 +1,26 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "src/games/atari/canyon-bomber/assets/font/font.png",
+        "fontDataURL": "src/games/atari/canyon-bomber/assets/font/font.fnt"
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "src/games/atari/canyon-bomber/assets/images/background.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "fullscreen",
+        "url": "src/games/atari/canyon-bomber/assets/images/fullscreen.png",
+        "frameConfig": {
+          "frameWidth": 10,
+          "frameHeight": 10
+        }
+      }
+    ]
+  }
+}

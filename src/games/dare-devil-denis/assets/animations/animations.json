@@ -1,0 +1,15 @@
+{
+  "anims": [
+    {
+      "key": "denisWalk",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "denis",
+        "start": 0,
+        "end": 7
+      },
+      "repeat": -1,
+      "frameRate": 15
+    }
+  ]
+}

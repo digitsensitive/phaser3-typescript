@@ -1,0 +1,25 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "json",
+        "key": "animationJSON",
+        "url": "./assets/animations/animations.json"
+      },
+      {
+        "type": "spritesheet",
+        "key": "denis",
+        "url": "./assets/sprites/denis.png",
+        "frameConfig": {
+          "frameWidth": 37,
+          "frameHeight": 26
+        }
+      },
+      {
+        "type": "image",
+        "key": "tile",
+        "url": "./assets/images/tile.png"
+      }
+    ]
+  }
+}

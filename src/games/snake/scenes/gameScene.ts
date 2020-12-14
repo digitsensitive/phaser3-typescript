@@ -1,8 +1,8 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
+ * @copyright    2018 - 2020 digitsensitive
  * @description  Snake: Game Scene
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 import { Apple } from "../objects/apple";
@@ -114,7 +114,7 @@ export class GameScene extends Phaser.Scene {
     if (headX === this.apple.x && headY === this.apple.y) {
       this.player.growSnake(this);
       CONST.SCORE++;
-      this.scoreText.setText('' + CONST.SCORE);
+      this.scoreText.setText("" + CONST.SCORE);
       this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
     }
 

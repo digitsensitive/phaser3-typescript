@@ -1,8 +1,8 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
+ * @copyright    2019 - 2020 Digitsensitive
  * @description  Super Mario Land: Mario
- * @license      Digitsensitive
+ * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 export class Mario extends Phaser.GameObjects.Sprite {

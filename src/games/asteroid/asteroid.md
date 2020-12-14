@@ -6,11 +6,6 @@
 
 Another clone of the famous Asteroid game.
 
-## How to run it
-
-Adjust the `webpack.config.js` file as follows:
-> `entry: './src/games/asteroid/game.ts'`
-
 ## How to play in fullscreen
 Adjust the `index.html` as follows:
 > ... href="styles/css/styles`-fullscreen`.css

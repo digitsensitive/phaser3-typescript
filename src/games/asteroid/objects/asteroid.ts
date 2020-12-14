@@ -1,6 +1,6 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
+ * @copyright    2018 - 2020 digitsensitive
  * @description  Asteroid: Asteroid
  * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
@@ -8,6 +8,7 @@
 import { CONST } from "../const/const";
 
 export class Asteroid extends Phaser.GameObjects.Graphics {
+  body: Phaser.Physics.Arcade.Body;
   private velocity: Phaser.Math.Vector2;
   private radius: number;
   private asteroidRadius: number;

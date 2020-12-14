@@ -1,0 +1,49 @@
+{
+  "name": "princess",
+  "version": "1.0.0",
+  "description": "Princess for Phaser 3 in TypeScript",
+  "keywords": [
+    "Phaser",
+    "Phaser 3",
+    "Phaser3",
+    "Html5-game",
+    "Phaser-boilerplate",
+    "TypeScript",
+    "Webpack",
+    "Tutorials",
+    "Phaser-tutorial",
+    "Game Examples",
+    "Phaser-game",
+    "Phaser-framework",
+    "Phaser3-example"
+  ],
+  "devDependencies": {
+    "expose-loader": "0.7.5",
+    "ts-loader": "6.2.1",
+    "typescript": "3.8.2",
+    "webpack": "4.41.6",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.10.3"
+  },
+  "dependencies": {
+    "phaser": "3.22.0",
+    "astar-typescript": "1.1.4"
+  },
+  "scripts": {
+    "dev": "webpack --mode development && webpack-dev-server --mode development",
+    "build": "webpack --mode production && webpack-dev-server --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitsensitive/phaser3-typescript.git"
+  },
+  "author": {
+    "name": "digitsensitive",
+    "email": "digit.sensitivee@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitsensitive/phaser3-typescript/issues"
+  },
+  "homepage": "https://github.com/digitsensitive/phaser3-typescript#readme"
+}

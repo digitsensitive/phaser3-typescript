@@ -1,0 +1,48 @@
+{
+  "name": "dare-devil-denis",
+  "version": "1.0.0",
+  "description": "Dare Devil Denis for Phaser 3 in TypeScript",
+  "keywords": [
+    "Phaser",
+    "Phaser 3",
+    "Phaser3",
+    "Html5-game",
+    "Phaser-boilerplate",
+    "TypeScript",
+    "Webpack",
+    "Tutorials",
+    "Phaser-tutorial",
+    "Game Examples",
+    "Phaser-game",
+    "Phaser-framework",
+    "Phaser3-example"
+  ],
+  "devDependencies": {
+    "expose-loader": "0.7.5",
+    "ts-loader": "6.2.1",
+    "typescript": "3.7.3",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.9.0"
+  },
+  "dependencies": {
+    "phaser": "3.21.0"
+  },
+  "scripts": {
+    "dev": "webpack --mode development && webpack-dev-server --mode development",
+    "build": "webpack --mode production && webpack-dev-server --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitsensitive/phaser3-typescript.git"
+  },
+  "author": {
+    "name": "digitsensitive",
+    "email": "digit.sensitivee@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitsensitive/phaser3-typescript/issues"
+  },
+  "homepage": "https://github.com/digitsensitive/phaser3-typescript#readme"
+}

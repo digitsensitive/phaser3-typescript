@@ -1,0 +1,42 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "assets/font/font.png",
+        "fontDataURL": "assets/font/font.fnt"
+      },
+      {
+        "type": "tilemapCSV",
+        "key": "map",
+        "url": "assets/csv/map.csv"
+      },
+      {
+        "type": "image",
+        "key": "tiles",
+        "url": "assets/tiles/tiles.png"
+      },
+      {
+        "type": "image",
+        "key": "player",
+        "url": "assets/images/player.png"
+      },
+      {
+        "type": "image",
+        "key": "path",
+        "url": "assets/images/path.png"
+      },
+      {
+        "type": "image",
+        "key": "marker",
+        "url": "assets/images/marker.png"
+      },
+      {
+        "type": "image",
+        "key": "princess",
+        "url": "assets/images/princess.png"
+      }
+    ]
+  }
+}

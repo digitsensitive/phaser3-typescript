@@ -1,11 +1,12 @@
 /**
  * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
+ * @copyright    2018 - 2020 digitsensitive
  * @description  Asteroid: Bullet
  * @license      {@link https://github.com/digitsensitive/phaser3-typescript/blob/master/LICENSE.md | MIT License}
  */
 
 export class Bullet extends Phaser.GameObjects.Graphics {
+  body: Phaser.Physics.Arcade.Body;
   private colors: number[];
   private selectedColor: number;
   private velocity: Phaser.Math.Vector2;

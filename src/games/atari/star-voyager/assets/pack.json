@@ -1,0 +1,12 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "src/games/atari/star-voyager/assets/font/font.png",
+        "fontDataURL": "src/games/atari/star-voyager/assets/font/font.fnt"
+      }
+    ]
+  }
+}
