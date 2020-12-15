@@ -1,6 +1,6 @@
 {
   "name": "phaser3-typescript",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Boilerplate, Game Examples, Cheat Sheets and Tutorials for Phaser 3 in TypeScript",
   "keywords": [
     "Phaser",
@@ -19,6 +19,7 @@
   ],
   "devDependencies": {
     "expose-loader": "0.7.5",
+    "prettier": "2.2.1",
     "ts-loader": "6.0.4",
     "typescript": "3.5.2",
     "webpack": "4.35.2",
@@ -29,8 +30,8 @@
     "phaser": "3.20.1"
   },
   "scripts": {
-    "start-boilerplate": "cd src/boilerplate && yarn install && yarn run dev",
-    "build-boilerplate": "cd src/boilerplate && yarn install && yarn run build",
+    "prettier-test": "yarn prettier --write .",
+    "boilerplate": "cd src/boilerplate && yarn install && yarn run dev",
     "dev": "webpack --mode development && webpack-dev-server --mode development",
     "build": "webpack --mode production && webpack-dev-server --mode production",
     "candy-crush": "cd src/games/candy-crush && yarn install && yarn run dev",

@@ -8,15 +8,15 @@ export class MainScene extends Phaser.Scene {
   protected phase: number = 1;
 
   constructor() {
-    super({ key: "MainScene" });
+    super({ key: 'MainScene' });
   }
 
   preload(): void {
-    this.load.image("myTexture", "../assets/phaser.png");
+    this.load.image('myTexture', '../assets/phaser.png');
   }
 
   create(): void {
-    this.mySprite = this.add.sprite(400, 350, "myTexture");
+    this.mySprite = this.add.sprite(400, 350, 'myTexture');
   }
 
   update(time: number): void {

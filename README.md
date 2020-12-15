@@ -8,12 +8,12 @@
 
 <div align="center">
 
-![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg)
-![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg)
-![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg)
-![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
-![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-![GitHub licence](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)
+![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg?style=flat-square)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+![GitHub licence](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg?style=flat-square)
 
 </div>
 
@@ -105,6 +105,12 @@ yarn factory-method
 ```
 
 - [Factory Method](https://github.com/digitsensitive/phaser3-typescript/blob/master/patterns/creational-design-patterns/factory-method)
+
+## Prettier
+
+This project uses [Prettier](https://github.com/prettier/prettier), an opinionated code formatter.
+The selected configuration options can be found in the `.prettierrc` file in the root project folder.
+More informations about the format options can be found [here](https://prettier.io/docs/en/options.html).
 
 ## Cheat Sheets
 
