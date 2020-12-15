@@ -4,5 +4,4 @@ dist/
 node_modules/
 
 # Files
-yarn.lock
 .DS_STORE

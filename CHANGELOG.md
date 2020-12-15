@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Update `.gitignore`
 - Update `yarn.lock`
 - Update `LICENSE`
+- Remove `yarn.lock` from `.gitignore`
 
 ---
 
