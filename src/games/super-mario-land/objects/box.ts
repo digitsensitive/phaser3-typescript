@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { Collectible } from "./collectible";
+import { Collectible } from './collectible';
 
 export class Box extends Phaser.GameObjects.Sprite {
   // variables
@@ -51,9 +51,9 @@ export class Box extends Phaser.GameObjects.Sprite {
       targets: this,
       props: { y: this.y - 10 },
       duration: 60,
-      ease: "Power0",
+      ease: 'Power0',
       yoyo: true,
-      onComplete: function() {
+      onComplete: function () {
         this.targets[0].active = false;
         this.targets[0].setFrame(1);
       }
@@ -81,7 +81,7 @@ export class Box extends Phaser.GameObjects.Sprite {
       props: props,
       delay: 0,
       duration: duration,
-      ease: "Power0",
+      ease: 'Power0',
       onComplete: complete
     });
   }
@@ -98,8 +98,8 @@ export class Box extends Phaser.GameObjects.Sprite {
 
   private addCoinAndScore(coin: number, score: number): void {
     this.currentScene.registry.values.coins += coin;
-    this.currentScene.events.emit("coinsChanged");
+    this.currentScene.events.emit('coinsChanged');
     this.currentScene.registry.values.score += score;
-    this.currentScene.events.emit("scoreChanged");
+    this.currentScene.events.emit('scoreChanged');
   }
 }

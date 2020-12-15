@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { CONST } from "../const/const";
+import { CONST } from '../const/const';
 
 export class MainMenuScene extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
@@ -13,7 +13,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "MainMenuScene"
+      key: 'MainMenuScene'
     });
   }
 
@@ -30,9 +30,9 @@ export class MainMenuScene extends Phaser.Scene {
 
   preload(): void {
     this.load.bitmapFont(
-      "snakeFont",
-      "./src/games/snake/assets/font/snakeFont.png",
-      "./src/games/snake/assets/font/snakeFont.fnt"
+      'snakeFont',
+      './src/games/snake/assets/font/snakeFont.png',
+      './src/games/snake/assets/font/snakeFont.fnt'
     );
   }
 
@@ -41,8 +41,8 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 28,
         this.sys.canvas.height / 2 - 10,
-        "snakeFont",
-        "S: PLAY",
+        'snakeFont',
+        'S: PLAY',
         8
       )
     );
@@ -51,8 +51,8 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 70,
         this.sys.canvas.height / 2 - 60,
-        "snakeFont",
-        "S N A K E",
+        'snakeFont',
+        'S N A K E',
         16
       )
     );
@@ -61,8 +61,8 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 45,
         this.sys.canvas.height / 2 + 30,
-        "snakeFont",
-        "HIGHSCORE: " + CONST.HIGHSCORE,
+        'snakeFont',
+        'HIGHSCORE: ' + CONST.HIGHSCORE,
         8
       )
     );
@@ -70,7 +70,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   update(): void {
     if (this.startKey.isDown) {
-      this.scene.start("GameScene");
+      this.scene.start('GameScene');
     }
   }
 }

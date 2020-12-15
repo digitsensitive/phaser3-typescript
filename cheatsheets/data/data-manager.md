@@ -10,6 +10,7 @@ The parent must either extend EventEmitter, or have a property called `events` t
 ### Public Functions
 
 #### get
+
 Retrieve the value for the given key, or undefined if it doesn't exist.
 
 ```
@@ -29,9 +30,11 @@ this.data.get([ 'gold', 'armor', 'health' ]);
 ```
 
 #### getAll
+
 Retrieve all data values in a new object.
 
 #### set
+
 Set a value for the given key. If the key doesn't already exist in the data manager then it is created.
 
 ```
@@ -52,4 +55,4 @@ data.values.gold += 50;
 
 > When the value is first set, a `setdata` event is emitted.
 > If the key already exists, a `changedata` event is emitted instead, along an event named after the key.
-For example, if you updated an existing key called `PlayerLives` then it would emit the event `changedata-PlayerLives`.
+> For example, if you updated an existing key called `PlayerLives` then it would emit the event `changedata-PlayerLives`.

@@ -5,12 +5,12 @@
  * @license      Digitsensitive
  */
 
-import { Enemy } from "../objects/enemy";
-import { Wallace } from "../objects/wallace";
-import { Bobbie } from "../objects/bobbie";
-import { Kanye } from "../objects/kanye";
+import { Enemy } from '../objects/enemy';
+import { Wallace } from '../objects/wallace';
+import { Bobbie } from '../objects/bobbie';
+import { Kanye } from '../objects/kanye';
 
-export type EnemyTypes = "bobbie" | "wallace" | "kanye";
+export type EnemyTypes = 'bobbie' | 'wallace' | 'kanye';
 
 export interface IEnemyFactoryCreate {
   type: EnemyTypes;
@@ -33,27 +33,27 @@ export class SimpleEnemyFactory {
 
   public create(params: IEnemyFactoryCreate): Enemy {
     switch (params.type) {
-      case "bobbie":
+      case 'bobbie':
         return new Bobbie({
           scene: this.currentScene,
           x: params.x,
           y: params.y,
-          key: "enemy",
+          key: 'enemy'
         });
 
-      case "wallace":
+      case 'wallace':
         return new Wallace({
           scene: this.currentScene,
           x: params.x,
           y: params.y,
-          key: "enemy",
+          key: 'enemy'
         });
-      case "kanye":
+      case 'kanye':
         return new Kanye({
           scene: this.currentScene,
           x: params.x,
           y: params.y,
-          key: "enemy",
+          key: 'enemy'
         });
       default:
         break;

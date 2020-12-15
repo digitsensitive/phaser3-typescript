@@ -40,8 +40,8 @@
  * @license      Digitsensitive
  */
 
-import { Grid } from "../objects/grid";
-import { PATTERNS } from "../patterns/patterns";
+import { Grid } from '../objects/grid';
+import { PATTERNS } from '../patterns/patterns';
 
 export class GameScene extends Phaser.Scene {
   // Grid
@@ -65,7 +65,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -85,12 +85,12 @@ export class GameScene extends Phaser.Scene {
     this.fieldColor = 0xedbe3b;
     this.fieldAlpha = 1;
     this.generationText = this.add
-      .text(10, 10, "Generation: " + this.generation.toString(), {
-        fontFamily: "Arial",
+      .text(10, 10, 'Generation: ' + this.generation.toString(), {
+        fontFamily: 'Arial',
         fontSize: 20,
-        stroke: "#ffffff",
+        stroke: '#ffffff',
         strokeThickness: 1,
-        fill: "#000000"
+        fill: '#000000'
       })
       .setDepth(2);
 
@@ -126,7 +126,7 @@ export class GameScene extends Phaser.Scene {
   private nextGeneration(): void {
     // Go to the next generation and update text
     this.generation++;
-    this.generationText.setText("Generation: " + this.generation.toString());
+    this.generationText.setText('Generation: ' + this.generation.toString());
 
     this.grid.evaluateRules();
     this.clearGraphix();

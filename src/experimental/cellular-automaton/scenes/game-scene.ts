@@ -35,9 +35,9 @@
  * @license      Digitsensitive
  */
 
-import { RULESETS } from "./const/rulesets";
-import { Cell } from "./objects/cell";
-import { CONST } from "./const/const";
+import { RULESETS } from './const/rulesets';
+import { Cell } from './objects/cell';
+import { CONST } from './const/const';
 
 export class GameScene extends Phaser.Scene {
   private cells: Cell[][];
@@ -46,7 +46,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene",
+      key: 'GameScene'
     });
   }
 
@@ -59,7 +59,7 @@ export class GameScene extends Phaser.Scene {
         this.cells[y][x] = new Cell({
           scene: this,
           x: x * CONST.CELLSIZE,
-          y: y * CONST.CELLSIZE,
+          y: y * CONST.CELLSIZE
         });
       }
     }
@@ -110,7 +110,7 @@ export class GameScene extends Phaser.Scene {
    * Parse the neightbour as a string and convert it to a integer
    */
   private parseThroughTheRules(l: number, c: number, r: number): number {
-    const s = "" + l + c + r;
+    const s = '' + l + c + r;
     const index = parseInt(s, 2);
     return this.ruleset[index];
   }

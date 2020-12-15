@@ -11,7 +11,7 @@ export class MenuScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "MenuScene"
+      key: 'MenuScene'
     });
   }
 
@@ -28,8 +28,8 @@ export class MenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 65,
         this.sys.canvas.height / 2,
-        "font",
-        "PRESS S TO PLAY",
+        'font',
+        'PRESS S TO PLAY',
         8
       )
     );
@@ -38,8 +38,8 @@ export class MenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 60,
         this.sys.canvas.height / 2 - 40,
-        "font",
-        "SPACE INVADERS",
+        'font',
+        'SPACE INVADERS',
         8
       )
     );
@@ -47,9 +47,9 @@ export class MenuScene extends Phaser.Scene {
 
   update(): void {
     if (this.startKey.isDown) {
-      this.scene.start("HUDScene");
-      this.scene.start("GameScene");
-      this.scene.bringToTop("HUDScene");
+      this.scene.start('HUDScene');
+      this.scene.start('GameScene');
+      this.scene.bringToTop('HUDScene');
     }
   }
 
@@ -58,8 +58,8 @@ export class MenuScene extends Phaser.Scene {
    * Here we initialize our variables with a key.
    */
   private initRegistry(): void {
-    this.registry.set("points", 0);
-    this.registry.set("lives", 3);
-    this.registry.set("level", 1);
+    this.registry.set('points', 0);
+    this.registry.set('lives', 3);
+    this.registry.set('level', 1);
   }
 }

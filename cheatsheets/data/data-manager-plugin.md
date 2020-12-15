@@ -8,11 +8,12 @@ The Data Manager Plugin is one of the [seven default plugins](https://github.com
 It is installed into every scene and you can access it with `this.data`.
 
 > With `this.registry` you can access a game-wide instance of the data manager.
-This allows you to exchange data between scenes via a universal and shared point.
+> This allows you to exchange data between scenes via a universal and shared point.
 
 ### Public Functions
 
 #### destroy
+
 The scene that owns this plugin is being destroyed.
 We need to shutdown and then kill off all external references.
 

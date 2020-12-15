@@ -38,13 +38,13 @@ export class Enemy extends Phaser.GameObjects.Sprite {
 
   protected showAndAddScore(): void {
     this.currentScene.registry.values.score += this.dyingScoreValue;
-    this.currentScene.events.emit("scoreChanged");
+    this.currentScene.events.emit('scoreChanged');
 
     let scoreText = this.currentScene.add
       .dynamicBitmapText(
         this.x,
         this.y - 20,
-        "font",
+        'font',
         this.dyingScoreValue.toString(),
         4
       )
@@ -54,9 +54,9 @@ export class Enemy extends Phaser.GameObjects.Sprite {
       targets: scoreText,
       props: { y: scoreText.y - 25 },
       duration: 800,
-      ease: "Power0",
+      ease: 'Power0',
       yoyo: false,
-      onComplete: function() {
+      onComplete: function () {
         scoreText.destroy();
       }
     });

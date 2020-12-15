@@ -8,11 +8,11 @@
 export class BootScene extends Phaser.Scene {
   constructor() {
     super({
-      key: "BootScene"
+      key: 'BootScene'
     });
   }
 
   update(): void {
-    this.scene.start("MainMenuScene");
+    this.scene.start('MainMenuScene');
   }
 }

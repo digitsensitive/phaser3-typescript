@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { GALAXY } from "../const/galaxy";
-import { StarSystem } from "../objects/star-system";
+import { GALAXY } from '../const/galaxy';
+import { StarSystem } from '../objects/star-system';
 
 export class GameScene extends Phaser.Scene {
   private cursorKeys: Phaser.Types.Input.Keyboard.CursorKeys;
@@ -17,7 +17,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene",
+      key: 'GameScene'
     });
   }
 
@@ -33,10 +33,10 @@ export class GameScene extends Phaser.Scene {
     // INPUT
     // *****************************************************************
     this.cursorKeys = this.input.keyboard.createCursorKeys();
-    this.input.on("gameobjectover", (pointer, gameObject, event) => {
+    this.input.on('gameobjectover', (pointer, gameObject, event) => {
       gameObject.setStrokeStyle(1, 0xffffff);
     });
-    this.input.on("gameobjectout", (pointer, gameObject, event) => {
+    this.input.on('gameobjectout', (pointer, gameObject, event) => {
       gameObject.setStrokeStyle(0, 0xffffff);
     });
 
@@ -51,7 +51,7 @@ export class GameScene extends Phaser.Scene {
       down: this.cursorKeys.down,
       acceleration: 0.02,
       drag: 0.0005,
-      maxSpeed: 0.15,
+      maxSpeed: 0.15
     };
 
     this.controls = new Phaser.Cameras.Controls.SmoothedKeyControl(
@@ -69,7 +69,7 @@ export class GameScene extends Phaser.Scene {
         this.starSystems[y][x] = new StarSystem({
           scene: this,
           x: x * GALAXY.sectorSize + 8,
-          y: y * GALAXY.sectorSize + 8,
+          y: y * GALAXY.sectorSize + 8
         });
       }
     }

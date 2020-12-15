@@ -6,7 +6,7 @@
  * @license      Digitsensitive
  */
 
-import { Command } from "./command.interface";
+import { Command } from './command.interface';
 
 export class InputHelper {
   // Refrence to the current game scene
@@ -54,7 +54,7 @@ export class InputHelper {
   public handleInput(): Command {
     if (
       Phaser.Input.Keyboard.JustDown(
-        this.currentScene.input.keyboard.addKey("P")
+        this.currentScene.input.keyboard.addKey('P')
       )
     ) {
       return this.pauseScene;
@@ -67,7 +67,7 @@ export class InputHelper {
       return this.pointerMoved;
     } else if (
       Phaser.Input.Keyboard.JustDown(
-        this.currentScene.input.keyboard.addKey("SPACE")
+        this.currentScene.input.keyboard.addKey('SPACE')
       )
     ) {
       return this.shooting;

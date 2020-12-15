@@ -5,9 +5,9 @@
  * @license      Digitsensitive
  */
 
-import { Apple } from "../objects/apple";
-import { Snake } from "../objects/snake";
-import { CONST } from "../const/const";
+import { Apple } from '../objects/apple';
+import { Snake } from '../objects/snake';
+import { CONST } from '../const/const';
 
 export class GameScene extends Phaser.Scene {
   // field and game setting
@@ -30,7 +30,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -85,8 +85,8 @@ export class GameScene extends Phaser.Scene {
     this.scoreText = this.add.bitmapText(
       this.gameWidth / 2,
       1,
-      "snakeFont",
-      "" + CONST.SCORE,
+      'snakeFont',
+      '' + CONST.SCORE,
       8
     );
   }
@@ -103,7 +103,7 @@ export class GameScene extends Phaser.Scene {
       }
       this.player.handleInput();
     } else {
-      this.scene.start("MainMenuScene");
+      this.scene.start('MainMenuScene');
     }
   }
 

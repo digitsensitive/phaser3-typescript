@@ -6,8 +6,8 @@
  * @license      Digitsensitive
  */
 
-import { Command } from "./command.interface";
-import { GameObject } from "./gameobject";
+import { Command } from './command.interface';
+import { GameObject } from './gameobject';
 
 export class PauseCommand implements Command {
   private currentScene: Phaser.Scene;
@@ -18,7 +18,7 @@ export class PauseCommand implements Command {
 
   public execute(): void {
     this.currentScene.scene.pause();
-    this.currentScene.scene.launch("PauseScene");
+    this.currentScene.scene.launch('PauseScene');
   }
 }
 

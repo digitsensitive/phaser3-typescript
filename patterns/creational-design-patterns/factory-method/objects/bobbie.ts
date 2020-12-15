@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { Enemy } from "./enemy";
+import { Enemy } from './enemy';
 
 export class Bobbie extends Enemy {
   constructor(params) {

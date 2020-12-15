@@ -5,19 +5,19 @@
  * @license      Digitsensitive
  */
 
-import "phaser";
-import { GameScene } from "./scenes/game-scene";
+import 'phaser';
+import { GameScene } from './scenes/game-scene';
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Game Of Life",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "1.0",
+  title: 'Game Of Life',
+  url: 'https://github.com/digitsensitive/phaser3-typescript',
+  version: '1.0',
   width: 600,
   height: 600,
   type: Phaser.AUTO,
-  parent: "game",
+  parent: 'game',
   scene: [GameScene],
-  backgroundColor: "#ededed",
+  backgroundColor: '#ededed',
   render: { pixelArt: false, antialias: true }
 };
 
@@ -27,6 +27,6 @@ export class Game extends Phaser.Game {
   }
 }
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   var game = new Game(config);
 });

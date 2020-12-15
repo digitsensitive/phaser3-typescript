@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { CONST } from "../const/const";
+import { CONST } from '../const/const';
 
 export class MainMenuScene extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
@@ -13,7 +13,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "MainMenuScene"
+      key: 'MainMenuScene'
     });
   }
 
@@ -32,9 +32,9 @@ export class MainMenuScene extends Phaser.Scene {
 
   preload(): void {
     this.load.bitmapFont(
-      "asteroidFont",
-      "./src/games/asteroid/assets/font/asteroidFont.png",
-      "./src/games/asteroid/assets/font/asteroidFont.fnt"
+      'asteroidFont',
+      './src/games/asteroid/assets/font/asteroidFont.png',
+      './src/games/asteroid/assets/font/asteroidFont.fnt'
     );
   }
 
@@ -43,8 +43,8 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 150,
         this.sys.canvas.height / 2 + 40,
-        "asteroidFont",
-        "PRESS S TO PLAY",
+        'asteroidFont',
+        'PRESS S TO PLAY',
         45
       )
     );
@@ -53,8 +53,8 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 150,
         this.sys.canvas.height / 2 - 60,
-        "asteroidFont",
-        "A S T E R O I D",
+        'asteroidFont',
+        'A S T E R O I D',
         80
       )
     );
@@ -63,8 +63,8 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 150,
         this.sys.canvas.height / 2 + 80,
-        "asteroidFont",
-        "HIGHSCORE: " + CONST.HIGHSCORE,
+        'asteroidFont',
+        'HIGHSCORE: ' + CONST.HIGHSCORE,
         45
       )
     );
@@ -72,7 +72,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   update(): void {
     if (this.startKey.isDown) {
-      this.scene.start("GameScene");
+      this.scene.start('GameScene');
     }
   }
 }

@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { GALAXY } from "../const/galaxy";
-import { IStarSystemConstructor } from "../interfaces/interfaces";
+import { GALAXY } from '../const/galaxy';
+import { IStarSystemConstructor } from '../interfaces/interfaces';
 
 export class StarSystem {
   private circle: Phaser.GameObjects.Arc;

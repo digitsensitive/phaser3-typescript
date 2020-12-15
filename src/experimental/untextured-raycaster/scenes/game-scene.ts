@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { Player } from "../objects/player";
-import { WORLD_MAP } from "../const/map";
+import { Player } from '../objects/player';
+import { WORLD_MAP } from '../const/map';
 
 export class GameScene extends Phaser.Scene {
   // Map properties
@@ -21,7 +21,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 

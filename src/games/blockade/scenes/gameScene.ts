@@ -5,10 +5,10 @@
  * @license      Digitsensitive
  */
 
-import { Player } from "../objects/player";
-import { PlayerTwo } from "../objects/playerTwo";
-import { Wall } from "../objects/wall";
-import { CONST } from "../const/const";
+import { Player } from '../objects/player';
+import { PlayerTwo } from '../objects/playerTwo';
+import { Wall } from '../objects/wall';
+import { CONST } from '../const/const';
 
 export class GameScene extends Phaser.Scene {
   // field and game setting
@@ -30,7 +30,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -45,10 +45,10 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image("border", "./src/games/blockade/assets/images/border.png");
+    this.load.image('border', './src/games/blockade/assets/images/border.png');
     this.load.spritesheet(
-      "player",
-      "./src/games/blockade/assets/images/player.png",
+      'player',
+      './src/games/blockade/assets/images/player.png',
       {
         frameWidth: 8,
         frameHeight: 8
@@ -58,8 +58,8 @@ export class GameScene extends Phaser.Scene {
 
   create(): void {
     // objects
-    this.player = new Player(this, 12, 12, "right");
-    this.playerTwo = new PlayerTwo(this, 244, 212, "left");
+    this.player = new Player(this, 12, 12, 'right');
+    this.playerTwo = new PlayerTwo(this, 244, 212, 'left');
 
     // TODO: Replace with Group and Action
     this.gameBorder = [];
@@ -76,7 +76,7 @@ export class GameScene extends Phaser.Scene {
             scene: this,
             x: CONST.FIELD_SIZE / 2 + x * CONST.FIELD_SIZE,
             y: CONST.FIELD_SIZE / 2 + y * CONST.FIELD_SIZE,
-            key: "border"
+            key: 'border'
           });
           i++;
         }
@@ -87,8 +87,8 @@ export class GameScene extends Phaser.Scene {
     this.scoreText = this.add.bitmapText(
       this.gameWidth / 2 - 20,
       0,
-      "pcsenior",
-      CONST.P1_SCORE + " : " + CONST.P2_SCORE,
+      'pcsenior',
+      CONST.P1_SCORE + ' : ' + CONST.P2_SCORE,
       8
     );
   }
@@ -119,9 +119,9 @@ export class GameScene extends Phaser.Scene {
         CONST.P1_SCORE++;
       }
 
-      this.scoreText.setText(CONST.P1_SCORE + " : " + CONST.P2_SCORE);
+      this.scoreText.setText(CONST.P1_SCORE + ' : ' + CONST.P2_SCORE);
       if (CONST.P1_SCORE === 6 || CONST.P2_SCORE === 6) {
-        this.scene.start("MainMenuScene");
+        this.scene.start('MainMenuScene');
       } else {
         this.scene.restart();
       }

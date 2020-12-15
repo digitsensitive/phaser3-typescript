@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { Bullet } from "./bullet";
+import { Bullet } from './bullet';
 
 export class Enemy extends Phaser.GameObjects.Image {
   // variables
@@ -44,7 +44,7 @@ export class Enemy extends Phaser.GameObjects.Image {
     // image
     this.setDepth(0);
 
-    this.barrel = this.scene.add.image(0, 0, "barrelRed");
+    this.barrel = this.scene.add.image(0, 0, 'barrelRed');
     this.barrel.setOrigin(0.5, 1);
     this.barrel.setDepth(1);
 
@@ -65,7 +65,7 @@ export class Enemy extends Phaser.GameObjects.Image {
       props: { y: this.y - 200 },
       delay: 0,
       duration: 2000,
-      ease: "Linear",
+      ease: 'Linear',
       easeParams: null,
       hold: 0,
       repeat: -1,
@@ -99,7 +99,7 @@ export class Enemy extends Phaser.GameObjects.Image {
             scene: this.scene,
             x: this.barrel.x,
             y: this.barrel.y,
-            key: "bulletRed",
+            key: 'bulletRed',
             rotation: this.barrel.rotation
           })
         );

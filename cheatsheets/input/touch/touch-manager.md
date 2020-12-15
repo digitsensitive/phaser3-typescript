@@ -12,10 +12,12 @@ It listen for native DOM Touch Events and passes them onto the input manager.
 ### Public Functions
 
 #### startListeners
+
 Starts the touch event listeners running as long as an input target is set.
 
 > This method is called automatically if touch input is enabled in the [game config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md).
-You can call it manually if you need to delay input capturing until later in the game.
+> You can call it manually if you need to delay input capturing until later in the game.
 
 #### stopListeners
+
 Stops the touch event listeners.

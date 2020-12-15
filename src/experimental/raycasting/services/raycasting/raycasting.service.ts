@@ -16,7 +16,7 @@
  * @license      Digitsensitive
  */
 
-import { Ray } from "./ray";
+import { Ray } from './ray';
 
 export interface RaycastHit2D {
   x: number;

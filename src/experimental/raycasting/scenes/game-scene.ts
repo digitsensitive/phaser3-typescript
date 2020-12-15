@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { RaycastingService } from "../services/raycasting/raycasting.service";
+import { RaycastingService } from '../services/raycasting/raycasting.service';
 
 const LINE_SEGMENTS = [
   { a: { x: 10, y: 10 }, b: { x: 790, y: 10 } },
@@ -39,7 +39,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -76,7 +76,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     // Config mouse/pointer input on move
-    this.input.on("pointermove", pointer => {
+    this.input.on('pointermove', (pointer) => {
       this.raycastingService.setEyePosition(pointer.x, pointer.y);
     });
   }

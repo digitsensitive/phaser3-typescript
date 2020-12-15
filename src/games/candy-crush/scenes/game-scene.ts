@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { CONST } from "../const/const";
-import { Tile } from "../objects/tile";
+import { CONST } from '../const/const';
+import { Tile } from '../objects/tile';
 
 export class GameScene extends Phaser.Scene {
   // Variables
@@ -21,7 +21,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -46,7 +46,7 @@ export class GameScene extends Phaser.Scene {
     this.secondSelectedTile = undefined;
 
     // Input
-    this.input.on("gameobjectdown", this.tileDown, this);
+    this.input.on('gameobjectdown', this.tileDown, this);
 
     // Check if matches on the start
     this.checkMatches();
@@ -133,7 +133,7 @@ export class GameScene extends Phaser.Scene {
         targets: this.firstSelectedTile,
         x: this.secondSelectedTile.x,
         y: this.secondSelectedTile.y,
-        ease: "Linear",
+        ease: 'Linear',
         duration: 400,
         repeat: 0,
         yoyo: false
@@ -143,7 +143,7 @@ export class GameScene extends Phaser.Scene {
         targets: this.secondSelectedTile,
         x: this.firstSelectedTile.x,
         y: this.firstSelectedTile.y,
-        ease: "Linear",
+        ease: 'Linear',
         duration: 400,
         repeat: 0,
         yoyo: false,
@@ -202,7 +202,7 @@ export class GameScene extends Phaser.Scene {
           this.add.tween({
             targets: tempTile,
             y: CONST.tileHeight * y,
-            ease: "Linear",
+            ease: 'Linear',
             duration: 200,
             repeat: 0,
             yoyo: false

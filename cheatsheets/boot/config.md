@@ -104,7 +104,7 @@ const config: GameConfig = {
     failIfMajorPerformanceCaveat: false,
     powerPreference: "default",
     batchSize: 2000,
-    maxLights: 10  
+    maxLights: 10
   },
   backgroundColor: 0,
   callbacks: {

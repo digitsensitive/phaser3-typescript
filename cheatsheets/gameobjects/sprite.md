@@ -17,9 +17,11 @@ let mySprite = this.add.sprite(20, 30, "spriteTexture", "imageFrame");
 ### Public Functions
 
 #### play
+
 Start playing the given animation.
 
 #### toJSON
+
 Build a JSON representation of this sprite.
 
 ### Extends

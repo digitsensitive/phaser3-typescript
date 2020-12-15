@@ -11,11 +11,12 @@ sets up all the global [phaser systems](https://github.com/digitsensitive/phaser
 starts the scene manager and begins the main game loop.
 
 > You should generally avoid accessing any of the systems created by Game,
-and instead use those made available to you via the Phaser.Scene class
+> and instead use those made available to you via the Phaser.Scene class
 
 ### Public Functions
 
 #### resize
+
 Call this function to update the game width and height.
 It will resize renderer and input manager scale.
 
@@ -27,17 +28,19 @@ window.addEventListener('resize', () => {
 });
 ```
 
-
 #### getFrame
+
 Get the current frame.
 
 #### getTime
+
 Get the current game timestamp.
 
 #### destroy
+
 Will destroy the game instance on the next frame.
 
 > Set `noReturn` to `true` if you do not want to run Phaser again, so it will free-up
-memory being held by the core Phaser plugins.
+> memory being held by the core Phaser plugins.
 
 > Set `removeCanvas` to `true` to remove the parent canvas element from DOM.

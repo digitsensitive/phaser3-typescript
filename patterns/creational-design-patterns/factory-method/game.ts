@@ -5,23 +5,23 @@
  * @license      Digitsensitive
  */
 
-import "phaser";
-import { BootScene } from "./scenes/boot-scene";
-import { FactoryMethodScene } from "./scenes/factory-method-scene";
-import { SimpleFactoryScene } from "./scenes/simple-factory-scene";
+import 'phaser';
+import { BootScene } from './scenes/boot-scene';
+import { FactoryMethodScene } from './scenes/factory-method-scene';
+import { SimpleFactoryScene } from './scenes/simple-factory-scene';
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Factory Method",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "1.0",
+  title: 'Factory Method',
+  url: 'https://github.com/digitsensitive/phaser3-typescript',
+  version: '1.0',
   width: 160,
   height: 144,
   zoom: 4,
   type: Phaser.AUTO,
-  parent: "game",
+  parent: 'game',
   scene: [BootScene, SimpleFactoryScene, FactoryMethodScene],
-  backgroundColor: "#32484f",
-  render: { pixelArt: true, antialias: false },
+  backgroundColor: '#32484f',
+  render: { pixelArt: true, antialias: false }
 };
 
 export class Game extends Phaser.Game {
@@ -30,6 +30,6 @@ export class Game extends Phaser.Game {
   }
 }
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   let game = new Game(config);
 });

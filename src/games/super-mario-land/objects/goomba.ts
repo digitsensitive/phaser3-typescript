@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { Enemy } from "./enemy";
+import { Enemy } from './enemy';
 
 export class Goomba extends Enemy {
   constructor(params) {
@@ -28,7 +28,7 @@ export class Goomba extends Enemy {
         }
 
         // apply walk animation
-        this.anims.play("goombaWalk", true);
+        this.anims.play('goombaWalk', true);
       } else {
         if (
           Phaser.Geom.Intersects.RectangleToRectangle(

@@ -74,16 +74,16 @@ export class AnimationHelper {
     for (let data of this.animationData.anims) {
       let frames;
       let framesArray;
-      if (data.frames.typeOfGeneration === "generateFrameNames") {
+      if (data.frames.typeOfGeneration === 'generateFrameNames') {
         frames = this.scene.anims.generateFrameNames(data.frames.key, {
-          prefix: data.frames.prefix || "",
+          prefix: data.frames.prefix || '',
           start: data.frames.start || 0,
           end: data.frames.end || 0,
-          suffix: data.frames.suffix || "",
+          suffix: data.frames.suffix || '',
           zeroPad: data.frames.zeroPad || 0,
           frames: data.frames.frames || false
         });
-      } else if (data.frames.typeOfGeneration === "generateFrameNumbers") {
+      } else if (data.frames.typeOfGeneration === 'generateFrameNumbers') {
         frames = this.scene.anims.generateFrameNumbers(data.frames.key, {
           start: data.frames.start || 0,
           end: data.frames.end || -1,

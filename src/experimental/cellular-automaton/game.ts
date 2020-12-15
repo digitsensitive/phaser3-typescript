@@ -5,20 +5,20 @@
  * @license      Digitsensitive
  */
 
-import "phaser";
-import { GameScene } from "./scenes/game-scene";
+import 'phaser';
+import { GameScene } from './scenes/game-scene';
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Cellular automaton",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "1.0",
+  title: 'Cellular automaton',
+  url: 'https://github.com/digitsensitive/phaser3-typescript',
+  version: '1.0',
   width: 600,
   height: 600,
   type: Phaser.AUTO,
-  parent: "game",
+  parent: 'game',
   scene: [GameScene],
-  backgroundColor: "#5d13df",
-  render: { pixelArt: true, antialias: false },
+  backgroundColor: '#5d13df',
+  render: { pixelArt: true, antialias: false }
 };
 
 export class Game extends Phaser.Game {
@@ -27,6 +27,6 @@ export class Game extends Phaser.Game {
   }
 }
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   var game = new Game(config);
 });

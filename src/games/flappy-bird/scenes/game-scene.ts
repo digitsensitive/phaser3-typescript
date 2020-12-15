@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { Bird } from "../objects/bird";
-import { Pipe } from "../objects/pipe";
+import { Bird } from '../objects/bird';
+import { Pipe } from '../objects/pipe';
 
 export class GameScene extends Phaser.Scene {
   private bird: Bird;
@@ -17,24 +17,24 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
   init(): void {
-    this.registry.set("score", -1);
+    this.registry.set('score', -1);
   }
 
   create(): void {
     this.background = this.add
-      .tileSprite(0, 0, 390, 600, "background")
+      .tileSprite(0, 0, 390, 600, 'background')
       .setOrigin(0, 0);
 
     this.scoreText = this.add
       .bitmapText(
         this.sys.canvas.width / 2 - 14,
         30,
-        "font",
+        'font',
         this.registry.values.score
       )
       .setDepth(2);
@@ -45,7 +45,7 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: 50,
       y: 100,
-      key: "bird"
+      key: 'bird'
     });
 
     this.addNewRowOfPipes();
@@ -65,7 +65,7 @@ export class GameScene extends Phaser.Scene {
       this.physics.overlap(
         this.bird,
         this.pipes,
-        function() {
+        function () {
           this.bird.setDead(true);
         },
         null,
@@ -74,14 +74,14 @@ export class GameScene extends Phaser.Scene {
     } else {
       Phaser.Actions.Call(
         this.pipes.getChildren(),
-        function(pipe) {
+        function (pipe) {
           pipe.body.setVelocityX(0);
         },
         this
       );
 
       if (this.bird.y > this.sys.canvas.height) {
-        this.scene.start("MainMenuScene");
+        this.scene.start('MainMenuScene');
       }
     }
   }
@@ -116,7 +116,7 @@ export class GameScene extends Phaser.Scene {
         x: x,
         y: y,
         frame: frame,
-        key: "pipe"
+        key: 'pipe'
       })
     );
   }

@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { Bullet } from "./bullet";
+import { Bullet } from './bullet';
 
 export class Player extends Phaser.GameObjects.Image {
   // variables
@@ -48,7 +48,7 @@ export class Player extends Phaser.GameObjects.Image {
     this.setDepth(0);
     this.angle = 180;
 
-    this.barrel = this.scene.add.image(this.x, this.y, "barrelBlue");
+    this.barrel = this.scene.add.image(this.x, this.y, 'barrelBlue');
     this.barrel.setOrigin(0.5, 1);
     this.barrel.setDepth(1);
     this.barrel.angle = 180;
@@ -137,7 +137,7 @@ export class Player extends Phaser.GameObjects.Image {
         props: { alpha: 0.8 },
         delay: 0,
         duration: 5,
-        ease: "Power1",
+        ease: 'Power1',
         easeParams: null,
         hold: 0,
         repeat: 0,
@@ -152,7 +152,7 @@ export class Player extends Phaser.GameObjects.Image {
             scene: this.scene,
             x: this.barrel.x,
             y: this.barrel.y,
-            key: "bulletBlue",
+            key: 'bulletBlue',
             rotation: this.barrel.rotation
           })
         );
@@ -183,7 +183,7 @@ export class Player extends Phaser.GameObjects.Image {
     } else {
       this.health = 0;
       this.active = false;
-      this.scene.scene.start("MenuScene");
+      this.scene.scene.start('MenuScene');
     }
   }
 }

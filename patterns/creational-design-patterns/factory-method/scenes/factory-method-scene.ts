@@ -5,12 +5,12 @@
  * @license      Digitsensitive
  */
 
-import { Enemy } from "../objects/enemy";
+import { Enemy } from '../objects/enemy';
 import {
   BobbieEnemyFactory,
   WallaceEnemyFactory,
-  KanyeEnemyFactory,
-} from "../services/enemy-factory";
+  KanyeEnemyFactory
+} from '../services/enemy-factory';
 
 export class FactoryMethodScene extends Phaser.Scene {
   private bobbieEnemyFactory: BobbieEnemyFactory;
@@ -21,7 +21,7 @@ export class FactoryMethodScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "FactoryMethodScene",
+      key: 'FactoryMethodScene'
     });
   }
 
@@ -31,7 +31,7 @@ export class FactoryMethodScene extends Phaser.Scene {
     this.kanyeEnemyFactory = new KanyeEnemyFactory();
 
     this.enemies = this.add.group({
-      runChildUpdate: true,
+      runChildUpdate: true
     });
   }
 
@@ -50,14 +50,14 @@ export class FactoryMethodScene extends Phaser.Scene {
       this.add.bitmapText(
         enemy.x + 20,
         enemy.y - 3,
-        "font",
-        "D:" +
+        'font',
+        'D:' +
           enemy.getDexterity() +
-          " " +
-          "I:" +
+          ' ' +
+          'I:' +
           enemy.getIntelligence() +
-          " " +
-          "S:" +
+          ' ' +
+          'S:' +
           enemy.getStrength(),
         8
       );

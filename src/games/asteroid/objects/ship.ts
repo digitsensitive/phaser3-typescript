@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { Bullet } from "../objects/bullet";
-import { CONST } from "../const/const";
+import { Bullet } from '../objects/bullet';
+import { CONST } from '../const/const';
 
 export class Ship extends Phaser.GameObjects.Graphics {
   private velocity: Phaser.Math.Vector2;

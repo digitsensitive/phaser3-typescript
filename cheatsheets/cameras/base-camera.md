@@ -5,7 +5,8 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 ### Public Functions
 
 #### setBounds
+
 Set the bounds of the camera. The bounds are an axis-aligned rectangle.
 
 > The camera bounds controls where the camera can scroll to, stopping it from scrolling off the
-edges and into blank space
+> edges and into blank space

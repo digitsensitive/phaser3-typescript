@@ -5,13 +5,13 @@
  * @license      Digitsensitive
  */
 
-import { Box } from "../objects/box";
-import { Brick } from "../objects/brick";
-import { Collectible } from "../objects/collectible";
-import { Goomba } from "../objects/goomba";
-import { Mario } from "../objects/mario";
-import { Platform } from "../objects/platform";
-import { Portal } from "../objects/portal";
+import { Box } from '../objects/box';
+import { Brick } from '../objects/brick';
+import { Collectible } from '../objects/collectible';
+import { Goomba } from '../objects/goomba';
+import { Mario } from '../objects/mario';
+import { Platform } from '../objects/platform';
+import { Portal } from '../objects/portal';
 
 export class GameScene extends Phaser.Scene {
   // tilemap
@@ -31,7 +31,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -43,22 +43,22 @@ export class GameScene extends Phaser.Scene {
     // *****************************************************************
 
     // create our tilemap from Tiled JSON
-    this.map = this.make.tilemap({ key: this.registry.get("level") });
+    this.map = this.make.tilemap({ key: this.registry.get('level') });
     // add our tileset and layers to our tilemap
-    this.tileset = this.map.addTilesetImage("tiles");
+    this.tileset = this.map.addTilesetImage('tiles');
     this.backgroundLayer = this.map.createStaticLayer(
-      "backgroundLayer",
+      'backgroundLayer',
       this.tileset,
       0,
       0
     );
     this.foregroundLayer = this.map.createStaticLayer(
-      "foregroundLayer",
+      'foregroundLayer',
       this.tileset,
       0,
       0
     );
-    this.foregroundLayer.setName("foregroundLayer");
+    this.foregroundLayer.setName('foregroundLayer');
 
     // set collision for tiles with the property collide set to true
     this.foregroundLayer.setCollisionByProperty({ collide: true });
@@ -164,10 +164,10 @@ export class GameScene extends Phaser.Scene {
 
   private loadObjectsFromTilemap(): void {
     // get the object layer in the tilemap named 'objects'
-    const objects = this.map.getObjectLayer("objects").objects as any[];
+    const objects = this.map.getObjectLayer('objects').objects as any[];
 
-    objects.forEach(object => {
-      if (object.type === "portal") {
+    objects.forEach((object) => {
+      if (object.type === 'portal') {
         this.portals.add(
           new Portal({
             scene: this,
@@ -184,51 +184,51 @@ export class GameScene extends Phaser.Scene {
         );
       }
 
-      if (object.type === "player") {
+      if (object.type === 'player') {
         this.player = new Mario({
           scene: this,
-          x: this.registry.get("spawn").x,
-          y: this.registry.get("spawn").y,
-          key: "mario"
+          x: this.registry.get('spawn').x,
+          y: this.registry.get('spawn').y,
+          key: 'mario'
         });
       }
 
-      if (object.type === "goomba") {
+      if (object.type === 'goomba') {
         this.enemies.add(
           new Goomba({
             scene: this,
             x: object.x,
             y: object.y,
-            key: "goomba"
+            key: 'goomba'
           })
         );
       }
 
-      if (object.type === "brick") {
+      if (object.type === 'brick') {
         this.bricks.add(
           new Brick({
             scene: this,
             x: object.x,
             y: object.y,
-            key: "brick",
+            key: 'brick',
             value: 50
           })
         );
       }
 
-      if (object.type === "box") {
+      if (object.type === 'box') {
         this.boxes.add(
           new Box({
             scene: this,
             x: object.x,
             y: object.y,
-            key: "box",
+            key: 'box',
             content: object.properties.content
           })
         );
       }
 
-      if (object.type === "collectible") {
+      if (object.type === 'collectible') {
         this.collectibles.add(
           new Collectible({
             scene: this,
@@ -240,36 +240,36 @@ export class GameScene extends Phaser.Scene {
         );
       }
 
-      if (object.type === "platformMovingUpAndDown") {
+      if (object.type === 'platformMovingUpAndDown') {
         this.platforms.add(
           new Platform({
             scene: this,
             x: object.x,
             y: object.y,
-            key: "platform",
+            key: 'platform',
             tweenProps: {
               y: {
                 value: 50,
                 duration: 1500,
-                ease: "Power0"
+                ease: 'Power0'
               }
             }
           })
         );
       }
 
-      if (object.type === "platformMovingLeftAndRight") {
+      if (object.type === 'platformMovingLeftAndRight') {
         this.platforms.add(
           new Platform({
             scene: this,
             x: object.x,
             y: object.y,
-            key: "platform",
+            key: 'platform',
             tweenProps: {
               x: {
                 value: object.x + 50,
                 duration: 1200,
-                ease: "Power0"
+                ease: 'Power0'
               }
             }
           })
@@ -292,9 +292,9 @@ export class GameScene extends Phaser.Scene {
         targets: _enemy,
         props: { alpha: 0 },
         duration: 1000,
-        ease: "Power0",
+        ease: 'Power0',
         yoyo: false,
-        onComplete: function() {
+        onComplete: function () {
           _enemy.isDead();
         }
       });
@@ -319,34 +319,34 @@ export class GameScene extends Phaser.Scene {
 
       switch (_box.boxContent) {
         // have a look what is inside the box! Christmas time!
-        case "coin": {
-          _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function() {
+        case 'coin': {
+          _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function () {
             _box.getContent().destroy();
           });
 
           _box.addCoinAndScore(1, 100);
           break;
         }
-        case "rotatingCoin": {
-          _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function() {
+        case 'rotatingCoin': {
+          _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function () {
             _box.getContent().destroy();
           });
 
           _box.addCoinAndScore(1, 100);
           break;
         }
-        case "flower": {
-          _box.tweenBoxContent({ y: _box.y - 8 }, 200, function() {
-            _box.getContent().anims.play("flower");
+        case 'flower': {
+          _box.tweenBoxContent({ y: _box.y - 8 }, 200, function () {
+            _box.getContent().anims.play('flower');
           });
 
           break;
         }
-        case "mushroom": {
+        case 'mushroom': {
           _box.popUpCollectible();
           break;
         }
-        case "star": {
+        case 'star': {
           _box.popUpCollectible();
           break;
         }
@@ -360,14 +360,14 @@ export class GameScene extends Phaser.Scene {
 
   private handlePlayerPortalOverlap(_player, _portal): void {
     if (
-      (_player.keys.get("DOWN").isDown &&
-        _portal.getPortalDestination().dir === "down") ||
-      (_player.keys.get("RIGHT").isDown &&
-        _portal.getPortalDestination().dir === "right")
+      (_player.keys.get('DOWN').isDown &&
+        _portal.getPortalDestination().dir === 'down') ||
+      (_player.keys.get('RIGHT').isDown &&
+        _portal.getPortalDestination().dir === 'right')
     ) {
       // set new level and new destination for mario
-      this.registry.set("level", _portal.name);
-      this.registry.set("spawn", {
+      this.registry.set('level', _portal.name);
+      this.registry.set('spawn', {
         x: _portal.getPortalDestination().x,
         y: _portal.getPortalDestination().y,
         dir: _portal.getPortalDestination().dir
@@ -375,23 +375,23 @@ export class GameScene extends Phaser.Scene {
 
       // restart the game scene
       this.scene.restart();
-    } else if (_portal.name === "exit") {
-      this.scene.stop("GameScene");
-      this.scene.stop("HUDScene");
-      this.scene.start("MenuScene");
+    } else if (_portal.name === 'exit') {
+      this.scene.stop('GameScene');
+      this.scene.stop('HUDScene');
+      this.scene.start('MenuScene');
     }
   }
 
   private handlePlayerCollectiblesOverlap(_player, _collectible): void {
     switch (_collectible.texture.key) {
-      case "flower": {
+      case 'flower': {
         break;
       }
-      case "mushroom": {
+      case 'mushroom': {
         _player.growMario();
         break;
       }
-      case "star": {
+      case 'star': {
         break;
       }
       default: {

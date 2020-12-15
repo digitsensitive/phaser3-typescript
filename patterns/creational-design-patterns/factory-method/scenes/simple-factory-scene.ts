@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { SimpleEnemyFactory } from "../services/simple-enemy-factory";
-import { Enemy } from "../objects/enemy";
+import { SimpleEnemyFactory } from '../services/simple-enemy-factory';
+import { Enemy } from '../objects/enemy';
 
 export class SimpleFactoryScene extends Phaser.Scene {
   private enemyFactory: SimpleEnemyFactory;
@@ -14,7 +14,7 @@ export class SimpleFactoryScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "SimpleFactoryScene",
+      key: 'SimpleFactoryScene'
     });
   }
 
@@ -22,33 +22,33 @@ export class SimpleFactoryScene extends Phaser.Scene {
     this.enemyFactory = new SimpleEnemyFactory(this);
 
     this.enemies = this.add.group({
-      runChildUpdate: true,
+      runChildUpdate: true
     });
   }
 
   create(): void {
     this.enemies.add(
-      this.enemyFactory.create({ type: "bobbie", x: 20, y: 20 })
+      this.enemyFactory.create({ type: 'bobbie', x: 20, y: 20 })
     );
     this.enemies.add(
-      this.enemyFactory.create({ type: "wallace", x: 20, y: 60 })
+      this.enemyFactory.create({ type: 'wallace', x: 20, y: 60 })
     );
     this.enemies.add(
-      this.enemyFactory.create({ type: "kanye", x: 20, y: 100 })
+      this.enemyFactory.create({ type: 'kanye', x: 20, y: 100 })
     );
 
     this.enemies.children.each((enemy: Enemy) => {
       this.add.bitmapText(
         enemy.x + 20,
         enemy.y - 3,
-        "font",
-        "D:" +
+        'font',
+        'D:' +
           enemy.getDexterity() +
-          " " +
-          "I:" +
+          ' ' +
+          'I:' +
           enemy.getIntelligence() +
-          " " +
-          "S:" +
+          ' ' +
+          'S:' +
           enemy.getStrength(),
         8
       );

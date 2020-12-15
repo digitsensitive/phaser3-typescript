@@ -20,39 +20,48 @@ callbacks.
 ### Public Functions
 
 #### positionToCamera
+
 Returns a Vector2 with the translated position of the pointer within the camera.
 
 > Use this to convert pointer positions into camera space.
 
 #### noButtonDown
+
 Check if any buttons are being held down by this pointer.
 
 #### leftButtonDown
+
 Check if the left button is held down by this pointer.
 
 #### rightButtonDown
+
 Check if the right button is held down by this pointer.
 
 #### middleButtonDown
+
 Check if the middle button is held down by this pointer.
 
 #### backButtonDown
+
 Check if the back button is held down by this pointer.
 
 #### forwardButtonDown
+
 Check if the forward button is held down by this pointer.
 
 #### getDistance
+
 If the pointer has a button pressed down at the time this method is called, it will return the
 distance between the pointer's `downX` and `downY` values and the current position.
 
 > If no button is held down, it will return the last recorded distance, based on where
-the pointer was when the button was released.
+> the pointer was when the button was released.
 
 If you wish to get the distance being travelled currently, based on the velocity of the pointer,
 then see the `Pointer.distance` property.
 
 #### getDistanceX
+
 If the pointer has a button pressed down at the time this method is called, it will return the
 horizontal distance between the pointer's `downX` and `downY` values and the current position.
 
@@ -60,6 +69,7 @@ If no button is held down, it will return the last recorded horizontal distance,
 the pointer was when the button was released.
 
 #### getDistanceY
+
 If the pointer has a button pressed down at the time this method is called, it will return the
 vertical distance between the pointer's `downX` and `downY` values and the current position.
 
@@ -67,6 +77,7 @@ If no button is held down, it will return the last recorded vertical distance, b
 the pointer was when the button was released.
 
 #### getDuration
+
 If the pointer has a button pressed down at the time this method is called, it will return the
 duration since the pointer's was pressed down.
 
@@ -74,6 +85,7 @@ If no button is held down, it will return the last recorded duration, based on t
 the pointer button was released.
 
 #### getAngle
+
 If the pointer has a button pressed down at the time this method is called, it will return the
 angle between the pointer's `downX` and `downY` values and the current position.
 
@@ -86,6 +98,7 @@ If you wish to get the current angle, based on the velocity of the pointer, then
 see the `Pointer.angle` property.
 
 #### getInterpolatedPosition
+
 Takes the previous and current pointer positions and then generates an array of interpolated values between
 the two. The array will be populated up to the size of the `steps` argument.
 
@@ -103,5 +116,5 @@ events can often fire faster than the main browser loop, and this will help you 
 especially if you have an object following a pointer.
 
 > If you provide an output array it will only be populated up to the number of steps provided.
-It will not clear any previous data that may have existed beyond the range of the steps count.
-Internally it uses the Smooth Step interpolation calculation.
+> It will not clear any previous data that may have existed beyond the range of the steps count.
+> Internally it uses the Smooth Step interpolation calculation.
