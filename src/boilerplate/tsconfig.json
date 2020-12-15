@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "commonjs",
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "strict": false
-  }
+    "module": "ES6",
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "strict": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

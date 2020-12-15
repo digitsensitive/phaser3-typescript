@@ -56,7 +56,9 @@ with this command-line:
 git clone https://github.com/digitsensitive/phaser3-typescript.git
 ```
 
-## Game Examples
+## Examples
+
+### Games
 
 Check the `package.json` for the correct scripts to start projects.
 For example you can start the `Candy Crush` project with:
@@ -77,7 +79,7 @@ yarn candy-crush
 
 If you have any suggestion for a next game example, let me know!
 
-## Experimental fun projects
+### Experimental
 
 Check the `package.json` for the correct scripts to start projects.
 For example you can start the `Game of Life` project with:
@@ -95,7 +97,7 @@ yarn game-of-life
 - [Procedural Generation](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/procedural-generation)
 - [Cellular Automaton](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/cellular-automaton)
 
-## Game Programming Patterns
+### Patterns
 
 Check the `package.json` for the correct scripts to start projects.
 For example you can start the `Factory Method` project with:
@@ -106,11 +108,18 @@ yarn factory-method
 
 - [Factory Method](https://github.com/digitsensitive/phaser3-typescript/blob/master/patterns/creational-design-patterns/factory-method)
 
-## Prettier
+## Project Configurations
+
+### Prettier
 
 This project uses [Prettier](https://github.com/prettier/prettier), an opinionated code formatter.
 The selected configuration options can be found in the `.prettierrc` file in the root project folder.
 More informations about the format options can be found [here](https://prettier.io/docs/en/options.html).
+
+### TypeScript
+
+The selected compiler options for each project are set in the `tsconfig.json` file.
+More informations about the available options can be found [here](https://www.typescriptlang.org/tsconfig).
 
 ## Cheat Sheets
 
@@ -121,37 +130,17 @@ More informations about the format options can be found [here](https://prettier.
 - [Learn to create a HTML5 Game in 5 Minutes](https://medium.com/@digit.sensitivee/learn-to-create-a-html5-game-in-5-minutes-604118f5d0ab)
 - [Game Programming Patterns: The Factory Method by Example](https://medium.com/@digit.sensitivee/game-programming-patterns-the-factory-method-87d7f8c12081)
 
-## External Resources
+## External Resources and Tools
 
 - [Phaser 3 Framework](https://github.com/photonstorm/phaser)
 - [Phaser 3 Docs with TypeScript Definition File](https://github.com/photonstorm/phaser3-docs)
 - [Phaser 3 Online Docs](https://photonstorm.github.io/phaser3-docs/index.html)
 - [Phaser 3 Official Examples](https://github.com/photonstorm/phaser3-examples)
 - [Phaser 3 Discourse](https://phaser.discourse.group)
-
-## Helpful tools
-
 - [Leshy SpriteSheet Tool](https://www.leshylabs.com/apps/sstool)
 - [Tiled](https://www.mapeditor.org)
 - [Littera](http://kvazars.com/littera)
 - [Tile Extruder](https://github.com/sporadic-labs/tile-extruder)
-
-## TypeScript Configuration
-
-### tsconfig.json
-
-The following `Compiler Options` have been set in the `tsconfig.json` file:
-
-| Option        | Value      |
-| :------------ | :--------- |
-| target        | ES2016     |
-| module        | CommonJS   |
-| sourceMap     | true       |
-| noImplicitAny | true [WIP] |
-| strict        | true [WIP] |
-
-You can see the complete list of the available options at [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
-Interesting read about [setting up a nodejs-project](https://codeburst.io/tips-for-setting-up-a-typescript-nodejs-project-5d1c48dc1a2d).
 
 ## Changelog
 
