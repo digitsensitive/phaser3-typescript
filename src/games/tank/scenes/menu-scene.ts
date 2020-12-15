@@ -11,7 +11,7 @@ export class MenuScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "MenuScene"
+      key: 'MenuScene'
     });
   }
 
@@ -27,8 +27,8 @@ export class MenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 120,
         this.sys.canvas.height / 2,
-        "font",
-        "PRESS S TO PLAY",
+        'font',
+        'PRESS S TO PLAY',
         30
       )
     );
@@ -37,8 +37,8 @@ export class MenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 120,
         this.sys.canvas.height / 2 - 100,
-        "font",
-        "TANK",
+        'font',
+        'TANK',
         100
       )
     );
@@ -46,7 +46,7 @@ export class MenuScene extends Phaser.Scene {
 
   update(): void {
     if (this.startKey.isDown) {
-      this.scene.start("GameScene");
+      this.scene.start('GameScene');
     }
   }
 }

@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { WORLD_MAP } from "../const/map";
+import { WORLD_MAP } from '../const/map';
 
 export class Player {
   // Scene

@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { Bullet } from "./bullet";
+import { Bullet } from './bullet';
 
 export class Player extends Phaser.GameObjects.Image {
   private bullets: Phaser.GameObjects.Group;
@@ -78,7 +78,7 @@ export class Player extends Phaser.GameObjects.Image {
             scene: this.scene,
             x: this.x,
             y: this.y - this.height,
-            key: "bullet",
+            key: 'bullet',
             bulletProperties: {
               speed: -300
             }
@@ -92,9 +92,9 @@ export class Player extends Phaser.GameObjects.Image {
 
   public gotHurt() {
     // update lives
-    let currentLives = this.scene.registry.get("lives");
-    this.scene.registry.set("lives", currentLives - 1);
-    this.scene.events.emit("livesChanged");
+    let currentLives = this.scene.registry.get('lives');
+    this.scene.registry.set('lives', currentLives - 1);
+    this.scene.events.emit('livesChanged');
 
     // reset position
     this.x = this.scene.sys.canvas.width / 2;

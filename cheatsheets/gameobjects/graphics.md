@@ -10,7 +10,6 @@ Choose a line or fill style (or both) before you start to create your shapes.
 Use predefined methods (f.e. fillRect) to draw your shapes or create shapes free-style with
 beginPath, moveTo, lineTo, closePath and strokePath.
 
-
 > Under WebGL the graphics data is decomposed into polygons.
 
 > If your graphic object doesn't change much (or at all) once you have drawn your shape to it, then you will help performance by calling [generate Texture](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/graphics.md#generatetexture).

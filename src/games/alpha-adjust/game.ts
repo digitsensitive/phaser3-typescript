@@ -5,22 +5,22 @@
  * @license      Digitsensitive
  */
 
-import "phaser";
-import { GameScene } from "./scenes/game-scene";
+import 'phaser';
+import { GameScene } from './scenes/game-scene';
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Alpha Adjust",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "1.0",
+  title: 'Alpha Adjust',
+  url: 'https://github.com/digitsensitive/phaser3-typescript',
+  version: '1.0',
   width: 800,
   height: 600,
   type: Phaser.AUTO,
-  parent: "game",
+  parent: 'game',
   scene: [GameScene],
   input: {
     mouse: true
   },
-  backgroundColor: "#1d2b53",
+  backgroundColor: '#1d2b53',
   render: { pixelArt: true, antialias: false }
 };
 
@@ -30,6 +30,6 @@ export class Game extends Phaser.Game {
   }
 }
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   var game = new Game(config);
 });

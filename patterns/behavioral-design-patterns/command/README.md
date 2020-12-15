@@ -13,15 +13,15 @@ and values for the method parameters (Source: Wikipedia).
 - Init the input helper and the commands in your scene as follows:
 
 ```ts
-    // Init our input helper
-    this.inputHelperInstance = new InputHelper(this);
+// Init our input helper
+this.inputHelperInstance = new InputHelper(this);
 
-    // Init scene commands
-    this.inputHelperInstance.setPauseSceneCommand(new PauseCommand(this));
-    this.inputHelperInstance.setPointerMovedCommand(
-      new PointerMovedCommand(this, this.layer, this.tileSelector)
-    );
-    this.inputHelperInstance.setShootingCommand(new ShootingCommand(this));
+// Init scene commands
+this.inputHelperInstance.setPauseSceneCommand(new PauseCommand(this));
+this.inputHelperInstance.setPointerMovedCommand(
+  new PointerMovedCommand(this, this.layer, this.tileSelector)
+);
+this.inputHelperInstance.setShootingCommand(new ShootingCommand(this));
 ```
 
 - In your update() loop add a function to check for activated commands
@@ -40,7 +40,7 @@ and values for the method parameters (Source: Wikipedia).
   }
 ```
 
-- The Input Helper acts as a sender (sends request to the command) and stores commands 
+- The Input Helper acts as a sender (sends request to the command) and stores commands
 
 ### Todo
 
@@ -49,6 +49,6 @@ and values for the method parameters (Source: Wikipedia).
 
 ## References
 
-* [Wikipedia](https://en.wikipedia.org/wiki/Command_pattern)
-* [Refactoring Guru](https://refactoring.guru/design-patterns/command)
-* [Game Programming Patterns](https://gameprogrammingpatterns.com/command.html)
+- [Wikipedia](https://en.wikipedia.org/wiki/Command_pattern)
+- [Refactoring Guru](https://refactoring.guru/design-patterns/command)
+- [Game Programming Patterns](https://gameprogrammingpatterns.com/command.html)

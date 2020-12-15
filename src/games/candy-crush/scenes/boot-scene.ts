@@ -11,7 +11,7 @@ export class BootScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "BootScene"
+      key: 'BootScene'
     });
   }
 
@@ -22,8 +22,8 @@ export class BootScene extends Phaser.Scene {
 
     // pass value to change the loading bar fill
     this.load.on(
-      "progress",
-      function(value) {
+      'progress',
+      function (value) {
         this.progressBar.clear();
         this.progressBar.fillStyle(0xfff6d3, 1);
         this.progressBar.fillRect(
@@ -38,8 +38,8 @@ export class BootScene extends Phaser.Scene {
 
     // delete bar graphics, when loading complete
     this.load.on(
-      "complete",
-      function() {
+      'complete',
+      function () {
         this.progressBar.destroy();
         this.loadingBar.destroy();
       },
@@ -47,11 +47,11 @@ export class BootScene extends Phaser.Scene {
     );
 
     // load out package
-    this.load.pack("preload", "./assets/pack.json", "preload");
+    this.load.pack('preload', './assets/pack.json', 'preload');
   }
 
   update(): void {
-    this.scene.start("GameScene");
+    this.scene.start('GameScene');
   }
 
   private createLoadingbar(): void {

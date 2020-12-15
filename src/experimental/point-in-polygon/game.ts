@@ -5,25 +5,25 @@
  * @license      Digitsensitive
  */
 
-import "phaser";
-import { GameScene } from "./scenes/game-scene";
+import 'phaser';
+import { GameScene } from './scenes/game-scene';
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Point in Polygon",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "1.0",
+  title: 'Point in Polygon',
+  url: 'https://github.com/digitsensitive/phaser3-typescript',
+  version: '1.0',
   width: 600,
   height: 600,
   type: Phaser.AUTO,
-  parent: "game",
+  parent: 'game',
   scene: [GameScene],
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
       debug: true
     }
   },
-  backgroundColor: "#000000",
+  backgroundColor: '#000000',
   render: { pixelArt: false, antialias: true }
 };
 
@@ -33,6 +33,6 @@ export class Game extends Phaser.Game {
   }
 }
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   var game = new Game(config);
 });

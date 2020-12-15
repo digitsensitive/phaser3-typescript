@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { Bullet } from "./bullet";
+import { Bullet } from './bullet';
 
 export class Enemy extends Phaser.GameObjects.Sprite {
   private bullets: Phaser.GameObjects.Group;
@@ -45,7 +45,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
 
     // set the characteristics of the specific enemy
     switch (this.enemyType) {
-      case "octopus":
+      case 'octopus':
         this.dyingTime = 100;
         this.enemyTint = 0xffffff;
         this.lives = 1;
@@ -53,7 +53,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
         this.valueKill = 20;
         break;
 
-      case "crab":
+      case 'crab':
         this.dyingTime = 120;
         this.enemyTint = 0x42a4aa;
         this.lives = 2;
@@ -61,7 +61,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
         this.valueKill = 40;
         break;
 
-      case "squid":
+      case 'squid':
         this.dyingTime = 140;
         this.enemyTint = 0x4a4e4d;
         this.lives = 2;
@@ -87,7 +87,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
     this.moveTween = this.scene.tweens.add({
       targets: this,
       x: this.x + 50,
-      ease: "Power0",
+      ease: 'Power0',
       duration: 6000,
       yoyo: true,
       repeat: -1
@@ -96,7 +96,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
 
   update(): void {
     if (this.active) {
-      this.anims.play(this.enemyType + "Fly", true);
+      this.anims.play(this.enemyType + 'Fly', true);
 
       if (Phaser.Math.RND.between(0, this.reloadTime) === 0) {
         this.bullets.add(
@@ -104,7 +104,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
             scene: this.scene,
             x: this.x,
             y: this.y,
-            key: "bullet",
+            key: 'bullet',
             bulletProperties: {
               speed: 100
             }
@@ -127,7 +127,7 @@ export class Enemy extends Phaser.GameObjects.Sprite {
         }
       }
     } else {
-      this.anims.play(this.enemyType + "Dead");
+      this.anims.play(this.enemyType + 'Dead');
 
       if (this.dyingTime > 0) {
         this.dyingTime -= 10;
@@ -148,8 +148,8 @@ export class Enemy extends Phaser.GameObjects.Sprite {
   }
 
   private addPoints(): void {
-    let getCurrentPoints = this.scene.registry.get("points");
-    this.scene.registry.set("points", getCurrentPoints + this.valueKill);
-    this.scene.events.emit("pointsChanged");
+    let getCurrentPoints = this.scene.registry.get('points');
+    this.scene.registry.set('points', getCurrentPoints + this.valueKill);
+    this.scene.events.emit('pointsChanged');
   }
 }

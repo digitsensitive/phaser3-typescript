@@ -24,10 +24,11 @@ and even check for RectangleToRectangle collision.
 ## How to run it
 
 Adjust the entry path in the `webpack.config.js` file as follows:
+
 ```
 entry: './src/games/coin-runner/game.ts'
 ```
 
 ## Further reading
 
-* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
+- [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)

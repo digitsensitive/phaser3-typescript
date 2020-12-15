@@ -5,9 +5,9 @@
  * @license      Digitsensitive
  */
 
-import { Player } from "../objects/player";
-import { Enemy } from "../objects/enemy";
-import { Obstacle } from "../objects/obstacles/obstacle";
+import { Player } from '../objects/player';
+import { Enemy } from '../objects/enemy';
+import { Obstacle } from '../objects/obstacles/obstacle';
 
 export class GameScene extends Phaser.Scene {
   private map: Phaser.Tilemaps.Tilemap;
@@ -22,7 +22,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -30,10 +30,10 @@ export class GameScene extends Phaser.Scene {
 
   create(): void {
     // create tilemap from tiled JSON
-    this.map = this.make.tilemap({ key: "levelMap" });
+    this.map = this.make.tilemap({ key: 'levelMap' });
 
-    this.tileset = this.map.addTilesetImage("tiles");
-    this.layer = this.map.createStaticLayer("tileLayer", this.tileset, 0, 0);
+    this.tileset = this.map.addTilesetImage('tiles');
+    this.layer = this.map.createStaticLayer('tileLayer', this.tileset, 0, 0);
     this.layer.setCollisionByProperty({ collide: true });
 
     this.obstacles = this.add.group({
@@ -120,22 +120,22 @@ export class GameScene extends Phaser.Scene {
 
   private convertObjects(): void {
     // find the object layer in the tilemap named 'objects'
-    const objects = this.map.getObjectLayer("objects").objects as any[];
+    const objects = this.map.getObjectLayer('objects').objects as any[];
 
-    objects.forEach(object => {
-      if (object.type === "player") {
+    objects.forEach((object) => {
+      if (object.type === 'player') {
         this.player = new Player({
           scene: this,
           x: object.x,
           y: object.y,
-          key: "tankBlue"
+          key: 'tankBlue'
         });
-      } else if (object.type === "enemy") {
+      } else if (object.type === 'enemy') {
         let enemy = new Enemy({
           scene: this,
           x: object.x,
           y: object.y,
-          key: "tankRed"
+          key: 'tankRed'
         });
 
         this.enemies.add(enemy);

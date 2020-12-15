@@ -14,6 +14,7 @@ You rarely need to interact with this manager directly. You better should use th
 ### Public Functions
 
 #### addPointer
+
 Add new pointer object to the input manager.
 The pointers are available via the `InputPlugin.pointerX` properties.
 
@@ -25,6 +26,7 @@ If you want more pointers, you can:
 2. set the `input.activePointers` property in the game config (maximum 10 pointers)
 
 #### hitTest
+
 Perform a hit test using the given pointer and camera, against an array of interactive game objects.
 
 The game objects are culled against the camera, and then the coordinates are translated into the local camera space
@@ -32,20 +34,23 @@ and used to determine if they fall within the remaining Game Objects hit areas o
 
 If nothing is matched an empty array is returned.
 
-> This method is called automatically by InputPlugin.hitTestPointer and doesn't usually need to be invoked directly.  
+> This method is called automatically by InputPlugin.hitTestPointer and doesn't usually need to be invoked directly.
 
 #### pointWithinHitArea
+
 Check if the given x and y coordinate are within the hit area of the game object.
 
 > This method assumes that the coordinate values have already been translated into the space of the Game Object.
 > If the coordinates are within the hit area they are set into the Game Objects Input `localX` and `localY` properties.
 
 #### pointWithinInteractiveObject
+
 Check if the given x and y coordinate are within the hit area of the interactive object.
 
 > This method assumes that the coordinate values have already been translated into the space of the Interactive Object.
->If the coordinates are within the hit area they are set into the interactive objects input `localX` and `localY` properties.
+> If the coordinates are within the hit area they are set into the interactive objects input `localX` and `localY` properties.
 
 #### transformPointer
+
 Transforms the `pageX` and `pageY` values of a pointer
 into the scaled coordinate space of the input manager.

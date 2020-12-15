@@ -12,16 +12,17 @@ We are going to create a simple 1-player Snake clone.
 ## How to run it
 
 Adjust the `webpack.config.js` file as follows:
+
 > `entry: './src/games/snake/game.ts'`
 
 ## Learn to use
 
-* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
-* [Phaser.Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md)
-* [Phaser.Scenes.ScenePlugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
-* Create two classes (player and apple) in two separate files
-* Phaser.GameObjects.Graphics
-* Basic collision detection
-* Setup player input (Keyboard)
-* Phaser.GameObjects.BitmapText
-* Phaser.Math.RandomDataGenerator
+- [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
+- [Phaser.Config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md)
+- [Phaser.Scenes.ScenePlugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
+- Create two classes (player and apple) in two separate files
+- Phaser.GameObjects.Graphics
+- Basic collision detection
+- Setup player input (Keyboard)
+- Phaser.GameObjects.BitmapText
+- Phaser.Math.RandomDataGenerator

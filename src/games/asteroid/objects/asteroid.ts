@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { CONST } from "../const/const";
+import { CONST } from '../const/const';
 
 export class Asteroid extends Phaser.GameObjects.Graphics {
   private velocity: Phaser.Math.Vector2;

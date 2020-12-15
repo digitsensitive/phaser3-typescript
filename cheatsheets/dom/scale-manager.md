@@ -7,20 +7,22 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 TODO: Write
 TODO: Edit config.md
 -> scale: {
-        mode: Phaser.DOM.FIT,
-        parent: 'phaser-example',
-        autoCenter: Phaser.DOM.CENTER_BOTH,
-        width: 800,
-        height: 600
-    },
+mode: Phaser.DOM.FIT,
+parent: 'phaser-example',
+autoCenter: Phaser.DOM.CENTER_BOTH,
+width: 800,
+height: 600
+},
 
 ### Public Functions
 
 #### startFullscreen
+
 TODO: Write
 https://developer.mozilla.org/en-US/docs/Web/API/FullscreenOptions
 
 An example with integrated button to enter fullscreen:
+
 ```
 var button = this.add.image(16, 16, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
 button.on('pointerdown', function () {
@@ -40,12 +42,15 @@ button.on('pointerdown', function () {
 ```
 
 #### getFullscreenTarget
+
 TODO: Write
 
 #### stopFullscreen
+
 TODO: Write
 
 #### toggleFullscreen
+
 TODO: Write
 
 ### Extends

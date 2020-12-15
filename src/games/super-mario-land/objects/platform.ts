@@ -38,7 +38,7 @@ export class Platform extends Phaser.GameObjects.Image {
     this.currentScene.tweens.add({
       targets: this,
       props: this.tweenProps,
-      ease: "Power0",
+      ease: 'Power0',
       yoyo: true,
       repeat: -1
     });

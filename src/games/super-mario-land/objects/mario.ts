@@ -32,7 +32,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
 
   private initSprite() {
     // variables
-    this.marioSize = this.currentScene.registry.get("marioSize");
+    this.marioSize = this.currentScene.registry.get('marioSize');
     this.acceleration = 500;
     this.isJumping = false;
     this.isDying = false;
@@ -45,10 +45,10 @@ export class Mario extends Phaser.GameObjects.Sprite {
 
     // input
     this.keys = new Map([
-      ["LEFT", this.addKey("LEFT")],
-      ["RIGHT", this.addKey("RIGHT")],
-      ["DOWN", this.addKey("DOWN")],
-      ["JUMP", this.addKey("SPACE")]
+      ['LEFT', this.addKey('LEFT')],
+      ['RIGHT', this.addKey('RIGHT')],
+      ['DOWN', this.addKey('DOWN')],
+      ['JUMP', this.addKey('SPACE')]
     ]);
 
     // physics
@@ -69,9 +69,9 @@ export class Mario extends Phaser.GameObjects.Sprite {
     } else {
       this.setFrame(12);
       if (this.y > this.currentScene.sys.canvas.height) {
-        this.currentScene.scene.stop("GameScene");
-        this.currentScene.scene.stop("HUDScene");
-        this.currentScene.scene.start("MenuScene");
+        this.currentScene.scene.stop('GameScene');
+        this.currentScene.scene.stop('HUDScene');
+        this.currentScene.scene.start('MenuScene');
       }
     }
 
@@ -103,10 +103,10 @@ export class Mario extends Phaser.GameObjects.Sprite {
     }
 
     // handle movements to left and right
-    if (this.keys.get("RIGHT").isDown) {
+    if (this.keys.get('RIGHT').isDown) {
       this.body.setAccelerationX(this.acceleration);
       this.setFlipX(false);
-    } else if (this.keys.get("LEFT").isDown) {
+    } else if (this.keys.get('LEFT').isDown) {
       this.body.setAccelerationX(-this.acceleration);
       this.setFlipX(true);
     } else {
@@ -115,7 +115,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
     }
 
     // handle jumping
-    if (this.keys.get("JUMP").isDown && !this.isJumping) {
+    if (this.keys.get('JUMP').isDown && !this.isJumping) {
       this.body.setVelocityY(-180);
       this.isJumping = true;
     }
@@ -125,7 +125,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
     if (this.body.velocity.y !== 0) {
       // mario is jumping or falling
       this.anims.stop();
-      if (this.marioSize === "small") {
+      if (this.marioSize === 'small') {
         this.setFrame(4);
       } else {
         this.setFrame(10);
@@ -138,7 +138,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
         (this.body.velocity.x < 0 && this.body.acceleration.x > 0) ||
         (this.body.velocity.x > 0 && this.body.acceleration.x < 0)
       ) {
-        if (this.marioSize === "small") {
+        if (this.marioSize === 'small') {
           this.setFrame(5);
         } else {
           this.setFrame(11);
@@ -146,17 +146,17 @@ export class Mario extends Phaser.GameObjects.Sprite {
       }
 
       if (this.body.velocity.x > 0) {
-        this.anims.play(this.marioSize + "MarioWalk", true);
+        this.anims.play(this.marioSize + 'MarioWalk', true);
       } else {
-        this.anims.play(this.marioSize + "MarioWalk", true);
+        this.anims.play(this.marioSize + 'MarioWalk', true);
       }
     } else {
       // mario is standing still
       this.anims.stop();
-      if (this.marioSize === "small") {
+      if (this.marioSize === 'small') {
         this.setFrame(0);
       } else {
-        if (this.keys.get("DOWN").isDown) {
+        if (this.keys.get('DOWN').isDown) {
           this.setFrame(13);
         } else {
           this.setFrame(6);
@@ -166,14 +166,14 @@ export class Mario extends Phaser.GameObjects.Sprite {
   }
 
   private growMario(): void {
-    this.marioSize = "big";
-    this.currentScene.registry.set("marioSize", "big");
+    this.marioSize = 'big';
+    this.currentScene.registry.set('marioSize', 'big');
     this.adjustPhysicBodyToBigSize();
   }
 
   private shrinkMario(): void {
-    this.marioSize = "small";
-    this.currentScene.registry.set("marioSize", "small");
+    this.marioSize = 'small';
+    this.currentScene.registry.set('marioSize', 'small');
     this.adjustPhysicBodyToSmallSize();
   }
 
@@ -192,14 +192,14 @@ export class Mario extends Phaser.GameObjects.Sprite {
       targets: this,
       props: { y: this.y - 5 },
       duration: 200,
-      ease: "Power1",
+      ease: 'Power1',
       yoyo: true
     });
   }
 
   protected gotHit(): void {
     this.isVulnerable = false;
-    if (this.marioSize === "big") {
+    if (this.marioSize === 'big') {
       this.shrinkMario();
     } else {
       // mario is dying

@@ -8,19 +8,21 @@ A static tilemap layer is a game object that renders LayerData from a Tilemap wh
 with one, or more, Tilesets.
 
 > It is optimized for rendering speed over flexibility
-You cannot apply per-tile effects like tint or alpha, or change the tiles or tilesets the layer uses.
-Use a Static Tilemap Layer instead of a Dynamic Tilemap Layer when you don't need tile manipulation features.
+> You cannot apply per-tile effects like tint or alpha, or change the tiles or tilesets the layer uses.
+> Use a Static Tilemap Layer instead of a Dynamic Tilemap Layer when you don't need tile manipulation features.
 
 ### Public Functions
 
 #### setCollisionByProperty
+
 Sets collision on the tiles within a layer by checking tile properties.
 If a tile has a property that matches the given properties object, its collision flag will be set.
 
 > You can also use an array of values, e.g. `{ types: ["stone", "lava", "sand" ] }`
-If a tile has a "types" property that matches any of those values, its collision flag will be updated.
+> If a tile has a "types" property that matches any of those values, its collision flag will be updated.
 
 #### renderDebug
+
 Draws a debug representation of the layer to the given graphics.
 
 > Helpful if you want to get a quick idea, which of your tiles are colliding

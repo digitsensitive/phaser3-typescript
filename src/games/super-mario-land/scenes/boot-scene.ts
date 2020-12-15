@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { AnimationHelper } from "../helpers/animation-helper";
+import { AnimationHelper } from '../helpers/animation-helper';
 
 export class BootScene extends Phaser.Scene {
   // helpers
@@ -17,7 +17,7 @@ export class BootScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "BootScene"
+      key: 'BootScene'
     });
   }
 
@@ -29,8 +29,8 @@ export class BootScene extends Phaser.Scene {
 
     // pass value to change the loading bar fill
     this.load.on(
-      "progress",
-      function(value) {
+      'progress',
+      function (value) {
         this.progressBar.clear();
         this.progressBar.fillStyle(0x88e453, 1);
         this.progressBar.fillRect(
@@ -45,11 +45,11 @@ export class BootScene extends Phaser.Scene {
 
     // delete bar graphics, when loading complete
     this.load.on(
-      "complete",
-      function() {
+      'complete',
+      function () {
         this.animationHelperInstance = new AnimationHelper(
           this,
-          this.cache.json.get("animationJSON")
+          this.cache.json.get('animationJSON')
         );
         this.progressBar.destroy();
         this.loadingBar.destroy();
@@ -59,14 +59,14 @@ export class BootScene extends Phaser.Scene {
 
     // load our package
     this.load.pack(
-      "preload",
-      "./src/games/super-mario-land/assets/pack.json",
-      "preload"
+      'preload',
+      './src/games/super-mario-land/assets/pack.json',
+      'preload'
     );
   }
 
   update(): void {
-    this.scene.start("MenuScene");
+    this.scene.start('MenuScene');
   }
 
   private createLoadingGraphics(): void {

@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { Enemy } from "../objects/enemy";
-import { Player } from "../objects/player";
+import { Enemy } from '../objects/enemy';
+import { Player } from '../objects/player';
 
 export class GameScene extends Phaser.Scene {
   private enemies: Phaser.GameObjects.Group;
@@ -14,7 +14,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -28,7 +28,7 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: this.sys.canvas.width / 2,
       y: this.sys.canvas.height - 40,
-      key: "player"
+      key: 'player'
     });
 
     // if you want to make it random:
@@ -37,11 +37,11 @@ export class GameScene extends Phaser.Scene {
       for (let x = 0; x < 10; x++) {
         let type;
         if (y === 0) {
-          type = "squid";
+          type = 'squid';
         } else if (y === 1 || y === 2) {
-          type = "crab";
+          type = 'crab';
         } else {
-          type = "octopus";
+          type = 'octopus';
         }
         // if you want to make it random:
         // let type = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
@@ -77,9 +77,9 @@ export class GameScene extends Phaser.Scene {
       this.checkCollisions();
     }
 
-    if (this.registry.get("lives") < 0 || this.enemies.getLength() === 0) {
-      this.scene.start("MenuScene");
-      this.scene.stop("HUDScene");
+    if (this.registry.get('lives') < 0 || this.enemies.getLength() === 0) {
+      this.scene.start('MenuScene');
+      this.scene.stop('HUDScene');
     }
   }
 

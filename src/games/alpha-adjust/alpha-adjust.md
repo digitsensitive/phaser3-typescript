@@ -18,13 +18,14 @@ and how to detect a mouse click.
 ## How to run it
 
 Adjust the entry path in the `webpack.config.js` file as follows:
+
 ```
 entry: './src/games/alpha-adjust/game.ts'
 ```
 
 ## Further reading
 
-* [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
+- [Phaser.Game](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/game.md)
 
 ## Acknowledgments
 

@@ -39,7 +39,7 @@ const GroupCreateConfig = {
     x: 0,
     y: 0,
     stepX: 0,
-    stepY: 0       
+    stepY: 0
   },
   setRotation: {
     value: 0,
@@ -49,7 +49,7 @@ const GroupCreateConfig = {
     x: 0,
     y: 0,
     stepX: 0,
-    stepY: 0      
+    stepY: 0
   },
   setAlpha: {
     value: 0,
@@ -72,88 +72,116 @@ When you create a new group you can pass:
 
 ### Public Functions
 
-#### create            
+#### create
+
 Create new game object and add it to group.
 
-#### createMultiple    
+#### createMultiple
+
 Create several game objects and add them to group.
 
-#### createFromConfig  
+#### createFromConfig
+
 A helper for createMultiple (use of GroupCreateConfig).
 
-#### add               
+#### add
+
 Add game object to group.
 
-#### addMultiple       
+#### addMultiple
+
 Add several game objects to group.
 
-#### remove            
+#### remove
+
 Remove a member of the group.
 Optionally remove it from scene and/or destroy it.
 
-#### clear             
+#### clear
+
 Remove all members of the group.
 Optionally remove them from scene and/or destroy them
 
-#### contains          
+#### contains
+
 Test if game object is a member of the group
 
-#### getChildren     
+#### getChildren
+
 Get group members.
 
-#### getLength      
+#### getLength
+
 Number of group members.
 
-#### getFirst        
+#### getFirst
+
 Get first active member (from top to bottom).
 
-#### getFirstNth       
+#### getFirstNth
+
 Get nth active member (from top to bottom).
 
-#### getLast           
+#### getLast
+
 Get last active member (from top to bottom).
 
-#### getLastNth        
+#### getLastNth
+
 Get last nth active member (from top to bottom).
 
-#### getHandler        
+#### getHandler
+
 Get last active member.
 
-#### get               
+#### get
+
 Get first inactive member.
 
-#### getFirstAlive     
+#### getFirstAlive
+
 Get first active member.
 
-#### getFirstDead      
+#### getFirstDead
+
 Get first inactive member.
 
-#### playAnimation     
+#### playAnimation
+
 Plays an animation for all group members.
 
-#### isFull            
+#### isFull
+
 Check if group size is at maximum.
 
-#### countActive       
+#### countActive
+
 Count the number of active (or inactive) group members.
 
-#### getTotalUsed      
+#### getTotalUsed
+
 Count the number of in-use (active) group members.
 
-#### getTotalFree      
+#### getTotalFree
+
 Difference of max size and number of active group members.
 
-#### setDepth          
+#### setDepth
+
 Set depth of each group member.
 
-#### kill              
+#### kill
+
 Deactivate member of the group.
 
-#### killAndHide       
+#### killAndHide
+
 Deactivate and hide member of the group.
 
-#### toggleVisible     
+#### toggleVisible
+
 Toggle the visible state of each group member.
 
-#### destroy           
+#### destroy
+
 Empty the group and remove it from the scene.

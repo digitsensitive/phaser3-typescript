@@ -1,4 +1,4 @@
-import { CONST } from "../const/const";
+import { CONST } from '../const/const';
 
 export class Cell extends Phaser.GameObjects.Graphics {
   private value: number;

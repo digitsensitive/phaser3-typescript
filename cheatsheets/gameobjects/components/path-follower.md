@@ -5,6 +5,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 ### Public Functions
 
 #### setPath
+
 Set path for the PathFollower to follow.
 
 > As an alternative to Phaser.Curves.Path you can pass a PathConfig
@@ -31,10 +32,11 @@ Check if the PathFollower is actively following a path or not.
 Start the PathFollower to follow the given path.
 
 #### pauseFollow
+
 Pause the PathFollower.
 
 > It will still continue to render, but it will remain motionless at the
-point on the path at which you paused it.
+> point on the path at which you paused it.
 
 #### resumeFollow
 Resume a previously paused PathFollower.

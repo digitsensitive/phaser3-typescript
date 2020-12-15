@@ -54,7 +54,7 @@ export class Coin extends Phaser.GameObjects.Image {
   }
 
   private setNewPosition(): void {
-    if (this.lastPosition == "right") {
+    if (this.lastPosition == 'right') {
       this.x = Phaser.Math.RND.integerInRange(100, this.centerOfScreen);
     } else {
       this.x = Phaser.Math.RND.integerInRange(385, 700);
@@ -64,9 +64,9 @@ export class Coin extends Phaser.GameObjects.Image {
 
   private setFieldSide(): void {
     if (this.x <= this.centerOfScreen) {
-      this.lastPosition = "left";
+      this.lastPosition = 'left';
     } else {
-      this.lastPosition = "right";
+      this.lastPosition = 'right';
     }
   }
 }

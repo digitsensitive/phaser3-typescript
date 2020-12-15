@@ -33,7 +33,7 @@ export class Snake {
     // set variables
     this.dotSize = scene.fieldSize;
     this.snakeLength = 0;
-    this.direction = "right";
+    this.direction = 'right';
     this.dead = false;
     this.snakeBody = [];
 
@@ -57,7 +57,7 @@ export class Snake {
         .graphics({
           x: 16 - i * this.dotSize,
           y: 16,
-          fillStyle: { color: "0x61e85b", alpha: currentAlpha }
+          fillStyle: { color: '0x61e85b', alpha: currentAlpha }
         })
         .fillRect(this.dotSize, this.dotSize, this.dotSize, this.dotSize);
     }
@@ -71,26 +71,26 @@ export class Snake {
     }
 
     // move head
-    if (this.direction === "left") {
+    if (this.direction === 'left') {
       this.snakeBody[0].x -= this.dotSize;
-    } else if (this.direction === "right") {
+    } else if (this.direction === 'right') {
       this.snakeBody[0].x += this.dotSize;
-    } else if (this.direction === "up") {
+    } else if (this.direction === 'up') {
       this.snakeBody[0].y -= this.dotSize;
-    } else if (this.direction === "down") {
+    } else if (this.direction === 'down') {
       this.snakeBody[0].y += this.dotSize;
     }
   }
 
   public handleInput(): void {
-    if (this.cursors.up.isDown && this.direction != "down") {
-      this.direction = "up";
-    } else if (this.cursors.down.isDown && this.direction != "up") {
-      this.direction = "down";
-    } else if (this.cursors.right.isDown && this.direction != "left") {
-      this.direction = "right";
-    } else if (this.cursors.left.isDown && this.direction != "right") {
-      this.direction = "left";
+    if (this.cursors.up.isDown && this.direction != 'down') {
+      this.direction = 'up';
+    } else if (this.cursors.down.isDown && this.direction != 'up') {
+      this.direction = 'down';
+    } else if (this.cursors.right.isDown && this.direction != 'left') {
+      this.direction = 'right';
+    } else if (this.cursors.left.isDown && this.direction != 'right') {
+      this.direction = 'left';
     }
   }
 
@@ -100,7 +100,7 @@ export class Snake {
       .graphics({
         x: this.snakeBody[this.snakeBody.length - 1].x,
         y: this.snakeBody[this.snakeBody.length - 1].y,
-        fillStyle: { color: "0x61e85b", alpha: 0.8 }
+        fillStyle: { color: '0x61e85b', alpha: 0.8 }
       })
       .fillRect(this.dotSize, this.dotSize, this.dotSize, this.dotSize);
   }

@@ -5,10 +5,10 @@
  * @license      Digitsensitive
  */
 
-import { Asteroid } from "../objects/asteroid";
-import { Bullet } from "../objects/bullet";
-import { Ship } from "../objects/ship";
-import { CONST } from "../const/const";
+import { Asteroid } from '../objects/asteroid';
+import { Bullet } from '../objects/bullet';
+import { Ship } from '../objects/ship';
+import { CONST } from '../const/const';
 
 export class GameScene extends Phaser.Scene {
   private player: Ship;
@@ -20,7 +20,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -35,8 +35,8 @@ export class GameScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2,
         40,
-        "asteroidFont",
-        "" + this.score,
+        'asteroidFont',
+        '' + this.score,
         80
       )
     );
@@ -92,14 +92,14 @@ export class GameScene extends Phaser.Scene {
       CONST.LIVES--;
 
       if (CONST.LIVES > 0) {
-        this.scene.start("GameScene");
+        this.scene.start('GameScene');
       } else {
-        this.scene.start("MainMenuScene");
+        this.scene.start('MainMenuScene');
       }
     }
 
     if (this.asteroids.length === 0) {
-      this.scene.start("MainMenuScene");
+      this.scene.start('MainMenuScene');
     }
   }
 
@@ -143,13 +143,13 @@ export class GameScene extends Phaser.Scene {
     }
 
     CONST.SCORE = this.score;
-    this.bitmapTexts[0].text = "" + this.score;
+    this.bitmapTexts[0].text = '' + this.score;
   }
 
   private getRandomSpawnPostion(aScreenSize: number): number {
     let rndPos = Phaser.Math.RND.between(0, aScreenSize);
 
-    while (rndPos > aScreenSize / 3 && rndPos < aScreenSize * 2 / 3) {
+    while (rndPos > aScreenSize / 3 && rndPos < (aScreenSize * 2) / 3) {
       rndPos = Phaser.Math.RND.between(0, aScreenSize);
     }
 

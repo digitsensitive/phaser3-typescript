@@ -5,8 +5,8 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 ### Introduction
 
 > When you create a new scene the Scene Manager creates an object called `sys`.
-This class is the core and it controls quite a lot. It also contains references
-to global systems belonging to game.
+> This class is the core and it controls quite a lot. It also contains references
+> to global systems belonging to game.
 
 #### Core plugins
 
@@ -119,37 +119,37 @@ within your scene with `this.input`. The `this` refers to your scene
 obviously.
 
 > If you separate the game code of a game object to another file, you will have to
-get a reference to the scene. This means, that if you create the object in your
-scene, you will have to send the `this` with it. You will see plenty examples in
-my repository.
+> get a reference to the scene. This means, that if you create the object in your
+> scene, you will have to send the `this` with it. You will see plenty examples in
+> my repository.
 
 This is a list of the properties:
 
-| Property | Value |
-| -------|------|
-| game | game |
-| anims | anims |
-| cache | cache |
-| plugins | plugins |
-| registry | registry |
-| scale | scale |
-| sound | sound |
-| textures | textures |
-| events | events |
-| cameras | cameras |
-| add | add |
-| make | make |
-| scenePlugin | scene |
-| displayList | children |
-| lights | lights |
-| data | data |
-| input | input |
-| load | load |
-| time | time |
-| tweens | tweens |
-| arcadePhysics | physics |
-| impactPhysics | impact |
-| matterPhysics | matter |
+| Property      | Value    |
+| ------------- | -------- |
+| game          | game     |
+| anims         | anims    |
+| cache         | cache    |
+| plugins       | plugins  |
+| registry      | registry |
+| scale         | scale    |
+| sound         | sound    |
+| textures      | textures |
+| events        | events   |
+| cameras       | cameras  |
+| add           | add      |
+| make          | make     |
+| scenePlugin   | scene    |
+| displayList   | children |
+| lights        | lights   |
+| data          | data     |
+| input         | input    |
+| load          | load     |
+| time          | time     |
+| tweens        | tweens   |
+| arcadePhysics | physics  |
+| impactPhysics | impact   |
+| matterPhysics | matter   |
 
 You can access the properties within the `map` object in the scene constructor.
 It is possible to rename the properties (here we rename add to add2):

@@ -38,6 +38,7 @@ let myTilemap = this.make.tilemap(TilemapConfig);
 ### Public Functions
 
 #### createStaticLayer
+
 Create a new `StaticTilemapLayer` that renders the LayerData associated with the given `layerID`.
 The currently selected layer in the map is set to this new layer.
 

@@ -56,7 +56,7 @@ export class Bird extends Phaser.GameObjects.Image {
         targets: this,
         props: { angle: -20 },
         duration: 150,
-        ease: "Power0"
+        ease: 'Power0'
       });
     } else if (this.jumpKey.isUp && this.isFlapping) {
       this.isFlapping = false;

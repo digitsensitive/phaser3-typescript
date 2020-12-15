@@ -4,5 +4,5 @@ export const CONST = {
   GRID_HEIGHT: 100,
   OFFSET: 0,
   FIELD_COLOR: 0xffffff,
-  FIELD_ALPHA: 1,
+  FIELD_ALPHA: 1
 };

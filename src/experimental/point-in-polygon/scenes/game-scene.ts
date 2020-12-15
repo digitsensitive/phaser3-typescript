@@ -28,8 +28,8 @@
  * @license      Digitsensitive
  */
 
-import { Ray } from "../objects/ray";
-import { PointLineCollision } from "../services/collisions.service";
+import { Ray } from '../objects/ray';
+import { PointLineCollision } from '../services/collisions.service';
 
 const LINE_SEGMENTS = [
   { a: { x: 150, y: 80 }, b: { x: 480, y: 280 }, active: true },
@@ -52,7 +52,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
@@ -89,13 +89,13 @@ export class GameScene extends Phaser.Scene {
       .text(
         10,
         10,
-        "Count: " + this.counter.toString() + " (even, outside polygon)",
+        'Count: ' + this.counter.toString() + ' (even, outside polygon)',
         {
-          fontFamily: "Arial",
+          fontFamily: 'Arial',
           fontSize: 20,
-          stroke: "#ffffff",
+          stroke: '#ffffff',
           strokeThickness: 1,
-          fill: "#ffffff"
+          fill: '#ffffff'
         }
       )
       .setDepth(2);
@@ -149,11 +149,11 @@ export class GameScene extends Phaser.Scene {
 
         if (this.counter % 2 === 0) {
           this.counterText.setText(
-            "Count: " + this.counter.toString() + " (even, outside polygon)"
+            'Count: ' + this.counter.toString() + ' (even, outside polygon)'
           );
         } else {
           this.counterText.setText(
-            "Count: " + this.counter.toString() + " (odd, inside polygon)"
+            'Count: ' + this.counter.toString() + ' (odd, inside polygon)'
           );
         }
       }

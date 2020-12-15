@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { Cell } from "./cell";
+import { Cell } from './cell';
 
 export class Grid {
   private cells: Cell[][];

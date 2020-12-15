@@ -12,7 +12,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "MainMenuScene"
+      key: 'MainMenuScene'
     });
   }
 
@@ -27,8 +27,8 @@ export class MainMenuScene extends Phaser.Scene {
     this.titleBitmapText = this.add.bitmapText(
       0,
       200,
-      "font",
-      "FLAPPY BIRD",
+      'font',
+      'FLAPPY BIRD',
       30
     );
 
@@ -36,7 +36,7 @@ export class MainMenuScene extends Phaser.Scene {
       this.titleBitmapText.width
     );
 
-    this.playBitmapText = this.add.bitmapText(0, 300, "font", "S: PLAY", 25);
+    this.playBitmapText = this.add.bitmapText(0, 300, 'font', 'S: PLAY', 25);
 
     this.playBitmapText.x = this.getCenterXPositionOfBitmapText(
       this.playBitmapText.width
@@ -45,7 +45,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   update(): void {
     if (this.startKey.isDown) {
-      this.scene.start("GameScene");
+      this.scene.start('GameScene');
     }
   }
 

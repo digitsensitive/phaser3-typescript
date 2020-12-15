@@ -5,7 +5,7 @@
  * @license      Digitsensitive
  */
 
-import { CONST } from "../const/const";
+import { CONST } from '../const/const';
 
 export class MainMenuScene extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
@@ -15,7 +15,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "MainMenuScene"
+      key: 'MainMenuScene'
     });
   }
 
@@ -30,9 +30,9 @@ export class MainMenuScene extends Phaser.Scene {
 
   preload(): void {
     this.load.bitmapFont(
-      "pcsenior",
-      "./src/games/blockade/assets/font/pcsenior.png",
-      "./src/games/blockade/assets/font/pcsenior.fnt"
+      'pcsenior',
+      './src/games/blockade/assets/font/pcsenior.png',
+      './src/games/blockade/assets/font/pcsenior.fnt'
     );
   }
 
@@ -50,8 +50,8 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 28,
         this.sys.canvas.height / 2 - 10,
-        "pcsenior",
-        "PLAY  P",
+        'pcsenior',
+        'PLAY  P',
         8
       )
     );
@@ -60,8 +60,8 @@ export class MainMenuScene extends Phaser.Scene {
       this.add.bitmapText(
         this.sys.canvas.width / 2 - 60,
         this.sys.canvas.height / 2 - 60,
-        "pcsenior",
-        "BLOCKADE",
+        'pcsenior',
+        'BLOCKADE',
         16
       )
     );
@@ -69,7 +69,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   update(): void {
     if (this.startKey.isDown) {
-      this.scene.start("GameScene");
+      this.scene.start('GameScene');
     }
   }
 }

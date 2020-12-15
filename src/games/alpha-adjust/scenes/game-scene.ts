@@ -5,8 +5,8 @@
  * @license      Digitsensitive
  */
 
-import { CloneCrystal } from "../objects/clone-crystal";
-import { OriginalCrystal } from "../objects/original-crystal";
+import { CloneCrystal } from '../objects/clone-crystal';
+import { OriginalCrystal } from '../objects/original-crystal';
 
 export class GameScene extends Phaser.Scene {
   private cloneCrystal: CloneCrystal;
@@ -17,12 +17,12 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "GameScene"
+      key: 'GameScene'
     });
   }
 
   preload(): void {
-    this.load.image("crystal", "./src/games/alpha-adjust/assets/crystal.png");
+    this.load.image('crystal', './src/games/alpha-adjust/assets/crystal.png');
   }
 
   init(): void {
@@ -37,24 +37,24 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: this.sys.canvas.width / 2 - 150,
       y: this.sys.canvas.height / 2,
-      key: "crystal"
+      key: 'crystal'
     });
 
     this.originalCrystal = new OriginalCrystal({
       scene: this,
       x: this.sys.canvas.width / 2 + 150,
       y: this.sys.canvas.height / 2,
-      key: "crystal",
+      key: 'crystal',
       alpha: Phaser.Math.RND.realInRange(0, 1)
     });
 
     this.input.on(
-      "pointerdown",
-      function() {
+      'pointerdown',
+      function () {
         if (!this.playerHasClicked) {
           this.playerHasClicked = true;
         } else {
-          this.scene.start("GameScene");
+          this.scene.start('GameScene');
         }
       },
       this
@@ -78,50 +78,50 @@ export class GameScene extends Phaser.Scene {
     this.alphaDifferenceText = this.add.text(
       this.sys.canvas.width / 2 - 100,
       this.sys.canvas.height / 2 + 100,
-      difference.toFixed(2) + "",
+      difference.toFixed(2) + '',
       {
-        fontFamily: "Connection",
+        fontFamily: 'Connection',
         fontSize: 100,
-        stroke: "#000000",
+        stroke: '#000000',
         strokeThickness: 8,
-        fill: "#ffffff"
+        fill: '#ffffff'
       }
     );
 
     let textConfig = {
-      fontFamily: "Connection",
+      fontFamily: 'Connection',
       fontSize: 50,
-      stroke: "#000000",
+      stroke: '#000000',
       strokeThickness: 8,
-      fill: "#ffffff"
+      fill: '#ffffff'
     };
 
     if (difference >= 0.5) {
       this.feedbackText = this.add.text(
         this.sys.canvas.width / 2 - 250,
         this.sys.canvas.height / 2 - 150,
-        "You can do better!",
+        'You can do better!',
         textConfig
       );
     } else if (difference < 0.5 && difference >= 0.3) {
       this.feedbackText = this.add.text(
         this.sys.canvas.width / 2 - 40,
         this.sys.canvas.height / 2 - 150,
-        "OK!",
+        'OK!',
         textConfig
       );
     } else if (difference < 0.3 && difference >= 0.1) {
       this.feedbackText = this.add.text(
         this.sys.canvas.width / 2 - 90,
         this.sys.canvas.height / 2 - 150,
-        "Great!",
+        'Great!',
         textConfig
       );
     } else if (difference < 0.1) {
       this.feedbackText = this.add.text(
         this.sys.canvas.width / 2 - 145,
         this.sys.canvas.height / 2 - 150,
-        "Wonderful!",
+        'Wonderful!',
         textConfig
       );
     }

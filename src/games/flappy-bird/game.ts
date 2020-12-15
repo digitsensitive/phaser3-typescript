@@ -5,30 +5,30 @@
  * @license      Digitsensitive
  */
 
-import "phaser";
-import { BootScene } from "./scenes/boot-scene";
-import { GameScene } from "./scenes/game-scene";
-import { MainMenuScene } from "./scenes/main-menu-scene";
+import 'phaser';
+import { BootScene } from './scenes/boot-scene';
+import { GameScene } from './scenes/game-scene';
+import { MainMenuScene } from './scenes/main-menu-scene';
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Flappy Bird",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "2.0",
+  title: 'Flappy Bird',
+  url: 'https://github.com/digitsensitive/phaser3-typescript',
+  version: '2.0',
   width: 390,
   height: 600,
   type: Phaser.AUTO,
-  parent: "game",
+  parent: 'game',
   scene: [BootScene, MainMenuScene, GameScene],
   input: {
     keyboard: true
   },
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
       gravity: { y: 300 }
     }
   },
-  backgroundColor: "#98d687",
+  backgroundColor: '#98d687',
   render: { pixelArt: true, antialias: false }
 };
 
@@ -38,6 +38,6 @@ export class Game extends Phaser.Game {
   }
 }
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   var game = new Game(config);
 });
