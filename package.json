@@ -51,7 +51,7 @@
     "name": "digitsensitive",
     "email": "digit.sensitivee@gmail.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/digitsensitive/phaser3-typescript/issues"
   },

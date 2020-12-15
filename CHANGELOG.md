@@ -18,12 +18,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Updates
 
+- Boilerplate: Update dependencies
 - Add `prettier` version `2.2.1` to `devDependencies`
 - Add `.prettierignore` and `.prettierrc` to root
 - Format whole project with `prettier`
 - Update `README.md`
 - Update `.gitignore`
 - Update `yarn.lock`
+- Update `LICENSE`
 
 ---
 
