@@ -1,8 +1,4 @@
 /**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Cellular automaton: Game Scene
- *
  * This experimental project was created to explore `cellular automaton`,
  * originally discovered in the 1940s by Stanislaw Ulam and John von Neumann.
  *
@@ -31,17 +27,15 @@
  * [2] [Nature Of Code](http://natureofcode.com/book/chapter-7-cellular-automata)
  * [3] [The Wolfram Atlas](http://atlas.wolfram.com/TOC/TOC_101.html)
  * [3] [Stephen Wolfram’s 1,280-page A New Kind of Science](http://www.wolframscience.com/nks)
- *
- * @license      Digitsensitive
  */
 
-import { RULESETS } from './const/rulesets';
-import { Cell } from './objects/cell';
-import { CONST } from './const/const';
+import { Cell } from '../objects/cell';
+import { CONST } from '../const/const';
 
 export class GameScene extends Phaser.Scene {
   private cells: Cell[][];
   private generation: number;
+  private selectedRule: number;
   private ruleset: number[];
 
   constructor() {
@@ -64,16 +58,45 @@ export class GameScene extends Phaser.Scene {
       }
     }
 
-    // Push our 9 cells into line one in the center
-    const fixedCells = [0, 1, 0, 0, 1, 1, 1, 1, 1];
+    // Push our nine cells into line one in the center
+    const fixedCells = [0, 0, 0, 0, 1, 0, 0, 0, 0];
     const startingPosition = CONST.GRID_WIDTH / 2 - 4;
-
     for (let x = 0; x < fixedCells.length; x++) {
       this.cells[0][startingPosition + x].setValue(fixedCells[x]);
     }
 
     this.generation = 0;
-    this.ruleset = RULESETS[11];
+    this.selectedRule = 90;
+    this.ruleset = this.decimalToBinaryNumberArray(this.selectedRule);
+  }
+
+  /**
+   * Convert a decimal number into the binary representation as a number array.
+   * @param decimal
+   */
+  decimalToBinaryNumberArray(decimal: number): number[] {
+    if (decimal > 255 || decimal < 0) {
+      throw new RangeError(
+        'Out of Range: Only numbers between 0 - 255 are allowed!'
+      );
+    }
+
+    const binaryString = (decimal >>> 0).toString(2);
+    let binaryArray: number[] = [];
+
+    let missingNumberCount;
+    if (binaryString.length < 8) {
+      missingNumberCount = 8 - binaryString.length;
+      for (let i = 0; i < missingNumberCount; i++) {
+        binaryArray.push(0);
+      }
+    }
+
+    for (let i = 0; i < binaryString.length; i++) {
+      binaryArray.push(parseInt(binaryString.charAt(i)));
+    }
+
+    return binaryArray.reverse();
   }
 
   update(): void {
@@ -107,15 +130,16 @@ export class GameScene extends Phaser.Scene {
   }
 
   /**
-   * Parse the neightbour as a string and convert it to a integer
+   * Parse the neightbour as a string and convert it to an integer.
    */
-  private parseThroughTheRules(l: number, c: number, r: number): number {
-    const s = '' + l + c + r;
+  private parseThroughTheRules(
+    left: number,
+    current: number,
+    right: number
+  ): number {
+    const s = '' + left + current + right;
     const index = parseInt(s, 2);
-    return this.ruleset[index];
-  }
 
-  private getRandomRuleset(): number[] {
-    return RULESETS[Math.floor(Math.random() * RULESETS.length)];
+    return this.ruleset[index];
   }
 }

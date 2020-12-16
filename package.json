@@ -1,6 +1,6 @@
 {
   "name": "phaser3-typescript",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Boilerplate, Game Examples, Cheat Sheets and Tutorials for Phaser 3 in TypeScript",
   "keywords": [
     "Phaser",
@@ -31,6 +31,7 @@
   },
   "scripts": {
     "boilerplate": "cd src/boilerplate && yarn && yarn run dev",
+    "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run dev",
     "dev": "webpack --mode development && webpack-dev-server --mode development",
     "build": "webpack --mode production && webpack-dev-server --mode production",
     "candy-crush": "cd src/games/candy-crush && yarn && yarn run dev",

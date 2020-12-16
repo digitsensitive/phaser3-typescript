@@ -1,3 +1,0 @@
-- Add missing rulesets
-- Evaluate if initial conditions variation
-- Calculate a score?
