@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Raycasting: Game Scene
- * @license      Digitsensitive
- */
-
 import { RaycastingService } from '../services/raycasting/raycasting.service';
 
 const LINE_SEGMENTS = [
@@ -76,7 +69,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     // Config mouse/pointer input on move
-    this.input.on('pointermove', (pointer) => {
+    this.input.on('pointermove', (pointer: any) => {
       this.raycastingService.setEyePosition(pointer.x, pointer.y);
     });
   }

@@ -1,19 +1,7 @@
 /**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Raycasting Service
- *               A service to use raycasting in 2D.
- *
  * Ressources:
- *
- * Ray casting (Wikipedia):
- * https://en.wikipedia.org/wiki/Ray_casting
- *
- * The coding train - 2D Raycasting:
- * https://www.youtube.com/watch?v=TOEi6T2mtHo&t=1581s
- *
- * @version      1.0
- * @license      Digitsensitive
+ * [1] [Wikipedia](https://en.wikipedia.org/wiki/Ray_casting)
+ * [2] [The coding train - 2D Raycasting](https://www.youtube.com/watch?v=TOEi6T2mtHo&t=1581s)
  */
 
 import { Ray } from './ray';
@@ -70,12 +58,8 @@ export class RaycastingService {
    * Line–line intersection (adapted)
    *
    * Ressources:
-   *
-   * Line–line intersection (Wikipedia):
-   * https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection
-   *
-   * Bézier curve (Wikipedia):
-   * https://en.wikipedia.org/wiki/B%C3%A9zier_curve
+   * [1] [Wikipedia](https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection)
+   * [2] [Wikipedia](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
    *
    * @param l1
    * @param l2
