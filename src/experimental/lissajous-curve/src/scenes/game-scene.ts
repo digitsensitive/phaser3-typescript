@@ -1,8 +1,4 @@
 /**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Lissajous curve: Game Scene
- *
  * A Lissajous curve is the graph of a system of parametric equations
  *
  * x = A * sin(at+delta)
@@ -17,8 +13,6 @@
  *
  * Detailed Lissajous figures simulation:
  * https://codepen.io/kotwgarnku/full/dMqKZG
- *
- * @license      Digitsensitive
  */
 
 export class GameScene extends Phaser.Scene {
