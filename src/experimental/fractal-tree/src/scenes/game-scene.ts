@@ -1,20 +1,10 @@
 /**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Fractal tree: Game Scene
- *
  * In mathematics, a fractal is a subset of a Euclidean space for which the
  * fractal dimension strictly exceeds the topological dimension.
  *
  * Ressources:
- *
- * Fractal tree (Wikipedia):
- * https://en.wikipedia.org/wiki/Fractal
- *
- * Rosetta code:
- * https://www.rosettacode.org/wiki/Fractal_tree#TypeScript
- *
- * @license      Digitsensitive
+ * [1] [Wikipedia](https://en.wikipedia.org/wiki/Fractal)
+ * [2] [Rosetta code](https://www.rosettacode.org/wiki/Fractal_tree#TypeScript)
  */
 
 export class GameScene extends Phaser.Scene {
@@ -73,7 +63,10 @@ export class GameScene extends Phaser.Scene {
         Math.sin(angle * this.constantForConversionToRadians) *
           depth *
           this.lineLength;
+      // draw a line first
       this.drawLine(x1, y1, x2, y2);
+
+      // now from the endpoint generate two new trees and reduce the depth
       this.drawTree(x2, y2, angle - 20, depth - 1);
       this.drawTree(x2, y2, angle + 20, depth - 1);
     }
