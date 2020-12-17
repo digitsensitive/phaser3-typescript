@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Procedural Generation: Game Scene
- * @license      Digitsensitive
- */
-
 import { GALAXY } from '../const/galaxy';
 import { StarSystem } from '../objects/star-system';
 
@@ -33,12 +26,18 @@ export class GameScene extends Phaser.Scene {
     // INPUT
     // *****************************************************************
     this.cursorKeys = this.input.keyboard.createCursorKeys();
-    this.input.on('gameobjectover', (pointer, gameObject, event) => {
-      gameObject.setStrokeStyle(1, 0xffffff);
-    });
-    this.input.on('gameobjectout', (pointer, gameObject, event) => {
-      gameObject.setStrokeStyle(0, 0xffffff);
-    });
+    this.input.on(
+      'gameobjectover',
+      (pointer: any, gameObject: any, event: any) => {
+        gameObject.setStrokeStyle(1, 0xffffff);
+      }
+    );
+    this.input.on(
+      'gameobjectout',
+      (pointer: any, gameObject: any, event: any) => {
+        gameObject.setStrokeStyle(0, 0xffffff);
+      }
+    );
 
     // *****************************************************************
     // CAMERA
@@ -75,7 +74,7 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
-  update(time, delta): void {
+  update(time: number, delta: number): void {
     // Update camera
     this.controls.update(delta);
   }

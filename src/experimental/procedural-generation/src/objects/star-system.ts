@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Prodecural Generation: Star System
- * @license      Digitsensitive
- */
-
 import { GALAXY } from '../const/galaxy';
 import { IStarSystemConstructor } from '../interfaces/interfaces';
 

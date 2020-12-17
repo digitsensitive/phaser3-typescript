@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Refactor `game-of-life`
 - Refactor `lissajous-curve`
 - Refactor `point-in-polygon`
+- Refactor `procedural-generation`
 
 ---
 

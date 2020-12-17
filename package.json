@@ -36,13 +36,13 @@
     "game-of-life": "cd src/experimental/game-of-life && yarn && yarn run dev",
     "lissajous-curve": "cd src/experimental/lissajous-curve && yarn && yarn run dev",
     "point-in-polygon": "cd src/experimental/point-in-polygon && yarn && yarn run dev",
+    "procedural-generation": "cd src/experimental/procedural-generation && yarn && yarn run dev",
     "dev": "webpack --mode development && webpack-dev-server --mode development",
     "build": "webpack --mode production && webpack-dev-server --mode production",
     "candy-crush": "cd src/games/candy-crush && yarn && yarn run dev",
     "factory-method": "cd patterns/creational-design-patterns/factory-method && yarn && yarn run dev",
     "raycasting": "cd src/experimental/raycasting && yarn && yarn run dev",
-    "untextured-raycaster": "cd src/experimental/untextured-raycaster && yarn && yarn run dev",
-    "procedural-generation": "cd src/experimental/procedural-generation && yarn && yarn run dev"
+    "untextured-raycaster": "cd src/experimental/untextured-raycaster && yarn && yarn run dev"
   },
   "repository": {
     "type": "git",
