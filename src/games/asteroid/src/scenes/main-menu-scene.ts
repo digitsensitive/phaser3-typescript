@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Asteroid: Main Menu Scene
- * @license      Digitsensitive
- */
-
 import { CONST } from '../const/const';
 
 export class MainMenuScene extends Phaser.Scene {
@@ -33,8 +26,8 @@ export class MainMenuScene extends Phaser.Scene {
   preload(): void {
     this.load.bitmapFont(
       'asteroidFont',
-      './src/games/asteroid/assets/font/asteroidFont.png',
-      './src/games/asteroid/assets/font/asteroidFont.fnt'
+      './assets/font/asteroidFont.png',
+      './assets/font/asteroidFont.fnt'
     );
   }
 

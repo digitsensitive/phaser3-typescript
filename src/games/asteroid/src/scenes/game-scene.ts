@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Asteroid: Game Scene
- * @license      Digitsensitive
- */
-
 import { Asteroid } from '../objects/asteroid';
 import { Bullet } from '../objects/bullet';
 import { Ship } from '../objects/ship';
@@ -25,7 +18,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.player = new Ship({ scene: this, opt: {} });
+    this.player = new Ship({ scene: this });
     this.asteroids = [];
     this.numberOfAsteroids = CONST.ASTEROID_COUNT;
     this.spawnAsteroids(this.numberOfAsteroids, 3);
@@ -114,15 +107,17 @@ export class GameScene extends Phaser.Scene {
         this.asteroids.push(
           new Asteroid({
             scene: this,
-            x:
-              aX === undefined
-                ? this.getRandomSpawnPostion(this.sys.canvas.width)
-                : aX,
-            y:
-              aY === undefined
-                ? this.getRandomSpawnPostion(this.sys.canvas.height)
-                : aY,
-            size: aSize
+            size: aSize,
+            options: {
+              x:
+                aX === undefined
+                  ? this.getRandomSpawnPostion(this.sys.canvas.width)
+                  : aX,
+              y:
+                aY === undefined
+                  ? this.getRandomSpawnPostion(this.sys.canvas.height)
+                  : aY
+            }
           })
         );
       }

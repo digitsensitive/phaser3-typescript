@@ -1,13 +1,10 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Asteroid: Asteroid
- * @license      Digitsensitive
- */
-
 import { CONST } from '../const/const';
 
+import { IAsteroidConstructor } from '../interfaces/asteroid.interface';
+
 export class Asteroid extends Phaser.GameObjects.Graphics {
+  body: Phaser.Physics.Arcade.Body;
+
   private velocity: Phaser.Math.Vector2;
   private radius: number;
   private asteroidRadius: number;
@@ -21,16 +18,20 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
     return this.body;
   }
 
-  constructor(params) {
-    super(params.scene, params);
+  constructor(aParams: IAsteroidConstructor) {
+    super(aParams.scene, aParams.options);
 
     // variables
     this.numberOfSides = 12;
     this.asteroidRadius = 0;
-    this.sizeOfAsteroid = params.size;
+    this.sizeOfAsteroid = aParams.size;
 
     // init ship
-    this.initAsteroid(params.x, params.y, this.sizeOfAsteroid);
+    this.initAsteroid(
+      aParams.options.x,
+      aParams.options.y,
+      this.sizeOfAsteroid
+    );
 
     // physics
     this.scene.physics.world.enable(this);

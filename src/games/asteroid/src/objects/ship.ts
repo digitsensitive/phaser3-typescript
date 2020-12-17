@@ -1,14 +1,10 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Asteroid: Ship
- * @license      Digitsensitive
- */
-
-import { Bullet } from '../objects/bullet';
+import { Bullet } from './bullet';
 import { CONST } from '../const/const';
+import { IGraphicsConstructor } from '../interfaces/graphics.interface';
 
 export class Ship extends Phaser.GameObjects.Graphics {
+  body: Phaser.Physics.Arcade.Body;
+
   private velocity: Phaser.Math.Vector2;
   private cursors: any;
   private bullets: Bullet[];
@@ -23,8 +19,8 @@ export class Ship extends Phaser.GameObjects.Graphics {
     return this.body;
   }
 
-  constructor(params) {
-    super(params.scene, params.opt);
+  constructor(aParams: IGraphicsConstructor) {
+    super(aParams.scene, aParams.options);
 
     // variables
     this.bullets = [];
@@ -137,10 +133,13 @@ export class Ship extends Phaser.GameObjects.Graphics {
 
   private shoot(): void {
     this.bullets.push(
-      new Bullet(this.scene, {
-        x: this.x,
-        y: this.y,
-        rotation: this.rotation
+      new Bullet({
+        scene: this.scene,
+        rotation: this.rotation,
+        options: {
+          x: this.x,
+          y: this.y
+        }
       })
     );
   }

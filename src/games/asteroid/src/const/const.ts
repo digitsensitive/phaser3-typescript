@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Asteroid: Const
- * @license      Digitsensitive
- */
-
 export let CONST = {
   SHIP_SIZE: 20,
   SCORE: 0,

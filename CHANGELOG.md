@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Refactor `procedural-generation`
 - Refactor `raycasting`
 - Refactor `alpha-adjust`
+- Refactor `asteroid`
 
 ---
 

@@ -32,6 +32,7 @@
   "scripts": {
     "boilerplate": "cd src/boilerplate && yarn && yarn run dev",
     "alpha-adjust": "cd src/games/alpha-adjust && yarn && yarn run dev",
+    "asteroid": "cd src/games/asteroid && yarn && yarn run dev",
     "candy-crush": "cd src/games/candy-crush && yarn && yarn run dev",
     "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run dev",
     "fractal-tree": "cd src/experimental/fractal-tree && yarn && yarn run dev",

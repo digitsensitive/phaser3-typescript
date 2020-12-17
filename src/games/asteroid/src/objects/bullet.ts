@@ -1,22 +1,20 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Asteroid: Bullet
- * @license      Digitsensitive
- */
+import { IBulletConstructor } from '../interfaces/bullet.interface';
 
 export class Bullet extends Phaser.GameObjects.Graphics {
+  body: Phaser.Physics.Arcade.Body;
+
   private colors: number[];
   private selectedColor: number;
   private velocity: Phaser.Math.Vector2;
   private lifeSpan: number;
   private isOffScreen: boolean;
+
   public getBody(): any {
     return this.body;
   }
 
-  constructor(scene, params) {
-    super(scene, params);
+  constructor(aParams: IBulletConstructor) {
+    super(aParams.scene, aParams.options);
 
     // variables
     this.colors = [];
@@ -29,11 +27,11 @@ export class Bullet extends Phaser.GameObjects.Graphics {
     this.isOffScreen = false;
 
     // init bullet
-    this.x = params.x;
-    this.y = params.y;
+    this.x = aParams.options.x;
+    this.y = aParams.options.y;
     this.velocity = new Phaser.Math.Vector2(
-      15 * Math.cos(params.rotation - Math.PI / 2),
-      15 * Math.sin(params.rotation - Math.PI / 2)
+      15 * Math.cos(aParams.rotation - Math.PI / 2),
+      15 * Math.sin(aParams.rotation - Math.PI / 2)
     );
 
     // define bullet graphics and draw it
