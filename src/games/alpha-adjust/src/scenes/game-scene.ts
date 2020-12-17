@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Alpha Adjust: Game Scene
- * @license      Digitsensitive
- */
-
 import { CloneCrystal } from '../objects/clone-crystal';
 import { OriginalCrystal } from '../objects/original-crystal';
 
@@ -22,7 +15,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image('crystal', './src/games/alpha-adjust/assets/crystal.png');
+    this.load.image('crystal', './assets/images/crystal.png');
   }
 
   init(): void {
@@ -37,14 +30,14 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: this.sys.canvas.width / 2 - 150,
       y: this.sys.canvas.height / 2,
-      key: 'crystal'
+      texture: 'crystal'
     });
 
     this.originalCrystal = new OriginalCrystal({
       scene: this,
       x: this.sys.canvas.width / 2 + 150,
       y: this.sys.canvas.height / 2,
-      key: 'crystal',
+      texture: 'crystal',
       alpha: Phaser.Math.RND.realInRange(0, 1)
     });
 
@@ -80,7 +73,7 @@ export class GameScene extends Phaser.Scene {
       this.sys.canvas.height / 2 + 100,
       difference.toFixed(2) + '',
       {
-        fontFamily: 'Connection',
+        fontFamily: 'Arial',
         fontSize: 100,
         stroke: '#000000',
         strokeThickness: 8,
@@ -89,7 +82,7 @@ export class GameScene extends Phaser.Scene {
     );
 
     let textConfig = {
-      fontFamily: 'Connection',
+      fontFamily: 'Arial',
       fontSize: 50,
       stroke: '#000000',
       strokeThickness: 8,

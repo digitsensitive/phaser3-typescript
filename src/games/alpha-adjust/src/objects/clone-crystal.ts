@@ -1,15 +1,10 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Alpha Adjust: Clone Crystal
- * @license      Digitsensitive
- */
+import { ICrystalConstructor } from '../interfaces/crystal.interface';
 
 export class CloneCrystal extends Phaser.GameObjects.Image {
   private increaseAlpha: boolean;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  constructor(aParams: ICrystalConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
 
     this.initVariables();
     this.initImage();
