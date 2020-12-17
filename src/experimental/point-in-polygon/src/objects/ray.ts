@@ -1,9 +1,4 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Point in Polygon: Ray
- * @license      Digitsensitive
- */
+import { IGraphicsConstructor } from '../interfaces/graphics.interface';
 
 export class Ray extends Phaser.GameObjects.Graphics {
   // Vectors
@@ -15,11 +10,11 @@ export class Ray extends Phaser.GameObjects.Graphics {
   // Circle Geom
   private rayCircle: Phaser.Geom.Circle;
 
-  constructor(params) {
-    super(params.scene, params.options);
+  constructor(aParams: IGraphicsConstructor) {
+    super(aParams.scene, aParams.options);
 
-    this.initVariables(params.options.direction);
-    this.initGraphics(params.options);
+    this.initVariables(aParams.direction);
+    this.initGraphics(aParams.options);
 
     this.scene.add.existing(this);
   }
@@ -29,8 +24,10 @@ export class Ray extends Phaser.GameObjects.Graphics {
     this.movingSpeed = 2;
   }
 
-  private initGraphics(params): void {
-    this.setPosition(params.x, params.y);
+  private initGraphics(
+    aParams: Phaser.Types.GameObjects.Graphics.Options
+  ): void {
+    this.setPosition(aParams.x, aParams.y);
 
     this.rayCircle = new Phaser.Geom.Circle(
       this.direction.x,

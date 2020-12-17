@@ -1,8 +1,4 @@
 /**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Point in Polygon: Game Scene
- *
  * In computational geometry, the point-in-polygon (PIP) problem asks whether a
  * given point in the plane lies inside, outside, or on the boundary of a polygon.
  *
@@ -15,17 +11,9 @@
  * if it's odd, it's inside.
  *
  * Ressources:
- *
- * Point in polygon (Wikipedia):
- * https://en.wikipedia.org/wiki/Point_in_polygon
- *
- * Stackoverflow:
- * https://stackoverflow.com/questions/217578/how-can-i-determine-whether-a-2d-point-is-within-a-polygon
- *
- * Collision Detection (Jeffrey Thompson):
- * http://www.jeffreythompson.org/collision-detection/line-point.php
- *
- * @license      Digitsensitive
+ * [1] [Wikipedia](https://en.wikipedia.org/wiki/Point_in_polygon)
+ * [2] [Stackoverflow](https://stackoverflow.com/questions/217578/how-can-i-determine-whether-a-2d-point-is-within-a-polygon)
+ * [3] [Collision Detection (Jeffrey Thompson)](http://www.jeffreythompson.org/collision-detection/line-point.php)
  */
 
 import { Ray } from '../objects/ray';
@@ -102,14 +90,14 @@ export class GameScene extends Phaser.Scene {
 
     this.ray = new Ray({
       scene: this,
+      direction: new Phaser.Math.Vector2(
+        this.endPoint.x - this.startPoint.x,
+        this.endPoint.y - this.startPoint.y
+      ),
       options: {
         fillStyle: { color: 0xffffff, alpha: 1 },
         x: 20,
-        y: 20,
-        direction: new Phaser.Math.Vector2(
-          this.endPoint.x - this.startPoint.x,
-          this.endPoint.y - this.startPoint.y
-        )
+        y: 20
       }
     });
   }

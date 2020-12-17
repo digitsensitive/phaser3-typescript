@@ -1,12 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Collisions Service
- *               A service to detect different collisions.
- * @version      1.0
- * @license      Digitsensitive
- */
-
 export function PointLineCollision(
   x1: number,
   y1: number,
