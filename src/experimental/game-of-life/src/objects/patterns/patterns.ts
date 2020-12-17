@@ -1,11 +1,4 @@
 /**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Game Of Life: Patterns
- * @license      Digitsensitive
- */
-
-/**
  * A selection of patterns for Game of Life
  * https://www.conwaylife.com
  */

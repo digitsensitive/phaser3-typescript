@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Game Of Life: Grid
- * @license      Digitsensitive
- */
-
 import { Cell } from './cell';
 
 export class Grid {

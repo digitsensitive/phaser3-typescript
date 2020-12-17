@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Game Of Life: Cell
- * @license      Digitsensitive
- */
-
 export class Cell {
   private value: number;
   private position: Phaser.Math.Vector2;

@@ -1,8 +1,4 @@
 /**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Game Of Life: GameScene
- *
  * This experimental project was created to explore `cellular automaton`,
  * originally discovered in the 1940s by Stanislaw Ulam and John von Neumann.
  *
@@ -27,21 +23,13 @@
  * cellular automaton: the "Game of Life".
  *
  * Ressources:
- *
- * Cellular automaton (Wikipedia):
- * https://en.wikipedia.org/wiki/Cellular_automaton
- *
- * Nature Of Code:
- * http://natureofcode.com/book/chapter-7-cellular-automata
- *
- * Stephen Wolfram’s 1,280-page A New Kind of Science:
- * http://www.wolframscience.com/nks
- *
- * @license      Digitsensitive
+ * [1] [Wikipedia](https://en.wikipedia.org/wiki/Cellular_automaton)
+ * [2] [Nature Of Code](http://natureofcode.com/book/chapter-7-cellular-automata)
+ * [3] [Stephen Wolfram’s 1,280-page A New Kind of Science](http://www.wolframscience.com/nks)
  */
 
 import { Grid } from '../objects/grid';
-import { PATTERNS } from '../patterns/patterns';
+import { PATTERNS } from '../objects/patterns/patterns';
 
 export class GameScene extends Phaser.Scene {
   // Grid
@@ -114,10 +102,6 @@ export class GameScene extends Phaser.Scene {
       loop: true
     });
   }
-
-  create(): void {}
-
-  update(): void {}
 
   /**
    * This function creates the next generation with the predefined
