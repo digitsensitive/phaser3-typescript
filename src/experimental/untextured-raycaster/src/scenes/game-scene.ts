@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Untextured Raycaster: Game Scene
- * @license      Digitsensitive
- */
-
 import { Player } from '../objects/player';
 import { WORLD_MAP } from '../const/map';
 

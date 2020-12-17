@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Untextured Raycaster: Const Map
- * @license      Digitsensitive
- */
-
 export const WORLD_MAP: number[][] = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
