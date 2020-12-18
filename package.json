@@ -18,16 +18,7 @@
     "Phaser3-example"
   ],
   "devDependencies": {
-    "expose-loader": "0.7.5",
-    "prettier": "2.2.1",
-    "ts-loader": "6.0.4",
-    "typescript": "3.5.2",
-    "webpack": "4.35.2",
-    "webpack-cli": "3.3.5",
-    "webpack-dev-server": "3.7.2"
-  },
-  "dependencies": {
-    "phaser": "3.20.1"
+    "prettier": "2.2.1"
   },
   "scripts": {
     "boilerplate": "cd src/boilerplate && yarn && yarn run dev",
