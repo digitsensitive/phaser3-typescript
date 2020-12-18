@@ -1,13 +1,10 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Tank: Obstacle
- * @license      Digitsensitive
- */
+import { IImageConstructor } from '../../interfaces/image.interface';
 
 export class Obstacle extends Phaser.GameObjects.Image {
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  body: Phaser.Physics.Arcade.Body;
+
+  constructor(aParams: IImageConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
 
     this.initImage();
     this.scene.add.existing(this);

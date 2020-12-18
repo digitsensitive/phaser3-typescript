@@ -1,13 +1,7 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Tank: Game Scene
- * @license      Digitsensitive
- */
-
 import { Player } from '../objects/player';
 import { Enemy } from '../objects/enemy';
 import { Obstacle } from '../objects/obstacles/obstacle';
+import { Bullet } from '../objects/bullet';
 
 export class GameScene extends Phaser.Scene {
   private map: Phaser.Tilemaps.Tilemap;
@@ -128,14 +122,14 @@ export class GameScene extends Phaser.Scene {
           scene: this,
           x: object.x,
           y: object.y,
-          key: 'tankBlue'
+          texture: 'tankBlue'
         });
       } else if (object.type === 'enemy') {
         let enemy = new Enemy({
           scene: this,
           x: object.x,
           y: object.y,
-          key: 'tankRed'
+          texture: 'tankRed'
         });
 
         this.enemies.add(enemy);
@@ -144,7 +138,7 @@ export class GameScene extends Phaser.Scene {
           scene: this,
           x: object.x,
           y: object.y - 40,
-          key: object.type
+          texture: object.type
         });
 
         this.obstacles.add(obstacle);
@@ -152,20 +146,20 @@ export class GameScene extends Phaser.Scene {
     });
   }
 
-  private bulletHitLayer(bullet): void {
+  private bulletHitLayer(bullet: Bullet): void {
     bullet.destroy();
   }
 
-  private bulletHitObstacles(bullet, obstacle): void {
+  private bulletHitObstacles(bullet: Bullet, obstacle: Obstacle): void {
     bullet.destroy();
   }
 
-  private enemyBulletHitPlayer(bullet, player): void {
+  private enemyBulletHitPlayer(bullet: Bullet, player: Player): void {
     bullet.destroy();
     player.updateHealth();
   }
 
-  private playerBulletHitEnemy(bullet, enemy): void {
+  private playerBulletHitEnemy(bullet: Bullet, enemy: Enemy): void {
     bullet.destroy();
     enemy.updateHealth();
   }

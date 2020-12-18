@@ -1,17 +1,14 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Tank: Bullet
- * @license      Digitsensitive
- */
+import { IBulletConstructor } from '../interfaces/bullet.interface';
 
 export class Bullet extends Phaser.GameObjects.Image {
+  body: Phaser.Physics.Arcade.Body;
+
   private bulletSpeed: number;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  constructor(aParams: IBulletConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
 
-    this.rotation = params.rotation;
+    this.rotation = aParams.rotation;
     this.initImage();
     this.scene.add.existing(this);
   }

@@ -1,13 +1,9 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Tank: Enemy
- * @license      Digitsensitive
- */
-
 import { Bullet } from './bullet';
+import { IImageConstructor } from '../interfaces/image.interface';
 
 export class Enemy extends Phaser.GameObjects.Image {
+  body: Phaser.Physics.Arcade.Body;
+
   // variables
   private health: number;
   private lastShoot: number;
@@ -28,8 +24,8 @@ export class Enemy extends Phaser.GameObjects.Image {
     return this.bullets;
   }
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+  constructor(aParams: IImageConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     this.initContainer();
     this.scene.add.existing(this);
@@ -97,10 +93,10 @@ export class Enemy extends Phaser.GameObjects.Image {
         this.bullets.add(
           new Bullet({
             scene: this.scene,
+            rotation: this.barrel.rotation,
             x: this.barrel.x,
             y: this.barrel.y,
-            key: 'bulletRed',
-            rotation: this.barrel.rotation
+            texture: 'bulletRed'
           })
         );
 

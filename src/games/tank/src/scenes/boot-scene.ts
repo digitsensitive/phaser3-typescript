@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Tank: Boot Scene
- * @license      Digitsensitive
- */
-
 export class BootScene extends Phaser.Scene {
   private loadingBar: Phaser.GameObjects.Graphics;
   private progressBar: Phaser.GameObjects.Graphics;
@@ -23,7 +16,7 @@ export class BootScene extends Phaser.Scene {
     // pass value to change the loading bar fill
     this.load.on(
       'progress',
-      function (value) {
+      function (value: number) {
         this.progressBar.clear();
         this.progressBar.fillStyle(0x88e453, 1);
         this.progressBar.fillRect(
@@ -47,7 +40,7 @@ export class BootScene extends Phaser.Scene {
     );
 
     // load our package
-    this.load.pack('preload', './src/games/tank/assets/pack.json', 'preload');
+    this.load.pack('preload', './assets/pack.json', 'preload');
   }
 
   update(): void {
