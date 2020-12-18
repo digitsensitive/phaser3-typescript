@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Blockade: Game Scene
- * @license      Digitsensitive
- */
-
 import { Player } from '../objects/player';
 import { PlayerTwo } from '../objects/playerTwo';
 import { Wall } from '../objects/wall';
@@ -45,15 +38,11 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image('border', './src/games/blockade/assets/images/border.png');
-    this.load.spritesheet(
-      'player',
-      './src/games/blockade/assets/images/player.png',
-      {
-        frameWidth: 8,
-        frameHeight: 8
-      }
-    );
+    this.load.image('border', './assets/images/border.png');
+    this.load.spritesheet('player', './assets/images/player.png', {
+      frameWidth: 8,
+      frameHeight: 8
+    });
   }
 
   create(): void {
@@ -76,7 +65,7 @@ export class GameScene extends Phaser.Scene {
             scene: this,
             x: CONST.FIELD_SIZE / 2 + x * CONST.FIELD_SIZE,
             y: CONST.FIELD_SIZE / 2 + y * CONST.FIELD_SIZE,
-            key: 'border'
+            texture: 'border'
           });
           i++;
         }
@@ -93,7 +82,7 @@ export class GameScene extends Phaser.Scene {
     );
   }
 
-  update(time): void {
+  update(time: number): void {
     for (let wall of this.gameBorder) {
       wall.update();
     }
@@ -105,8 +94,8 @@ export class GameScene extends Phaser.Scene {
       if (time - this.tick > 200) {
         this.player.move();
         this.playerTwo.move();
-        this.player.grow(this);
-        this.playerTwo.grow(this);
+        this.player.grow();
+        this.playerTwo.grow();
         this.checkCollision();
         this.tick = time;
       }

@@ -1,12 +1,6 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Blockade: Player Two
- * @license      Digitsensitive
- */
-
-export class PlayerTwo {
-  private cursors: Phaser.Input.Keyboard.Key[] = [];
+export class Player {
+  private scene: Phaser.Scene;
+  private cursors: any;
   private direction: string;
   private snakeHead: Phaser.GameObjects.Image;
   private snakeBody: Phaser.GameObjects.Image[] = [];
@@ -18,7 +12,7 @@ export class PlayerTwo {
   private lastPositionX: number;
   private lastPositionY: number;
 
-  public setDead(_dead): void {
+  public setDead(_dead: boolean): void {
     this.dead = _dead;
   }
 
@@ -34,8 +28,9 @@ export class PlayerTwo {
     return this.snakeBody;
   }
 
-  constructor(scene, _x, _y, _direction) {
-    this.snakeHead = scene.add
+  constructor(scene: Phaser.Scene, _x: number, _y: number, _direction: string) {
+    this.scene = scene;
+    this.snakeHead = this.scene.add
       .image(_x, _y, 'player')
       .setOrigin(0.5, 0.5)
       .setFrame(3);
@@ -47,18 +42,7 @@ export class PlayerTwo {
     this.flipY = false;
 
     // input
-    this.cursors.push(
-      scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A)
-    );
-    this.cursors.push(
-      scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
-    );
-    this.cursors.push(
-      scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
-    );
-    this.cursors.push(
-      scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S)
-    );
+    this.cursors = this.scene.input.keyboard.createCursorKeys();
   }
 
   public move(): void {
@@ -85,22 +69,22 @@ export class PlayerTwo {
   }
 
   public handleInput(): void {
-    if (this.cursors[1].isDown && this.direction != 'down') {
+    if (this.cursors.up.isDown && this.direction != 'down') {
       this.direction = 'up';
       this.currentFrame = 0;
       this.flipX = false;
       this.flipY = false;
-    } else if (this.cursors[3].isDown && this.direction != 'up') {
+    } else if (this.cursors.down.isDown && this.direction != 'up') {
       this.direction = 'down';
       this.currentFrame = 0;
       this.flipX = false;
       this.flipY = true;
-    } else if (this.cursors[2].isDown && this.direction != 'left') {
+    } else if (this.cursors.right.isDown && this.direction != 'left') {
       this.direction = 'right';
       this.currentFrame = 1;
       this.flipX = false;
       this.flipY = false;
-    } else if (this.cursors[0].isDown && this.direction != 'right') {
+    } else if (this.cursors.left.isDown && this.direction != 'right') {
       this.direction = 'left';
       this.currentFrame = 1;
       this.flipX = true;
@@ -108,9 +92,9 @@ export class PlayerTwo {
     }
   }
 
-  public grow(scene): void {
+  public grow(): void {
     this.snakeBody.push(
-      scene.add
+      this.scene.add
         .image(this.lastPositionX, this.lastPositionY, 'player')
         .setOrigin(0.5, 0.5)
         .setFrame(this.currentFrame)

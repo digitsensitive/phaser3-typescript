@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Blockade: Main Menu Scene
- * @license      Digitsensitive
- */
-
 import { CONST } from '../const/const';
 
 export class MainMenuScene extends Phaser.Scene {
@@ -31,8 +24,8 @@ export class MainMenuScene extends Phaser.Scene {
   preload(): void {
     this.load.bitmapFont(
       'pcsenior',
-      './src/games/blockade/assets/font/pcsenior.png',
-      './src/games/blockade/assets/font/pcsenior.fnt'
+      './assets/font/pcsenior.png',
+      './assets/font/pcsenior.fnt'
     );
   }
 
