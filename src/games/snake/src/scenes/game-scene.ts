@@ -1,17 +1,10 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Snake: Game Scene
- * @license      Digitsensitive
- */
-
 import { Apple } from '../objects/apple';
 import { Snake } from '../objects/snake';
 import { CONST } from '../const/const';
 
 export class GameScene extends Phaser.Scene {
   // field and game setting
-  private fieldSize: number;
+
   private gameHeight: number;
   private gameWidth: number;
   private boardWidth: number;
@@ -35,13 +28,12 @@ export class GameScene extends Phaser.Scene {
   }
 
   init(): void {
-    this.fieldSize = 8;
     this.gameHeight = this.sys.canvas.height;
     this.gameWidth = this.sys.canvas.width;
-    this.boardWidth = this.gameWidth - 2 * this.fieldSize;
-    this.boardHeight = this.gameHeight - 2 * this.fieldSize;
-    this.horizontalFields = this.boardWidth / this.fieldSize;
-    this.verticalFields = this.boardHeight / this.fieldSize;
+    this.boardWidth = this.gameWidth - 2 * CONST.FIELD_SIZE;
+    this.boardHeight = this.gameHeight - 2 * CONST.FIELD_SIZE;
+    this.horizontalFields = this.boardWidth / CONST.FIELD_SIZE;
+    this.verticalFields = this.boardHeight / CONST.FIELD_SIZE;
     this.tick = 0;
   }
 
@@ -49,25 +41,25 @@ export class GameScene extends Phaser.Scene {
     // objects
     this.gameBorder = [];
     let i = 0;
-    for (let x = 0; x < this.gameWidth / this.fieldSize; x++) {
-      for (let y = 0; y < this.gameHeight / this.fieldSize; y++) {
+    for (let x = 0; x < this.gameWidth / CONST.FIELD_SIZE; x++) {
+      for (let y = 0; y < this.gameHeight / CONST.FIELD_SIZE; y++) {
         if (
           y === 0 ||
-          y === this.gameHeight / this.fieldSize - 1 ||
+          y === this.gameHeight / CONST.FIELD_SIZE - 1 ||
           x === 0 ||
-          x === this.gameWidth / this.fieldSize - 1
+          x === this.gameWidth / CONST.FIELD_SIZE - 1
         ) {
           this.gameBorder[i] = this.add
             .graphics({
-              x: -this.fieldSize + x * this.fieldSize,
-              y: -this.fieldSize + y * this.fieldSize,
+              x: -CONST.FIELD_SIZE + x * CONST.FIELD_SIZE,
+              y: -CONST.FIELD_SIZE + y * CONST.FIELD_SIZE,
               fillStyle: { color: 0x61e85b, alpha: 0.3 }
             })
             .fillRect(
-              this.fieldSize,
-              this.fieldSize,
-              this.fieldSize,
-              this.fieldSize
+              CONST.FIELD_SIZE,
+              CONST.FIELD_SIZE,
+              CONST.FIELD_SIZE,
+              CONST.FIELD_SIZE
             );
           i++;
         }
@@ -75,10 +67,12 @@ export class GameScene extends Phaser.Scene {
     }
 
     this.player = new Snake(this);
-    this.apple = new Apple(this, {
-      xPos: this.rndXPos(),
-      yPos: this.rndYPos(),
-      fSize: this.fieldSize
+    this.apple = new Apple({
+      scene: this,
+      options: {
+        x: this.rndXPos(),
+        y: this.rndYPos()
+      }
     });
 
     // text
@@ -91,7 +85,7 @@ export class GameScene extends Phaser.Scene {
     );
   }
 
-  update(time): void {
+  update(time: number): void {
     if (this.tick === 0) {
       this.tick = time;
     }
@@ -112,7 +106,7 @@ export class GameScene extends Phaser.Scene {
 
     // player vs. apple collision
     if (headX === this.apple.x && headY === this.apple.y) {
-      this.player.growSnake(this);
+      this.player.growSnake();
       CONST.SCORE++;
       this.scoreText.setText('' + CONST.SCORE);
       this.apple.newApplePosition(this.rndXPos(), this.rndYPos());
@@ -131,11 +125,13 @@ export class GameScene extends Phaser.Scene {
 
   private rndXPos(): number {
     return (
-      Phaser.Math.RND.between(1, this.horizontalFields - 1) * this.fieldSize
+      Phaser.Math.RND.between(1, this.horizontalFields - 1) * CONST.FIELD_SIZE
     );
   }
 
   private rndYPos(): number {
-    return Phaser.Math.RND.between(1, this.verticalFields - 1) * this.fieldSize;
+    return (
+      Phaser.Math.RND.between(1, this.verticalFields - 1) * CONST.FIELD_SIZE
+    );
   }
 }

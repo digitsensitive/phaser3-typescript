@@ -1,9 +1,4 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Snake: Snake
- * @license      Digitsensitive
- */
+import { CONST } from '../const/const';
 
 export class Snake {
   private dotSize: number;
@@ -12,11 +7,12 @@ export class Snake {
   private cursors: any;
   private dead: boolean;
   private snakeBody: Phaser.GameObjects.Graphics[];
+  private scene: Phaser.Scene;
 
   public isDead(): boolean {
     return this.dead;
   }
-  public setDead(_dead): void {
+  public setDead(_dead: boolean): void {
     this.dead = _dead;
   }
   public getSnakeBody(): Phaser.GameObjects.Graphics[] {
@@ -29,22 +25,23 @@ export class Snake {
     return this.snakeLength;
   }
 
-  constructor(scene) {
+  constructor(scene: Phaser.Scene) {
     // set variables
-    this.dotSize = scene.fieldSize;
+    this.scene = scene;
+    this.dotSize = CONST.FIELD_SIZE;
     this.snakeLength = 0;
     this.direction = 'right';
     this.dead = false;
     this.snakeBody = [];
 
     // input
-    this.cursors = scene.input.keyboard.createCursorKeys();
+    this.cursors = this.scene.input.keyboard.createCursorKeys();
 
     // build snake
-    this.buildSnake(scene);
+    this.buildSnake();
   }
 
-  private buildSnake(scene): void {
+  private buildSnake(): void {
     let currentAlpha = 0;
     for (let i = 0; i <= this.snakeLength; i++) {
       if (i === 0) {
@@ -53,11 +50,11 @@ export class Snake {
         currentAlpha = 0.8;
       }
 
-      this.snakeBody[i] = scene.add
+      this.snakeBody[i] = this.scene.add
         .graphics({
           x: 16 - i * this.dotSize,
           y: 16,
-          fillStyle: { color: '0x61e85b', alpha: currentAlpha }
+          fillStyle: { color: 0x61e85b, alpha: currentAlpha }
         })
         .fillRect(this.dotSize, this.dotSize, this.dotSize, this.dotSize);
     }
@@ -94,13 +91,13 @@ export class Snake {
     }
   }
 
-  public growSnake(scene): void {
+  public growSnake(): void {
     this.snakeLength++;
-    this.snakeBody[this.snakeBody.length] = scene.add
+    this.snakeBody[this.snakeBody.length] = this.scene.add
       .graphics({
         x: this.snakeBody[this.snakeBody.length - 1].x,
         y: this.snakeBody[this.snakeBody.length - 1].y,
-        fillStyle: { color: '0x61e85b', alpha: 0.8 }
+        fillStyle: { color: 0x61e85b, alpha: 0.8 }
       })
       .fillRect(this.dotSize, this.dotSize, this.dotSize, this.dotSize);
   }

@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Snake: Main Menu Scene
- * @license      Digitsensitive
- */
-
 import { CONST } from '../const/const';
 
 export class MainMenuScene extends Phaser.Scene {
@@ -31,8 +24,8 @@ export class MainMenuScene extends Phaser.Scene {
   preload(): void {
     this.load.bitmapFont(
       'snakeFont',
-      './src/games/snake/assets/font/snakeFont.png',
-      './src/games/snake/assets/font/snakeFont.fnt'
+      './assets/font/snakeFont.png',
+      './assets/font/snakeFont.fnt'
     );
   }
 
