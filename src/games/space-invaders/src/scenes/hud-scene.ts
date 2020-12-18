@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Space Invaders: HUD Scene
- * @license      Digitsensitive
- */
-
 export class HUDScene extends Phaser.Scene {
   private bitmapTexts: Phaser.GameObjects.BitmapText[];
 

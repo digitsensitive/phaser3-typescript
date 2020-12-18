@@ -1,13 +1,9 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Space Invaders: Enemy
- * @license      Digitsensitive
- */
-
 import { Bullet } from './bullet';
+import { ISpriteConstructor } from '../interfaces/sprite.interface';
 
 export class Enemy extends Phaser.GameObjects.Sprite {
+  body: Phaser.Physics.Arcade.Body;
+
   private bullets: Phaser.GameObjects.Group;
   private dyingTime: number;
   private enemyTint: number;
@@ -18,14 +14,15 @@ export class Enemy extends Phaser.GameObjects.Sprite {
   private moveTween: Phaser.Tweens.Tween;
   private reloadTime: number;
   private valueKill: number;
+
   public getBullets(): Phaser.GameObjects.Group {
     return this.bullets;
   }
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  constructor(aParams: ISpriteConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
 
-    this.initVariables(params);
+    this.initVariables(aParams.texture);
     this.initImage();
     this.initPhysics();
 
@@ -34,12 +31,12 @@ export class Enemy extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
   }
 
-  private initVariables(params): void {
+  private initVariables(textureType: string): void {
     this.bullets = this.scene.add.group({
       maxSize: 10,
       runChildUpdate: true
     });
-    this.enemyType = params.key;
+    this.enemyType = textureType;
     this.hurtingTime = 200;
     this.isHurt = false;
 
@@ -102,12 +99,12 @@ export class Enemy extends Phaser.GameObjects.Sprite {
         this.bullets.add(
           new Bullet({
             scene: this.scene,
-            x: this.x,
-            y: this.y,
-            key: 'bullet',
             bulletProperties: {
               speed: 100
-            }
+            },
+            x: this.x,
+            y: this.y,
+            texture: 'bullet'
           })
         );
       }

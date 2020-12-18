@@ -1,24 +1,21 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Space Invaders: Player
- * @license      Digitsensitive
- */
-
 import { Bullet } from './bullet';
+import { IImageConstructor } from '../interfaces/image.interface';
 
 export class Player extends Phaser.GameObjects.Image {
+  body: Phaser.Physics.Arcade.Body;
+
   private bullets: Phaser.GameObjects.Group;
   private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   private flyingSpeed: number;
   private lastShoot: number;
   private shootingKey: Phaser.Input.Keyboard.Key;
+
   public getBullets(): Phaser.GameObjects.Group {
     return this.bullets;
   }
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  constructor(aParams: IImageConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
 
     this.initVariables();
     this.initImage();
@@ -76,12 +73,12 @@ export class Player extends Phaser.GameObjects.Image {
         this.bullets.add(
           new Bullet({
             scene: this.scene,
-            x: this.x,
-            y: this.y - this.height,
-            key: 'bullet',
             bulletProperties: {
               speed: -300
-            }
+            },
+            x: this.x,
+            y: this.y - this.height,
+            texture: 'bullet'
           })
         );
 

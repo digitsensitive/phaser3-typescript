@@ -1,20 +1,12 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Space Invaders
- * @license      Digitsensitive
- */
-
-import 'phaser';
 import { BootScene } from './scenes/boot-scene';
 import { GameScene } from './scenes/game-scene';
 import { HUDScene } from './scenes/hud-scene';
 import { MenuScene } from './scenes/menu-scene';
 
-const config: Phaser.Types.Core.GameConfig = {
+export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Space Invaders',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '1.0',
+  version: '2.0',
   width: 224,
   height: 240,
   zoom: 3,
@@ -34,13 +26,3 @@ const config: Phaser.Types.Core.GameConfig = {
   backgroundColor: '#f5cc69',
   render: { pixelArt: true, antialias: false }
 };
-
-export class Game extends Phaser.Game {
-  constructor(config: Phaser.Types.Core.GameConfig) {
-    super(config);
-  }
-}
-
-window.addEventListener('load', () => {
-  var game = new Game(config);
-});

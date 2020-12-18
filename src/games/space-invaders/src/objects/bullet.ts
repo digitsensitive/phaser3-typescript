@@ -1,25 +1,22 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Space Invaders: Bullet
- * @license      Digitsensitive
- */
+import { IBulletConstructor } from '../interfaces/bullet.interface';
 
 export class Bullet extends Phaser.GameObjects.Image {
+  body: Phaser.Physics.Arcade.Body;
+
   private bulletSpeed: number;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  constructor(aParams: IBulletConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
 
-    this.initVariables(params);
+    this.initVariables(aParams);
     this.initImage();
     this.initPhysics();
 
     this.scene.add.existing(this);
   }
 
-  private initVariables(params): void {
-    this.bulletSpeed = params.bulletProperties.speed;
+  private initVariables(aParams: IBulletConstructor): void {
+    this.bulletSpeed = aParams.bulletProperties.speed;
   }
 
   private initImage(): void {

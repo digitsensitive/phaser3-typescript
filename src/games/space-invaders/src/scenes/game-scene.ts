@@ -1,12 +1,6 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Space Invaders: Game Scene
- * @license      Digitsensitive
- */
-
 import { Enemy } from '../objects/enemy';
 import { Player } from '../objects/player';
+import { Bullet } from '../objects/bullet';
 
 export class GameScene extends Phaser.Scene {
   private enemies: Phaser.GameObjects.Group;
@@ -28,7 +22,7 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: this.sys.canvas.width / 2,
       y: this.sys.canvas.height - 40,
-      key: 'player'
+      texture: 'player'
     });
 
     // if you want to make it random:
@@ -50,7 +44,7 @@ export class GameScene extends Phaser.Scene {
             scene: this,
             x: 20 + x * 15,
             y: 50 + y * 15,
-            key: type
+            texture: type
           })
         );
       }
@@ -93,12 +87,12 @@ export class GameScene extends Phaser.Scene {
     );
   }
 
-  private bulletHitEnemy(bullet, enemy): void {
+  private bulletHitEnemy(bullet: Bullet, enemy: Enemy): void {
     bullet.destroy();
     enemy.gotHurt();
   }
 
-  private bulletHitPlayer(bullet, player): void {
+  private bulletHitPlayer(bullet: Bullet, player: Player): void {
     bullet.destroy();
     player.gotHurt();
   }

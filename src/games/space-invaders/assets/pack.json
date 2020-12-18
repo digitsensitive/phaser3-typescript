@@ -4,28 +4,28 @@
       {
         "type": "bitmapFont",
         "key": "font",
-        "textureURL": "src/games/space-invaders/assets/font/font.png",
-        "fontDataURL": "src/games/space-invaders/assets/font/font.fnt"
+        "textureURL": "./assets/font/font.png",
+        "fontDataURL": "./assets/font/font.fnt"
       },
       {
         "type": "json",
         "key": "animationJSON",
-        "url": "src/games/space-invaders/assets/animations/animations.json"
+        "url": "./assets/animations/animations.json"
       },
       {
         "type": "image",
         "key": "bullet",
-        "url": "./src/games/space-invaders/assets/sprites/bullet.png"
+        "url": "./assets/sprites/bullet.png"
       },
       {
         "type": "image",
         "key": "player",
-        "url": "./src/games/space-invaders/assets/sprites/player.png"
+        "url": "./assets/sprites/player.png"
       },
       {
         "type": "spritesheet",
         "key": "octopus",
-        "url": "./src/games/space-invaders/assets/sprites/octopus.png",
+        "url": "./assets/sprites/octopus.png",
         "frameConfig": {
           "frameWidth": 12,
           "frameHeight": 8
@@ -34,7 +34,7 @@
       {
         "type": "spritesheet",
         "key": "crab",
-        "url": "./src/games/space-invaders/assets/sprites/crab.png",
+        "url": "./assets/sprites/crab.png",
         "frameConfig": {
           "frameWidth": 11,
           "frameHeight": 8
@@ -43,7 +43,7 @@
       {
         "type": "spritesheet",
         "key": "squid",
-        "url": "./src/games/space-invaders/assets/sprites/squid.png",
+        "url": "./assets/sprites/squid.png",
         "frameConfig": {
           "frameWidth": 8,
           "frameHeight": 8
