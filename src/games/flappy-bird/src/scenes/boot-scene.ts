@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Flappy Bird: Boot Scene
- * @license      Digitsensitive
- */
-
 export class BootScene extends Phaser.Scene {
   private loadingBar: Phaser.GameObjects.Graphics;
   private progressBar: Phaser.GameObjects.Graphics;
@@ -23,7 +16,7 @@ export class BootScene extends Phaser.Scene {
     // pass value to change the loading bar fill
     this.load.on(
       'progress',
-      function (value) {
+      function (value: number) {
         this.progressBar.clear();
         this.progressBar.fillStyle(0xfff6d3, 1);
         this.progressBar.fillRect(

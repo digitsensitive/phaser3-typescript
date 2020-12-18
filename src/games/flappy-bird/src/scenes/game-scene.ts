@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Flappy Bird: Game Scene
- * @license      Digitsensitive
- */
-
 import { Bird } from '../objects/bird';
 import { Pipe } from '../objects/pipe';
 
@@ -45,7 +38,7 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: 50,
       y: 100,
-      key: 'bird'
+      texture: 'bird'
     });
 
     this.addNewRowOfPipes();
@@ -74,7 +67,7 @@ export class GameScene extends Phaser.Scene {
     } else {
       Phaser.Actions.Call(
         this.pipes.getChildren(),
-        function (pipe) {
+        function (pipe: Pipe) {
           pipe.body.setVelocityX(0);
         },
         this
@@ -108,7 +101,7 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
-  private addPipe(x, y, frame): void {
+  private addPipe(x: number, y: number, frame: number): void {
     // create a new pipe at the position x and y and add it to group
     this.pipes.add(
       new Pipe({
@@ -116,7 +109,7 @@ export class GameScene extends Phaser.Scene {
         x: x,
         y: y,
         frame: frame,
-        key: 'pipe'
+        texture: 'pipe'
       })
     );
   }

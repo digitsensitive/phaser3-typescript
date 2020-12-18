@@ -1,11 +1,8 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Flappy Bird: Bird
- * @license      Digitsensitive
- */
+import { IImageConstructor } from '../interfaces/image.interface';
 
 export class Bird extends Phaser.GameObjects.Image {
+  body: Phaser.Physics.Arcade.Body;
+
   private jumpKey: Phaser.Input.Keyboard.Key;
   private isDead: boolean;
   private isFlapping: boolean;
@@ -18,8 +15,8 @@ export class Bird extends Phaser.GameObjects.Image {
     this.isDead = dead;
   }
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+  constructor(aParams: IImageConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // image
     this.setScale(3);

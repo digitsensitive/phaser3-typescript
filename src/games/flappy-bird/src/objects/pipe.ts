@@ -1,13 +1,10 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Flappy Bird: Pipe
- * @license      Digitsensitive
- */
+import { IImageConstructor } from '../interfaces/image.interface';
 
 export class Pipe extends Phaser.GameObjects.Image {
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+  body: Phaser.Physics.Arcade.Body;
+
+  constructor(aParams: IImageConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // image
     this.setScale(3);

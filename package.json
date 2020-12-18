@@ -36,6 +36,7 @@
     "blockade": "cd src/games/blockade && yarn && yarn run dev",
     "candy-crush": "cd src/games/candy-crush && yarn && yarn run dev",
     "coin-runner": "cd src/games/coin-runner && yarn && yarn run dev",
+    "flappy-bird": "cd src/games/flappy-bird && yarn && yarn run dev",
     "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run dev",
     "fractal-tree": "cd src/experimental/fractal-tree && yarn && yarn run dev",
     "game-of-life": "cd src/experimental/game-of-life && yarn && yarn run dev",

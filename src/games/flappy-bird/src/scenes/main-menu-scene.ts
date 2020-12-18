@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Flappy Bird: Main Menu Scene
- * @license      Digitsensitive
- */
-
 export class MainMenuScene extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
   private titleBitmapText: Phaser.GameObjects.BitmapText;

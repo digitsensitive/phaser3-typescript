@@ -1,16 +1,8 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Flappy Bird: Game
- * @license      Digitsensitive
- */
-
-import 'phaser';
 import { BootScene } from './scenes/boot-scene';
 import { GameScene } from './scenes/game-scene';
 import { MainMenuScene } from './scenes/main-menu-scene';
 
-const config: Phaser.Types.Core.GameConfig = {
+export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Flappy Bird',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
   version: '2.0',
@@ -31,13 +23,3 @@ const config: Phaser.Types.Core.GameConfig = {
   backgroundColor: '#98d687',
   render: { pixelArt: true, antialias: false }
 };
-
-export class Game extends Phaser.Game {
-  constructor(config: Phaser.Types.Core.GameConfig) {
-    super(config);
-  }
-}
-
-window.addEventListener('load', () => {
-  var game = new Game(config);
-});
