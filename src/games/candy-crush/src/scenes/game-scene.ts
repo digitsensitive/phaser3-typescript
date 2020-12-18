@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Candy crush: Game Scene
- * @license      Digitsensitive
- */
-
 import { CONST } from '../const/const';
 import { Tile } from '../objects/tile';
 
@@ -67,7 +60,7 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: x * CONST.tileWidth,
       y: y * CONST.tileHeight,
-      key: randomTileType
+      texture: randomTileType
     });
   }
 
@@ -79,7 +72,7 @@ export class GameScene extends Phaser.Scene {
    * @param gameobject
    * @param event
    */
-  private tileDown(pointer, gameobject, event): void {
+  private tileDown(pointer: any, gameobject: any, event: any): void {
     if (this.canMove) {
       if (!this.firstSelectedTile) {
         this.firstSelectedTile = gameobject;
@@ -238,7 +231,7 @@ export class GameScene extends Phaser.Scene {
     this.secondSelectedTile = undefined;
   }
 
-  private removeTileGroup(matches): void {
+  private removeTileGroup(matches: any): void {
     // Loop through all the matches and remove the associated tiles
     for (var i = 0; i < matches.length; i++) {
       var tempArr = matches[i];
@@ -257,7 +250,7 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
-  private getTilePos(tileGrid, tile): any {
+  private getTilePos(tileGrid: Tile[][], tile: Tile): any {
     let pos = { x: -1, y: -1 };
 
     //Find the position of a specific tile in the grid
@@ -275,16 +268,16 @@ export class GameScene extends Phaser.Scene {
     return pos;
   }
 
-  private getMatches(tileGrid): Tile[] {
-    let matches = [];
-    let groups = [];
+  private getMatches(tileGrid: Tile[][]): Tile[][] {
+    let matches: Tile[][] = [];
+    let groups: Tile[] = [];
 
     // Check for horizontal matches
     for (let y = 0; y < tileGrid.length; y++) {
       let tempArray = tileGrid[y];
       groups = [];
       for (let x = 0; x < tempArray.length; x++) {
-        if (x < tempArray.length - 2)
+        if (x < tempArray.length - 2) {
           if (tileGrid[y][x] && tileGrid[y][x + 1] && tileGrid[y][x + 2]) {
             if (
               tileGrid[y][x].texture.key === tileGrid[y][x + 1].texture.key &&
@@ -297,19 +290,25 @@ export class GameScene extends Phaser.Scene {
                 }
               }
 
-              if (groups.indexOf(tileGrid[y][x]) === -1) {
+              if (groups.indexOf(tileGrid[y][x]) == -1) {
                 groups.push(tileGrid[y][x]);
               }
+
               if (groups.indexOf(tileGrid[y][x + 1]) == -1) {
                 groups.push(tileGrid[y][x + 1]);
               }
+
               if (groups.indexOf(tileGrid[y][x + 2]) == -1) {
                 groups.push(tileGrid[y][x + 2]);
               }
             }
           }
+        }
       }
-      if (groups.length > 0) matches.push(groups);
+
+      if (groups.length > 0) {
+        matches.push(groups);
+      }
     }
 
     //Check for vertical matches

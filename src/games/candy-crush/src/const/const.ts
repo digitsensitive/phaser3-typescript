@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Candy crush: Const
- * @license      Digitsensitive
- */
-
 export let CONST = {
   score: 0,
   highscore: 0,
