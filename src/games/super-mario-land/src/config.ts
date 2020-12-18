@@ -1,20 +1,12 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land
- * @license      Digitsensitive
- */
-
-import 'phaser';
 import { BootScene } from './scenes/boot-scene';
 import { GameScene } from './scenes/game-scene';
 import { HUDScene } from './scenes/hud-scene';
 import { MenuScene } from './scenes/menu-scene';
 
-const config: Phaser.Types.Core.GameConfig = {
+export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Super Mario Land',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '1.0',
+  version: '2.0',
   width: 160,
   height: 144,
   zoom: 5,
@@ -34,13 +26,3 @@ const config: Phaser.Types.Core.GameConfig = {
   backgroundColor: '#f8f8f8',
   render: { pixelArt: true, antialias: false }
 };
-
-export class Game extends Phaser.Game {
-  constructor(config: Phaser.Types.Core.GameConfig) {
-    super(config);
-  }
-}
-
-window.addEventListener('load', () => {
-  var game = new Game(config);
-});

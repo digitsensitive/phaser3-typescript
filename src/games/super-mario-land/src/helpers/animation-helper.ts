@@ -1,11 +1,4 @@
 /**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Animation Helper
- * @license      Digitsensitive
- */
-
-/**
  * Configs taken from official Phaser library code and edited
  *
  * AnimationConfig
@@ -73,7 +66,7 @@ export class AnimationHelper {
   private createGameAnimations(): void {
     for (let data of this.animationData.anims) {
       let frames;
-      let framesArray;
+      let framesArray: any[];
       if (data.frames.typeOfGeneration === 'generateFrameNames') {
         frames = this.scene.anims.generateFrameNames(data.frames.key, {
           prefix: data.frames.prefix || '',

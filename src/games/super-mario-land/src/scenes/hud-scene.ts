@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Hud Scene
- * @license      Digitsensitive
- */
-
 export class HUDScene extends Phaser.Scene {
   private textElements: Map<string, Phaser.GameObjects.BitmapText>;
   private timer: Phaser.Time.TimerEvent;

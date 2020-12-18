@@ -39,6 +39,7 @@
     "flappy-bird": "cd src/games/flappy-bird && yarn && yarn run dev",
     "snake": "cd src/games/snake && yarn && yarn run dev",
     "space-invaders": "cd src/games/space-invaders && yarn && yarn run dev",
+    "super-mario-land": "cd src/games/super-mario-land && yarn && yarn run dev",
     "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run dev",
     "fractal-tree": "cd src/experimental/fractal-tree && yarn && yarn run dev",
     "game-of-life": "cd src/experimental/game-of-life && yarn && yarn run dev",

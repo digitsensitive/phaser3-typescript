@@ -1,21 +1,18 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Brick
- * @license      Digitsensitive
- */
+import { IBrickConstructor } from '../interfaces/brick.interface';
 
 export class Brick extends Phaser.GameObjects.Sprite {
+  body: Phaser.Physics.Arcade.Body;
+
   // variables
   private currentScene: Phaser.Scene;
   protected destroyingValue: number;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+  constructor(aParams: IBrickConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // variables
-    this.currentScene = params.scene;
-    this.destroyingValue = params.value;
+    this.currentScene = aParams.scene;
+    this.destroyingValue = aParams.value;
     this.initSprite();
     this.currentScene.add.existing(this);
   }
@@ -41,9 +38,11 @@ export class Brick extends Phaser.GameObjects.Sprite {
           .sprite(this.x, this.y, 'brick')
           .setOrigin(0, 0)
           .setDisplaySize(4, 4);
+
         this.currentScene.physics.world.enable(brick);
-        brick.body.setVelocity(40 * i, -40 * i);
-        brick.body.setSize(4, 4);
+
+        //brick.body.setVelocity(40 * i, -40 * i);
+        //brick.body.setSize(4, 4);
       }
 
       // destroy brick

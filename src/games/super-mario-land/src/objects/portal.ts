@@ -1,25 +1,24 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Portal
- * @license      Digitsensitive
- */
+import { IPortalConstructor } from '../interfaces/portal.interface';
+import { IPortalDestination } from '../interfaces/portal-destination.interface';
 
 export class Portal extends Phaser.GameObjects.Zone {
+  body: Phaser.Physics.Arcade.Body;
+
   // variables
   private currentScene: Phaser.Scene;
-  private portalDestinationForMario: any;
+  private portalDestinationForMario: IPortalDestination;
 
-  public getPortalDestination(): {} {
+  public getPortalDestination(): IPortalDestination {
     return this.portalDestinationForMario;
   }
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.width, params.height);
+  constructor(aParams: IPortalConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.width, aParams.height);
 
     // variables
-    this.currentScene = params.scene;
-    this.portalDestinationForMario = params.spawn;
+    this.currentScene = aParams.scene;
+    this.portalDestinationForMario = aParams.spawn;
+
     this.initZone();
     this.currentScene.add.existing(this);
   }

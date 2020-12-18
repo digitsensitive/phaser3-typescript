@@ -1,21 +1,18 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Collectible
- * @license      Digitsensitive
- */
+import { ICollectibleConstructor } from '../interfaces/collectible.interface';
 
 export class Collectible extends Phaser.GameObjects.Sprite {
+  body: Phaser.Physics.Arcade.Body;
+
   // variables
   private currentScene: Phaser.Scene;
   private points: number;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+  constructor(aParams: ICollectibleConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // variables
-    this.currentScene = params.scene;
-    this.points = params.points;
+    this.currentScene = aParams.scene;
+    this.points = aParams.points;
     this.initSprite();
     this.currentScene.add.existing(this);
   }
@@ -33,7 +30,7 @@ export class Collectible extends Phaser.GameObjects.Sprite {
 
   update(): void {}
 
-  private collected(): void {
+  public collected(): void {
     this.destroy();
     this.currentScene.registry.values.score += this.points;
     this.currentScene.events.emit('scoreChanged');

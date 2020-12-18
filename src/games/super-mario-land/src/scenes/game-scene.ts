@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Game Scene
- * @license      Digitsensitive
- */
-
 import { Box } from '../objects/box';
 import { Brick } from '../objects/brick';
 import { Collectible } from '../objects/collectible';
@@ -189,7 +182,7 @@ export class GameScene extends Phaser.Scene {
           scene: this,
           x: this.registry.get('spawn').x,
           y: this.registry.get('spawn').y,
-          key: 'mario'
+          texture: 'mario'
         });
       }
 
@@ -199,7 +192,7 @@ export class GameScene extends Phaser.Scene {
             scene: this,
             x: object.x,
             y: object.y,
-            key: 'goomba'
+            texture: 'goomba'
           })
         );
       }
@@ -210,7 +203,7 @@ export class GameScene extends Phaser.Scene {
             scene: this,
             x: object.x,
             y: object.y,
-            key: 'brick',
+            texture: 'brick',
             value: 50
           })
         );
@@ -220,10 +213,10 @@ export class GameScene extends Phaser.Scene {
         this.boxes.add(
           new Box({
             scene: this,
+            content: object.properties.content,
             x: object.x,
             y: object.y,
-            key: 'box',
-            content: object.properties.content
+            texture: 'box'
           })
         );
       }
@@ -234,7 +227,7 @@ export class GameScene extends Phaser.Scene {
             scene: this,
             x: object.x,
             y: object.y,
-            key: object.properties.kindOfCollectible,
+            texture: object.properties.kindOfCollectible,
             points: 100
           })
         );
@@ -246,7 +239,7 @@ export class GameScene extends Phaser.Scene {
             scene: this,
             x: object.x,
             y: object.y,
-            key: 'platform',
+            texture: 'platform',
             tweenProps: {
               y: {
                 value: 50,
@@ -264,7 +257,7 @@ export class GameScene extends Phaser.Scene {
             scene: this,
             x: object.x,
             y: object.y,
-            key: 'platform',
+            texture: 'platform',
             tweenProps: {
               x: {
                 value: object.x + 50,
@@ -283,7 +276,7 @@ export class GameScene extends Phaser.Scene {
    * @param _player [Mario]
    * @param _enemy  [Enemy]
    */
-  private handlePlayerEnemyOverlap(_player, _enemy): void {
+  private handlePlayerEnemyOverlap(_player: Mario, _enemy: Goomba): void {
     if (_player.body.touching.down && _enemy.body.touching.up) {
       // player hit enemy on top
       _player.bounceUpAfterHitEnemyOnHead();
@@ -300,7 +293,7 @@ export class GameScene extends Phaser.Scene {
       });
     } else {
       // player got hit from the side or on the head
-      if (_player.isVulnerable) {
+      if (_player.getVulnerable()) {
         _player.gotHit();
       }
     }
@@ -311,13 +304,13 @@ export class GameScene extends Phaser.Scene {
    * @param _player [Mario]
    * @param _box    [Box]
    */
-  private playerHitBox(_player, _box): void {
+  private playerHitBox(_player: Mario, _box: Box): void {
     if (_box.body.touching.down && _box.active) {
       // ok, mario has really hit a box on the downside
       _box.yoyoTheBoxUpAndDown();
       this.collectibles.add(_box.spawnBoxContent());
 
-      switch (_box.boxContent) {
+      switch (_box.getBoxContentString()) {
         // have a look what is inside the box! Christmas time!
         case 'coin': {
           _box.tweenBoxContent({ y: _box.y - 40, alpha: 0 }, 700, function () {
@@ -358,11 +351,11 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
-  private handlePlayerPortalOverlap(_player, _portal): void {
+  private handlePlayerPortalOverlap(_player: Mario, _portal: Portal): void {
     if (
-      (_player.keys.get('DOWN').isDown &&
+      (_player.getKeys().get('DOWN').isDown &&
         _portal.getPortalDestination().dir === 'down') ||
-      (_player.keys.get('RIGHT').isDown &&
+      (_player.getKeys().get('RIGHT').isDown &&
         _portal.getPortalDestination().dir === 'right')
     ) {
       // set new level and new destination for mario
@@ -382,7 +375,10 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
-  private handlePlayerCollectiblesOverlap(_player, _collectible): void {
+  private handlePlayerCollectiblesOverlap(
+    _player: Mario,
+    _collectible: Collectible
+  ): void {
     switch (_collectible.texture.key) {
       case 'flower': {
         break;
@@ -402,7 +398,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   // TODO!!!
-  private handlePlayerOnPlatform(player, platform): void {
+  private handlePlayerOnPlatform(player: Mario, platform: Platform): void {
     if (
       platform.body.moves &&
       platform.body.touching.up &&

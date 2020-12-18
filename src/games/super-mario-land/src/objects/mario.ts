@@ -1,11 +1,8 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Mario
- * @license      Digitsensitive
- */
+import { ISpriteConstructor } from '../interfaces/sprite.interface';
 
 export class Mario extends Phaser.GameObjects.Sprite {
+  body: Phaser.Physics.Arcade.Body;
+
   // variables
   private currentScene: Phaser.Scene;
   private marioSize: string;
@@ -22,10 +19,14 @@ export class Mario extends Phaser.GameObjects.Sprite {
     return this.keys;
   }
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+  public getVulnerable(): boolean {
+    return this.isVulnerable;
+  }
 
-    this.currentScene = params.scene;
+  constructor(aParams: ISpriteConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+
+    this.currentScene = aParams.scene;
     this.initSprite();
     this.currentScene.add.existing(this);
   }
@@ -165,7 +166,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
     }
   }
 
-  private growMario(): void {
+  public growMario(): void {
     this.marioSize = 'big';
     this.currentScene.registry.set('marioSize', 'big');
     this.adjustPhysicBodyToBigSize();
@@ -187,7 +188,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
     this.body.setOffset(4, 0);
   }
 
-  private bounceUpAfterHitEnemyOnHead(): void {
+  public bounceUpAfterHitEnemyOnHead(): void {
     this.currentScene.add.tween({
       targets: this,
       props: { y: this.y - 5 },
@@ -197,7 +198,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
     });
   }
 
-  protected gotHit(): void {
+  public gotHit(): void {
     this.isVulnerable = false;
     if (this.marioSize === 'big') {
       this.shrinkMario();

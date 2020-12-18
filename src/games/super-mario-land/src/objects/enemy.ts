@@ -1,11 +1,8 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Enemy
- * @license      Digitsensitive
- */
+import { ISpriteConstructor } from '../interfaces/sprite.interface';
 
 export class Enemy extends Phaser.GameObjects.Sprite {
+  body: Phaser.Physics.Arcade.Body;
+
   // variables
   protected currentScene: Phaser.Scene;
   protected isActivated: boolean;
@@ -13,11 +10,11 @@ export class Enemy extends Phaser.GameObjects.Sprite {
   protected speed: number;
   protected dyingScoreValue: number;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+  constructor(aParams: ISpriteConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // variables
-    this.currentScene = params.scene;
+    this.currentScene = aParams.scene;
     this.initSprite();
     this.currentScene.add.existing(this);
   }

@@ -1,21 +1,18 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Platform
- * @license      Digitsensitive
- */
+import { IPlatformConstructor } from '../interfaces/platform.interface';
 
 export class Platform extends Phaser.GameObjects.Image {
+  body: Phaser.Physics.Arcade.Body;
+
   // variables
   private currentScene: Phaser.Scene;
   private tweenProps: any;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+  constructor(aParams: IPlatformConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // variables
-    this.currentScene = params.scene;
-    this.tweenProps = params.tweenProps;
+    this.currentScene = aParams.scene;
+    this.tweenProps = aParams.tweenProps;
 
     this.initImage();
     this.initTween();

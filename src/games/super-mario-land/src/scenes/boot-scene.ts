@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Boot Scene
- * @license      Digitsensitive
- */
-
 import { AnimationHelper } from '../helpers/animation-helper';
 
 export class BootScene extends Phaser.Scene {
@@ -30,7 +23,7 @@ export class BootScene extends Phaser.Scene {
     // pass value to change the loading bar fill
     this.load.on(
       'progress',
-      function (value) {
+      function (value: number) {
         this.progressBar.clear();
         this.progressBar.fillStyle(0x88e453, 1);
         this.progressBar.fillRect(
@@ -58,11 +51,7 @@ export class BootScene extends Phaser.Scene {
     );
 
     // load our package
-    this.load.pack(
-      'preload',
-      './src/games/super-mario-land/assets/pack.json',
-      'preload'
-    );
+    this.load.pack('preload', './assets/pack.json', 'preload');
   }
 
   update(): void {

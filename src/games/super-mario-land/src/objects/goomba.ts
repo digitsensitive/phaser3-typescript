@@ -1,15 +1,11 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Goomba
- * @license      Digitsensitive
- */
-
 import { Enemy } from './enemy';
+import { ISpriteConstructor } from '../interfaces/sprite.interface';
 
 export class Goomba extends Enemy {
-  constructor(params) {
-    super(params);
+  body: Phaser.Physics.Arcade.Body;
+
+  constructor(aParams: ISpriteConstructor) {
+    super(aParams);
     this.speed = -20;
     this.dyingScoreValue = 100;
   }
@@ -47,7 +43,7 @@ export class Goomba extends Enemy {
     }
   }
 
-  protected gotHitOnHead(): void {
+  public gotHitOnHead(): void {
     this.isDying = true;
     this.setFrame(2);
     this.showAndAddScore();
@@ -60,7 +56,7 @@ export class Goomba extends Enemy {
     this.setFlipY(true);
   }
 
-  protected isDead(): void {
+  public isDead(): void {
     this.destroy();
   }
 }

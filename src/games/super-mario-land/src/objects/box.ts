@@ -1,13 +1,9 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2019 Digitsensitive
- * @description  Super Mario Land: Box
- * @license      Digitsensitive
- */
-
 import { Collectible } from './collectible';
+import { IBoxConstructor } from '../interfaces/box.interface';
 
 export class Box extends Phaser.GameObjects.Sprite {
+  body: Phaser.Physics.Arcade.Body;
+
   // variables
   private currentScene: Phaser.Scene;
   private boxContent: string;
@@ -17,12 +13,17 @@ export class Box extends Phaser.GameObjects.Sprite {
   public getContent(): Phaser.GameObjects.Sprite {
     return this.content;
   }
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key, params.frame);
+
+  public getBoxContentString(): string {
+    return this.boxContent;
+  }
+
+  constructor(aParams: IBoxConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // variables
-    this.currentScene = params.scene;
-    this.boxContent = params.content;
+    this.currentScene = aParams.scene;
+    this.boxContent = aParams.content;
 
     this.initSprite();
     this.currentScene.add.existing(this);
@@ -46,7 +47,7 @@ export class Box extends Phaser.GameObjects.Sprite {
 
   update(): void {}
 
-  private yoyoTheBoxUpAndDown(): void {
+  public yoyoTheBoxUpAndDown(): void {
     this.hitBoxTimeline.add({
       targets: this,
       props: { y: this.y - 10 },
@@ -60,18 +61,18 @@ export class Box extends Phaser.GameObjects.Sprite {
     });
   }
 
-  private spawnBoxContent(): Collectible {
+  public spawnBoxContent(): Collectible {
     this.content = new Collectible({
       scene: this.currentScene,
       x: this.x,
       y: this.y - 8,
-      key: this.boxContent,
+      texture: this.boxContent,
       points: 1000
     });
     return this.content;
   }
 
-  private tweenBoxContent(
+  public tweenBoxContent(
     props: {},
     duration: number,
     complete: () => void
@@ -86,17 +87,17 @@ export class Box extends Phaser.GameObjects.Sprite {
     });
   }
 
-  private startHitTimeline(): void {
+  public startHitTimeline(): void {
     this.hitBoxTimeline.play();
   }
 
-  private popUpCollectible(): void {
+  public popUpCollectible(): void {
     this.content.body.setVelocity(30, -50);
     this.content.body.setAllowGravity(true);
     this.content.body.setGravityY(-300);
   }
 
-  private addCoinAndScore(coin: number, score: number): void {
+  public addCoinAndScore(coin: number, score: number): void {
     this.currentScene.registry.values.coins += coin;
     this.currentScene.events.emit('coinsChanged');
     this.currentScene.registry.values.score += score;
