@@ -40,11 +40,7 @@ export class BootScene extends Phaser.Scene {
     );
 
     // load out package
-    this.load.pack(
-      'preload',
-      './src/games/flappy-bird/assets/pack.json',
-      'preload'
-    );
+    this.load.pack('preload', './assets/pack.json', 'preload');
   }
 
   update(): void {
