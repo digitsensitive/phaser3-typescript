@@ -67,15 +67,15 @@ For example you can start the `Candy Crush` project with:
 yarn candy-crush
 ```
 
-- [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner)
 - [Alpha Adjust](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust)
-- [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake)
-- [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade)
 - [Asteroid](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid)
+- [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade)
+- [Candy Crush](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/candy-crush)
+- [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner)
 - [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappy-bird)
+- [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake)
 - [Space Invaders](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders)
 - [Super Mario Land](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/super-mario-land)
-- [Candy Crush](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/candy-crush)
 
 If you have any suggestion for a next game example, let me know!
 
@@ -88,14 +88,14 @@ For example you can start the `Game of Life` project with:
 yarn game-of-life
 ```
 
+- [Cellular Automaton](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/cellular-automaton)
+- [Fractal Tree](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/fractal-tree)
 - [Game of Life](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/game-of-life)
+- [Lissajous curve](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/lissajous-curve)
+- [Point in Polygon](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/point-in-polygon)
+- [Procedural Generation](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/procedural-generation)
 - [Raycasting](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/raycasting)
 - [Untextured Raycaster](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/untextured-raycaster)
-- [Point in Polygon](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/point-in-polygon)
-- [Fractal Tree](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/fractal-tree)
-- [Lissajous curve](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/lissajous-curve)
-- [Procedural Generation](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/procedural-generation)
-- [Cellular Automaton](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/cellular-automaton)
 
 ### Patterns
 
