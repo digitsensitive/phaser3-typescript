@@ -1,17 +1,12 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Coin Runner: Coin
- * @license      Digitsensitive
- */
+import { IImageConstructor } from '../interfaces/image.interface';
 
 export class Coin extends Phaser.GameObjects.Image {
   private centerOfScreen: number;
   private changePositionTimer: Phaser.Time.TimerEvent;
   private lastPosition: string;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  constructor(aParams: IImageConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
 
     this.initVariables();
     this.initImage();

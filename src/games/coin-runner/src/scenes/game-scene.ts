@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2018 - 2019 digitsensitive
- * @description  Coin Runner: Game Scene
- * @license      Digitsensitive
- */
-
 import { Coin } from '../objects/coin';
 import { Player } from '../objects/player';
 
@@ -22,12 +15,9 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image(
-      'background',
-      './src/games/coin-runner/assets/background.png'
-    );
-    this.load.image('player', './src/games/coin-runner/assets/player.png');
-    this.load.image('coin', './src/games/coin-runner/assets/coin.png');
+    this.load.image('background', './assets/images/background.png');
+    this.load.image('player', './assets/images/player.png');
+    this.load.image('coin', './assets/images/coin.png');
   }
 
   init(): void {
@@ -44,13 +34,13 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: Phaser.Math.RND.integerInRange(100, 700),
       y: Phaser.Math.RND.integerInRange(100, 500),
-      key: 'coin'
+      texture: 'coin'
     });
     this.player = new Player({
       scene: this,
       x: this.sys.canvas.width / 2,
       y: this.sys.canvas.height / 2,
-      key: 'player'
+      texture: 'player'
     });
 
     // create texts
@@ -59,7 +49,7 @@ export class GameScene extends Phaser.Scene {
       this.sys.canvas.height - 50,
       this.collectedCoins + '',
       {
-        fontFamily: 'Connection',
+        fontFamily: 'Arial',
         fontSize: 38,
         stroke: '#fff',
         strokeThickness: 6,
