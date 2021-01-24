@@ -41,8 +41,6 @@
     "procedural-generation": "cd src/experimental/procedural-generation && yarn && yarn run dev",
     "raycasting": "cd src/experimental/raycasting && yarn && yarn run dev",
     "untextured-raycaster": "cd src/experimental/untextured-raycaster && yarn && yarn run dev",
-    "dev": "webpack --mode development && webpack-dev-server --mode development",
-    "build": "webpack --mode production && webpack-dev-server --mode production",
     "factory-method": "cd patterns/creational-design-patterns/factory-method && yarn && yarn run dev"
   },
   "repository": {
