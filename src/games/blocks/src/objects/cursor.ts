@@ -1,20 +1,20 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Blocks: Cursor
- * @license      Digitsensitive
- */
-
-import { CONST } from "../const/const";
+import { CONST } from '../const/const';
+import { ICursorConstructor } from '../interfaces/cursor.interface';
 
 export class Cursor extends Phaser.GameObjects.Image {
   private currentPosition: [number, number];
   private activated: boolean;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  constructor(aParams: ICursorConstructor) {
+    super(
+      aParams.scene,
+      aParams.x,
+      aParams.y,
+      aParams.texture,
+      aParams.cursorStartPosition
+    );
 
-    this.currentPosition = params.cursorStartPosition;
+    this.currentPosition = aParams.cursorStartPosition;
     this.initVariables();
     this.initImage();
 

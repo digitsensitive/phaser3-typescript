@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Blocks: Boot Scene
- * @license      Digitsensitive
- */
-
 export class BootScene extends Phaser.Scene {
   // graphics
   private loadingBar: Phaser.GameObjects.Graphics;
@@ -12,7 +5,7 @@ export class BootScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "BootScene"
+      key: 'BootScene'
     });
   }
 
@@ -24,8 +17,8 @@ export class BootScene extends Phaser.Scene {
 
     // pass value to change the loading bar fill
     this.load.on(
-      "progress",
-      function(value) {
+      'progress',
+      function (value: number) {
         this.progressBar.clear();
         this.progressBar.fillStyle(0x88e453, 1);
         this.progressBar.fillRect(
@@ -40,8 +33,8 @@ export class BootScene extends Phaser.Scene {
 
     // delete bar graphics, when loading complete
     this.load.on(
-      "complete",
-      function() {
+      'complete',
+      function () {
         this.progressBar.destroy();
         this.loadingBar.destroy();
       },
@@ -49,11 +42,11 @@ export class BootScene extends Phaser.Scene {
     );
 
     // load our package
-    this.load.pack("preload", "./assets/pack.json", "preload");
+    this.load.pack('preload', './assets/pack.json', 'preload');
   }
 
   update(): void {
-    this.scene.start("GameScene");
+    this.scene.start('GameScene');
   }
 
   private createLoadingGraphics(): void {

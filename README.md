@@ -70,6 +70,7 @@ yarn candy-crush
 - [Alpha Adjust](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/alpha-adjust)
 - [Asteroid](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid)
 - [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade)
+- [Blocks](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blocks)
 - [Candy Crush](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/candy-crush)
 - [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner)
 - [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappy-bird)
