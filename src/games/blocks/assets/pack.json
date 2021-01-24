@@ -1,0 +1,20 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "spritesheet",
+        "key": "block",
+        "url": "./assets/sprites/block.png",
+        "frameConfig": {
+          "frameWidth": 16,
+          "frameHeight": 16
+        }
+      },
+      {
+        "type": "image",
+        "key": "cursor",
+        "url": "./assets/images/cursor.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "strict": false
+  },
+  "include": ["src/**/*", "deprecated"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
