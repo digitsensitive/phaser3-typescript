@@ -9,10 +9,10 @@
     "typescript": "3.9.7",
     "webpack": "4.44.1",
     "webpack-cli": "3.3.12",
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
-    "phaser": "3.24.1"
+    "phaser": "3.52.0"
   },
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server --mode development",

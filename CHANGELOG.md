@@ -19,6 +19,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - Add new game concept `blocks`
+- Update phaser version from `3.24.1` to `3.52.0`
+- Update ts-loader version from `8.0.12` to `8.0.14`
+- Update webpack version from `5.10.3` to `5.17.0`
+- Update webpack-cli version from `4.2.0` to `4.4.0`
+- Update webpack-dev-server version from `3.11.0` to `3.11.2`
 
 ---
 
