@@ -15,15 +15,15 @@ Shutdown the scene you call this function from and run the given one.
 
 You can not only pass the scene you want to start, but also the scene config.
 
-```
-this.scene.start("MyScene", {
+```ts
+this.scene.start('MyScene', {
   active: false,
   visible: true,
   pack: false,
   cameras: null,
   map: {},
   mapAdd: {},
-  physics:{},
+  physics: {},
   loader: {},
   plugins: false
 });
@@ -38,23 +38,24 @@ Restart the current scene.
 Do a transition from current to target scene.
 You can use the following object to specify some transition parameters.
 
-```
-const SceneTransitionConfig = {
-    target: '',
-    duration: 1000,
-    sleep: false,
-    allowInput: false,
-    moveAbove: false,
-    moveBelow: false,
-    onUpdate: function() {},
-    onUpdateScope: any,
-    data: any
-}
+```ts
+const sceneTransitionConfig: Phaser.Types.Scenes.SceneTransitionConfig = {
+  target: 'SceneNameToDoTheTransitionTo',
+  duration: 1000,
+  sleep: false,
+  remove: true,
+  allowInput: false,
+  moveAbove: false,
+  moveBelow: false,
+  onUpdate: function () {},
+  onUpdateScope: any,
+  data: any // data you wish to pass to the target scene's init
+};
 ```
 
-There are 5 transition related events to use:
+This scene will emit the event `transitionout` when the transition begins.
+The target scene will emit the following events:
 
-- transitionto
 - transitioninit
 - transitionstart
 - transitionwake
@@ -62,7 +63,7 @@ There are 5 transition related events to use:
 
 #### add
 
-Add the given scene into the scene .
+Add the given scene into the scene.
 
 #### launch
 

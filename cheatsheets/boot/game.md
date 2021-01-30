@@ -22,7 +22,7 @@ It will resize renderer and input manager scale.
 
 A possible usage would be to call that function as follows in the `game.ts`:
 
-```
+```ts
 window.addEventListener('resize', () => {
   game.resize(window.innerWidth, window.innerHeight);
 });
