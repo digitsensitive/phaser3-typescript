@@ -38,16 +38,16 @@ scene unless you specify otherwise.
 You can pass a configuration object into the constructor of a scene to define
 multiple parameters.
 
-```
-const SceneConfig = {
-  key: "YourScene",
+```ts
+const sceneSettingsConfig: Phaser.Types.Scenes.SettingsConfig = {
+  key: 'YourScene',
   active: false,
   visible: true,
   pack: false,
   cameras: null,
   map: {},
   mapAdd: {},
-  physics:{},
+  physics: {},
   loader: {},
   plugins: false
 };
@@ -58,7 +58,7 @@ const SceneConfig = {
 If you do not want any of the seven default plugins you can pass an empty array
 to the constructor of the scene as follows:
 
-```
+```ts
 constructor() {
   super({
     key: "YourScene",
@@ -69,7 +69,7 @@ constructor() {
 
 You can also select the plugins you want to load as follows:
 
-```
+```ts
 constructor() {
   super({
     key: "YourScene",
@@ -81,7 +81,7 @@ constructor() {
 An alternative to the upper approach, is to install the plugins in the `init()`
 function yourself, using the Scene Systems `sys`:
 
-```
+```ts
 constructor() {
   super({
     key: "YourScene",
@@ -94,18 +94,17 @@ init() {
 }
 ```
 
-And last but no least, you can define the config of the scene outside of the class:
+Of course you can set a config of the scene outside of the class:
 
-```
-const MySceneConfig = {
-  key: "YourScene",
+```ts
+const sceneSettingsConfig = {
+  key: 'YourScene',
   plugins: []
 };
 
 export class YourScene extends Phaser.Scene {
-
   constructor() {
-    super(MySceneConfig);
+    super(sceneSettingsConfig);
   }
 }
 ```
@@ -154,7 +153,7 @@ This is a list of the properties:
 You can access the properties within the `map` object in the scene constructor.
 It is possible to rename the properties (here we rename add to add2):
 
-```
+```ts
 constructor() {
   super({
     key: "YourScene",
@@ -170,7 +169,7 @@ example add as we did in the example above, you will be missing the other mappin
 For example you won't be able to access load anymore. So you will have to add
 that too as follows:
 
-```
+```ts
 constructor() {
   super({
     key: "YourScene",
