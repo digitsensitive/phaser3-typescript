@@ -4,7 +4,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-A timeline combines multiple tweens into one
+A timeline combines multiple tweens into one.
 Its overall behavior is otherwise similar to a single tween.
 
 > The timeline updates all of its tweens simultaneously.
@@ -13,8 +13,8 @@ Its overall behavior is otherwise similar to a single tween.
 
 ### Example
 
-```
-const TimelineDataConfig = {
+```ts
+const myTimelineBuilderConfig = {
   tweens,
   targets: this,
   totalDuration,
@@ -53,10 +53,10 @@ const TimelineDataConfig = {
 
   onComplete,
   onCompleteScope,
-  onCompleteParams,
-}
+  onCompleteParams
+};
 
-let myTimeline = this.tweens.timeline(TimelineDataConfig);
+let myTimeline = this.tweens.timeline(myTimelineBuilderConfig);
 ```
 
 ### Public Functions
