@@ -56,6 +56,18 @@ with this command-line:
 git clone https://github.com/digitsensitive/phaser3-typescript.git
 ```
 
+## Boilerplates
+
+Check the `package.json` for the correct scripts to start projects.
+For example you can start the `Webpack Boilerplate` project with:
+
+```
+yarn webpack-boilerplate
+```
+
+- [Webpack Boilerplate](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/boilerplates/webpack-boilerplate)
+- [Parcel Boilerplate](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/boilerplates/parcel-boilerplate)
+
 ## Examples
 
 ### Games

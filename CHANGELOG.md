@@ -14,6 +14,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Version 1.4.6 - 2021-02-05
+
+### Added
+
+- Add new boilerplate `parcel-boilerplate`
+- Move `boilerplate` to `webpack-boilerplate`
+- Update `README.md`
+- Add boilerplates to `package.json`
+
+---
+
 ## Version 1.4.5 - 2021-01-24
 
 ### Added
