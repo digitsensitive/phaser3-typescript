@@ -6,7 +6,7 @@ export class MainScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image('myTexture', '../assets/phaser.png');
+    this.load.image('myTexture', 'phaser.png');
   }
 
   create(): void {
