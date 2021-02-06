@@ -5,7 +5,6 @@
   "keywords": [],
   "devDependencies": {
     "parcel-bundler": "1.12.4",
-    "parcel-plugin-clean-easy": "^1.0.2",
     "parcel-plugin-static-files-copy": "2.5.1",
     "typescript": "4.1.3"
   },
@@ -15,9 +14,6 @@
   "scripts": {
     "dev": "parcel ./index.html -p 8080"
   },
-  "parcelCleanPaths": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/digitsensitive/phaser3-typescript.git"

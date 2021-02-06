@@ -1,15 +1,33 @@
+import { Redhat } from '../objects/redhat';
+
 export class MainScene extends Phaser.Scene {
-  private mySprite: Phaser.GameObjects.Sprite;
+  private myRedhat: Redhat;
 
   constructor() {
     super({ key: 'MainScene' });
   }
 
   preload(): void {
-    this.load.image('myTexture', 'phaser.png');
+    this.load.image('redhat', 'images/redhat.png');
+    this.load.image('redParticle', 'images/red.png');
   }
 
   create(): void {
-    this.mySprite = this.add.sprite(400, 300, 'myTexture');
+    const particles = this.add.particles('redParticle');
+
+    const emitter = particles.createEmitter({
+      speed: 100,
+      scale: { start: 0.5, end: 0 },
+      blendMode: 'ADD'
+    });
+
+    this.myRedhat = new Redhat({
+      scene: this,
+      x: 400,
+      y: 300,
+      texture: 'redhat'
+    });
+
+    emitter.startFollow(this.myRedhat);
   }
 }

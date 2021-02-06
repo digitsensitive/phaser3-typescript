@@ -3611,13 +3611,6 @@ parcel-bundler@1.12.4:
     v8-compile-cache "^2.0.0"
     ws "^5.1.1"
 
-parcel-plugin-clean-easy@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/parcel-plugin-clean-easy/-/parcel-plugin-clean-easy-1.0.2.tgz#451d773c298d6ad911297a8040f9e37cca526e42"
-  integrity sha512-k20c17ff+HpN/GwIkDK0UivZxttVci6qM6uQTjTDHnsZoOyvKd8UReUHuksJdBsDrlPjYE3W6vJW4k4nbmhJYA==
-  dependencies:
-    rimraf "^2.6.2"
-
 parcel-plugin-static-files-copy@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/parcel-plugin-static-files-copy/-/parcel-plugin-static-files-copy-2.5.1.tgz#5a6e19e2e60909d8897aafbd93d7d4f7f7fa3b65"

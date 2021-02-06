@@ -14,11 +14,11 @@ Most of the parameters you will not need to set.
 
 > The commented parameters do not work with the current TS Def file
 
-```
-const config: GameConfig = {
-  title: "",
-  url: "https://phaser.io",
-  version: "",
+```ts
+const GameConfig: Phaser.Types.Core.GameConfig = {
+  title: '',
+  url: 'https://phaser.io',
+  version: '',
   width: 1024,
   height: 768,
   zoom: 1,
@@ -84,8 +84,8 @@ const config: GameConfig = {
   // },
   banner: {
     hidePhaser: false,
-    text: "#ffffff",
-    background: ["#ff0000", "#ffff00", "#00ff00", "#00ffff", "#000000"]
+    text: '#ffffff',
+    background: ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#000000']
   },
   fps: {
     min: 5,
@@ -102,17 +102,17 @@ const config: GameConfig = {
     clearBeforeRender: true,
     premultipliedAlpha: true,
     failIfMajorPerformanceCaveat: false,
-    powerPreference: "default",
+    powerPreference: 'default',
     batchSize: 2000,
     maxLights: 10
   },
   backgroundColor: 0,
   callbacks: {
-    preBoot: function() {},
-    postBoot: function() {}
+    preBoot: function () {},
+    postBoot: function () {}
   },
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
       fps: 60,
       timeScale: 1,
@@ -172,41 +172,41 @@ const config: GameConfig = {
     matter: {}
   },
   loader: {
-    baseURL: "",
-    path: "",
+    baseURL: '',
+    path: '',
     maxParallelDownloads: 32,
     crossOrigin: undefined,
-    responseType: "",
+    responseType: '',
     async: true,
-    user: "",
-    password: "",
+    user: '',
+    password: '',
     timeout: 0
   },
   plugins: {
     global: [
       {
-        key: "TestPlugin",
-        plugin: "",
+        key: 'TestPlugin',
+        plugin: '',
         start: true,
-        data: { msg: "The plugin is alive" }
+        data: { msg: 'The plugin is alive' }
       }
     ],
     scene: [
       {
-        key: "WireFramePlugin",
-        plugin: "",
-        systemKey: "wireFramePlugin",
-        sceneKey: "wireframe"
+        key: 'WireFramePlugin',
+        plugin: '',
+        systemKey: 'wireFramePlugin',
+        sceneKey: 'wireframe'
       }
     ],
     default: [],
-    defaultMerge: ["ModPlayer"]
+    defaultMerge: ['ModPlayer']
   },
   images: {
-    default: "data:image/png;base64...",
-    missing: "data:image/png;base64..."
+    default: 'data:image/png;base64...',
+    missing: 'data:image/png;base64...'
   }
 };
 
-var game = new Game(config);
+const game = new Game(GameConfig);
 ```
