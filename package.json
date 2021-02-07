@@ -42,7 +42,8 @@
     "procedural-generation": "cd src/experimental/procedural-generation && yarn && yarn run dev",
     "raycasting": "cd src/experimental/raycasting && yarn && yarn run dev",
     "untextured-raycaster": "cd src/experimental/untextured-raycaster && yarn && yarn run dev",
-    "factory-method": "cd patterns/creational-design-patterns/factory-method && yarn && yarn run dev"
+    "factory-method": "cd patterns/creational-design-patterns/factory-method && yarn && yarn run dev",
+    "run:presentation": "cd slides && yarn && yarn run:dev"
   },
   "repository": {
     "type": "git",

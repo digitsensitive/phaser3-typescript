@@ -134,10 +134,6 @@ More informations about the format options can be found [here](https://prettier.
 The selected compiler options for each project are set in the `tsconfig.json` file.
 More informations about the available options can be found [here](https://www.typescriptlang.org/tsconfig).
 
-## Cheat Sheets
-
-- [Browse through the Cheat Sheets](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets)
-
 ## Tutorials
 
 - [Learn to create a HTML5 Game in 5 Minutes](https://medium.com/@digit.sensitivee/learn-to-create-a-html5-game-in-5-minutes-604118f5d0ab)

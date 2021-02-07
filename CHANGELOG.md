@@ -14,6 +14,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Version 1.4.7 - 2021-02-07
+
+### Added
+
+- Add new folder slides
+- Move cheat sheets to the folder slides
+
+---
+
 ## Version 1.4.6 - 2021-02-05
 
 ### Added

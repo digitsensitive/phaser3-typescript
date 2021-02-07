@@ -1,8 +1,16 @@
-## Phaser.Game
+# Phaser.Game
 
 In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
 
-### Introduction
+---
+
+## Introduction
+
+- Main Controller of the game
+- Handles booting, Renderer and Phaser Systems (f.e. input)
+- When loaded, starts Scene Manager and the loop begins
+
+---
 
 The `Phaser.Game` instance controls the entire game.
 It parses the [configuration values](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md),
@@ -13,9 +21,11 @@ starts the scene manager and begins the main game loop.
 > You should generally avoid accessing any of the systems created by Game,
 > and instead use those made available to you via the Phaser.Scene class
 
-### Public Functions
+---
 
-#### resize
+## Public Functions
+
+### resize
 
 Call this function to update the game width and height.
 It will resize renderer and input manager scale.
@@ -28,15 +38,21 @@ window.addEventListener('resize', () => {
 });
 ```
 
-#### getFrame
+--
+
+### getFrame
 
 Get the current frame.
 
-#### getTime
+--
+
+### getTime
 
 Get the current game timestamp.
 
-#### destroy
+--
+
+### destroy
 
 Will destroy the game instance on the next frame.
 
