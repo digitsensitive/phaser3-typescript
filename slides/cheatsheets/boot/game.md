@@ -1,62 +1,33 @@
 # Phaser.Game
 
-In case of doubt, the [official source code](https://github.com/photonstorm/phaser) should be accessed.
-
 ---
 
 ## Introduction
 
-- Main Controller of the game
-- Handles booting, Renderer and Phaser Systems (f.e. input)
+- The Main Controller of the Game
+- Handles booting, parsing the [configuration values](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/boot/config.md), creating the Renderer and setup global [Phaser Systems](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/scene/systems.md) (f.e. input)
 - When loaded, starts Scene Manager and the loop begins
 
 ---
 
-The `Phaser.Game` instance controls the entire game.
-It parses the [configuration values](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md),
-handles the boot process, creates the renderer,
-sets up all the global [phaser systems](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md),
-starts the scene manager and begins the main game loop.
-
-> You should generally avoid accessing any of the systems created by Game,
-> and instead use those made available to you via the Phaser.Scene class
+> Avoid accessing any of the systems created by Game, and use instead those made available to you via Phaser.Scene
 
 ---
 
 ## Public Functions
 
-### resize
+### getFrame()
 
-Call this function to update the game width and height.
-It will resize renderer and input manager scale.
-
-A possible usage would be to call that function as follows in the `game.ts`:
-
-```ts
-window.addEventListener('resize', () => {
-  game.resize(window.innerWidth, window.innerHeight);
-});
-```
+Get the current game frame.
 
 --
 
-### getFrame
-
-Get the current frame.
-
---
-
-### getTime
+### getTime()
 
 Get the current game timestamp.
 
 --
 
-### destroy
+### destroy()
 
-Will destroy the game instance on the next frame.
-
-> Set `noReturn` to `true` if you do not want to run Phaser again, so it will free-up
-> memory being held by the core Phaser plugins.
-
-> Set `removeCanvas` to `true` to remove the parent canvas element from DOM.
+Destroy the game instance on the next frame.
