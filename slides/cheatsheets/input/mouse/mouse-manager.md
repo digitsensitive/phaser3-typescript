@@ -42,7 +42,7 @@ dispatched - from the game's input manager - with an `isPointerLocked` property.
 
 Starts the mouse event listeners running as long as an input target is set.
 
-> This method is called automatically if mouse input is enabled in the [game config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/boot/config.md).
+> This method is called automatically if mouse input is enabled in the [game config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/core/config.md).
 
 #### stopListeners
 
