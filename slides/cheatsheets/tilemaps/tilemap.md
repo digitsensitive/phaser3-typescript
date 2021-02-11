@@ -5,7 +5,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 ### Introduction
 
 A Tilemap is simply a container for tilemap data (tilesets and tilemap layers).
-A map can have one or more tilemap layers ([StaticTilemapLayer](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tilemaps/static-tilemap-layer.md) or DynamicTilemapLayer).
+A map can have one or more tilemap layers ([StaticTilemapLayer](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/tilemaps/static-tilemap-layer.md) or DynamicTilemapLayer).
 The tilemap layers do actually render tiles.
 
 The Tilemap data be parsed from a Tiled JSON file, a CSV file or a 2D array.
@@ -15,7 +15,7 @@ The Tilemap data be parsed from a Tiled JSON file, a CSV file or a 2D array.
 ### Example
 
 To create a tilemap (from given key or data) you can use one of the
-core scene plugins: [The Game Object Creator](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/game-object-creator-plugin.md).
+core scene plugins: [The Game Object Creator](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/game-object-creator-plugin.md).
 
 ```
 const TilemapConfig = {

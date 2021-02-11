@@ -1,9 +1,9 @@
-import { ISpriteConstructor } from '../interfaces/sprite.interface';
+import { IImageConstructor } from '../interfaces/image.interface';
 
-export class Redhat extends Phaser.GameObjects.Sprite {
+export class Redhat extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;
 
-  constructor(aParams: ISpriteConstructor) {
+  constructor(aParams: IImageConstructor) {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     this.initSprite();

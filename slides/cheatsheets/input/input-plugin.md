@@ -4,7 +4,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-The input plugin is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#default-plugins). It is installed into every scene unless you specify otherwise and can be accessed with `this.input`.
+The input plugin is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/scene/systems.md#default-plugins). It is installed into every scene unless you specify otherwise and can be accessed with `this.input`.
 
 ### Examples
 
@@ -15,7 +15,7 @@ to listen for a pointer down event anywhere on the game canvas:
 this.input.on('pointerdown', callback, context);
 ```
 
-You can enable input for game objects by simply calling their [setInteractive](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/gameobject.md) method. Having done this, you can do the following:
+You can enable input for game objects by simply calling their [setInteractive](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/gameobject.md) method. Having done this, you can do the following:
 
 ```
 let MyInteractiveSprite = this.add.sprite(x, y, texture);
@@ -79,8 +79,8 @@ it is currently above.
 > The hit test is performed against which-ever camera the pointer is over.
 > If it is over multiple cameras, it starts checking the camera at the top of the camera list, and if nothing is found, iterates down the list.
 
-> Calls the [hitTest method](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-manager.md#hitTest)
-> from the [input manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-manager.md).
+> Calls the [hitTest method](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/input/input-manager.md#hitTest)
+> from the [input manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/input/input-manager.md).
 
 #### getDragState
 
@@ -212,8 +212,8 @@ Causes the input manager to stop emitting any events for the remainder of this g
 
 Add new pointer objects to the input manager.
 
-> Calls the [addPointer method](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-manager.md#addPointer)
-> from the [input manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-manager.md).
+> Calls the [addPointer method](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/input/input-manager.md#addPointer)
+> from the [input manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/input/input-manager.md).
 
 #### setDefaultCursor
 

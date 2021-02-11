@@ -4,7 +4,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-The tween manager is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#core-
+The tween manager is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/scene/systems.md#core-
 plugins) from a scene. It controls and updates tweens and timelines.
 It is installed into every scene and you can access it with `this.tweens`.
 
@@ -30,7 +30,7 @@ const TweenDataConfig = {
 let myTween = this.tweens.add(TweenDataConfig);
 ```
 
-[Table](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/ease-map.md) of easing functions.
+[Table](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/tweens/ease-map.md) of easing functions.
 
 > The tween builder is capable to process object properties.
 > For example if you want the tween to target the alpha value, you can simply add

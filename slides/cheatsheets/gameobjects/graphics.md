@@ -12,7 +12,7 @@ beginPath, moveTo, lineTo, closePath and strokePath.
 
 > Under WebGL the graphics data is decomposed into polygons.
 
-> If your graphic object doesn't change much (or at all) once you have drawn your shape to it, then you will help performance by calling [generate Texture](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/graphics.md#generatetexture).
+> If your graphic object doesn't change much (or at all) once you have drawn your shape to it, then you will help performance by calling [generate Texture](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/graphics.md#generatetexture).
 > This will 'bake' the graphic object into a texture, and return it. You can then use this Texture for Sprites or other display objects.
 
 ### Example
@@ -39,13 +39,13 @@ Set the default style settings for this graphics object.
 
 Save the state of the graphic by pushing the current state onto a stack.
 
-> The most recently saved state can then be restored with [restore](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/graphics.md#restore).
+> The most recently saved state can then be restored with [restore](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/graphics.md#restore).
 
 #### restore
 
 Restore the most recently saved state of the graphic by popping from the state stack.
 
-> Use [save](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/graphics.md#save) to save the current state, and call this afterwards to restore that state.
+> Use [save](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/graphics.md#save) to save the current state, and call this afterwards to restore that state.
 > If there is no saved state, this command does nothing.
 
 #### translateCanvas
@@ -77,16 +77,16 @@ and add it to the texture manager. You can also pass a canvas, in that case the 
 
 ### Extends
 
-- [GameObject](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/gameobject.md)
+- [GameObject](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/gameobject.md)
 
 ### Mixins
 
-- [Components.Alpha](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/alpha.md)
-- [Components.BlendMode](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/blend-mode.md)
-- [Components.Depth](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/depth.md)
-- [Components.Mask](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/mask.md)
-- [Components.Pipeline](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/pipeline.md)
-- [Components.ScrollFactor](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/scroll-factor.md)
-- [Components.Transform](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/transform.md)
-- [Components.Visible](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/visible.md),
+- [Components.Alpha](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/alpha.md)
+- [Components.BlendMode](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/blend-mode.md)
+- [Components.Depth](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/depth.md)
+- [Components.Mask](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/mask.md)
+- [Components.Pipeline](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/pipeline.md)
+- [Components.ScrollFactor](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/scroll-factor.md)
+- [Components.Transform](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/transform.md)
+- [Components.Visible](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/visible.md),
 - Render

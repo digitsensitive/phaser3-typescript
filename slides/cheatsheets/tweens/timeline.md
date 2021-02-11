@@ -123,7 +123,7 @@ Seta callback for the timeline.
 
 #### makeActive
 
-Delegates [makeActive](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md#makeActive) to the tween manager.
+Delegates [makeActive](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/tweens/tween-manager-plugin.md#makeActive) to the tween manager.
 
 #### play
 

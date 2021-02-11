@@ -71,7 +71,7 @@ Set horizontal and vertical offset of the camera from its follow target.
 #### startFollow
 
 Set the camera to follow a game object.
-Use low [lerp](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/cameras/camera.md#setLerp) values (such as 0.1) to automatically smooth the camera motion.
+Use low [lerp](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/cameras/camera.md#setLerp) values (such as 0.1) to automatically smooth the camera motion.
 
 > The camera will automatically adjust its scroll position to keep the target game object in its center.
 
@@ -89,12 +89,12 @@ Reset any active FX, such as a fade, flash or shake.
 
 ### Extends
 
-- [BaseCamera](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/cameras/base-camera.md)
+- [BaseCamera](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/cameras/base-camera.md)
 
 ### Mixins
 
-- [Components.Flip](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/flip.md)
-- [Components.Tint](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/tint.md)
+- [Components.Flip](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/flip.md)
+- [Components.Tint](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/tint.md)
 
 ### References
 

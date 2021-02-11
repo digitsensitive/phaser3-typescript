@@ -21,8 +21,8 @@ let myPathFollower = this.add.follower(
 
 ### Extends
 
-- [Sprite](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/sprite.md)
+- [Sprite](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/sprite.md)
 
 #### Mixins
 
-- [Components.PathFollower](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/components/path-follower.md)
+- [Components.PathFollower](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/components/path-follower.md)

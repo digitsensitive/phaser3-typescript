@@ -4,11 +4,11 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-The Loader Plugin is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#default-plugins). It is installed into every scene unless you specify otherwise and can be accessed with `this.load`.
+The Loader Plugin is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/scene/systems.md#default-plugins). It is installed into every scene unless you specify otherwise and can be accessed with `this.load`.
 
 It handles loading of all external contents. Use the `preload` method to preload
 your assets in the scene. Files are loaded in parallel by default and the amount of
-concurrent connections can be controlled in the [game config](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/core/config.md)
+concurrent connections can be controlled in the [game config](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/core/config.md)
 with `maxParallelDownloads`.
 
 ### Public Functions

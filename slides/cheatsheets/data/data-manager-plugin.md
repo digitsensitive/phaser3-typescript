@@ -4,7 +4,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-The Data Manager Plugin is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#default-plugins).
+The Data Manager Plugin is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/scene/systems.md#default-plugins).
 It is installed into every scene and you can access it with `this.data`.
 
 > With `this.registry` you can access a game-wide instance of the data manager.
@@ -19,4 +19,4 @@ We need to shutdown and then kill off all external references.
 
 ### Extends
 
-- [DataManager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/data/data-manager.md)
+- [DataManager](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/data/data-manager.md)

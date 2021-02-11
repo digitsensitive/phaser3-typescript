@@ -9,7 +9,7 @@ Mouse and Touch.
 
 You rarely need to interact with this manager directly. You better should use the input plugin.
 
-> Keyboard and Gamepad are plugins, handled directly by the [input plugin class](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-plugin.md).
+> Keyboard and Gamepad are plugins, handled directly by the [input plugin class](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/input/input-plugin.md).
 
 ### Public Functions
 

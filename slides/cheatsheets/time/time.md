@@ -4,10 +4,10 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-The Clock is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#default-plugins).
+The Clock is one of the [seven default plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/scene/systems.md#default-plugins).
 It is installed into every scene unless you specify otherwise and you can access it with `this.time`.
 
-With the Clock you can create and update [timer events](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/time/timer-event.md) for the scene.
+With the Clock you can create and update [timer events](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/time/timer-event.md) for the scene.
 
 ### Example
 

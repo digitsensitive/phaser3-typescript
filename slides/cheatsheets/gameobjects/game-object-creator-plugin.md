@@ -4,7 +4,7 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 ### Introduction
 
-The Game Object Creator is one of the [seven core plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/systems.md#core-plugins) from a scene. It allows you to quickly create many common types of
+The Game Object Creator is one of the [seven core plugins](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/scene/systems.md#core-plugins) from a scene. It allows you to quickly create many common types of
 game objects and return them.
 It is installed into every scene and you can access it with `this.make`.
 

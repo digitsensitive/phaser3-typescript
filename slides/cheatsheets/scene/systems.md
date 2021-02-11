@@ -11,10 +11,10 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 #### Core plugins
 
 - The Event Emitter
-- [The 2D Camera Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/cameras/camera-manager.md)
-- [The Game Object Creator](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/gameobjects/game-object-creator-plugin.md)
+- [The 2D Camera Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/cameras/camera-manager.md)
+- [The Game Object Creator](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/gameobjects/game-object-creator-plugin.md)
 - The Game Object Factory
-- [The Scene Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/scene/plugins/scene-plugin.md)
+- [The Scene Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/scene/plugins/scene-plugin.md)
 - The Display List
 - The Update List
 
@@ -23,11 +23,11 @@ The core plugins are `non-optional`.
 #### Default plugins
 
 - The 3D Camera Manager
-- [The Clock](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/time/time.md)
-- [The Input Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/input/input-plugin.md)
-- [The Data Manager Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/data/data-manager-plugin.md)
-- [The Loader Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/loader/loader-plugin.md)
-- [The Tween Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md)
+- [The Clock](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/time/time.md)
+- [The Input Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/input/input-plugin.md)
+- [The Data Manager Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/data/data-manager-plugin.md)
+- [The Loader Plugin](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/loader/loader-plugin.md)
+- [The Tween Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/tweens/tween-manager-plugin.md)
 - The Lights Plugin
 
 The default plugins are `optional`, but still they are installed into your

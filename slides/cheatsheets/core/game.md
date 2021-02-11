@@ -1,4 +1,4 @@
-# Phaser.Game
+# Game
 
 ---
 

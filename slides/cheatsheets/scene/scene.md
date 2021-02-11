@@ -1,4 +1,4 @@
-# Phaser.Scene
+# Scene
 
 ---
 

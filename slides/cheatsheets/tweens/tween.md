@@ -6,11 +6,11 @@ In case of doubt, the [official source code](https://github.com/photonstorm/phas
 
 A tween is able to manipulate the properties of one or more objects to any given value.
 This is based on a duration and type of ease.
-They are rarely instantiated directly and instead should be created via the [tween manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md).
+They are rarely instantiated directly and instead should be created via the [tween manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/tweens/tween-manager-plugin.md).
 
 ### Example
 
-More advanced tween data config (for basic config see [here](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md#Example)):
+More advanced tween data config (for basic config see [here](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/tweens/tween-manager-plugin.md#Example)):
 
 ```
 this.tweens.add({
@@ -87,7 +87,7 @@ For explanations about the properties see the [official source code](https://git
 
 As soon as the tween returns `true`, then it means it has completed.
 It will be moved into the `destroy list` and be destroyed the next frame.
-This is all done by the [Tween Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/cheatsheets/tweens/tween-manager-plugin.md).
+This is all done by the [Tween Manager](https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/tweens/tween-manager-plugin.md).
 
 ### Public Functions
 
