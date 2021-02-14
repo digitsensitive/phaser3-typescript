@@ -1,6 +1,4 @@
 const path = require('path');
-const pathToPhaser = path.join(__dirname, '/node_modules/phaser/');
-const phaser = path.join(pathToPhaser, 'dist/phaser.js');
 
 module.exports = {
   entry: './src/game.ts',
@@ -16,7 +14,7 @@ module.exports = {
         loader: 'ts-loader'
       },
       {
-        test: /phaser\.js$/,
+        test: require.resolve('Phaser'),
         loader: 'expose-loader',
         options: { exposes: { globalName: 'Phaser', override: true } }
       }
@@ -25,14 +23,11 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, './'),
     publicPath: '/dist/',
-    host: '127.0.0.1',
+    host: 'localhost',
     port: 8080,
-    open: true
+    open: false
   },
   resolve: {
-    extensions: ['.ts', '.js'],
-    alias: {
-      phaser: phaser
-    }
+    extensions: ['.ts', '.js']
   }
 };
