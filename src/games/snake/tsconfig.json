@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "commonjs",
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "sourceMap": false,
-    "noImplicitAny": true,
-    "strict": false
+    "noImplicitAny": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules"]
 }
