@@ -75,10 +75,10 @@ export class GameScene extends Phaser.Scene {
     this.generationText = this.add
       .text(10, 10, 'Generation: ' + this.generation.toString(), {
         fontFamily: 'Arial',
-        fontSize: 20,
+        fontSize: 20 + 'px',
         stroke: '#ffffff',
         strokeThickness: 1,
-        fill: '#000000'
+        color: '#000000'
       })
       .setDepth(2);
 

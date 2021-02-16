@@ -80,10 +80,10 @@ export class GameScene extends Phaser.Scene {
         'Count: ' + this.counter.toString() + ' (even, outside polygon)',
         {
           fontFamily: 'Arial',
-          fontSize: 20,
+          fontSize: 20 + 'px',
           stroke: '#ffffff',
           strokeThickness: 1,
-          fill: '#ffffff'
+          color: '#ffffff'
         }
       )
       .setDepth(2);

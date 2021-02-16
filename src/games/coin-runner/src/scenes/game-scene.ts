@@ -50,10 +50,10 @@ export class GameScene extends Phaser.Scene {
       this.collectedCoins + '',
       {
         fontFamily: 'Arial',
-        fontSize: 38,
+        fontSize: 38 + 'px',
         stroke: '#fff',
         strokeThickness: 6,
-        fill: '#000000'
+        color: '#000000'
       }
     );
   }

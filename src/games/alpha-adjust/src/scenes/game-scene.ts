@@ -74,19 +74,19 @@ export class GameScene extends Phaser.Scene {
       difference.toFixed(2) + '',
       {
         fontFamily: 'Arial',
-        fontSize: 100,
+        fontSize: 100 + 'px',
         stroke: '#000000',
         strokeThickness: 8,
-        fill: '#ffffff'
+        color: '#ffffff'
       }
     );
 
-    let textConfig = {
+    let textConfig: Phaser.Types.GameObjects.Text.TextStyle = {
       fontFamily: 'Arial',
-      fontSize: 50,
+      fontSize: 50 + 'px',
       stroke: '#000000',
       strokeThickness: 8,
-      fill: '#ffffff'
+      color: '#ffffff'
     };
 
     if (difference >= 0.5) {
