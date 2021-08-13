@@ -12,7 +12,7 @@
     "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
-    "phaser": "3.52.0"
+    "phaser": "3.55.2"
   },
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server --mode development",

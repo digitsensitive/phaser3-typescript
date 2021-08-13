@@ -14,6 +14,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Version 1.5.0 - 2021-08-13
+
+### Added
+
+- Update all dependencies
+
+---
+
 ## Version 1.4.8 - 2021-08-13
 
 ### Added

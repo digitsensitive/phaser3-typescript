@@ -4,15 +4,15 @@
   "description": "Coin Runner for Phaser 3 in TypeScript",
   "keywords": [],
   "devDependencies": {
-    "expose-loader": "1.0.3",
-    "ts-loader": "8.0.14",
-    "typescript": "4.1.3",
-    "webpack": "5.17.0",
-    "webpack-cli": "4.4.0",
+    "expose-loader": "3.0.0",
+    "ts-loader": "9.2.5",
+    "typescript": "4.3.5",
+    "webpack": "5.50.0",
+    "webpack-cli": "4.7.2",
     "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
-    "phaser": "3.52.0"
+    "phaser": "3.55.2"
   },
   "scripts": {
     "dev": "webpack --mode development && webpack serve --mode development"
