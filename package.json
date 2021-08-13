@@ -1,6 +1,6 @@
 {
   "name": "phaser3-typescript",
-  "version": "1.4.6",
+  "version": "1.4.8",
   "description": "Boilerplate, Game Examples, Cheat Sheets and Tutorials for Phaser 3 in TypeScript",
   "keywords": [
     "Phaser",
@@ -18,7 +18,7 @@
     "Phaser3-example"
   ],
   "devDependencies": {
-    "prettier": "2.2.1"
+    "prettier": "2.3.2"
   },
   "scripts": {
     "webpack-boilerplate": "cd src/boilerplates/webpack-boilerplate && yarn && yarn run dev",

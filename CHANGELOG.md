@@ -14,6 +14,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Version 1.4.8 - 2021-08-13
+
+### Added
+
+- Update `webpack-boilerplate` dependencies
+- Update global dependency `prettier`
+
+---
+
 ## Version 1.4.7 - 2021-02-07
 
 ### Added
