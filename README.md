@@ -90,8 +90,6 @@ yarn candy-crush
 - [Space Invaders](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders)
 - [Super Mario Land](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/super-mario-land)
 
-If you have any suggestion for a next game example, let me know!
-
 ### Experimental
 
 Check the `package.json` for the correct scripts to start projects.
