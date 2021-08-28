@@ -25,7 +25,8 @@ export class Clock extends Phaser.GameObjects.Sprite {
       aParams.prefix + 'hand'
     );
 
-    this.hand.setTint(0xfff730);
+    this.hand.setTint(0xff6378);
+    this.hand.setDepth(2);
     this.hand.setRotation(Phaser.Math.Angle.Random());
     this.scene.physics.world.enable(this.hand);
 
@@ -33,37 +34,32 @@ export class Clock extends Phaser.GameObjects.Sprite {
 
     handBody.angularVelocity =
       Phaser.Math.RND.between(
-        settings.LEVELS[settings.currentLevel].CLOCK_SPEED[0],
-        settings.LEVELS[settings.currentLevel].CLOCK_SPEED[1]
+        settings.LEVELS[settings.currentLevel].CLOCK_SPEED.MIN,
+        settings.LEVELS[settings.currentLevel].CLOCK_SPEED.MAX
       ) * Phaser.Math.RND.sign();
 
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
   }
 
-  public hasActiveAppearance(): void {
-    this.setDepth(-1);
+  public setActiveAppearance(): void {
+    this.setDepth(1);
     this.setFrame(1);
-    this.setTintFill(0xfff730);
+    this.face.setDepth(2);
     this.face.setVisible(true);
-    this.face.setTintFill(0xff6378);
+    this.face.setTintFill(0xfff730);
+    this.hand.setDepth(2);
     this.hand.setFrame(1);
-    this.hand.setTintFill(0xff6378);
-  }
-
-  public destroyFaceSprite(): void {
-    this.face.destroy();
-  }
-
-  public destroyHandSprite(): void {
-    this.hand.destroy();
+    this.hand.setTintFill(0xfff730);
   }
 
   public getCurrentHandRotation(): number {
     return this.hand.rotation;
   }
 
-  public getHandSprite(): Phaser.GameObjects.Sprite {
-    return this.hand;
+  public kill(): void {
+    this.face.destroy();
+    this.hand.destroy();
+    this.destroy();
   }
 }

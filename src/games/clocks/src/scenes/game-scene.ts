@@ -11,7 +11,6 @@ export class GameScene extends Phaser.Scene {
   private ball: Ball;
   private clocksArray: Clock[];
 
-  private handGroup: Phaser.GameObjects.Group;
   private clockGroup: Phaser.GameObjects.Group;
 
   constructor() {
@@ -29,19 +28,18 @@ export class GameScene extends Phaser.Scene {
 
   create(): void {
     this.clocksArray = [];
-    this.handGroup = this.add.group();
     this.clockGroup = this.add.group();
 
     for (
       let i = 0;
-      i < settings.LEVELS[settings.currentLevel].TILED_OUTPUT.length;
+      i < settings.LEVELS[settings.currentLevel].CLOCKS.length;
       i++
     ) {
-      switch (settings.LEVELS[settings.currentLevel].TILED_OUTPUT[i]) {
+      switch (settings.LEVELS[settings.currentLevel].CLOCKS[i]) {
         // small clock
         case 1:
           this.clocksArray.push(
-            this.placeClock(
+            this.addNewClock(
               new Phaser.Math.Vector2(
                 (i % settings.LEVEL_WIDTH_IN_TILES) * 2 + 1,
                 Math.floor(i / settings.LEVEL_HEIGHT_IN_TILES) * 2 + 1
@@ -54,7 +52,7 @@ export class GameScene extends Phaser.Scene {
         // big clock
         case 2:
           this.clocksArray.push(
-            this.placeClock(
+            this.addNewClock(
               new Phaser.Math.Vector2(
                 (i % settings.LEVEL_WIDTH_IN_TILES) * 2 + 2,
                 Math.floor(i / settings.LEVEL_HEIGHT_IN_TILES) * 2
@@ -67,9 +65,8 @@ export class GameScene extends Phaser.Scene {
     }
 
     this.activeClock = Phaser.Utils.Array.GetRandom(this.clocksArray);
-    this.activeClock.hasActiveAppearance();
+    this.activeClock.setActiveAppearance();
 
-    // add the ball
     this.ball = new Ball({
       scene: this,
       x: +this.game.config.width / 2,
@@ -90,15 +87,13 @@ export class GameScene extends Phaser.Scene {
     this.physics.add.overlap(
       this.ball,
       this.clockGroup,
-      this.handleOverlap,
+      this.handleBallClockOverlap,
       null,
       this
     );
   }
 
-  update(): void {}
-
-  private placeClock(
+  private addNewClock(
     clockCoordinates: Phaser.Math.Vector2,
     prefix: string
   ): Clock {
@@ -111,7 +106,6 @@ export class GameScene extends Phaser.Scene {
     });
 
     this.clockGroup.add(newClock);
-    this.handGroup.add(newClock.getHandSprite());
 
     this.numberClocks++;
 
@@ -122,48 +116,36 @@ export class GameScene extends Phaser.Scene {
     if (this.canFire) {
       this.canFire = false;
 
-      const handAngle = this.activeClock.getCurrentHandRotation();
-
-      this.ball.setX(this.activeClock.x);
-      this.ball.setY(this.activeClock.y);
+      this.ball.setPosition(this.activeClock.x, this.activeClock.y);
       this.ball.setVisible(true);
 
+      const handAngle = this.activeClock.getCurrentHandRotation();
       const ballVelocity = this.physics.velocityFromRotation(
         handAngle,
         this.ball.getSpeed()
       );
-
       this.ball.body.setVelocity(ballVelocity.x, ballVelocity.y);
 
-      this.activeClock.destroyHandSprite();
-      this.activeClock.destroyFaceSprite();
-      this.activeClock.destroy();
+      this.activeClock.kill();
     }
   }
 
-  // method to handle overlap between ball and clock
-  private handleOverlap(ball: Ball, clock: Clock) {
+  private handleBallClockOverlap(ball: Ball, clock: Clock) {
     if (!this.canFire) {
-      clock.hasActiveAppearance();
+      clock.setActiveAppearance();
       this.activeClock = clock;
       this.ball.setVisible(false);
       this.ball.body.setVelocity(0, 0);
       this.clocksReached++;
 
-      // are there more clocks to reach?
       if (this.clocksReached < this.numberClocks) {
-        // we can fire again
         this.canFire = true;
       } else {
-        // advance by one level
-        settings.currentLevel =
-          (settings.currentLevel + 1) % settings.LEVELS.length;
-
-        // wait one second and a half, then restart the game
         this.time.addEvent({
           delay: 1500,
           callbackScope: this,
           callback: function () {
+            settings.currentLevel += 1;
             this.scene.start('GameScene');
           }
         });

@@ -8,11 +8,6 @@
       },
       {
         "type": "image",
-        "key": "loading",
-        "url": "./assets/images/loading.png"
-      },
-      {
-        "type": "image",
         "key": "smallclockface",
         "url": "./assets/images/smallclockface.png"
       },
