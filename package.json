@@ -28,6 +28,7 @@
     "blockade": "cd src/games/blockade && yarn && yarn run dev",
     "blocks": "cd src/games/blocks && yarn install && yarn run dev",
     "candy-crush": "cd src/games/candy-crush && yarn && yarn run dev",
+    "clocks": "cd src/games/clocks && yarn && yarn run dev",
     "coin-runner": "cd src/games/coin-runner && yarn && yarn run dev",
     "flappy-bird": "cd src/games/flappy-bird && yarn && yarn run dev",
     "snake": "cd src/games/snake && yarn && yarn run dev",
