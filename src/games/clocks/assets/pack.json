@@ -1,0 +1,62 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "image",
+        "key": "ball",
+        "url": "./assets/images/ball.png"
+      },
+      {
+        "type": "image",
+        "key": "loading",
+        "url": "./assets/images/loading.png"
+      },
+      {
+        "type": "image",
+        "key": "smallclockface",
+        "url": "./assets/images/smallclockface.png"
+      },
+      {
+        "type": "image",
+        "key": "bigclockface",
+        "url": "./assets/images/bigclockface.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "bigclock",
+        "url": "./assets/sprites/bigclock.png",
+        "frameConfig": {
+          "frameWidth": 140,
+          "frameHeight": 140
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "bighand",
+        "url": "./assets/sprites/bighand.png",
+        "frameConfig": {
+          "frameWidth": 140,
+          "frameHeight": 140
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "smallclock",
+        "url": "./assets/sprites/smallclock.png",
+        "frameConfig": {
+          "frameWidth": 70,
+          "frameHeight": 70
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "smallhand",
+        "url": "./assets/sprites/smallhand.png",
+        "frameConfig": {
+          "frameWidth": 70,
+          "frameHeight": 70
+        }
+      }
+    ]
+  }
+}
