@@ -14,6 +14,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Version 1.5.2 - 2021-08-30
+
+### Added
+
+- Add new game example `endless-runner`
+
+---
+
 ## Version 1.5.1 - 2021-08-28
 
 ### Added

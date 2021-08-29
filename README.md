@@ -86,6 +86,7 @@ yarn candy-crush
 - [Candy Crush](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/candy-crush)
 - [Clocks](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/clocks)
 - [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner)
+- [Endless Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/endless-runner)
 - [Flappy Bird](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/flappy-bird)
 - [Snake](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/snake)
 - [Space Invaders](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders)
