@@ -4,6 +4,7 @@
 
 <p align="center">
   Phaser 3 Game Examples written in TypeScript.
+  Since 2018.
 </p>
 
 <div align="center">
