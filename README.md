@@ -84,6 +84,7 @@ yarn candy-crush
 - [Asteroid](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/asteroid)
 - [Blockade](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blockade)
 - [Blocks](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/blocks)
+- [Breakout](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/breakout)
 - [Candy Crush](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/candy-crush)
 - [Clocks](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/clocks)
 - [Coin Runner](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/coin-runner)

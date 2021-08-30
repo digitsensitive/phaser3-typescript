@@ -1,0 +1,12 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "./assets/font/font.png",
+        "fontDataURL": "./assets/font/font.fnt"
+      }
+    ]
+  }
+}
