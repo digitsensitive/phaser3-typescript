@@ -150,7 +150,7 @@ More informations about the available options can be found [here](https://www.ty
 - [Phaser 3 Discourse](https://phaser.discourse.group)
 - [Leshy SpriteSheet Tool](https://www.leshylabs.com/apps/sstool)
 - [Tiled](https://www.mapeditor.org)
-- [Littera](http://kvazars.com/littera)
+- [Bitmap Font Generator Online](https://snowb.org)
 - [Tile Extruder](https://github.com/sporadic-labs/tile-extruder)
 
 ## Changelog
