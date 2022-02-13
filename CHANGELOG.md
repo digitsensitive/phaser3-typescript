@@ -14,6 +14,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Version 1.5.3 - 2022-02-13
+
+### Added
+
+- Add new game example `space-shooter`
+
+---
+
 ## Version 1.5.2 - 2021-08-30
 
 ### Added

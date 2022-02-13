@@ -1,6 +1,6 @@
 {
   "name": "phaser3-typescript",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Boilerplate, Game Examples, Cheat Sheets and Tutorials for Phaser 3 in TypeScript",
   "keywords": [
     "Phaser",
@@ -35,6 +35,7 @@
     "flappy-bird": "cd src/games/flappy-bird && yarn && yarn run dev",
     "snake": "cd src/games/snake && yarn && yarn run dev",
     "space-invaders": "cd src/games/space-invaders && yarn && yarn run dev",
+    "space-shooter": "cd src/games/space-shooter && yarn && yarn run dev",
     "super-mario-land": "cd src/games/super-mario-land && yarn && yarn run dev",
     "tank": "cd src/games/tank && yarn && yarn run dev",
     "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run dev",
