@@ -1,0 +1,11 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "image",
+        "key": "player",
+        "url": "./assets/images/player.png"
+      }
+    ]
+  }
+}
