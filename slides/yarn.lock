@@ -2361,10 +2361,10 @@ retry@^0.12.0:
   resolved "https://registry.yarnpkg.com/retry/-/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
   integrity sha1-G0KmJmoh8HQh0bC1S33BZ7AcATs=
 
-reveal.js@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-4.1.0.tgz#db87a754b03810584114e902b2702e96ee1ca63c"
-  integrity sha512-lYOMhxSWgq5jtgspF7eRL0d2rBnHO/VGZ4/qp46yu+eGoWqJkYHEuepEXzx71M8MI6Rf8HBYWaTnKi5uHWcU1Q==
+reveal.js@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-4.3.0.tgz#6fe91cc84de2e286f039545cb596dbc4d0d52294"
+  integrity sha512-KzZxJjj1gmxVNyplY6g9MiGwtDvZJiYkMvG1Qmaita7vWT/8eoTEK+RuIPLvxDeyxOtTz56u2wrOETVO79qL4A==
 
 rimraf@^2.6.3:
   version "2.7.1"
