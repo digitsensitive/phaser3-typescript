@@ -60,6 +60,11 @@
         "type": "image",
         "key": "starcookie2",
         "url": "./assets/images/starcookie2.png"
+      },
+      {
+        "type": "image",
+        "key": "redParticle",
+        "url": "./assets/images/red.png"
       }
     ]
   }
