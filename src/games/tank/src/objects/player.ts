@@ -10,7 +10,7 @@ export class Player extends Phaser.GameObjects.Image {
   private speed: number;
 
   // children
-  private barrel: Phaser.GameObjects.Image;
+   barrel: Phaser.GameObjects.Image;
   private lifeBar: Phaser.GameObjects.Graphics;
 
   // game objects
@@ -35,7 +35,7 @@ export class Player extends Phaser.GameObjects.Image {
 
   private initImage() {
     // variables
-    this.health = 1;
+    this.health = 1000;
     this.lastShoot = 0;
     this.speed = 100;
 
@@ -74,6 +74,16 @@ export class Player extends Phaser.GameObjects.Image {
 
     // physics
     this.scene.physics.world.enable(this);
+    console.log("barrel rotation: " + this.barrel.rotation);
+    this.scene.input.on('pointermove', (pointer: Phaser.Input.Pointer)=>{
+      this.barrel.angle =(Phaser.Math.Angle.Between(
+        this.body.x,
+        this.body.y,
+        pointer.worldX,
+        pointer.worldY
+      ) + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
+      console.log('Physics: ' +  this.barrel.angle);
+    }, this);
   }
 
   update(): void {
