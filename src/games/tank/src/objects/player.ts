@@ -10,17 +10,17 @@ export class Player extends Phaser.GameObjects.Image {
   private speed: number;
 
   // children
-   barrel: Phaser.GameObjects.Image;
+  private barrel: Phaser.GameObjects.Image;
   private lifeBar: Phaser.GameObjects.Graphics;
 
   // game objects
   private bullets: Phaser.GameObjects.Group;
 
   // input
-  private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   private rotateKeyLeft: Phaser.Input.Keyboard.Key;
   private rotateKeyRight: Phaser.Input.Keyboard.Key;
-  private shootingKey: Phaser.Input.Keyboard.Key;
+  private moveKeyUp: Phaser.Input.Keyboard.Key;
+  private moveKeyDown: Phaser.Input.Keyboard.Key;
 
   public getBullets(): Phaser.GameObjects.Group {
     return this.bullets;
@@ -61,21 +61,28 @@ export class Player extends Phaser.GameObjects.Image {
     });
 
     // input
-    this.cursors = this.scene.input.keyboard.createCursorKeys();
     this.rotateKeyLeft = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.A
     );
     this.rotateKeyRight = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.D
     );
-    this.shootingKey = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE
+    this.moveKeyUp = this.scene.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.W
+    );
+    this.moveKeyDown = this.scene.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.S
     );
 
     // physics
     this.scene.physics.world.enable(this);
-    console.log("barrel rotation: " + this.barrel.rotation);
+    
+    // input mouse
+    this.initHandleInput();
+  }
+  private initHandleInput(){
     this.scene.input.on('pointermove', (pointer: Phaser.Input.Pointer)=>{
+      // rotate barrel
       this.barrel.angle =(Phaser.Math.Angle.Between(
         this.body.x,
         this.body.y,
@@ -84,8 +91,11 @@ export class Player extends Phaser.GameObjects.Image {
       ) + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
       console.log('Physics: ' +  this.barrel.angle);
     }, this);
-  }
 
+    this.scene.input.on('pointerup', function () {
+      this.handleShooting();
+  }, this);
+  }
   update(): void {
     if (this.active) {
       this.barrel.x = this.x;
@@ -93,7 +103,6 @@ export class Player extends Phaser.GameObjects.Image {
       this.lifeBar.x = this.x;
       this.lifeBar.y = this.y;
       this.handleInput();
-      this.handleShooting();
     } else {
       this.destroy();
       this.barrel.destroy();
@@ -104,13 +113,13 @@ export class Player extends Phaser.GameObjects.Image {
   private handleInput() {
     // move tank forward
     // small corrections with (- MATH.PI / 2) to align tank correctly
-    if (this.cursors.up.isDown) {
+    if (this.moveKeyUp.isDown) {
       this.scene.physics.velocityFromRotation(
         this.rotation - Math.PI / 2,
         this.speed,
         this.body.velocity
       );
-    } else if (this.cursors.down.isDown) {
+    } else if (this.moveKeyDown.isDown) {
       this.scene.physics.velocityFromRotation(
         this.rotation - Math.PI / 2,
         -this.speed,
@@ -121,22 +130,15 @@ export class Player extends Phaser.GameObjects.Image {
     }
 
     // rotate tank
-    if (this.cursors.left.isDown) {
-      this.rotation -= 0.02;
-    } else if (this.cursors.right.isDown) {
-      this.rotation += 0.02;
-    }
-
-    // rotate barrel
     if (this.rotateKeyLeft.isDown) {
-      this.barrel.rotation -= 0.05;
+      this.rotation -= 0.02;
     } else if (this.rotateKeyRight.isDown) {
-      this.barrel.rotation += 0.05;
+      this.rotation += 0.02;
     }
   }
 
   private handleShooting(): void {
-    if (this.shootingKey.isDown && this.scene.time.now > this.lastShoot) {
+    if (this.scene.time.now > this.lastShoot) {
       this.scene.cameras.main.shake(20, 0.005);
       this.scene.tweens.add({
         targets: this,

@@ -56,6 +56,7 @@ export class GameScene extends Phaser.Scene {
         color: '#000000'
       }
     );
+    
   }
 
   update(): void {

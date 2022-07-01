@@ -6,6 +6,11 @@
         "key": "font",
         "textureURL": "./assets/font/font.png",
         "fontDataURL": "./assets/font/font.fnt"
+      },
+      {
+        "type": "image",
+        "key": "redParticle",
+        "url": "./assets/images/red.png"
       }
     ]
   }

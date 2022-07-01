@@ -2,7 +2,7 @@ import { IRectangleConstructor } from '../interfaces/interfaces';
 
 export class Ball extends Phaser.GameObjects.Rectangle {
   body: Phaser.Physics.Arcade.Body;
-
+  emitter!: Phaser.GameObjects.Particles.ParticleEmitter;
   constructor(aParams: IRectangleConstructor) {
     super(
       aParams.scene,
@@ -16,6 +16,7 @@ export class Ball extends Phaser.GameObjects.Rectangle {
 
     this.initRectangle();
     this.initPhysics();
+    this.initPractices();
     this.scene.add.existing(this);
   }
 
@@ -32,8 +33,19 @@ export class Ball extends Phaser.GameObjects.Rectangle {
     this.body.setCollideWorldBounds();
   }
 
+  private initPractices(): void {
+    const particles = this.scene.add.particles('redParticle');
+    this.emitter = particles.createEmitter({
+      speed: 100,
+      scale: { start: 0.1, end: 0 },
+      blendMode: 'ADD'
+    }).stop();
+    this.emitter.startFollow(this, 5,5);
+  }
+
   public applyInitVelocity(): void {
     this.body.setVelocity(Phaser.Math.RND.between(-200, 200), 200);
     this.body.speed = 800;
+    this.emitter.start()
   }
 }

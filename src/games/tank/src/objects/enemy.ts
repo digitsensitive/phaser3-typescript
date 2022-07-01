@@ -55,19 +55,19 @@ export class Enemy extends Phaser.GameObjects.Image {
       runChildUpdate: true
     });
 
-    // // tweens
-    // this.scene.tweens.add({
-    //   targets: this,
-    //   props: { y: this.y - 200 },
-    //   delay: 0,
-    //   duration: 2000,
-    //   ease: 'Linear',
-    //   easeParams: null,
-    //   hold: 0,
-    //   repeat: -1,
-    //   repeatDelay: 0,
-    //   yoyo: true
-    // });
+    // tweens
+    this.scene.tweens.add({
+      targets: this,
+      props: { y: this.y - 200 },
+      delay: 0,
+      duration: 2000,
+      ease: 'Linear',
+      easeParams: null,
+      hold: 0,
+      repeat: -1,
+      repeatDelay: 0,
+      yoyo: true
+    });
 
     // physics
     this.scene.physics.world.enable(this);

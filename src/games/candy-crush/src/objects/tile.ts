@@ -26,6 +26,7 @@ export class Tile extends Phaser.GameObjects.Image {
   }
 
   public initTweenMatch(){
+    this.setDepth(1);
     this.scene.tweens.add({
       targets: this,
       scaleX: 1.5,
@@ -52,6 +53,6 @@ export class Tile extends Phaser.GameObjects.Image {
           }
       });
       }
-  });
+    });
   }
 }

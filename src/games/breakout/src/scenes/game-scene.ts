@@ -8,6 +8,7 @@ const BRICK_COLORS: number[] = [0xf2e49b, 0xbed996, 0xf2937e, 0xffffff];
 export class GameScene extends Phaser.Scene {
   private ball: Ball;
   private bricks: Phaser.GameObjects.Group;
+  private isBrickVisible!: boolean;
   private player: Player;
   private scoreText: Phaser.GameObjects.BitmapText;
   private highScoreText: Phaser.GameObjects.BitmapText;
@@ -23,14 +24,19 @@ export class GameScene extends Phaser.Scene {
     settings.highScore = settings.score;
     settings.score = 0;
     settings.lives = 3;
+    this.isBrickVisible = false;
   }
 
   create(): void {
+    
     // game objects
     // ------------
 
     // bricks
-    this.bricks = this.add.group();
+    this.bricks = this.add.group({
+      /*classType: Brick,*/
+      runChildUpdate: true
+    });
 
     const BRICKS = settings.LEVELS[settings.currentLevel].BRICKS;
     const WIDTH = settings.LEVELS[settings.currentLevel].WIDTH;
@@ -51,13 +57,17 @@ export class GameScene extends Phaser.Scene {
         );
       }
     }
+    // wait for the brick init finishes
+    this.time.delayedCall(50*WIDTH*HEIGHT, ()=>{
+      this.isBrickVisible = true;
+    }, [], this)
 
     // player
     this.player = new Player({
       scene: this,
       x: +this.game.config.width / 2 - 20,
       y: +this.game.config.height - 50,
-      width: 50,
+      width: 480,
       height: 10
     });
 
@@ -112,9 +122,9 @@ export class GameScene extends Phaser.Scene {
 
   update(): void {
     this.player.update();
-
-    if (this.player.body.velocity.x !== 0 && !this.ball.visible) {
+    if (this.player.body.velocity.x !== 0 && !this.ball.visible && this.isBrickVisible) {
       this.ball.setPosition(this.player.x, this.player.y - 200);
+      
       this.ball.applyInitVelocity();
       this.ball.setVisible(true);
     }
@@ -131,17 +141,20 @@ export class GameScene extends Phaser.Scene {
         this.ball.setPosition(0, 0);
         this.ball.body.setVelocity(0);
         this.ball.setVisible(false);
+        this.ball.emitter.stop();
       }
     }
   }
 
   private ballBrickCollision(ball: Ball, brick: Brick): void {
-    brick.destroy();
+    // brick.destroy();
+    brick.destroyBrick();
     settings.score += 10;
     this.events.emit('scoreChanged');
 
     if (this.bricks.countActive() === 0) {
       // all bricks are gone!
+      this.scene.restart();
     }
   }
 

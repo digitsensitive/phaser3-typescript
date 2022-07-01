@@ -1,0 +1,5 @@
+Container and Align Chỉnh sửa game Tank, bổ xung 2 popup: Pause & Game Over
+    + Bổ xung nút Pause trong game
+    + Bổ xung sound cho shoot & hit
+    + Pause: Có 2 nút Continue và New Game, Turn on/off Sound
+    + Game Over: Có Score, High Score và nút New Game

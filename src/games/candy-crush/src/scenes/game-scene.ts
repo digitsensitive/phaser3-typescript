@@ -58,11 +58,11 @@ export class GameScene extends Phaser.Scene {
 
   initPractices(): void {
     const particles = this.add.particles('redParticle');
-    var rect = new Phaser.Geom.Circle(CONST.tileWidth/2, CONST.tileHeight/2, (CONST.tileWidth/2));
+    var circle = new Phaser.Geom.Circle(CONST.tileWidth/2, CONST.tileHeight/2, (CONST.tileWidth/2));
     this.emitter = particles.createEmitter({
-      lifespan: 300,
-      scale: { start: 0.2, end: 0 },
-      emitZone: { type: 'edge', source: rect, quantity: 60}
+      lifespan: 500,
+      scale: { start: 0.1, end: 0 },
+      emitZone: { type: 'edge', source: circle, quantity: 120}
     })
   }
 
@@ -97,6 +97,7 @@ export class GameScene extends Phaser.Scene {
     if (this.canMove) {
       if (!this.firstSelectedTile) {
         this.firstSelectedTile = gameobject;
+        this.emitter.stop();
         this.emitter.start();
         this.emitter.startFollow(this.firstSelectedTile)
       } else {
@@ -113,6 +114,12 @@ export class GameScene extends Phaser.Scene {
         if ((dx === 1 && dy === 0) || (dx === 0 && dy === 1)) {
           this.canMove = false;
           this.swapTiles();
+        }
+        else{
+          this.firstSelectedTile = gameobject;
+          this.emitter.stop();
+          this.emitter.start();
+          this.emitter.startFollow(this.firstSelectedTile)
         }
       }
     }
@@ -207,7 +214,9 @@ export class GameScene extends Phaser.Scene {
       this.removeTileGroup(matches);
       // Move the tiles currently on the board into their new positions
       this.time.delayedCall(2000, ()=>{
-        this.resetTile();
+        for(var i=0; i< 7; i++) {
+          this.resetTile(); 
+        }
         //Fill the board with new tiles wherever there is an empty spot
         this.fillTile();
         this.tileUp();
