@@ -11,7 +11,6 @@ export class BootScene extends Phaser.Scene {
   preload(): void {
     // create loading bar
     this.createLoadingbar();
-    this.load.image('redParticle', '../assets/red.png');
     // pass value to change the loading bar fill
     this.load.on(
       'progress',
@@ -37,6 +36,9 @@ export class BootScene extends Phaser.Scene {
       },
       this
     );
+
+    // load out package
+    this.load.pack('preload', './assets/pack.json', 'preload');
   }
 
   update(): void {

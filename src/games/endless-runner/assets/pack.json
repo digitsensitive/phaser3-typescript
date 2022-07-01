@@ -2,12 +2,6 @@
   "preload": {
     "files": [
       {
-        "type": "bitmapFont",
-        "key": "font",
-        "textureURL": "./assets/font/font.png",
-        "fontDataURL": "./assets/font/font.fnt"
-      },
-      {
         "type": "atlas",
         "key": "flares",
         "textureURL": "./assets/images/flares.png",

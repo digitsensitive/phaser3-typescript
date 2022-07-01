@@ -57,9 +57,10 @@ export class GameScene extends Phaser.Scene {
   }
 
   initPractices(): void {
-    const particles = this.add.particles('redParticle');
+    const particles = this.add.particles('flares');
     var circle = new Phaser.Geom.Circle(CONST.tileWidth/2, CONST.tileHeight/2, (CONST.tileWidth/2));
     this.emitter = particles.createEmitter({
+      frame: 'red',
       lifespan: 500,
       scale: { start: 0.1, end: 0 },
       emitZone: { type: 'edge', source: circle, quantity: 120}

@@ -34,8 +34,9 @@ export class Ball extends Phaser.GameObjects.Rectangle {
   }
 
   private initPractices(): void {
-    const particles = this.scene.add.particles('redParticle');
+    const particles = this.scene.add.particles('flares');
     this.emitter = particles.createEmitter({
+      frame: 'red',
       speed: 100,
       scale: { start: 0.1, end: 0 },
       blendMode: 'ADD'

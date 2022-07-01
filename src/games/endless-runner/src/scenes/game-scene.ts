@@ -99,9 +99,10 @@ export class GameScene extends Phaser.Scene {
 
   private initPractices(){
     // emitter
-    const particles = this.add.particles('redParticle');
+    const particles = this.add.particles('flares');
 
     this.emitter = particles.createEmitter({
+      frame: 'red',
       speed: 100,
       gravityY: 475,
       scale: { start: 0.2, end: 0 },
