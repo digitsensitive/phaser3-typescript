@@ -17,25 +17,42 @@ export class MenuScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.bitmapTexts.push(
-      this.add.bitmapText(
-        this.sys.canvas.width / 2 - 65,
-        this.sys.canvas.height / 2,
-        'font',
-        'PRESS S TO PLAY',
-        8
-      )
-    );
+    var guideText = this.add.bitmapText(
+      this.sys.canvas.width / 2 ,
+      this.sys.canvas.height / 2,
+      'font',
+      'PRESS S TO PLAY',
+      8
+    )
+      .setScale(0,0)
+      .setOrigin(0.5, 0.5)
+      .setAlpha(0)
 
     this.bitmapTexts.push(
-      this.add.bitmapText(
-        this.sys.canvas.width / 2 - 60,
-        this.sys.canvas.height / 2 - 40,
-        'font',
-        'SPACE INVADERS',
-        8
-      )
+      guideText
     );
+    var titleText = this.add.bitmapText(
+      this.sys.canvas.width / 2 - 60,
+      this.sys.canvas.height / 2 - 40,
+      'font',
+      'SPACE INVADERS',
+      8
+    ).setScale(0,0);
+    this.bitmapTexts.push(
+      titleText
+    );
+
+    this.tweens.add({
+      targets: [guideText, titleText],
+      ease: 'Power1',
+      duration: 2000,
+      angle: 360,
+      alpha: 1,
+      scaleX: 1,
+      scaleY: 1,
+      yoyo: false,
+      repeat: 0,
+    });
   }
 
   update(): void {

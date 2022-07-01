@@ -23,6 +23,17 @@
         "url": "./assets/sprites/player.png"
       },
       {
+        "type": "image",
+        "key": "star",
+        "url": "https://cdn.shopify.com/s/files/1/3003/0152/files/nebula_star_100x_db655bb7-85f7-433d-8a52-d2e5e7cfbf5d_100x.png?v=1607703030"
+      },
+      {
+        "type": "atlas",
+        "key": "flares",
+        "textureURL": "./assets/images/flares.png",
+        "atlasURL": "./assets/images/flares.json"
+      },
+      {
         "type": "spritesheet",
         "key": "octopus",
         "url": "./assets/sprites/octopus.png",

@@ -9,6 +9,7 @@ export class Player extends Phaser.GameObjects.Image {
   private flyingSpeed: number;
   private lastShoot: number;
   private shootingKey: Phaser.Input.Keyboard.Key;
+  private emitter!: Phaser.GameObjects.Particles.ParticleEmitter;
 
   public getBullets(): Phaser.GameObjects.Group {
     return this.bullets;
@@ -21,8 +22,24 @@ export class Player extends Phaser.GameObjects.Image {
     this.initImage();
     this.initInput();
     this.initPhysics();
-
+    this.initParticles();
     this.scene.add.existing(this);
+  }
+
+  private initParticles(){
+    var particles = this.scene.add.particles('flares');
+
+    this.emitter = particles.createEmitter({
+        frame: 'red',
+        lifespan: 200,
+        speed: { min: 10, max: 50 },
+        angle: {min: 80, max: 100},
+        gravityY: 300,
+        scale: { start: 0.1, end: 0 },
+        quantity: 1,
+        blendMode: 'ADD'
+    });
+    this.emitter.startFollow(this,0,6);
   }
 
   private initVariables(): void {
