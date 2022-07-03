@@ -23,6 +23,16 @@ export class Coin extends Phaser.GameObjects.Image {
 
   private initImage(): void {
     this.setOrigin(0.5, 0.5);
+    this.setScale(0.01,1);
+    this.scene.tweens.add({
+      targets: this,
+      scaleX: 1,
+      flipX: true,
+      ease: 'Sine.easeInOut',
+      duration: 1000,
+      yoyo: true,
+      repeat: -1
+  });
   }
 
   private initEvents(): void {
@@ -63,5 +73,41 @@ export class Coin extends Phaser.GameObjects.Image {
     } else {
       this.lastPosition = 'right';
     }
+  }
+
+  public playerHitCoin(){
+    // emitter
+    var particles = this.scene.add.particles('flares');
+    var emitter = particles.createEmitter({
+        frame: 'yellow',
+        x: this.x,
+        y: this.y,
+        lifespan: 2000,
+        speed: { min: 400, max: 600 },
+        scale: { start: 0.4, end: 0 },
+        quantity: 1,
+        blendMode: 'ADD'
+    });
+    this.scene.time.delayedCall(50, ()=>{
+      emitter.stop();
+    }, [], this);
+
+    // tweens
+    this.scene.tweens.add({
+      targets: this,
+      scaleX: 0.5,
+      scaleY: 0.5,
+      x: this.scene.sys.canvas.width / 2,
+      y: this.scene.sys.canvas.height - 50,
+      angle: 0,
+      ease: 'Sine.easeInOut',
+      duration: 500,
+      repeat: 0,
+      yoyo: false,
+      onComplete:()=>{
+        this.setScale(0.01,1)
+        this.changePosition();
+      }
+    });
   }
 }

@@ -1,0 +1,27 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "image",
+        "key": "coin",
+        "url": "./assets/images/coin.png"
+      },
+      {
+        "type": "image",
+        "key": "player",
+        "url": "./assets/images/player.png"
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "./assets/images/background.png"
+      },
+      {
+        "type": "atlas",
+        "key": "flares",
+        "textureURL": "./assets/images/flares.png",
+        "atlasURL": "./assets/images/flares.json"
+      }
+    ]
+  }
+}

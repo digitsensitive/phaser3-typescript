@@ -7,6 +7,7 @@ export class GameScene extends Phaser.Scene {
   private coinsCollectedText: Phaser.GameObjects.Text;
   private collectedCoins: number;
   private player: Player;
+  private checkAddCoin!: boolean;
 
   constructor() {
     super({
@@ -14,14 +15,9 @@ export class GameScene extends Phaser.Scene {
     });
   }
 
-  preload(): void {
-    this.load.image('background', './assets/images/background.png');
-    this.load.image('player', './assets/images/player.png');
-    this.load.image('coin', './assets/images/coin.png');
-  }
-
   init(): void {
     this.collectedCoins = 0;
+    this.checkAddCoin = false;
   }
 
   create(): void {
@@ -71,13 +67,19 @@ export class GameScene extends Phaser.Scene {
         this.coin.getBounds()
       )
     ) {
-      this.updateCoinStatus();
+      if(!this.checkAddCoin){
+        this.updateCoinStatus();
+        this.checkAddCoin = true;
+      }
     }
   }
 
   private updateCoinStatus(): void {
-    this.collectedCoins++;
-    this.coinsCollectedText.setText(this.collectedCoins + '');
-    this.coin.changePosition();
+    this.coin.playerHitCoin();
+    this.time.delayedCall(500, ()=>{
+      this.collectedCoins++;
+      this.coinsCollectedText.setText(this.collectedCoins + '');
+      this.checkAddCoin =false
+    }, [], this);
   }
 }
