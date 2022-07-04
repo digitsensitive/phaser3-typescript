@@ -64,6 +64,7 @@ export class Mario extends Phaser.GameObjects.Sprite {
   }
 
   update(): void {
+    console.log('update',this.anims.getTotalFrames());
     if (!this.isDying) {
       this.handleInput();
       this.handleAnimations();

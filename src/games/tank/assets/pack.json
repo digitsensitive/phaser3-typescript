@@ -81,6 +81,45 @@
         "type": "image",
         "key": "treeLarge",
         "url": "./assets/obstacles/tree-large.png"
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "./assets/images/bg.png"
+      }
+      ,
+      {
+        "type": "image",
+        "key": "btn-start",
+        "url": "./assets/images/btn_startbattle.png"
+      },
+      {
+        "type": "image",
+        "key": "logo",
+        "url": "./assets/images/logo.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "btn-sound",
+        "url": "./assets/sprites/btn-sound.png",
+        "frameConfig": {
+          "frameWidth": 167,
+          "frameHeight": 156
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "btn-music",
+        "url": "./assets/sprites/btn-music.png",
+        "frameConfig": {
+          "frameWidth": 167,
+          "frameHeight": 156
+        }
+      },
+      {
+        "type": "json",
+        "key": "animationJSON",
+        "url": "./assets/animations/animations.json"
       }
     ]
   }

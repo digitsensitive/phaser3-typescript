@@ -15,6 +15,7 @@ export class Player extends Phaser.GameObjects.Image {
 
   // game objects
   private bullets: Phaser.GameObjects.Group;
+  private tween: Phaser.Tweens.Tween;
 
   // input
   private rotateKeyLeft: Phaser.Input.Keyboard.Key;
@@ -76,7 +77,6 @@ export class Player extends Phaser.GameObjects.Image {
 
     // physics
     this.scene.physics.world.enable(this);
-    
     // input mouse
     this.initHandleInput();
   }
@@ -89,14 +89,16 @@ export class Player extends Phaser.GameObjects.Image {
         pointer.worldX,
         pointer.worldY
       ) + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
-      console.log('Physics: ' +  this.barrel.angle);
     }, this);
 
     this.scene.input.on('pointerup', function () {
       this.handleShooting();
-  }, this);
+    }, this);
+    
   }
   update(): void {
+    // console.log('player: ' +  this.angle);
+    this.body.setVelocity(0,0);
     if (this.active) {
       this.barrel.x = this.x;
       this.barrel.y = this.y;
@@ -113,28 +115,49 @@ export class Player extends Phaser.GameObjects.Image {
   private handleInput() {
     // move tank forward
     // small corrections with (- MATH.PI / 2) to align tank correctly
+    var angle: number|null;
+    
+
     if (this.moveKeyUp.isDown) {
-      this.scene.physics.velocityFromRotation(
-        this.rotation - Math.PI / 2,
-        this.speed,
-        this.body.velocity
-      );
+      this.body.setVelocityY(-this.speed)
     } else if (this.moveKeyDown.isDown) {
-      this.scene.physics.velocityFromRotation(
-        this.rotation - Math.PI / 2,
-        -this.speed,
-        this.body.velocity
-      );
-    } else {
-      this.body.setVelocity(0, 0);
+      this.body.setVelocityY(this.speed)
+    }else{
+      this.body.setVelocityY(0);
     }
 
     // rotate tank
     if (this.rotateKeyLeft.isDown) {
-      this.rotation -= 0.02;
+      this.body.setVelocityX(-this.speed)
     } else if (this.rotateKeyRight.isDown) {
-      this.rotation += 0.02;
+      if(this.angle == -180)
+        this.angle  =179;
+        this.body.setVelocityX(this.speed)
+    }else{
+      this.body.setVelocityX(0);
     }
+
+    // angle
+    var angleOfVelocity = this.body.velocity.angle()*Phaser.Math.RAD_TO_DEG;
+    if(angleOfVelocity>=90)
+      angle = angleOfVelocity - 270;
+    else {
+      angle = angleOfVelocity + 90;
+    }
+
+    if((!this.tween || !this.tween.isPlaying()) && angle!=null && (this.body.velocity.x != 0 || this.body.velocity.y != 0)){
+      var duration = Math.abs(this.angle - angle) / 90 * 350;
+      console.log("duration",duration, this.body.velocity);
+      this.tween = this.scene.tweens.add({
+        targets: this,
+        angle: angle,
+        ease: 'Sine.easeInOut',
+        duration: duration,
+        yoyo: false,
+        repeat: 0,
+      });
+    }
+
   }
 
   private handleShooting(): void {

@@ -1,0 +1,15 @@
+{
+  "anims": [
+    {
+      "key": "btn-music",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "btn-music",
+        "start": 0,
+        "end": 1
+      },
+      "repeat": -1,
+      "frameRate": 9
+    }
+  ]
+}

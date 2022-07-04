@@ -1,6 +1,10 @@
+import { AnimationHelper } from "../helpers/animation-helper";
+
 export class BootScene extends Phaser.Scene {
   private loadingBar: Phaser.GameObjects.Graphics;
   private progressBar: Phaser.GameObjects.Graphics;
+  // helpers
+  private animationHelperInstance: AnimationHelper;
 
   constructor() {
     super({
@@ -33,6 +37,10 @@ export class BootScene extends Phaser.Scene {
     this.load.on(
       'complete',
       function () {
+        this.animationHelperInstance = new AnimationHelper(
+          this,
+          this.cache.json.get('animationJSON')
+        );
         this.progressBar.destroy();
         this.loadingBar.destroy();
       },
