@@ -99,6 +99,26 @@
         "url": "./assets/images/logo.png"
       },
       {
+        "type": "image",
+        "key": "btn-menu",
+        "url": "./assets/images/btn_menu.png"
+      },
+      {
+        "type": "image",
+        "key": "btn-pause",
+        "url": "./assets/images/pause-btn.png"
+      },
+      {
+        "type": "image",
+        "key": "btn-replay",
+        "url": "./assets/images/replay-btn.png"
+      },
+      {
+        "type": "image",
+        "key": "btn-play",
+        "url": "./assets/images/play-btn.png"
+      },
+      {
         "type": "spritesheet",
         "key": "btn-sound",
         "url": "./assets/sprites/btn-sound.png",
@@ -114,15 +134,6 @@
         "frameConfig": {
           "frameWidth": 167,
           "frameHeight": 156
-        }
-      },
-      {
-        "type": "spritesheet",
-        "key": "btn-pause",
-        "url": "./assets/sprites/play-pause.png",
-        "frameConfig": {
-          "frameWidth": 90,
-          "frameHeight": 90
         }
       },
       {
