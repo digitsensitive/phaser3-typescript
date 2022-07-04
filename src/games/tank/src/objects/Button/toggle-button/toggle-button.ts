@@ -37,6 +37,7 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
 					var nextFrame = currentFrame + 1;
 					if(nextFrame > this.numberOfFrames - 1) nextFrame = 0;
 					this.setFrame(nextFrame);
+          this.handerOnPress();
 			}
 			})
       .pause();
@@ -46,7 +47,6 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
     this.setInteractive({ useHandCursor: true });
     this.on('pointerdown', () => {
 			this.tween.play();
-      this.handerOnPress();
     });
   }
 

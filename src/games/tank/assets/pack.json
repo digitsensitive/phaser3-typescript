@@ -117,6 +117,15 @@
         }
       },
       {
+        "type": "spritesheet",
+        "key": "btn-pause",
+        "url": "./assets/sprites/play-pause.png",
+        "frameConfig": {
+          "frameWidth": 90,
+          "frameHeight": 90
+        }
+      },
+      {
         "type": "json",
         "key": "animationJSON",
         "url": "./assets/animations/animations.json"

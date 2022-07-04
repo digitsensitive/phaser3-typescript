@@ -3,13 +3,13 @@ import { ButtonMusic } from "../objects/Button/toggle-button/button-music";
 import { ButtonStart } from "../objects/Button/normal-button/button-start";
 import { ButtonSound } from "../objects/Button/toggle-button/button-sound";
 
-export class MenuScene extends Phaser.Scene {
+export class PauseScene extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
   private bitmapTexts: Phaser.GameObjects.BitmapText[] = [];
 
   constructor() {
     super({
-      key: 'MenuScene'
+      key: 'PauseScene'
     });
   }
 
@@ -21,9 +21,9 @@ export class MenuScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.add.image(0,0,'background')
-      .setOrigin(0,0)
-      .setScale(0.75,0.75);
+    // this.add.image(0,0,'background')
+    //   .setOrigin(0,0)
+    //   .setScale(0.75,0.75);
     
     const logo = this.add.image(0,0,'logo');
     //  Center the picture in the game
@@ -87,8 +87,8 @@ export class MenuScene extends Phaser.Scene {
   }
 
   update(): void {
-    // if (this.startKey.isDown) {
-    //   this.scene.start('GameScene');
-    // }
+    if (this.startKey.isDown) {
+      this.scene.start('GameScene');
+    }
   }
 }

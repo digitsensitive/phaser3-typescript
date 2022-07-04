@@ -2,6 +2,7 @@ import { Player } from '../objects/player';
 import { Enemy } from '../objects/enemy';
 import { Obstacle } from '../objects/obstacles/obstacle';
 import { Bullet } from '../objects/bullet';
+import { ButtonPause } from '../objects/Button/toggle-button/button-pause';
 
 export class GameScene extends Phaser.Scene {
   private map: Phaser.Tilemaps.Tilemap;
@@ -13,6 +14,7 @@ export class GameScene extends Phaser.Scene {
   private obstacles: Phaser.GameObjects.Group;
 
   private target: Phaser.Math.Vector2;
+  private pauseButton!: ButtonPause;
 
   constructor() {
     super({
@@ -91,6 +93,23 @@ export class GameScene extends Phaser.Scene {
     }, this);
 
     this.cameras.main.startFollow(this.player);
+
+    this.pauseButton = new ButtonPause({
+      scene: this,
+      x: 0,
+      y: 0,
+      texture: "btn-pause",
+      frame: 1,
+    },2).setScrollFactor(0);
+
+    Phaser.Display.Align.In.TopLeft(
+      this.pauseButton,
+      this.add.zone(this.cameras.main.width/2+10, this.cameras.main.height / 2+10, this.cameras.main.width, this.cameras.main.height),
+    );
+    this.events.on('resume', () => {
+      console.log('Scene A resumed');
+      this.pauseButton.setFrame(1);
+  })
   }
 
   update(): void {

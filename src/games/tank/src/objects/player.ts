@@ -38,7 +38,7 @@ export class Player extends Phaser.GameObjects.Image {
     // variables
     this.health = 1000;
     this.lastShoot = 0;
-    this.speed = 100;
+    this.speed = 120;
 
     // image
     this.setOrigin(0.5, 0.5);
@@ -98,7 +98,7 @@ export class Player extends Phaser.GameObjects.Image {
   }
   update(): void {
     // console.log('player: ' +  this.angle);
-    this.body.setVelocity(0,0);
+    
     if (this.active) {
       this.barrel.x = this.x;
       this.barrel.y = this.y;
@@ -116,15 +116,7 @@ export class Player extends Phaser.GameObjects.Image {
     // move tank forward
     // small corrections with (- MATH.PI / 2) to align tank correctly
     var angle: number|null;
-    
-
-    if (this.moveKeyUp.isDown) {
-      this.body.setVelocityY(-this.speed)
-    } else if (this.moveKeyDown.isDown) {
-      this.body.setVelocityY(this.speed)
-    }else{
-      this.body.setVelocityY(0);
-    }
+    this.body.setVelocity(0);
 
     // rotate tank
     if (this.rotateKeyLeft.isDown) {
@@ -137,8 +129,18 @@ export class Player extends Phaser.GameObjects.Image {
       this.body.setVelocityX(0);
     }
 
+    if (this.moveKeyUp.isDown) {
+      this.body.setVelocityY(-this.speed)
+    } else if (this.moveKeyDown.isDown) {
+      this.body.setVelocityY(this.speed);
+    }else{
+      this.body.setVelocityY(0);
+    }
+
+
     // angle
     var angleOfVelocity = this.body.velocity.angle()*Phaser.Math.RAD_TO_DEG;
+    console.log(angleOfVelocity);
     if(angleOfVelocity>=90)
       angle = angleOfVelocity - 270;
     else {
@@ -146,8 +148,10 @@ export class Player extends Phaser.GameObjects.Image {
     }
 
     if((!this.tween || !this.tween.isPlaying()) && angle!=null && (this.body.velocity.x != 0 || this.body.velocity.y != 0)){
+      if(this.angle == 90 && angle == -180)
+        angle = 180;
       var duration = Math.abs(this.angle - angle) / 90 * 350;
-      console.log("duration",duration, this.body.velocity);
+      // console.log("duration",duration, this.body.velocity);
       this.tween = this.scene.tweens.add({
         targets: this,
         angle: angle,
@@ -157,7 +161,6 @@ export class Player extends Phaser.GameObjects.Image {
         repeat: 0,
       });
     }
-
   }
 
   private handleShooting(): void {
