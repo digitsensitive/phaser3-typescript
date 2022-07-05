@@ -4,24 +4,14 @@ import { ButtonStart } from "../objects/Button/normal-button/button-start";
 import { ButtonSound } from "../objects/Button/toggle-button/button-sound";
 
 export class MenuScene extends Phaser.Scene {
-  private startKey: Phaser.Input.Keyboard.Key;
-  private bitmapTexts: Phaser.GameObjects.BitmapText[] = [];
-
   constructor() {
     super({
       key: 'MenuScene'
     });
   }
 
-  init(): void {
-    this.startKey = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.S
-    );
-    this.startKey.isDown = false;
-  }
-
   create(): void {
-    this.add.image(0,0,'background')
+    const background = this.add.image(0,0,'background')
       .setOrigin(0,0)
       .setScale(0.75,0.75);
     
@@ -64,31 +54,27 @@ export class MenuScene extends Phaser.Scene {
     }, 2)
     Phaser.Display.Align.In.BottomRight(btn_music, this.add.zone(140, 90, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0));
 
-
-    // this.bitmapTexts.push(
-    //   this.add.bitmapText(
-    //     this.sys.canvas.width / 2 - 120,
-    //     this.sys.canvas.height / 2,
-    //     'font',
-    //     'PRESS S TO PLAY',
-    //     30
-    //   )
-    // );
-
-    // this.bitmapTexts.push(
-    //   this.add.bitmapText(
-    //     this.sys.canvas.width / 2 - 120,
-    //     this.sys.canvas.height / 2 - 100,
-    //     'font',
-    //     'TANK',
-    //     100
-    //   )
-    // );
+    this.events.on('startgame', ()=>{
+      this.tweens.add({
+        targets: [btn_sound, btn_music],
+        y: this.cameras.main.height + 200,
+        ease: 'Power1',
+        duration: 500,
+      });
+      this.tweens.add({
+        targets: [btn_start],
+        y: -200,
+        ease: 'Power1',
+        duration: 500,
+        onComplete: () => {
+          this.scene.start("GameScene");
+        }
+      });
+      console.log("start: ");
+    }, this);
   }
 
   update(): void {
-    // if (this.startKey.isDown) {
-    //   this.scene.start('GameScene');
-    // }
+
   }
 }

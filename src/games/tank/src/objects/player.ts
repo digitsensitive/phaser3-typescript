@@ -36,7 +36,7 @@ export class Player extends Phaser.GameObjects.Image {
 
   private initImage() {
     // variables
-    this.health = 1000;
+    this.health = 1;
     this.lastShoot = 0;
     this.speed = 120;
 
@@ -217,7 +217,9 @@ export class Player extends Phaser.GameObjects.Image {
     } else {
       this.health = 0;
       this.active = false;
-      this.scene.scene.start('MenuScene');
+      // this.scene.scene.start('GameOverScene');
+      this.scene.scene.pause();
+      this.scene.scene.launch('GameOverScene');
     }
   }
 }

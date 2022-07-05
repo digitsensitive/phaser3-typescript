@@ -15,7 +15,7 @@ export class GameScene extends Phaser.Scene {
   private obstacles: Phaser.GameObjects.Group;
 
   private target: Phaser.Math.Vector2;
-  private pauseButton!: ButtonMenu;
+  private btn_menu!: ButtonMenu;
 
   constructor() {
     super({
@@ -95,7 +95,7 @@ export class GameScene extends Phaser.Scene {
 
     this.cameras.main.startFollow(this.player);
 
-    this.pauseButton = new ButtonMenu({
+    this.btn_menu = new ButtonMenu({
       scene: this,
       x: 0,
       y: 0,
@@ -103,19 +103,20 @@ export class GameScene extends Phaser.Scene {
     }).setScrollFactor(0);
 
     Phaser.Display.Align.In.TopLeft(
-      this.pauseButton,
+      this.btn_menu,
       this.add.zone(this.cameras.main.width/2+10, this.cameras.main.height / 2+10, this.cameras.main.width, this.cameras.main.height),
     );
     this.events.on('pause', ()=>{
-      this.pauseButton.visible = false;
-      this.layer.setAlpha(0.3);
+      this.btn_menu.setAlpha(0.2);
+      this.layer.setAlpha(0.2);
       // this.obstacles.setAlpha(0.3);
       // this.player.setAlpha(0.3);
       // this.enemies.setAlpha(0.3);
     })
     this.events.on('resume', () => {
-      this.pauseButton.visible = true;
+      this.btn_menu.visible = true;
       this.layer.setAlpha(1);
+      this.btn_menu.setAlpha(1);
       // this.obstacles.setAlpha(1);
       // this.player.setAlpha(1);
       // this.enemies.setAlpha(1);

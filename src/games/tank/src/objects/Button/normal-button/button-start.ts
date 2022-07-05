@@ -14,6 +14,6 @@ export class ButtonStart extends Button{
 				})
   }
 	public handleOnPress(){
-		this.currentScene.scene.start('GameScene');
+		this.currentScene.events.emit('startgame');
 	}
 }

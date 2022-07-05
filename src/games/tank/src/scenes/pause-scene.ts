@@ -4,20 +4,11 @@ import { ButtonReplay } from "../objects/Button/normal-button/button-replay";
 import { ButtonPlay } from "../objects/Button/normal-button/button-play";
 
 export class PauseScene extends Phaser.Scene {
-  private startKey: Phaser.Input.Keyboard.Key;
-  private bitmapTexts: Phaser.GameObjects.BitmapText[] = [];
 
   constructor() {
     super({
       key: 'PauseScene'
     });
-  }
-
-  init(): void {
-    this.startKey = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.S
-    );
-    this.startKey.isDown = false;
   }
 
   create(): void {
@@ -64,7 +55,7 @@ export class PauseScene extends Phaser.Scene {
       x: 100,
       ease: 'Power1',
       duration: 300,
-      delay: 200,
+      delay: 400,
     });
     // Phaser.Display.Align.In.BottomRight(btn_music, this.add.zone(140, 90, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0));
     
@@ -79,7 +70,7 @@ export class PauseScene extends Phaser.Scene {
       x: 100,
       ease: 'Power1',
       duration: 300,
-      delay: 200,
+      delay: 600,
     });
     // Phaser.Display.Align.In.TopLeft(btn_sound, this.add.zone(140, 140, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0));
 
@@ -115,8 +106,5 @@ export class PauseScene extends Phaser.Scene {
   }
 
   update(): void {
-    if (this.startKey.isDown) {
-      this.scene.start('GameScene');
-    }
   }
 }
