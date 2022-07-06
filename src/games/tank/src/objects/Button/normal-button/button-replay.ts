@@ -2,7 +2,9 @@ import { Button } from "./button";
 
 export class ButtonReplay extends Button{
 	public handleOnPress(){
-    this.currentScene.events.emit('restartGame');
-    console.log("GameScene: ");
+        if(!this.currentScene.registry.get('muteSound'))
+            this.currentScene.sound.add('click').play();
+        this.currentScene.events.emit('restartGame');
+        console.log("GameScene: ");
 	}
 }

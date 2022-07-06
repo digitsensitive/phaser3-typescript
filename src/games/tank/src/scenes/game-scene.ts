@@ -2,7 +2,6 @@ import { Player } from '../objects/player';
 import { Enemy } from '../objects/enemy';
 import { Obstacle } from '../objects/obstacles/obstacle';
 import { Bullet } from '../objects/bullet';
-import { ButtonPause } from '../objects/Button/toggle-button/button-pause';
 import { ButtonMenu } from '../objects/Button/normal-button/button-menu';
 
 export class GameScene extends Phaser.Scene {
@@ -13,6 +12,7 @@ export class GameScene extends Phaser.Scene {
   private player: Player;
   private enemies: Phaser.GameObjects.Group;
   private obstacles: Phaser.GameObjects.Group;
+  private TextScore!: Phaser.GameObjects.Text;
 
   private target: Phaser.Math.Vector2;
   private btn_menu!: ButtonMenu;
@@ -46,74 +46,16 @@ export class GameScene extends Phaser.Scene {
     });
     this.convertObjects();
     this.physics.world.setBounds(0, 0, this.layer.width, this.layer.height);
-    // collider layer and obstacles
-    this.physics.add.collider(this.player, this.layer);
-    this.physics.add.collider(this.player, this.obstacles);
-
-    // collider for bullets
-    this.physics.add.collider(
-      this.player.getBullets(),
-      this.layer,
-      this.bulletHitLayer,
-      null,
-      this
-    );
-
-    this.physics.add.collider(
-      this.player.getBullets(),
-      this.obstacles,
-      this.bulletHitObstacles,
-      null,
-      this
-    );
-
-    this.enemies.children.each((enemy: Enemy) => {
-      this.physics.add.overlap(
-        this.player.getBullets(),
-        enemy,
-        this.playerBulletHitEnemy,
-        null,
-        this
-      );
-      this.physics.add.overlap(
-        enemy.getBullets(),
-        this.player,
-        this.enemyBulletHitPlayer,
-        null
-      );
-
-      this.physics.add.collider(
-        enemy.getBullets(),
-        this.obstacles,
-        this.bulletHitObstacles,
-        null
-      );
-      this.physics.add.collider(
-        enemy.getBullets(),
-        this.layer,
-        this.bulletHitLayer,
-        null
-      );
-    }, this);
-
+    this.handlePhysics();
     this.cameras.main.startFollow(this.player);
 
-    this.btn_menu = new ButtonMenu({
-      scene: this,
-      x: 0,
-      y: 0,
-      texture: "btn-menu",
-    }).setScrollFactor(0);
-
-    Phaser.Display.Align.In.TopLeft(
-      this.btn_menu,
-      this.add.zone(this.cameras.main.width/2+10, this.cameras.main.height / 2+10, this.cameras.main.width, this.cameras.main.height),
-    );
+    this.createUI();
     
     this.initEvents();
   }
 
   update(): void {
+    console.log("onPress", this.registry.get('muteSound'));
     this.player.update();
 
     this.enemies.children.each((enemy: Enemy) => {
@@ -132,26 +74,104 @@ export class GameScene extends Phaser.Scene {
     }, this);
   }
 
+  private createUI(){
+    this.btn_menu = new ButtonMenu({
+      scene: this,
+      x: 0,
+      y: 0,
+      texture: "btn-menu",
+    }).setScrollFactor(0);
+
+    this.TextScore = this.add.text(0, 0, `Score: ${this.registry.get('score')}`, {
+			fontFamily: 'Quicksand',
+			fontSize: '48px',
+			color: '#fff'
+		}).setScrollFactor(0)
+      .setOrigin(0, 0);
+
+    Phaser.Display.Align.In.TopLeft(
+      this.btn_menu,
+      this.add.zone(this.cameras.main.width/2, this.cameras.main.height / 2, this.cameras.main.width - 10*4, this.cameras.main.height-10*2),
+    );
+    
+    Phaser.Display.Align.In.TopRight(
+      this.TextScore,
+      this.add.zone(this.cameras.main.width/2, this.cameras.main.height / 2, this.cameras.main.width - 40*2, this.cameras.main.height - 10*2)
+    );
+  }
+
+  private handlePhysics(){
+    // collider layer and obstacles
+    this.physics.add.collider(this.player, this.layer);
+    this.physics.add.collider(this.player, this.obstacles);
+
+    // collider for bullets
+    this.physics.add.collider(
+      this.player.getBullets(),
+      this.layer,
+      (obj1, obj2) => this.bulletHitLayer(obj1 as Bullet),
+      null,
+      this
+    );
+
+    this.physics.add.collider(
+      this.player.getBullets(),
+      this.obstacles,
+      (obj1, obj2) =>this.bulletHitObstacles(obj1 as Bullet, obj2 as Obstacle),
+      null,
+      this
+    );
+
+    this.enemies.children.each((enemy: Enemy) => {
+      this.physics.add.collider(
+        this.player.getBullets(),
+        enemy,
+        (obj1, obj2) =>this.playerBulletHitEnemy(obj1 as Bullet, obj2 as Enemy),
+        null,
+        this
+      );
+      this.physics.add.overlap(
+        enemy.getBullets(),
+        this.player,
+        (obj1, obj2)=>this.enemyBulletHitPlayer(obj1 as Bullet, obj2 as Player),
+        null
+      );
+
+      this.physics.add.collider(
+        enemy.getBullets(),
+        this.obstacles,
+        (obj1, obj2) =>this.bulletHitObstacles(obj1 as Bullet, obj2 as Obstacle),
+        null
+      );
+      this.physics.add.collider(
+        enemy.getBullets(),
+        this.layer,
+        (obj1, obj2)=>this.bulletHitLayer(obj1 as Bullet),
+        null
+      );
+    }, this);
+  }
+
   private initEvents() {
     this.events.on('pause', ()=>{
       if(this.input.mouse.locked)
         this.input.mouse.releasePointerLock();
       // set alpha
-      this.btn_menu.setAlpha(0.2);
-      this.layer.setAlpha(0.2);
-      this.obstacles.setAlpha(0.3);
-      this.player.setAlpha(0.3);
-      this.enemies.setAlpha(0.3);
+      this.setAlpha(0.2);
     })
     this.events.on('resume', () => {
       // set alpha
-      this.layer.setAlpha(1);
-      this.btn_menu.setAlpha(1);
-      this.obstacles.setAlpha(1);
-      this.player.setAlpha(1);
-      this.enemies.setAlpha(1);
+      this.setAlpha(1.0);
       console.log('Scene A resumed');
     })
+  }
+
+  private setAlpha(alpha: number){
+    this.layer.setAlpha(alpha);
+    this.btn_menu.setAlpha(alpha);
+    this.obstacles.setAlpha(alpha);
+    this.player.setAlpha(alpha);
+    this.enemies.setAlpha(alpha);
   }
   
   private convertObjects(): void {
@@ -189,92 +209,89 @@ export class GameScene extends Phaser.Scene {
   }
 
   private bulletHitLayer(bullet: Bullet): void {
-    if(bullet.scene){
-      const particles = bullet.scene.add.particles('flares');
-      var particlesBullet = particles.createEmitter({
-        frame: 'red',
-        x: bullet.x,
-        y: bullet.y,
-        lifespan: 500,
-        speed: { min: 400, max: 600 },
-        angle: {min: 0, max: 360},
-        scale: { start: 0.1, end: 0 },
-        quantity: 2,
-        blendMode: 'ADD',
-      });
-      bullet.scene.time.delayedCall(150, ()=>{
-        particles.destroy();
-        particlesBullet.remove();
-      }, [], this)
-    }
+    this.createEmitter(bullet.x, bullet.y);
+
     bullet.destroy();
   }
 
   private bulletHitObstacles(bullet: Bullet, obstacle: Obstacle): void {
-    if(bullet.scene){
-      const particles = bullet.scene.add.particles('flares');
-      var particlesBullet = particles.createEmitter({
-        frame: 'red',
-        x: bullet.x,
-        y: bullet.y,
-        lifespan: 500,
-        speed: { min: 400, max: 600 },
-        angle: {min: 0, max: 360},
-        scale: { start: 0.1, end: 0 },
-        quantity: 2,
-        blendMode: 'ADD',
-      });
-      bullet.scene.time.delayedCall(150, ()=>{
-        particles.destroy();
-        particlesBullet.remove();
-      }, [], this)
-    }
+    this.createEmitter(bullet.x, bullet.y);
     bullet.destroy();
   }
 
   private enemyBulletHitPlayer(bullet: Bullet, player: Player): void {
-    if(bullet.scene){
-      const particles = bullet.scene.add.particles('flares');
-      var particlesBullet = particles.createEmitter({
-        frame: 'red',
-        x: bullet.x,
-        y: bullet.y,
-        lifespan: 500,
-        speed: { min: 400, max: 600 },
-        angle: {min: 0, max: 360},
-        scale: { start: 0.1, end: 0 },
-        quantity: 2,
-        blendMode: 'ADD',
-      });
-      bullet.scene.time.delayedCall(150, ()=>{
-        particles.destroy();
-        particlesBullet.remove();
-      }, [], this)
-    }
+    this.createEmitter(bullet.x, bullet.y);
     bullet.destroy();
+
+    const xTextHealth = Phaser.Math.Between(player.x - 30, player.x + 30)
+    const yTextHealth = player.y;
+    const textHealth = this.add.text(xTextHealth, yTextHealth, '-1', {
+			fontFamily: 'Bangers',
+			fontSize: '50px',
+			color: '#4A90E2',
+		}).setOrigin(0.5, 0.5);
+    this.tweens.add({
+      targets: textHealth,
+      y: yTextHealth -100,
+      ease: 'Power1',
+      duration: 300,
+      yoyo: false,
+      repeat: 0,
+      onComplete: ()=>{
+        textHealth.destroy();
+      }
+    })
+
     player.updateHealth();
   }
 
   private playerBulletHitEnemy(bullet: Bullet, enemy: Enemy): void {
-    if(bullet.scene){
-      const particles = bullet.scene.add.particles('flares');
-      var particlesBullet = particles.createEmitter({
-        frame: 'red',
-        x: bullet.x,
-        y: bullet.y,
-        lifespan: 500,
-        speed: { min: 400, max: 600 },
-        angle: {min: 0, max: 360},
-        scale: { start: 0.1, end: 0 },
-        quantity: 2,
-        blendMode: 'ADD',
-      });
-      bullet.scene.time.delayedCall(150, ()=>{
-        particles.destroy();
-        particlesBullet.remove();
-      }, [], this)
-    }
+    this.createEmitter(bullet.x, bullet.y);
     bullet.destroy();
+    this.updateScore();
+
+    const xTextHealth = Phaser.Math.Between(enemy.x - 30, enemy.x + 30)
+    const yTextHealth = enemy.y
+    const textHealth = this.add.text(xTextHealth, yTextHealth, '-1', {
+			fontFamily: 'Bangers',
+			fontSize: '50px',
+			color: '#B21E1E',
+		}).setOrigin(0.5, 0.5);
+    this.tweens.add({
+      targets: textHealth,
+      y: yTextHealth -100,
+      ease: 'Power1',
+      duration: 300,
+      yoyo: false,
+      repeat: 0,
+      onComplete: ()=>{
+        textHealth.destroy();
+      }
+    })
+
     enemy.updateHealth();
+  }
+
+  private createEmitter(x: number, y: number){
+    var particlesBullet = this.add.particles('flares').createEmitter({
+      frame: 'red',
+      x: x,
+      y: y,
+      lifespan: 500,
+      speed: { min: 400, max: 600 },
+      angle: {min: 0, max: 360},
+      scale: { start: 0.1, end: 0 },
+      quantity: 2,
+      blendMode: 'ADD',
+    });
+
+    this.time.delayedCall(150, ()=>{
+      particlesBullet.remove();
+    }, [], this)
+  }
+
+  private updateScore(){
+    this.registry.set('score' ,this.registry.get('score')+1);
+    this.TextScore.setText(`Score: ${this.registry.get('score')}`);
   }
 }

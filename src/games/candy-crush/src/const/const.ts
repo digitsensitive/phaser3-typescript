@@ -10,13 +10,13 @@ export let CONST = {
     'cookie2',
     'croissant',
     'cupcake',
-    // 'donut',
-    // 'eclair',
-    // 'macaroon',
-    // 'pie',
-    // 'poptart1',
-    // 'poptart2',
-    // 'starcookie1',
-    // 'starcookie2'
+    'donut',
+    'eclair',
+    'macaroon',
+    'pie',
+    'poptart1',
+    'poptart2',
+    'starcookie1',
+    'starcookie2'
   ]
 };

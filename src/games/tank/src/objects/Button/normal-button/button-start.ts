@@ -14,6 +14,8 @@ export class ButtonStart extends Button{
 				})
   }
 	public handleOnPress(){
-		this.currentScene.events.emit('startgame');
+		if(!this.currentScene.registry.get('muteSound'))
+			this.currentScene.sound.add('select').play();
+		this.currentScene.events.emit('startGame');
 	}
 }

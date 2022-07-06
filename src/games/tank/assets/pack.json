@@ -161,6 +161,21 @@
         "key": "flares",
         "textureURL": "./assets/images/flares.png",
         "atlasURL": "./assets/images/flares.json"
+      },
+      {
+        "type": "audio",
+        "key": "menu_track",
+        "url": "./assets/audio/menu_track.m4a"
+      },
+      {
+        "type": "audio",
+        "key": "select",
+        "url": "./assets/audio/select_sfx.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "click",
+        "url": "./assets/audio/click.ogg"
       }
     ]
   }

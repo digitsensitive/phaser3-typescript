@@ -41,7 +41,7 @@ export class Enemy extends Phaser.GameObjects.Container {
     this.speed = 100;
 
     // image
-    this.tank = this.scene.physics.add.image(0, 0, this.texture);
+    this.tank = this.scene.physics.add.image(0, 0, this.texture).setImmovable(true);
     this.body = this.tank.body as Phaser.Physics.Arcade.Body;
 
     this.barrel = this.scene.add.image(0, 0, 'barrelRed');

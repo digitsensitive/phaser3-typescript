@@ -43,7 +43,7 @@ export class Player extends Phaser.GameObjects.Container {
 
   private initContainer() {
     // variables
-    this.health = 100;
+    this.health = 1;
     this.lastShoot = 0;
     this.speed = 150;
 
@@ -96,14 +96,8 @@ export class Player extends Phaser.GameObjects.Container {
 
   private initHandleInput(){
     this.scene.input.on('pointermove', (pointer: Phaser.Input.Pointer)=>{
-      if(
-      Phaser.Geom.Intersects.RectangleToRectangle(
-        this.getBounds(),
-        this.scene.cameras.main.worldView
-      )){
         this.curosr.x += pointer.movementX;
         this.curosr.y += pointer.movementY;
-      }
     }, this);
 
     this.scene.input.on('pointerdown', function () {
@@ -160,11 +154,14 @@ export class Player extends Phaser.GameObjects.Container {
     } else if (this.moveKeyDown.isDown) {
       this.body.setVelocityY(this.speed);
     }
+
+    // move cursor
     var bodyCurosr = this.curosr.body as Phaser.Physics.Arcade.Body;
     bodyCurosr.setVelocity(this.body.velocity.x, this.body.velocity.y)
+    
     // angle
     var angleOfVelocity = this.body.velocity.angle()*Phaser.Math.RAD_TO_DEG;
-    console.log(angleOfVelocity);
+    // console.log(angleOfVelocity);
     if(angleOfVelocity>=90)
       angle = angleOfVelocity - 270;
     else {
