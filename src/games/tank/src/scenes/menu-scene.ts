@@ -67,10 +67,15 @@ export class MenuScene extends Phaser.Scene {
         ease: 'Power1',
         duration: 500,
         onComplete: () => {
+          this.game.input.mouse.requestPointerLock();
           this.scene.start("GameScene");
         }
       });
       console.log("start: ");
+    }, this);
+
+    this.events.on('start', ()=>{
+      this.input.mouse.releasePointerLock();
     }, this);
   }
 

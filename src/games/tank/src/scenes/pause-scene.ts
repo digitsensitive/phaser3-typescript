@@ -74,7 +74,7 @@ export class PauseScene extends Phaser.Scene {
     });
     // Phaser.Display.Align.In.TopLeft(btn_sound, this.add.zone(140, 140, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0));
 
-    this.events.on('restart', ()=>{
+    this.events.on('restartGame', ()=>{
       this.tweens.add({
         targets: [btn_replay, btn_play, btn_sound, btn_music],
         x: -600,
@@ -83,7 +83,8 @@ export class PauseScene extends Phaser.Scene {
         onComplete: () => {
           this.scene.stop();
           this.scene.stop("GameScene");
-          this.scene.start("GameScene");
+          this.scene.stop("MenuScene");
+          this.scene.start("MenuScene");
         }
       });
       console.log("restart: ");
@@ -98,6 +99,7 @@ export class PauseScene extends Phaser.Scene {
         duration: 500,
         onComplete: () => {
           this.scene.stop();
+          this.game.input.mouse.requestPointerLock();
           this.scene.resume("GameScene");
         }
       });

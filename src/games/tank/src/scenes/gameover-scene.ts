@@ -19,9 +19,18 @@ export default class GameOverScene extends Phaser.Scene {
 
     this.gameOverText = this.add.text(0, 0, 'Game Over', { fontFamily: 'Quicksand',fontSize: '64px'});
     this.madeByText = this.add.text(0, 0, `Current score`, { fontFamily: 'Quicksand',fontSize: '48px'});
-    const highScoreText = this.add.text(0, 0, `High score`, { fontFamily: 'Quicksand',fontSize: '48px'}).setOrigin(0.5,0.5).setVisible(false);
-    const highScore = this.add.text(0, 0, `1000`, { fontFamily: 'Quicksand',fontSize: '48px'}).setOrigin(0.5,0.5).setVisible(false);
-    this.score = this.add.text(0, 0, `0`, { fontFamily: 'Quicksand',fontSize: '48px'}).setOrigin(0.5,0.5).setVisible(false);
+    const highScoreText = this.add.text(0, 0, `High score`, { fontFamily: 'Quicksand',fontSize: '48px'})
+      .setOrigin(0.5,0.5)
+      .setVisible(false)
+      .setDepth(2);
+    const highScore = this.add.text(0, 0, `1000`, { fontFamily: 'Quicksand',fontSize: '48px'})
+      .setOrigin(0.5,0.5)
+      .setVisible(false)
+      .setDepth(2);;
+    this.score = this.add.text(0, 0, `0`, { fontFamily: 'Quicksand',fontSize: '48px'})
+      .setOrigin(0.5,0.5)
+      .setVisible(false)
+      .setDepth(2);;
     var score = 100;
     this.tween = this.tweens.addCounter({
         from: 0,
@@ -93,7 +102,7 @@ export default class GameOverScene extends Phaser.Scene {
     });
     
 
-    this.events.on('restart', ()=>{
+    this.events.on('restartGame', ()=>{
       this.tweens.add({
         targets: [this.madeByText, highScoreText, highScore, this.score],
         y: - 200,

@@ -119,6 +119,21 @@
         "url": "./assets/images/play-btn.png"
       },
       {
+        "type": "image",
+        "key": "curosr",
+        "url": "./assets/images/curosr.png"
+      },
+      {
+        "type": "image",
+        "key": "fire",
+        "url": "./assets/images/muzzleflash3.png"
+      },
+      {
+        "type": "image",
+        "key": "dark-smoke",
+        "url": "./assets/images/smoke-puff.png"
+      },
+      {
         "type": "spritesheet",
         "key": "btn-sound",
         "url": "./assets/sprites/btn-sound.png",
@@ -140,6 +155,12 @@
         "type": "json",
         "key": "animationJSON",
         "url": "./assets/animations/animations.json"
+      },
+      {
+        "type": "atlas",
+        "key": "flares",
+        "textureURL": "./assets/images/flares.png",
+        "atlasURL": "./assets/images/flares.json"
       }
     ]
   }

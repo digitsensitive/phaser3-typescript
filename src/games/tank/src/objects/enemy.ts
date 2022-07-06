@@ -9,7 +9,6 @@ export class Enemy extends Phaser.GameObjects.Container {
   private lastShoot: number;
   private speed: number;
   private texture: string;
-  private frame: string | number;
 
   // children
   private barrel: Phaser.GameObjects.Image;
@@ -30,7 +29,6 @@ export class Enemy extends Phaser.GameObjects.Container {
   constructor(aParams: IImageConstructor) {
     super(aParams.scene, aParams.x, aParams.y);
     this.texture = aParams.texture;
-    this.frame = aParams.frame;
 
     this.initContainer();
     this.scene.add.existing(this);
@@ -43,20 +41,18 @@ export class Enemy extends Phaser.GameObjects.Container {
     this.speed = 100;
 
     // image
-    this.setDepth(0);
-
-    
     this.tank = this.scene.physics.add.image(0, 0, this.texture);
     this.body = this.tank.body as Phaser.Physics.Arcade.Body;
-    this.add(this.tank);
-    
+
     this.barrel = this.scene.add.image(0, 0, 'barrelRed');
     this.barrel.setOrigin(0.5, 1);
     this.barrel.setDepth(1);
-    this.add(this.barrel);
-
+    
     this.lifeBar = this.scene.add.graphics();
     this.redrawLifebar();
+
+    // add objects to container
+    this.add([this.tank, this.lifeBar, this.barrel]);
 
     // game objects
     this.bullets = this.scene.add.group({
@@ -86,10 +82,6 @@ export class Enemy extends Phaser.GameObjects.Container {
 
   update(): void {
     if (this.active) {
-      // this.barrel.x = this.x;
-      // this.barrel.y = this.y;
-      // this.lifeBar.x = this.x;
-      // this.lifeBar.y = this.y;
       this.handleShooting();
     } else {
       this.destroy();
@@ -128,7 +120,6 @@ export class Enemy extends Phaser.GameObjects.Container {
     this.lifeBar.lineStyle(2, 0xffffff);
     this.lifeBar.strokeRect(-this.tank.width / 2, this.tank.height / 2, this.tank.width, 15);
     this.lifeBar.setDepth(1);
-    this.add(this.lifeBar);
   }
 
   public updateHealth(): void {
@@ -137,6 +128,23 @@ export class Enemy extends Phaser.GameObjects.Container {
       this.redrawLifebar();
     } else {
       this.health = 0;
+      const particles = this.scene.add.particles('fire');
+
+      particles.createEmitter({
+          alpha: { start: 1, end: 0 },
+          scale: { start: 0.5, end: 2.5 },
+          //tint: { start: 0xff945e, end: 0xff945e },
+          speed: 20,
+          accelerationY: -300,
+          angle: { min: -85, max: -95 },
+          rotate: { min: -180, max: 180 },
+          lifespan: { min: 1000, max: 1100 },
+          blendMode: 'ADD',
+          frequency: 110,
+          maxParticles: 10,
+          x: this.x,
+          y: this.y
+      });
       this.active = false;
     }
   }

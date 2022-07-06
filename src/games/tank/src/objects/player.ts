@@ -1,21 +1,24 @@
 import { Bullet } from './bullet';
 import { IImageConstructor } from '../interfaces/image.interface';
 
-export class Player extends Phaser.GameObjects.Image {
+export class Player extends Phaser.GameObjects.Container {
   body: Phaser.Physics.Arcade.Body;
 
   // variables
   private health: number;
   private lastShoot: number;
   private speed: number;
+  private texture: string;
 
   // children
   private barrel: Phaser.GameObjects.Image;
   private lifeBar: Phaser.GameObjects.Graphics;
-
+  private tank: Phaser.GameObjects.Image;
+  
   // game objects
   private bullets: Phaser.GameObjects.Group;
   private tween: Phaser.Tweens.Tween;
+  private curosr: Phaser.GameObjects.Image;
 
   // input
   private rotateKeyLeft: Phaser.Input.Keyboard.Key;
@@ -28,30 +31,40 @@ export class Player extends Phaser.GameObjects.Image {
   }
 
   constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+    super(aParams.scene, aParams.x, aParams.y);
+    this.texture = aParams.texture;
 
-    this.initImage();
+    this.initContainer();
     this.scene.add.existing(this);
+    // set body of container
+    this.body.setOffset(-this.tank.width/2, -this.tank.height/2);
+    this.body.setSize(this.tank.width, this.tank.height);
   }
 
-  private initImage() {
+  private initContainer() {
     // variables
-    this.health = 1;
+    this.health = 100;
     this.lastShoot = 0;
-    this.speed = 120;
+    this.speed = 150;
 
     // image
-    this.setOrigin(0.5, 0.5);
-    this.setDepth(0);
-    this.angle = 180;
-
-    this.barrel = this.scene.add.image(this.x, this.y, 'barrelBlue');
+    this.tank = this.scene.physics.add.image(0, 0, this.texture);
+    this.tank.angle = 180;
+    
+    this.barrel = this.scene.add.image(0, 0, 'barrelBlue');
     this.barrel.setOrigin(0.5, 1);
-    this.barrel.setDepth(1);
     this.barrel.angle = 180;
+
+    this.curosr = this.scene.physics.add.image(this.x, this.y, 'curosr')
+      .setCollideWorldBounds(true)
+      .setDisplaySize(64,64)
+      .setDepth(2);
 
     this.lifeBar = this.scene.add.graphics();
     this.redrawLifebar();
+
+    // add objects to container
+    this.add([this.tank, this.lifeBar, this.barrel]);
 
     // game objects
     this.bullets = this.scene.add.group({
@@ -80,30 +93,45 @@ export class Player extends Phaser.GameObjects.Image {
     // input mouse
     this.initHandleInput();
   }
+
   private initHandleInput(){
     this.scene.input.on('pointermove', (pointer: Phaser.Input.Pointer)=>{
-      // rotate barrel
-      this.barrel.angle =(Phaser.Math.Angle.Between(
-        this.body.x,
-        this.body.y,
-        pointer.worldX,
-        pointer.worldY
-      ) + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
+      if(
+      Phaser.Geom.Intersects.RectangleToRectangle(
+        this.getBounds(),
+        this.scene.cameras.main.worldView
+      )){
+        this.curosr.x += pointer.movementX;
+        this.curosr.y += pointer.movementY;
+      }
     }, this);
 
-    this.scene.input.on('pointerup', function () {
-      this.handleShooting();
+    this.scene.input.on('pointerdown', function () {
+      if (!this.scene.input.mouse.locked && !this.curosr.visible){
+        this.curosr.setVisible(true);
+        this.scene.game.input.mouse.requestPointerLock();
+      }else
+        this.handleShooting();
     }, this);
+
+    this.scene.input.keyboard.on('keydown-SPACE', ()=>{
+      if (this.scene.input.mouse.locked){
+        this.scene.input.mouse.releasePointerLock();
+        this.curosr.setVisible(false);
+      }
+    });
+    this.scene.events.on('resume', () => {
+      this.curosr.setVisible(true);
+    })
     
   }
   update(): void {
     // console.log('player: ' +  this.angle);
-    
     if (this.active) {
-      this.barrel.x = this.x;
-      this.barrel.y = this.y;
-      this.lifeBar.x = this.x;
-      this.lifeBar.y = this.y;
+      if (!this.scene.input.mouse.locked&&this.curosr.visible){
+        this.curosr.setVisible(false);
+      }
+      this.barrel.rotation = Phaser.Math.Angle.Between(this.x, this.y, this.curosr.x, this.curosr.y)+ Math.PI/2;
       this.handleInput();
     } else {
       this.destroy();
@@ -123,21 +151,17 @@ export class Player extends Phaser.GameObjects.Image {
       this.body.setVelocityX(-this.speed)
     } else if (this.rotateKeyRight.isDown) {
       if(this.angle == -180)
-        this.angle  =179;
+        this.tank.angle  =179;
         this.body.setVelocityX(this.speed)
-    }else{
-      this.body.setVelocityX(0);
     }
 
     if (this.moveKeyUp.isDown) {
       this.body.setVelocityY(-this.speed)
     } else if (this.moveKeyDown.isDown) {
       this.body.setVelocityY(this.speed);
-    }else{
-      this.body.setVelocityY(0);
     }
-
-
+    var bodyCurosr = this.curosr.body as Phaser.Physics.Arcade.Body;
+    bodyCurosr.setVelocity(this.body.velocity.x, this.body.velocity.y)
     // angle
     var angleOfVelocity = this.body.velocity.angle()*Phaser.Math.RAD_TO_DEG;
     console.log(angleOfVelocity);
@@ -148,15 +172,14 @@ export class Player extends Phaser.GameObjects.Image {
     }
 
     if((!this.tween || !this.tween.isPlaying()) && angle!=null && (this.body.velocity.x != 0 || this.body.velocity.y != 0)){
-      if(this.angle == 90 && angle == -180)
+      if(this.tank.angle == 90 && angle == -180)
         angle = 180;
-      var duration = Math.abs(this.angle - angle) / 90 * 350;
-      // console.log("duration",duration, this.body.velocity);
+      // var duration = (Math.abs(this.angle - angle) / 90) * 250;
       this.tween = this.scene.tweens.add({
-        targets: this,
+        targets: this.tank,
         angle: angle,
         ease: 'Sine.easeInOut',
-        duration: duration,
+        duration: 350,
         yoyo: false,
         repeat: 0,
       });
@@ -185,8 +208,8 @@ export class Player extends Phaser.GameObjects.Image {
           new Bullet({
             scene: this.scene,
             rotation: this.barrel.rotation,
-            x: this.barrel.x,
-            y: this.barrel.y,
+            x: this.x,
+            y: this.y,
             texture: 'bulletBlue'
           })
         );
@@ -200,13 +223,13 @@ export class Player extends Phaser.GameObjects.Image {
     this.lifeBar.clear();
     this.lifeBar.fillStyle(0xe66a28, 1);
     this.lifeBar.fillRect(
-      -this.width / 2,
-      this.height / 2,
-      this.width * this.health,
+      -this.tank.width / 2,
+      this.tank.height / 2,
+      this.tank.width * this.health,
       15
     );
     this.lifeBar.lineStyle(2, 0xffffff);
-    this.lifeBar.strokeRect(-this.width / 2, this.height / 2, this.width, 15);
+    this.lifeBar.strokeRect(-this.tank.width / 2, this.tank.height / 2, this.tank.width, 15);
     this.lifeBar.setDepth(1);
   }
 
@@ -217,8 +240,10 @@ export class Player extends Phaser.GameObjects.Image {
     } else {
       this.health = 0;
       this.active = false;
-      // this.scene.scene.start('GameOverScene');
       this.scene.scene.pause();
+      this.curosr.setVisible(false);
+      if(this.scene.input.mouse.locked)
+        this.scene.input.mouse.releasePointerLock();
       this.scene.scene.launch('GameOverScene');
     }
   }

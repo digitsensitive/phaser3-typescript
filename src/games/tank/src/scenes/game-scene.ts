@@ -21,11 +21,14 @@ export class GameScene extends Phaser.Scene {
     super({
       key: 'GameScene'
     });
+    
   }
 
-  init(): void {}
+  init(): void {
+  }
 
   create(): void {
+    
     // create tilemap from tiled JSON
     this.map = this.make.tilemap({ key: 'levelMap' });
 
@@ -42,7 +45,7 @@ export class GameScene extends Phaser.Scene {
       /*classType: Enemy*/
     });
     this.convertObjects();
-
+    this.physics.world.setBounds(0, 0, this.layer.width, this.layer.height);
     // collider layer and obstacles
     this.physics.add.collider(this.player, this.layer);
     this.physics.add.collider(this.player, this.obstacles);
@@ -106,22 +109,8 @@ export class GameScene extends Phaser.Scene {
       this.btn_menu,
       this.add.zone(this.cameras.main.width/2+10, this.cameras.main.height / 2+10, this.cameras.main.width, this.cameras.main.height),
     );
-    this.events.on('pause', ()=>{
-      this.btn_menu.setAlpha(0.2);
-      this.layer.setAlpha(0.2);
-      // this.obstacles.setAlpha(0.3);
-      // this.player.setAlpha(0.3);
-      // this.enemies.setAlpha(0.3);
-    })
-    this.events.on('resume', () => {
-      this.btn_menu.visible = true;
-      this.layer.setAlpha(1);
-      this.btn_menu.setAlpha(1);
-      // this.obstacles.setAlpha(1);
-      // this.player.setAlpha(1);
-      // this.enemies.setAlpha(1);
-      console.log('Scene A resumed');
-    })
+    
+    this.initEvents();
   }
 
   update(): void {
@@ -143,6 +132,28 @@ export class GameScene extends Phaser.Scene {
     }, this);
   }
 
+  private initEvents() {
+    this.events.on('pause', ()=>{
+      if(this.input.mouse.locked)
+        this.input.mouse.releasePointerLock();
+      // set alpha
+      this.btn_menu.setAlpha(0.2);
+      this.layer.setAlpha(0.2);
+      this.obstacles.setAlpha(0.3);
+      this.player.setAlpha(0.3);
+      this.enemies.setAlpha(0.3);
+    })
+    this.events.on('resume', () => {
+      // set alpha
+      this.layer.setAlpha(1);
+      this.btn_menu.setAlpha(1);
+      this.obstacles.setAlpha(1);
+      this.player.setAlpha(1);
+      this.enemies.setAlpha(1);
+      console.log('Scene A resumed');
+    })
+  }
+  
   private convertObjects(): void {
     // find the object layer in the tilemap named 'objects'
     const objects = this.map.getObjectLayer('objects').objects as any[];
@@ -178,19 +189,91 @@ export class GameScene extends Phaser.Scene {
   }
 
   private bulletHitLayer(bullet: Bullet): void {
+    if(bullet.scene){
+      const particles = bullet.scene.add.particles('flares');
+      var particlesBullet = particles.createEmitter({
+        frame: 'red',
+        x: bullet.x,
+        y: bullet.y,
+        lifespan: 500,
+        speed: { min: 400, max: 600 },
+        angle: {min: 0, max: 360},
+        scale: { start: 0.1, end: 0 },
+        quantity: 2,
+        blendMode: 'ADD',
+      });
+      bullet.scene.time.delayedCall(150, ()=>{
+        particles.destroy();
+        particlesBullet.remove();
+      }, [], this)
+    }
     bullet.destroy();
   }
 
   private bulletHitObstacles(bullet: Bullet, obstacle: Obstacle): void {
+    if(bullet.scene){
+      const particles = bullet.scene.add.particles('flares');
+      var particlesBullet = particles.createEmitter({
+        frame: 'red',
+        x: bullet.x,
+        y: bullet.y,
+        lifespan: 500,
+        speed: { min: 400, max: 600 },
+        angle: {min: 0, max: 360},
+        scale: { start: 0.1, end: 0 },
+        quantity: 2,
+        blendMode: 'ADD',
+      });
+      bullet.scene.time.delayedCall(150, ()=>{
+        particles.destroy();
+        particlesBullet.remove();
+      }, [], this)
+    }
     bullet.destroy();
   }
 
   private enemyBulletHitPlayer(bullet: Bullet, player: Player): void {
+    if(bullet.scene){
+      const particles = bullet.scene.add.particles('flares');
+      var particlesBullet = particles.createEmitter({
+        frame: 'red',
+        x: bullet.x,
+        y: bullet.y,
+        lifespan: 500,
+        speed: { min: 400, max: 600 },
+        angle: {min: 0, max: 360},
+        scale: { start: 0.1, end: 0 },
+        quantity: 2,
+        blendMode: 'ADD',
+      });
+      bullet.scene.time.delayedCall(150, ()=>{
+        particles.destroy();
+        particlesBullet.remove();
+      }, [], this)
+    }
     bullet.destroy();
     player.updateHealth();
   }
 
   private playerBulletHitEnemy(bullet: Bullet, enemy: Enemy): void {
+    if(bullet.scene){
+      const particles = bullet.scene.add.particles('flares');
+      var particlesBullet = particles.createEmitter({
+        frame: 'red',
+        x: bullet.x,
+        y: bullet.y,
+        lifespan: 500,
+        speed: { min: 400, max: 600 },
+        angle: {min: 0, max: 360},
+        scale: { start: 0.1, end: 0 },
+        quantity: 2,
+        blendMode: 'ADD',
+      });
+      bullet.scene.time.delayedCall(150, ()=>{
+        particles.destroy();
+        particlesBullet.remove();
+      }, [], this)
+    }
     bullet.destroy();
     enemy.updateHealth();
   }
