@@ -180,21 +180,20 @@ export class GameScene extends Phaser.Scene {
         duration: 400,
         repeat: 0,
         yoyo: false,
-        onComplete: () => {
-          this.tweens.add({
-            targets: [firstSelectedTile],
-            ease: 'Sine.easeInOut',
-            duration: 200,
-            scaleX: 1,
-            scaleY: 1,
-            repeat: 0,
-            yoyo: false,
-            onComplete: () => {
-              this.checkMatches();
-            }
-          })
-        }
       });
+      this.tweens.add({
+        targets: [firstSelectedTile],
+        ease: 'Sine.easeInOut',
+        duration: 200,
+        scaleX: 1,
+        scaleY: 1,
+        repeat: 0,
+        delay: 400,
+        yoyo: false,
+        onComplete: () => {
+          this.checkMatches();
+        }
+      })
       this.firstSelectedTile = this.tileGrid[
         firstTilePosition.y / CONST.tileHeight
       ][firstTilePosition.x / CONST.tileWidth];
@@ -219,9 +218,11 @@ export class GameScene extends Phaser.Scene {
           this.resetTile(); 
         }
         //Fill the board with new tiles wherever there is an empty spot
-        this.fillTile();
-        this.tileUp();
-        this.checkMatches();
+        this.time.delayedCall(500, ()=>{
+          this.fillTile();
+          this.tileUp();
+          this.checkMatches();
+        },[], this)
       }, [], this)
       
     } else {

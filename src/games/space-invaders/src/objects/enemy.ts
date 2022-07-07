@@ -139,6 +139,18 @@ export class Enemy extends Phaser.GameObjects.Sprite {
     this.lives -= 1;
     if (this.lives === 0) {
       this.setActive(false);
+      var particles = this.scene.add.particles('flares').createEmitter({
+          frame: 'yellow',
+          x: this.x,
+          y: this.y,
+          lifespan: 200,
+          speed: { min: 10, max: 50 },
+          angle: {min: 0, max: 360},
+          scale: { start: 0.1, end: 0 },
+          quantity: 1,
+          maxParticles: 10,
+          blendMode: 'ADD'
+      });
     } else {
       this.isHurt = true;
     }

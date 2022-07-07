@@ -39,6 +39,7 @@ export class Ball extends Phaser.GameObjects.Rectangle {
       frame: 'red',
       speed: 100,
       scale: { start: 0.1, end: 0 },
+      angle: {min: 60, max:100},
       blendMode: 'ADD'
     }).stop();
     this.emitter.startFollow(this, 5,5);

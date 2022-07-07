@@ -43,8 +43,8 @@ export class GameScene extends Phaser.Scene {
     const HEIGHT = settings.LEVELS[settings.currentLevel].HEIGHT;
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
-        this.bricks.add(
-          new Brick({
+        
+         const brick = new Brick({
             scene: this,
             x: (settings.BRICK.WIDTH + settings.BRICK.SPACING) * x,
             y:
@@ -54,12 +54,31 @@ export class GameScene extends Phaser.Scene {
             height: settings.BRICK.HEIGHT,
             fillColor: BRICK_COLORS[BRICKS[y * 14 + x]]
           })
-        );
+          this.bricks.add(brick);
       }
     }
+
     // wait for the brick init finishes
-    this.time.delayedCall(50*WIDTH*HEIGHT, ()=>{
+    this.time.delayedCall(50*WIDTH*HEIGHT+600, ()=>{
       this.isBrickVisible = true;
+      this.bricks.getChildren().map((brick, index) => {
+        var y = Math.floor(index/WIDTH);
+        var x = index - y * WIDTH;
+        console.log(x,y);
+        const br = brick as Brick;
+        br.setScale(0.3,0.3) 
+        this.tweens.add({
+          targets: br,
+          scaleX: 1,
+          scaleY: 1,
+          ease: 'Sine.easeInOut',
+          duration: 300,
+          delay: (x+y) * 50,
+          repeat: -1,
+          yoyo: true,
+          hold: 5000,
+        });
+      })
     }, [], this)
 
     // player
@@ -67,7 +86,7 @@ export class GameScene extends Phaser.Scene {
       scene: this,
       x: +this.game.config.width / 2 - 20,
       y: +this.game.config.height - 50,
-      width: 480,
+      width: 100,
       height: 10
     });
 

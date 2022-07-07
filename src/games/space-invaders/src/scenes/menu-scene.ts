@@ -43,7 +43,7 @@ export class MenuScene extends Phaser.Scene {
     );
 
     this.tweens.add({
-      targets: [guideText, titleText],
+      targets: this.bitmapTexts,
       ease: 'Power1',
       duration: 2000,
       angle: 360,
@@ -57,9 +57,28 @@ export class MenuScene extends Phaser.Scene {
 
   update(): void {
     if (this.startKey.isDown) {
-      this.scene.start('HUDScene');
-      this.scene.start('GameScene');
-      this.scene.bringToTop('HUDScene');
+      this.tweens.add({
+        targets: this.bitmapTexts[1],
+        ease: 'Power1',
+        duration: 500,
+        y: -10,
+        yoyo: false,
+        repeat: 0,
+      });
+
+      this.tweens.add({
+        targets: this.bitmapTexts[0],
+        ease: 'Power1',
+        duration: 500,
+        y: this.cameras.main.height +10,
+        yoyo: false,
+        repeat: 0,
+        onComplete: () => {
+          this.scene.start('HUDScene');
+          this.scene.start('GameScene');
+          this.scene.bringToTop('HUDScene');
+        }
+      });
     }
   }
 

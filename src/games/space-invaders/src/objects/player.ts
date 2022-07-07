@@ -32,7 +32,7 @@ export class Player extends Phaser.GameObjects.Image {
     this.emitter = particles.createEmitter({
         frame: 'red',
         lifespan: 200,
-        speed: { min: 10, max: 50 },
+        speed: { min: 200, max: 300 },
         angle: {min: 80, max: 100},
         gravityY: 300,
         scale: { start: 0.1, end: 0 },
