@@ -26,6 +26,10 @@ export class Player extends Phaser.GameObjects.Container {
   private moveKeyUp: Phaser.Input.Keyboard.Key;
   private moveKeyDown: Phaser.Input.Keyboard.Key;
 
+  // audio 
+  private audioPlayerShooter: Phaser.Sound.BaseSound;
+  private audioPlayerDeath: Phaser.Sound.BaseSound;
+
   public getBullets(): Phaser.GameObjects.Group {
     return this.bullets;
   }
@@ -34,18 +38,24 @@ export class Player extends Phaser.GameObjects.Container {
     super(aParams.scene, aParams.x, aParams.y);
     this.texture = aParams.texture;
 
+    this.initAudio();
     this.initContainer();
     this.scene.add.existing(this);
     // set body of container
     this.body.setOffset(-this.tank.width/2, -this.tank.height/2);
     this.body.setSize(this.tank.width, this.tank.height);
   }
+  
+  private initAudio(){
+    this.audioPlayerShooter = this.scene.sound.add('player-shooter');
+    this.audioPlayerDeath = this.scene.sound.add('player-death');
+  }
 
   private initContainer() {
     // variables
     this.health = 1;
     this.lastShoot = 0;
-    this.speed = 150;
+    this.speed = 200;
 
     // image
     this.tank = this.scene.physics.add.image(0, 0, this.texture);
@@ -185,6 +195,8 @@ export class Player extends Phaser.GameObjects.Container {
 
   private handleShooting(): void {
     if (this.scene.time.now > this.lastShoot) {
+      if(!this.scene.registry.get('muteSound'))
+        this.audioPlayerShooter.play();
       this.scene.cameras.main.shake(20, 0.005);
       this.scene.tweens.add({
         targets: this,
@@ -235,13 +247,17 @@ export class Player extends Phaser.GameObjects.Container {
       this.health -= 0.05;
       this.redrawLifebar();
     } else {
+      if(!this.scene.registry.get('muteSound'))
+        this.audioPlayerDeath.play();
       this.health = 0;
       this.active = false;
       this.scene.scene.pause();
       this.curosr.setVisible(false);
       if(this.scene.input.mouse.locked)
         this.scene.input.mouse.releasePointerLock();
+      
       this.scene.scene.launch('GameOverScene');
+      console.log('player is dead');
     }
   }
 }

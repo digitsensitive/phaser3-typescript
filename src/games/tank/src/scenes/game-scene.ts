@@ -16,6 +16,10 @@ export class GameScene extends Phaser.Scene {
 
   private target: Phaser.Math.Vector2;
   private btn_menu!: ButtonMenu;
+  private zone!: Phaser.GameObjects.Zone;
+
+  // audio
+  private audioBattle: Phaser.Sound.BaseSound;
 
   constructor() {
     super({
@@ -29,6 +33,8 @@ export class GameScene extends Phaser.Scene {
 
   create(): void {
     
+    this.initAudio();
+
     // create tilemap from tiled JSON
     this.map = this.make.tilemap({ key: 'levelMap' });
 
@@ -55,7 +61,6 @@ export class GameScene extends Phaser.Scene {
   }
 
   update(): void {
-    console.log("onPress", this.registry.get('muteSound'));
     this.player.update();
 
     this.enemies.children.each((enemy: Enemy) => {
@@ -72,6 +77,22 @@ export class GameScene extends Phaser.Scene {
           (angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
       }
     }, this);
+
+    if(!this.registry.get('muteMusic')&&!this.audioBattle.isPlaying){
+      if(this.audioBattle.isPaused)
+        this.audioBattle.resume();
+      else  
+        this.audioBattle.play();
+    }
+    else if(this.registry.get('muteMusic')&&this.audioBattle.isPlaying){
+      this.audioBattle.pause();
+      console.log('Audio is paused',this.audioBattle.isPaused);
+    }
+
+  }
+
+  private initAudio() {
+    this.audioBattle = this.sound.add('battle');
   }
 
   private createUI(){
@@ -88,16 +109,18 @@ export class GameScene extends Phaser.Scene {
 			color: '#fff'
 		}).setScrollFactor(0)
       .setOrigin(0, 0);
-
+    
+    this.zone = this.add.zone(this.cameras.main.width/2, this.cameras.main.height / 2, this.cameras.main.width - 10*4, this.cameras.main.height-10*2)
     Phaser.Display.Align.In.TopLeft(
       this.btn_menu,
-      this.add.zone(this.cameras.main.width/2, this.cameras.main.height / 2, this.cameras.main.width - 10*4, this.cameras.main.height-10*2),
+      this.zone
     );
     
     Phaser.Display.Align.In.TopRight(
       this.TextScore,
-      this.add.zone(this.cameras.main.width/2, this.cameras.main.height / 2, this.cameras.main.width - 40*2, this.cameras.main.height - 10*2)
+      this.zone
     );
+    this.TextScore.setX(this.TextScore.x -25)
   }
 
   private handlePhysics(){
@@ -156,6 +179,8 @@ export class GameScene extends Phaser.Scene {
     this.events.on('pause', ()=>{
       if(this.input.mouse.locked)
         this.input.mouse.releasePointerLock();
+      // pause audio
+      this.audioBattle.pause();
       // set alpha
       this.setAlpha(0.2);
     })
@@ -172,6 +197,7 @@ export class GameScene extends Phaser.Scene {
     this.obstacles.setAlpha(alpha);
     this.player.setAlpha(alpha);
     this.enemies.setAlpha(alpha);
+    this.TextScore.setAlpha(alpha);
   }
   
   private convertObjects(): void {
@@ -252,7 +278,7 @@ export class GameScene extends Phaser.Scene {
 
     const xTextHealth = Phaser.Math.Between(enemy.x - 30, enemy.x + 30)
     const yTextHealth = enemy.y
-    const textHealth = this.add.text(xTextHealth, yTextHealth, '-1', {
+    const textHealth = this.add.text(xTextHealth, yTextHealth, '-2', {
 			fontFamily: 'Bangers',
 			fontSize: '50px',
 			color: '#B21E1E',

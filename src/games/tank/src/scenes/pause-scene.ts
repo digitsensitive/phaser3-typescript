@@ -8,6 +8,7 @@ export class PauseScene extends Phaser.Scene {
   private btn_replay: ButtonReplay;
   private btn_play: ButtonPlay;
   private btn_sound: ButtonSound;
+  private zone!: Phaser.GameObjects.Zone;
   constructor() {
     super({
       key: 'PauseScene'
@@ -16,31 +17,74 @@ export class PauseScene extends Phaser.Scene {
 
   create(): void {
     this.createUI();
+    this.initTween();
     this.createHandleEvents();
   }
   private createUI(){
     this.btn_music =  new ButtonMusic({
       scene: this,
-      x: -600,
-      y: 140,
+      x: 0,
+      y: 0,
       texture: 'btn-music',
       frame: 1,
     }, 2)
+
+    this.btn_sound =  new ButtonSound({
+      scene: this,
+      x: 0,
+      y: 0,
+      texture: 'btn-sound',
+      frame: 1,
+    }, 2);
+   
+    this.btn_play =  new ButtonPlay({
+      scene: this,
+      x: 0,
+      y: 0,
+      texture: 'btn-play',
+    }).setOrigin(0,0)
+    
+    this.btn_replay =  new ButtonReplay({
+      scene: this,
+      x: 0,
+      y: 0,
+      texture: 'btn-replay',
+    }).setOrigin(0,0);
+    
+    this.zone = this.add.zone(100, 140, 350, 450).setOrigin(0,0);
+    Phaser.Display.Align.In.TopRight(
+      this.btn_music,
+      this.zone
+    )
+    Phaser.Display.Align.In.TopLeft(
+      this.btn_sound,
+      this.zone
+    )
+    Phaser.Display.Align.In.Center(
+      this.btn_play,
+      this.zone
+    )
+      
+    Phaser.Display.Align.In.BottomCenter(
+      this.btn_replay,
+      this.zone
+    )
+    this.btn_music.setX(-600);
+    this.btn_sound.setX(-600);
+    this.btn_play.setX(-600);
+    this.btn_replay.setX(-600);
+    
+    this.add.existing(this.btn_sound);
+    this.add.existing(this.btn_music);
+  }
+  private initTween(){
     this.tweens.add({
       targets: this.btn_music,
       x: 300,
       ease: 'Power1',
       duration: 300,
     });
-    // Phaser.Display.Align.In.BottomRight(this.btn_music, this.add.zone(140, 90, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0));
-    
-    this.btn_sound =  new ButtonSound({
-      scene: this,
-      x: -600,
-      y: 140,
-      texture: 'btn-sound',
-      frame: 1,
-    }, 2);
+
     this.tweens.add({
       targets: this.btn_sound,
       x: 100,
@@ -48,13 +92,7 @@ export class PauseScene extends Phaser.Scene {
       duration: 300,
       delay: 200,
     });
-    // Phaser.Display.Align.In.TopLeft(this.btn_sound, this.add.zone(140, 140, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0));
-    this.btn_play =  new ButtonPlay({
-      scene: this,
-      x: -600,
-      y: 300,
-      texture: 'btn-play',
-    }).setOrigin(0,0)
+
     this.tweens.add({
       targets: this.btn_play,
       x: 100,
@@ -62,14 +100,6 @@ export class PauseScene extends Phaser.Scene {
       duration: 300,
       delay: 400,
     });
-    // Phaser.Display.Align.In.BottomRight(this.btn_music, this.add.zone(140, 90, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0));
-    
-    this.btn_replay =  new ButtonReplay({
-      scene: this,
-      x: -600,
-      y: 460,
-      texture: 'btn-replay',
-    }).setOrigin(0,0);
     this.tweens.add({
       targets: this.btn_replay,
       x: 100,
@@ -77,11 +107,7 @@ export class PauseScene extends Phaser.Scene {
       duration: 300,
       delay: 600,
     });
-    // Phaser.Display.Align.In.TopLeft(this.btn_sound, this.add.zone(140, 140, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0));
-
-    this.add.existing(this.btn_sound)
   }
-
   private createHandleEvents(){
     this.events.on('restartGame', ()=>{
       this.tweens.add({
@@ -90,10 +116,10 @@ export class PauseScene extends Phaser.Scene {
         ease: 'Power1',
         duration: 500,
         onComplete: () => {
-          this.scene.stop();
           this.scene.stop("GameScene");
           this.scene.stop("MenuScene");
           this.scene.start("MenuScene");
+          this.scene.stop();
         }
       });
       console.log("restart: ");

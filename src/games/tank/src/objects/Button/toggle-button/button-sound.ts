@@ -9,12 +9,14 @@ export class ButtonSound extends ToggleButton{
     }
   }
   protected handerOnPress(): void {
+    if(!this.currentScene.registry.get('muteSound'))
+      this.currentScene.sound.add('click').play();
+    
     if(!this.currentScene.registry.get('muteSound')){
       this.currentScene.registry.set('muteSound', true);
     }else{
       this.currentScene.registry.set('muteSound', false);
     }
-    this.currentScene.events.emit('muteSoundChanged');
     console.log('muteSound', this.currentScene.registry.get('muteSound'))
   }
 }

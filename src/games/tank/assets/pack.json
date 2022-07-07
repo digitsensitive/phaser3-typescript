@@ -176,6 +176,36 @@
         "type": "audio",
         "key": "click",
         "url": "./assets/audio/click.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "player-shooter",
+        "url": "./assets/audio/fire_1.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "player-death",
+        "url": "./assets/audio/player_death.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "enemy-death",
+        "url": "./assets/audio/destroy_1.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "battle",
+        "url": "./assets/audio/battle.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "gameover",
+        "url": "./assets/audio/dist_assets_TownTheme.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "menu_strat",
+        "url": "./assets/audio/rpgfire_sfx.ogg"
       }
     ]
   }

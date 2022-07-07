@@ -18,6 +18,9 @@ export class Enemy extends Phaser.GameObjects.Container {
   // game objects
   private bullets: Phaser.GameObjects.Group;
 
+  // audio
+  private audioEnemyDeath: Phaser.Sound.BaseSound;
+
   public getBarrel(): Phaser.GameObjects.Image {
     return this.barrel;
   }
@@ -29,9 +32,13 @@ export class Enemy extends Phaser.GameObjects.Container {
   constructor(aParams: IImageConstructor) {
     super(aParams.scene, aParams.x, aParams.y);
     this.texture = aParams.texture;
-
+    this.initAudio();
     this.initContainer();
     this.scene.add.existing(this);
+  }
+
+  private initAudio() {
+    this.audioEnemyDeath = this.scene.sound.add('enemy-death');
   }
 
   private initContainer() {
@@ -103,7 +110,7 @@ export class Enemy extends Phaser.GameObjects.Container {
           })
         );
 
-        this.lastShoot = this.scene.time.now + 400;
+        this.lastShoot = this.scene.time.now + 1000;
       }
     }
   }
@@ -124,10 +131,15 @@ export class Enemy extends Phaser.GameObjects.Container {
 
   public updateHealth(): void {
     if (this.health > 0) {
-      this.health -= 0.05;
+      this.health -= 0.1;
       this.redrawLifebar();
     } else {
+      // play audio
+      if(!this.scene.registry.get('muteSound'))
+        this.audioEnemyDeath.play();
+      
       this.health = 0;
+      // particles
       const particles = this.scene.add.particles('fire');
 
       particles.createEmitter({

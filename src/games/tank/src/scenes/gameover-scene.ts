@@ -12,11 +12,16 @@ export default class GameOverScene extends Phaser.Scene {
   private highScore!: Phaser.GameObjects.Text;
   private tween!: Phaser.Tweens.Tween;
   private btn_replay!: ButtonReplay;
+
+  // audio
+  private audioGameOver: Phaser.Sound.BaseSound;
+
   constructor() {
     super('GameOverScene');
   }
 
   create() {
+    this.initAudio();
     this.createUI();
     this.createTweens();
     this.createHandleEvents();
@@ -24,7 +29,11 @@ export default class GameOverScene extends Phaser.Scene {
   update(time: number, delta: number): void {
     this.score.setText(Math.floor(this.tween.getValue()).toString())
   }
-
+  private initAudio(){
+    this.audioGameOver = this.sound.add('gameover');
+    if(!this.registry.get('muteMusic'))
+      this.audioGameOver.play();
+  }
   private createUI() {
     this.gameOverText = this.add.text(0, 0, 'Game Over', { fontFamily: 'Quicksand',fontSize: '96px'});
     this.currentScoreText = this.add.text(0, 0, `Current score`, { fontFamily: 'Quicksand',fontSize: '48px'});
@@ -99,8 +108,10 @@ export default class GameOverScene extends Phaser.Scene {
         ease: 'Power1',
         duration: 500,
         onComplete: () => {
+          this.audioGameOver.pause();
           this.scene.stop();
           this.scene.stop("GameScene");
+          this.scene.stop("MenuScene");
           this.scene.start("MenuScene");
         }
       });

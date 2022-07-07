@@ -22,13 +22,18 @@ export class MenuScene extends Phaser.Scene {
   
   create(): void {
     this.menu_trackAudio = this.sound.add('menu_track');
-    this.menu_trackAudio .play();
+    const menu_startAudio = this.sound.add('menu_strat');
+    menu_startAudio.play();
+    menu_startAudio.on('complete', ()=>{
+      menu_startAudio.removeAllListeners();
+      this.menu_trackAudio.play();
+      this.btn_start.setVisible(true);
+    });
     this.createUI();
     this.createTweens();
   }
 
   update(): void {
-
   }
 
   private createUI(){
@@ -45,7 +50,7 @@ export class MenuScene extends Phaser.Scene {
       x: 0,
       y: 0,
       texture: 'btn-start'
-    });
+    }).setVisible(false);
     
     
     this.btn_sound =  new ButtonSound({
@@ -85,6 +90,7 @@ export class MenuScene extends Phaser.Scene {
   }
 
   private createHandleEvents(): void {
+
     this.events.on('startGame', ()=>{
       this.tweens.add({
         targets: [this.btn_sound, this.btn_music],
@@ -129,5 +135,6 @@ export class MenuScene extends Phaser.Scene {
   private initGlobalDataManager(): void {
     this.registry.set('score', 0);
     this.registry.set('muteSound', false);
+    this.registry.set('muteMusic', false);
   }
 }
