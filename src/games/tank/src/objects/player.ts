@@ -171,7 +171,7 @@ export class Player extends Phaser.GameObjects.Container {
     
     // angle
     var angleOfVelocity = this.body.velocity.angle()*Phaser.Math.RAD_TO_DEG;
-    // console.log(angleOfVelocity);
+    console.log(angleOfVelocity, this.tank.angle);
     if(angleOfVelocity>=90)
       angle = angleOfVelocity - 270;
     else {
@@ -181,12 +181,12 @@ export class Player extends Phaser.GameObjects.Container {
     if((!this.tween || !this.tween.isPlaying()) && angle!=null && (this.body.velocity.x != 0 || this.body.velocity.y != 0)){
       if(this.tank.angle == 90 && angle == -180)
         angle = 180;
-      // var duration = (Math.abs(this.angle - angle) / 90) * 250;
+      var duration = (Math.abs(this.tank.angle - angle) / 90) * 250;
       this.tween = this.scene.tweens.add({
         targets: this.tank,
         angle: angle,
         ease: 'Sine.easeInOut',
-        duration: 350,
+        duration: duration,
         yoyo: false,
         repeat: 0,
       });
@@ -253,9 +253,6 @@ export class Player extends Phaser.GameObjects.Container {
       this.active = false;
       this.scene.scene.pause();
       this.curosr.setVisible(false);
-      if(this.scene.input.mouse.locked)
-        this.scene.input.mouse.releasePointerLock();
-      
       this.scene.scene.launch('GameOverScene');
       console.log('player is dead');
     }

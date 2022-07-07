@@ -17,8 +17,6 @@ export class ButtonMusic extends ToggleButton{
     }else{
       this.currentScene.registry.set('muteMusic', false);
     }
-
-    this.currentScene.events.emit('musicChanged');
     console.log('musicChanged btn');
   }
 }

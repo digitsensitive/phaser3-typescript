@@ -34,6 +34,16 @@ export class MenuScene extends Phaser.Scene {
   }
 
   update(): void {
+    if(!this.registry.get('muteMusic')&&!this.menu_trackAudio.isPlaying){
+      if(this.menu_trackAudio.isPaused)
+        this.menu_trackAudio.resume();
+      else
+        this.menu_trackAudio.play();
+    }
+    else if(this.registry.get('muteMusic')&&this.menu_trackAudio.isPlaying){
+      this.menu_trackAudio.pause();
+      console.log('Audio is paused',this.menu_trackAudio.isPaused);
+    }
   }
 
   private createUI(){
@@ -119,17 +129,8 @@ export class MenuScene extends Phaser.Scene {
       console.log("startMenu: ");
     }, this);
 
-    this.events.on('musicChanged', ()=>{
-      console.log("musicChanged");
-      if(this.menu_trackAudio.isPlaying){
-        this.menu_trackAudio.pause();
-      }else{
-        this.menu_trackAudio.resume();
-      }
-    }, this);
   }
   private removeListener() {
-    this.events.removeListener('musicChanged');
     this.events.removeListener('startGame');
   }
   private initGlobalDataManager(): void {
