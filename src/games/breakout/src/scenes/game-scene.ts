@@ -65,18 +65,19 @@ export class GameScene extends Phaser.Scene {
         var y = Math.floor(index/WIDTH);
         var x = index - y * WIDTH;
         console.log(x,y);
-        const br = brick as Brick;
-        br.setScale(0.3,0.3) 
         this.tweens.add({
-          targets: br,
-          scaleX: 1,
-          scaleY: 1,
+          targets: brick,
+          scaleX: 0.3,
+          scaleY: 0.3,
           ease: 'Sine.easeInOut',
           duration: 300,
           delay: (x+y) * 50,
-          repeat: -1,
           yoyo: true,
-          hold: 5000,
+          repeat: -1,
+          repeatDelay: 5000,
+          onRepeat: () => {
+            console.log("loop finished")
+          }
         });
       })
     }, [], this)

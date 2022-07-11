@@ -3,7 +3,7 @@ import { settings } from '../settings';
 
 export class Brick extends Phaser.GameObjects.Rectangle {
   body: Phaser.Physics.Arcade.Body;
-
+  isdestroyed!: boolean;
   constructor(aParams: IRectangleConstructor) {
     super(
       aParams.scene,
@@ -14,7 +14,7 @@ export class Brick extends Phaser.GameObjects.Rectangle {
       aParams.fillColor,
       aParams.fillAlpha
     );
-
+    this.isdestroyed = false;
     this.initRectangle();
     this.initPhysics(); 
     this.scene.add.existing(this);
@@ -53,6 +53,7 @@ export class Brick extends Phaser.GameObjects.Rectangle {
   }
 
   public destroyBrick(): void {
+    this.isdestroyed = true;
     this.setOrigin(0.5,0.5);
     this.body.setAccelerationY(150);
     this.body.checkCollision.none = true;
