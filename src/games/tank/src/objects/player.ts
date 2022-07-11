@@ -1,5 +1,4 @@
 import { Bullet } from './bullet';
-import { ITankConstructor } from '../interfaces/tank.interface';
 
 export class Player extends Phaser.GameObjects.Container {
   body: Phaser.Physics.Arcade.Body;

@@ -1,4 +1,3 @@
-import { IToggleButtonConstructor } from "../../../interfaces/toggleButton.interface";
 
 export class ToggleButton extends Phaser.GameObjects.Sprite {
   protected soundPress!: Phaser.Sound.BaseSound;

@@ -1,4 +1,3 @@
-import { ITankConstructor } from '../interfaces/tank.interface';
 import { Bullet } from './bullet';
 
 export class Enemy extends Phaser.GameObjects.Container {
@@ -70,7 +69,6 @@ export class Enemy extends Phaser.GameObjects.Container {
       maxSize: 10,
       runChildUpdate: true
     });
-    // this.add(this.bullets);
 
     // tweens
     this.scene.tweens.add({
@@ -131,6 +129,7 @@ export class Enemy extends Phaser.GameObjects.Container {
     this.lifeBar.strokeRect(-this.tank.width / 2, this.tank.height / 2, this.tank.width, 15);
     this.lifeBar.setDepth(1);
   }
+
   private initTweenDamage(damage: number): void {
     const xTextHealth = Phaser.Math.Between(this.x - 30, this.x + 30)
     const yTextHealth = this.y
@@ -155,21 +154,20 @@ export class Enemy extends Phaser.GameObjects.Container {
 
   private initParticlesDeath(){
     const particles = this.scene.add.particles('fire');
-
-      particles.createEmitter({
-          alpha: { start: 1, end: 0 },
-          scale: { start: 0.5, end: 2.5 },
-          speed: 20,
-          accelerationY: -300,
-          angle: { min: -85, max: -95 },
-          rotate: { min: -180, max: 180 },
-          lifespan: { min: 1000, max: 1100 },
-          blendMode: 'ADD',
-          frequency: 110,
-          maxParticles: 10,
-          x: this.x,
-          y: this.y
-      });
+    particles.createEmitter({
+        alpha: { start: 1, end: 0 },
+        scale: { start: 0.5, end: 2.5 },
+        speed: 20,
+        accelerationY: -300,
+        angle: { min: -85, max: -95 },
+        rotate: { min: -180, max: 180 },
+        lifespan: { min: 1000, max: 1100 },
+        blendMode: 'ADD',
+        frequency: 110,
+        maxParticles: 10,
+        x: this.x,
+        y: this.y
+    });
   }
 
   public updateHealth(damage: number): void {

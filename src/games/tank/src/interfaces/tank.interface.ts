@@ -1,4 +1,4 @@
-export interface ITankConstructor {
+interface ITankConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;

@@ -4,10 +4,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "lib": [
-      "es2016",
-      "dom"
-    ]
+    "typeRoots": ["*/**/*.interface.ts"]
   },
   
   "include": ["src/**/*"],

@@ -1,4 +1,3 @@
-import { IBulletConstructor } from '../interfaces/bullet.interface';
 
 export class Bullet extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;

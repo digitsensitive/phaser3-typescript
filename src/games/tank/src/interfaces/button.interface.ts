@@ -1,4 +1,4 @@
-export interface IButtonConstructor {
+interface IButtonConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;

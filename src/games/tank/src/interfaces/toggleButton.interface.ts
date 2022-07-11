@@ -1,4 +1,4 @@
-export interface IToggleButtonConstructor {
+interface IToggleButtonConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;

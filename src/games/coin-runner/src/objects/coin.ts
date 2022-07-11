@@ -1,5 +1,3 @@
-import { IImageConstructor } from '../interfaces/image.interface';
-
 export class Coin extends Phaser.GameObjects.Image {
   private centerOfScreen: number;
   private changePositionTimer: Phaser.Time.TimerEvent;
@@ -78,36 +76,39 @@ export class Coin extends Phaser.GameObjects.Image {
   public playerHitCoin(){
     // emitter
     var particles = this.scene.add.particles('flares');
-    var emitter = particles.createEmitter({
-        frame: 'yellow',
-        x: this.x,
-        y: this.y,
-        lifespan: 2000,
-        speed: { min: 400, max: 600 },
-        scale: { start: 0.4, end: 0 },
-        quantity: 1,
-        blendMode: 'ADD'
-    });
-    this.scene.time.delayedCall(50, ()=>{
-      emitter.stop();
-    }, [], this);
+    const emitterUpCoin = particles.createEmitter({
+      frame: 'yellow',
+			x: this.x,
+			y: this.y,
+			quantity: 2,
+			speed: { random: [50, 100] },
+			lifespan: { random: [200, 400]},
+			scale: { start: 0.2, end: 0 },
+			angle: { random: true, start: 0, end: 270 },
+			blendMode: 'ADD'
+		})
 
-    // tweens
-    this.scene.tweens.add({
-      targets: this,
-      scaleX: 0.5,
-      scaleY: 0.5,
-      x: this.scene.sys.canvas.width / 2,
-      y: this.scene.sys.canvas.height - 50,
-      angle: 0,
-      ease: 'Sine.easeInOut',
-      duration: 500,
-      repeat: 0,
-      yoyo: false,
-      onComplete:()=>{
-        this.setScale(0.01,1)
-        this.changePosition();
-      }
-    });
+    const xVals = [this.x,100, 300, 100, this.scene.sys.canvas.width / 2]
+		const yVals = [this.y,200, 100, 150, this.scene.sys.canvas.height - 50]
+		
+		this.scene.tweens.addCounter({
+			from: 0,
+			to: 1,
+			ease: Phaser.Math.Easing.Sine.InOut,
+			duration: 1000,
+			onUpdate: tween => {
+				const v = tween.getValue()
+				const x = Phaser.Math.Interpolation.CatmullRom(xVals, v)
+				const y = Phaser.Math.Interpolation.CatmullRom(yVals, v)
+
+				emitterUpCoin.setPosition(x, y)
+			},
+			onComplete: () => {
+				emitterUpCoin.stop()
+				this.scene.time.delayedCall(1000, () => {
+					particles.removeEmitter(emitterUpCoin);
+				})
+			}
+		})
   }
 }

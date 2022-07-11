@@ -7,7 +7,6 @@ export class GameScene extends Phaser.Scene {
   private coinsCollectedText: Phaser.GameObjects.Text;
   private collectedCoins: number;
   private player: Player;
-  private checkAddCoin!: boolean;
 
   constructor() {
     super({
@@ -17,7 +16,6 @@ export class GameScene extends Phaser.Scene {
 
   init(): void {
     this.collectedCoins = 0;
-    this.checkAddCoin = false;
   }
 
   create(): void {
@@ -67,19 +65,17 @@ export class GameScene extends Phaser.Scene {
         this.coin.getBounds()
       )
     ) {
-      if(!this.checkAddCoin){
         this.updateCoinStatus();
-        this.checkAddCoin = true;
-      }
     }
   }
 
   private updateCoinStatus(): void {
     this.coin.playerHitCoin();
-    this.time.delayedCall(500, ()=>{
+    this.time.delayedCall(1000, () => {
+
       this.collectedCoins++;
       this.coinsCollectedText.setText(this.collectedCoins + '');
-      this.checkAddCoin =false
-    }, [], this);
+    })
+    this.coin.changePosition();
   }
 }

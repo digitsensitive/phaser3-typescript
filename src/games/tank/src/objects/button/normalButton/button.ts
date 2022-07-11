@@ -1,4 +1,3 @@
-import { IButtonConstructor } from "../../../interfaces/button.interface";
 
 export class Button extends Phaser.GameObjects.Image {
 	// variables
