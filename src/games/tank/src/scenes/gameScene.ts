@@ -2,7 +2,7 @@ import { Player } from '../objects/player';
 import { Enemy } from '../objects/enemy';
 import { Obstacle } from '../objects/obstacles/obstacle';
 import { Bullet } from '../objects/bullet';
-import { ButtonMenu } from '../objects/Button/normal-button/button-menu';
+import { ButtonMenu } from '../objects/button/normalButton/buttonMenu';
 
 export class GameScene extends Phaser.Scene {
   private map: Phaser.Tilemaps.Tilemap;
@@ -215,14 +215,16 @@ export class GameScene extends Phaser.Scene {
           scene: this,
           x: object.x,
           y: object.y,
-          texture: 'tankBlue'
+          texture: 'tankBlue',
+          rateOfFire: 80,
         });
       } else if (object.type === 'enemy') {
         let enemy = new Enemy({
           scene: this,
           x: object.x,
           y: object.y,
-          texture: 'tankRed'
+          texture: 'tankRed',
+          rateOfFire: 1000,
         });
 
         this.enemies.add(enemy);
@@ -253,54 +255,14 @@ export class GameScene extends Phaser.Scene {
   private enemyBulletHitPlayer(bullet: Bullet, player: Player): void {
     this.createEmitter(bullet.x, bullet.y);
     bullet.destroy();
-
-    const xTextHealth = Phaser.Math.Between(player.x - 30, player.x + 30)
-    const yTextHealth = player.y;
-    const textHealth = this.add.text(xTextHealth, yTextHealth, '-1', {
-			fontFamily: 'Bangers',
-			fontSize: '50px',
-			color: '#4A90E2',
-		}).setOrigin(0.5, 0.5);
-    this.tweens.add({
-      targets: textHealth,
-      y: yTextHealth -100,
-      ease: 'Power1',
-      duration: 300,
-      yoyo: false,
-      repeat: 0,
-      onComplete: ()=>{
-        textHealth.destroy();
-      }
-    })
-
-    player.updateHealth();
+    player.updateHealth(bullet.getDamage());
   }
 
   private playerBulletHitEnemy(bullet: Bullet, enemy: Enemy): void {
     this.createEmitter(bullet.x, bullet.y);
     bullet.destroy();
     this.updateScore();
-
-    const xTextHealth = Phaser.Math.Between(enemy.x - 30, enemy.x + 30)
-    const yTextHealth = enemy.y
-    const textHealth = this.add.text(xTextHealth, yTextHealth, '-2', {
-			fontFamily: 'Bangers',
-			fontSize: '50px',
-			color: '#B21E1E',
-		}).setOrigin(0.5, 0.5);
-    this.tweens.add({
-      targets: textHealth,
-      y: yTextHealth -100,
-      ease: 'Power1',
-      duration: 300,
-      yoyo: false,
-      repeat: 0,
-      onComplete: ()=>{
-        textHealth.destroy();
-      }
-    })
-
-    enemy.updateHealth();
+    enemy.updateHealth(bullet.getDamage());
   }
 
   private createEmitter(x: number, y: number){

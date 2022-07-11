@@ -1,4 +1,4 @@
-import { ToggleButton } from "./toggle-button";
+import { ToggleButton } from "./toggleButton";
 
 export class ButtonMusic extends ToggleButton{
   preUpdate(): void {

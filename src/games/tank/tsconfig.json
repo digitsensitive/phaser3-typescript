@@ -3,8 +3,13 @@
     "target": "ES6",
     "module": "CommonJS",
     "moduleResolution": "node",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "lib": [
+      "es2016",
+      "dom"
+    ]
   },
+  
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

@@ -1,7 +1,7 @@
 /* eslint no-undef: 0 */
 /* eslint no-unused-expressions: 0 */
 import 'phaser';
-import { ButtonReplay } from '../objects/Button/normal-button/button-replay';
+import { ButtonReplay } from '../objects/button/normalButton/buttonReplay';
 
 export default class GameOverScene extends Phaser.Scene {
   private zone!: Phaser.GameObjects.Zone;

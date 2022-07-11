@@ -1,14 +1,14 @@
 import { Bullet } from './bullet';
-import { IImageConstructor } from '../interfaces/image.interface';
+import { ITankConstructor } from '../interfaces/tank.interface';
 
 export class Player extends Phaser.GameObjects.Container {
   body: Phaser.Physics.Arcade.Body;
-
   // variables
   private health: number;
   private lastShoot: number;
   private speed: number;
   private texture: string;
+  private rateOfFire: number;
 
   // children
   private barrel: Phaser.GameObjects.Image;
@@ -34,9 +34,10 @@ export class Player extends Phaser.GameObjects.Container {
     return this.bullets;
   }
 
-  constructor(aParams: IImageConstructor) {
+  constructor(aParams: ITankConstructor) {
     super(aParams.scene, aParams.x, aParams.y);
     this.texture = aParams.texture;
+    this.rateOfFire = aParams.rateOfFire;
 
     this.initAudio();
     this.initContainer();
@@ -105,33 +106,18 @@ export class Player extends Phaser.GameObjects.Container {
   }
 
   private initHandleInput(){
+
     this.scene.input.on('pointermove', (pointer: Phaser.Input.Pointer)=>{
         this.curosr.x += pointer.movementX;
         this.curosr.y += pointer.movementY;
     }, this);
 
     this.scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer)=>{
-      // if(pointer.rightButtonDown()){
-        if (!this.scene.input.mouse.locked && !this.curosr.visible){
+        if (this&&!this.scene.input.mouse.locked){
           this.curosr.setVisible(true);
           this.scene.game.input.mouse.requestPointerLock();
         }
-        this.handleShooting();
-      // }
-      // else{
-      //   this.scene.tweens.add({
-      //     targets: this,
-      //     x: pointer.worldX,
-      //     y: pointer.worldY,
-      //     ease: 'Power1',
-      //     duration: 1000,
-      //     yoyo: false,
-      //     repeat: 0,
-      //     // onComplete: ()=>{
-      //     //   textHealth.destroy();
-      //     // }
-      //   })
-      // }
+        else this.handleShooting();
     }, this);
 
     this.scene.input.keyboard.on('keydown-SPACE', ()=>{
@@ -140,6 +126,7 @@ export class Player extends Phaser.GameObjects.Container {
         this.curosr.setVisible(false);
       }
     });
+
     this.scene.events.on('resume', () => {
       this.curosr.setVisible(true);
     })
@@ -148,9 +135,10 @@ export class Player extends Phaser.GameObjects.Container {
   update(): void {
     // console.log('player: ' +  this.angle);
     if (this.active) {
-      if (!this.scene.input.mouse.locked&&this.curosr.visible){
+      if (!this.scene.input.mouse.locked){
         this.curosr.setVisible(false);
       }
+      // rotation barrel
       this.barrel.rotation = Phaser.Math.Angle.Between(this.x, this.y, this.curosr.x, this.curosr.y)+ Math.PI/2;
       this.handleInput();
     } else {
@@ -235,11 +223,12 @@ export class Player extends Phaser.GameObjects.Container {
             rotation: this.barrel.rotation,
             x: this.x,
             y: this.y,
-            texture: 'bulletBlue'
+            texture: 'bulletBlue',
+            damage: 0.1
           })
         );
 
-        this.lastShoot = this.scene.time.now + 80;
+        this.lastShoot = this.scene.time.now + this.rateOfFire;
       }
     }
   }
@@ -258,9 +247,33 @@ export class Player extends Phaser.GameObjects.Container {
     this.lifeBar.setDepth(1);
   }
 
-  public updateHealth(): void {
+  private initTweenDamage(damage: number): void {
+    const xTextHealth = Phaser.Math.Between(this.x - 30, this.x + 30)
+    const yTextHealth = this.y;
+    const textDamage  = this.scene.add.text(xTextHealth, yTextHealth, `-${damage*100/5}`, {
+			fontFamily: 'Bangers',
+			fontSize: '50px',
+			color: '#4A90E2',
+		}).setOrigin(0.5, 0.5);
+
+    this.scene.tweens.add({
+      targets: textDamage,
+      y: yTextHealth -100,
+      ease: 'Power1',
+      duration: 300,
+      yoyo: false,
+      repeat: 0,
+      onComplete: ()=>{
+        textDamage.destroy();
+      }
+    })
+  }
+
+  public updateHealth(damage: number): void {
+    this.initTweenDamage(damage);
+
     if (this.health > 0) {
-      this.health -= 0.05;
+      this.health -= damage;
       this.redrawLifebar();
     } else {
       if(!this.scene.registry.get('muteSound'))

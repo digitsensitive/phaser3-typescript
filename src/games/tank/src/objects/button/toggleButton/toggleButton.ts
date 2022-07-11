@@ -3,7 +3,8 @@ import { ISpriteConstructor } from "../../../interfaces/sprite.interface";
 export class ToggleButton extends Phaser.GameObjects.Sprite {
   // variables
   protected currentScene: Phaser.Scene;
-  tween: Phaser.Tweens.Tween;
+  tweenDown: Phaser.Tweens.Tween;
+  tweenUp: Phaser.Tweens.Tween;
 	numberOfFrames!: number;
 
   constructor(aParams: ISpriteConstructor, numberOfFrames: number) {
@@ -24,30 +25,45 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
     this.setOrigin(0, 0);
   }
   private initTween(){
-    this.tween = this.currentScene.tweens.add({
+    this.tweenDown = this.currentScene.tweens.add({
 			targets: this,
 			scaleX: 0.9,
 			scaleY: 0.9,
 			ease: 'Sine.easeInOut',
 			duration: 100,
-			yoyo: true,
 			repeat: 0,
-			onComplete: () => {
-					var currentFrame = parseInt(this.frame.name);
-					var nextFrame = currentFrame + 1;
-					if(nextFrame > this.numberOfFrames - 1) nextFrame = 0;
-					this.setFrame(nextFrame);
-          this.handerOnPress();
-			}
 			})
       .pause();
+    
+    this.tweenUp = this.currentScene.tweens.add({
+    targets: this,
+    scaleX: 1,
+    scaleY: 1,
+    ease: 'Sine.easeInOut',
+    duration: 100,
+    repeat: 0,
+    onComplete: ()=>{
+        let currentFrame = parseInt(this.frame.name);
+        let nextFrame = currentFrame + 1;
+        if(nextFrame > this.numberOfFrames - 1) nextFrame = 0;
+        this.setFrame(nextFrame);
+        this.handerOnPress();
+  }
+    })
+    .pause();
   }
 
   private onPress(){
     this.setInteractive({ useHandCursor: true });
-    this.on('pointerdown', () => {
-			this.tween.play();
+    this.on('pointerup', () => {
+			this.tweenUp.play();
     });
+    this.on('pointerdown', () => {
+			this.tweenDown.play();
+    });
+    this.on('pointerover', () => {
+
+		})
   }
 
   protected handerOnPress(){

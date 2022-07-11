@@ -3,37 +3,52 @@ import { IImageConstructor } from '../../../interfaces/image.interface';
 export class Button extends Phaser.GameObjects.Image {
 	// variables
   protected currentScene: Phaser.Scene;
-	tween: Phaser.Tweens.Tween;
+	protected tweenDown: Phaser.Tweens.Tween;
+	protected tweenUp: Phaser.Tweens.Tween;
+
 
   constructor(aParams: IImageConstructor) {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 		// variables
     this.currentScene = aParams.scene;
 		this.initTween();
-		this.onPress();
+		this.handerInput();
     this.scene.add.existing(this);
   }
-
+	update(...args: any[]): void {
+		
+	}
 	protected initTween(){
-    this.tween = this.currentScene.tweens.add({
+    this.tweenDown = this.currentScene.tweens.add({
 			targets: this,
 			scaleX: 0.9,
 			scaleY: 0.9,
 			ease: 'Sine.easeInOut',
 			duration: 100,
-			yoyo: true,
+			repeat: 0,
+		})
+      .pause();
+		this.tweenUp = this.currentScene.tweens.add({
+			targets: this,
+			scaleX: 1,
+			scaleY: 1,
+			ease: 'Sine.easeInOut',
+			duration: 100,
 			repeat: 0,
 			onComplete: () => {
 				this.handleOnPress();
 			}
 		})
-      .pause();
+			.pause();
   }
 
-  private onPress(){
+  private handerInput(){
     this.setInteractive({ useHandCursor: true });
-    this.on('pointerdown', () => {
-			this.tween.play();
+    this.on('pointerup', () => {
+			this.tweenUp.play();
+    });
+		this.on('pointerdown', () => {
+			this.tweenDown.play();
     });
   }
 

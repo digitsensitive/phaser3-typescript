@@ -1,6 +1,6 @@
-import { ButtonMusic } from "../objects/Button/toggle-button/button-music";
-import { ButtonStart } from "../objects/Button/normal-button/button-start";
-import { ButtonSound } from "../objects/Button/toggle-button/button-sound";
+import { ButtonStart } from "../objects/button/normalButton/buttonStart";
+import { ButtonMusic } from "../objects/button/toggleButton/buttonMusic";
+import { ButtonSound } from "../objects/button/toggleButton/buttonSound";
 
 export class MenuScene extends Phaser.Scene {
   private btn_start: ButtonStart;

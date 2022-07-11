@@ -1,7 +1,7 @@
-import { ButtonMusic } from "../objects/Button/toggle-button/button-music";
-import { ButtonSound } from "../objects/Button/toggle-button/button-sound";
-import { ButtonReplay } from "../objects/Button/normal-button/button-replay";
-import { ButtonPlay } from "../objects/Button/normal-button/button-play";
+import { ButtonReplay } from "../objects/button/normalButton/buttonReplay";
+import { ButtonPlay } from "../objects/button/normalButton/buttonPlay";
+import { ButtonMusic } from "../objects/button/toggleButton/buttonMusic";
+import { ButtonSound } from "../objects/button/toggleButton/buttonSound";
 
 export class PauseScene extends Phaser.Scene {
   private btn_music: ButtonMusic;

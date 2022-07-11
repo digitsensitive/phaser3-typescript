@@ -1,5 +1,5 @@
+import { ITankConstructor } from '../interfaces/tank.interface';
 import { Bullet } from './bullet';
-import { IImageConstructor } from '../interfaces/image.interface';
 
 export class Enemy extends Phaser.GameObjects.Container {
   body: Phaser.Physics.Arcade.Body;
@@ -9,6 +9,7 @@ export class Enemy extends Phaser.GameObjects.Container {
   private lastShoot: number;
   private speed: number;
   private texture: string;
+  private rateOfFire: number;
 
   // children
   private barrel: Phaser.GameObjects.Image;
@@ -29,9 +30,10 @@ export class Enemy extends Phaser.GameObjects.Container {
     return this.bullets;
   }
 
-  constructor(aParams: IImageConstructor) {
+  constructor(aParams: ITankConstructor) {
     super(aParams.scene, aParams.x, aParams.y);
     this.texture = aParams.texture;
+    this.rateOfFire = aParams.rateOfFire;
     this.initAudio();
     this.initContainer();
     this.scene.add.existing(this);
@@ -92,9 +94,7 @@ export class Enemy extends Phaser.GameObjects.Container {
     if (this.active) {
       this.handleShooting();
     } else {
-      // this.destroy();
-      this.setVisible(false);
-      this.body.checkCollision.none = true;
+      this.destroy();
       this.barrel.destroy();
       this.lifeBar.destroy();
     }
@@ -109,11 +109,11 @@ export class Enemy extends Phaser.GameObjects.Container {
             rotation: this.barrel.rotation,
             x: this.x,
             y: this.y,
-            texture: 'bulletRed'
+            texture: 'bulletRed',
+            damage: 0.05
           })
         );
-
-        this.lastShoot = this.scene.time.now + 1000;
+        this.lastShoot = this.scene.time.now + this.rateOfFire;
       }
     }
   }
@@ -131,24 +131,34 @@ export class Enemy extends Phaser.GameObjects.Container {
     this.lifeBar.strokeRect(-this.tank.width / 2, this.tank.height / 2, this.tank.width, 15);
     this.lifeBar.setDepth(1);
   }
+  private initTweenDamage(damage: number): void {
+    const xTextHealth = Phaser.Math.Between(this.x - 30, this.x + 30)
+    const yTextHealth = this.y
+    const textHealth = this.scene.add.text(xTextHealth, yTextHealth, `-${damage*100/5}`, {
+			fontFamily: 'Bangers',
+			fontSize: '50px',
+			color: '#B21E1E',
+		}).setOrigin(0.5, 0.5);
 
-  public updateHealth(): void {
-    if (this.health > 0) {
-      this.health -= 0.1;
-      this.redrawLifebar();
-    } else {
-      // play audio
-      if(!this.scene.registry.get('muteSound'))
-        this.audioEnemyDeath.play();
-      
-      this.health = 0;
-      // particles
-      const particles = this.scene.add.particles('fire');
+    this.scene.tweens.add({
+      targets: textHealth,
+      y: yTextHealth -100,
+      ease: 'Power1',
+      duration: 300,
+      yoyo: false,
+      repeat: 0,
+      onComplete: ()=>{
+        textHealth.destroy();
+      }
+    })
+  }
+
+  private initParticlesDeath(){
+    const particles = this.scene.add.particles('fire');
 
       particles.createEmitter({
           alpha: { start: 1, end: 0 },
           scale: { start: 0.5, end: 2.5 },
-          //tint: { start: 0xff945e, end: 0xff945e },
           speed: 20,
           accelerationY: -300,
           angle: { min: -85, max: -95 },
@@ -160,45 +170,21 @@ export class Enemy extends Phaser.GameObjects.Container {
           x: this.x,
           y: this.y
       });
-      // this.active = false;
+  }
 
-      const emitter = this.scene.add.particles('flares').createEmitter({
-        frame: 'red',
-        x: this.x,
-        y: this.y,
-        quantity: 5,
-        speed: { random: [50, 100] },
-        lifespan: { random: [200, 400]},
-        scale: {start: 0.2, end: 0 },
-        rotate: { random: true, start: 0, end: 180 },
-        angle: { random: true, start: 0, end: 270 },
-        blendMode: 'ADD'
-      })
-      const xVals = [this.x, this.scene.cameras.main.worldView.x +300, this.scene.cameras.main.worldView.x +100, this.scene.cameras.main.worldView.x + this.scene.cameras.main.width]
-		  const yVals = [this.y, this.scene.cameras.main.worldView.y +100, this.scene.cameras.main.worldView.y +150, this.scene.cameras.main.worldView.y + 10]
-
-      this.scene.tweens.addCounter({
-        from: 0,
-        to: 1,
-        ease: Phaser.Math.Easing.Sine.InOut,
-        duration: 1000,
-        onUpdate: tween => {
-          const v = tween.getValue()
-          const x = Phaser.Math.Interpolation.CatmullRom(xVals, v)
-          const y = Phaser.Math.Interpolation.CatmullRom(yVals, v)
-  
-          emitter.setPosition(x, y)
-        },
-        onComplete: () => {
-          emitter.explode(50, 100, 100)
-          emitter.stop()
-  
-          this.scene.time.delayedCall(1000, () => {
-            particles.removeEmitter(emitter)
-            this.destroy();
-          })
-        }
-      })
+  public updateHealth(damage: number): void {
+    this.initTweenDamage(damage);
+    if (this.health > 0) {
+      this.health -= damage;
+      this.redrawLifebar();
+    } else {
+      // play audio
+      if(!this.scene.registry.get('muteSound'))
+        this.audioEnemyDeath.play();
+      
+      this.health = 0;
+      // particles
+      this.initParticlesDeath();
       this.active = false;
     }
   }
