@@ -41,35 +41,29 @@ export class Tile extends Phaser.GameObjects.Image {
         follow: this,
         followOffset: {x:CONST.tileWidth/2, y: CONST.tileHeight/2}
     }).stop();
-    // particles.f
+
     this.setDepth(1);
-    this.scene.tweens.add({
+    this.scene.tweens.timeline({
       targets: this,
-      scaleX: 1.5,
-      scaleY: 1.5,
-      angle: 0,
       ease: 'Sine.easeInOut',
       duration: 1000,
-      repeat: 0,
       yoyo: false,
+      tweens: [{
+        scaleX: 1.5,
+        scaleY: 1.5,
+        onComplete:()=>{
+          this.particles.start();
+        }
+      },
+      {
+        scaleX: 0.5,
+        scaleY: 0.5,
+        x: -10,
+        y: -10,
+      }],
       onComplete:()=>{
-        this.particles.start()
-        this.scene.tweens.add({
-          targets: this,
-          scaleX: 0.5,
-          scaleY: 0.5,
-          x: -10,
-          y: -10,
-          angle: 0,
-          ease: 'Sine.easeInOut',
-          duration: 1000,
-          repeat: 0,
-          yoyo: false,
-          onComplete:()=>{
-            this.destroy();
-            this.particles.stop();
-          }
-      });
+        this.destroy();
+        this.particles.stop();
       }
     });
   }
