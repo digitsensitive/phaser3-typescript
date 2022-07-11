@@ -110,12 +110,28 @@ export class Player extends Phaser.GameObjects.Container {
         this.curosr.y += pointer.movementY;
     }, this);
 
-    this.scene.input.on('pointerdown', function () {
-      if (!this.scene.input.mouse.locked && !this.curosr.visible){
-        this.curosr.setVisible(true);
-        this.scene.game.input.mouse.requestPointerLock();
-      }else
+    this.scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer)=>{
+      // if(pointer.rightButtonDown()){
+        if (!this.scene.input.mouse.locked && !this.curosr.visible){
+          this.curosr.setVisible(true);
+          this.scene.game.input.mouse.requestPointerLock();
+        }
         this.handleShooting();
+      // }
+      // else{
+      //   this.scene.tweens.add({
+      //     targets: this,
+      //     x: pointer.worldX,
+      //     y: pointer.worldY,
+      //     ease: 'Power1',
+      //     duration: 1000,
+      //     yoyo: false,
+      //     repeat: 0,
+      //     // onComplete: ()=>{
+      //     //   textHealth.destroy();
+      //     // }
+      //   })
+      // }
     }, this);
 
     this.scene.input.keyboard.on('keydown-SPACE', ()=>{

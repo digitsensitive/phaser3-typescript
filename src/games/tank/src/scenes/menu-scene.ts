@@ -8,7 +8,8 @@ export class MenuScene extends Phaser.Scene {
   private btn_music: ButtonMusic;
   private zone!: Phaser.GameObjects.Zone;
   private menu_trackAudio: Phaser.Sound.BaseSound;
-
+  private menu_startAudio: Phaser.Sound.BaseSound;
+  private switchScene!: boolean;
   constructor() {
     super({
       key: 'MenuScene'
@@ -18,34 +19,41 @@ export class MenuScene extends Phaser.Scene {
   init(): void {
     this.initGlobalDataManager();
     this.createHandleEvents();
+    this.switchScene = false;
   }
   
   create(): void {
-    this.menu_trackAudio = this.sound.add('menu_track');
-    const menu_startAudio = this.sound.add('menu_strat');
-    menu_startAudio.play();
-    menu_startAudio.on('complete', ()=>{
-      menu_startAudio.removeAllListeners();
-      this.menu_trackAudio.play();
-      this.btn_start.setVisible(true);
-    });
+    
+    this.initAudio();
     this.createUI();
     this.createTweens();
   }
 
   update(): void {
-    if(!this.registry.get('muteMusic')&&!this.menu_trackAudio.isPlaying){
-      if(this.menu_trackAudio.isPaused)
-        this.menu_trackAudio.resume();
-      else
-        this.menu_trackAudio.play();
+    // if switchScene then stop audio
+    if(!this.switchScene && !this.menu_startAudio.isPlaying){
+      if(!this.registry.get('muteMusic')&&!this.menu_trackAudio.isPlaying){
+        if(this.menu_trackAudio.isPaused)
+          this.menu_trackAudio.resume();
+        else
+          this.menu_trackAudio.play();
+      }
+      else if(this.registry.get('muteMusic')&&this.menu_trackAudio.isPlaying){
+        this.menu_trackAudio.pause();
+      }
     }
-    else if(this.registry.get('muteMusic')&&this.menu_trackAudio.isPlaying){
-      this.menu_trackAudio.pause();
-      console.log('Audio is paused',this.menu_trackAudio.isPaused);
-    }
-  }
 
+  }
+  private initAudio() {
+    this.menu_trackAudio = this.sound.add('menu_track');
+    this.menu_startAudio = this.sound.add('menu_strat');
+    this.menu_startAudio.play();
+    this.menu_startAudio.on('complete', ()=>{
+      this.menu_startAudio.pause();
+      this.menu_trackAudio.play();
+      this.btn_start.setVisible(true);
+    });
+  }
   private createUI(){
     this.add.image(0,0,'background')
       .setOrigin(0,0)
@@ -102,6 +110,8 @@ export class MenuScene extends Phaser.Scene {
   private createHandleEvents(): void {
 
     this.events.on('startGame', ()=>{
+      this.menu_trackAudio.stop();
+      this.switchScene = true;
       this.tweens.add({
         targets: [this.btn_sound, this.btn_music],
         y: this.cameras.main.height + 200,
@@ -114,7 +124,7 @@ export class MenuScene extends Phaser.Scene {
         ease: 'Power1',
         duration: 500,
         onComplete: () => {
-          this.menu_trackAudio.pause();
+          this.scene.stop("MenuScene")
           this.game.input.mouse.requestPointerLock();
           this.scene.stop("GameScene");
           this.scene.start("GameScene");

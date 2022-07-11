@@ -4,6 +4,7 @@ import { Tile } from '../objects/tile';
 export class GameScene extends Phaser.Scene {
   // Variables
   private canMove: boolean;
+  private match: boolean;
 
   // Grid with tiles
   private tileGrid: Tile[][];
@@ -25,6 +26,7 @@ export class GameScene extends Phaser.Scene {
     
     // Init variables
     this.canMove = true;
+    this.match = false;
 
     // set background color
     this.cameras.main.setBackgroundColor(0x78aade);
@@ -50,10 +52,23 @@ export class GameScene extends Phaser.Scene {
     this.checkMatches();
   }
 
+  create(){
+    this.time.addEvent({ delay: 10000, callback: ()=>{
+      if(!this.match){
+        for (let y = 0; y < CONST.gridHeight; y++) {
+          for (let x = 0; x < CONST.gridWidth; x++) {
+            this.tileGrid[y][x].initTween();
+          }
+        }
+      }
+    }, loop: true, callbackScope: this })
+  }
+
   update(time: number, delta: number): void {
     if(!this.firstSelectedTile){
       this.emitter.stop();
     }
+    console.log("match", this.match)
   }
 
   initPractices(): void {
@@ -95,6 +110,7 @@ export class GameScene extends Phaser.Scene {
    * @param event
    */
   private tileDown(pointer: any, gameobject: any, event: any): void {
+    this.match = true;
     if (this.canMove) {
       if (!this.firstSelectedTile) {
         this.firstSelectedTile = gameobject;
@@ -181,6 +197,7 @@ export class GameScene extends Phaser.Scene {
         repeat: 0,
         yoyo: false,
       });
+
       this.tweens.add({
         targets: [firstSelectedTile],
         ease: 'Sine.easeInOut',
@@ -217,6 +234,7 @@ export class GameScene extends Phaser.Scene {
         for(var i=0; i< 7; i++) {
           this.resetTile(); 
         }
+        
         //Fill the board with new tiles wherever there is an empty spot
         this.time.delayedCall(500, ()=>{
           this.fillTile();
@@ -228,6 +246,7 @@ export class GameScene extends Phaser.Scene {
     } else {
       // No match so just swap the tiles back to their original position and reset
       this.canMove = true;
+      this.match = false;
       this.swapTiles()
       this.tileUp();
     }
@@ -278,6 +297,7 @@ export class GameScene extends Phaser.Scene {
           }
         }
       }
+      this.match = false;
   }
 
   private tileUp(): void {
@@ -299,7 +319,7 @@ export class GameScene extends Phaser.Scene {
         // Remove the tile from the theoretical grid
         if (tilePos.x !== -1 && tilePos.y !== -1) {
           tile.initTweenMatch();
-          // tile.destroy();
+          this.match = true;
           this.tileGrid[tilePos.y][tilePos.x] = undefined;
         }
       }
@@ -347,7 +367,6 @@ export class GameScene extends Phaser.Scene {
               }
 
               if (groups.indexOf(tileGrid[y][x]) == -1) {
-                // tileGrid[y][x].initTweenMatch()
                 groups.push(tileGrid[y][x]);
               }
 
