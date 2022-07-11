@@ -62,9 +62,8 @@ export class GameScene extends Phaser.Scene {
     this.time.delayedCall(50*WIDTH*HEIGHT+600, ()=>{
       this.isBrickVisible = true;
       this.bricks.getChildren().map((brick, index) => {
-        var y = Math.floor(index/WIDTH);
-        var x = index - y * WIDTH;
-        console.log(x,y);
+        let y = Math.floor(index/WIDTH);
+        let x = index - y * WIDTH;
         this.tweens.add({
           targets: brick,
           scaleX: 0.3,

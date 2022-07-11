@@ -1,4 +1,3 @@
-import { IRectangleConstructor } from '../interfaces/interfaces';
 import { settings } from '../settings';
 
 export class Brick extends Phaser.GameObjects.Rectangle {
