@@ -273,4 +273,16 @@ export class Player extends Phaser.GameObjects.Container {
       console.log('player is dead');
     }
   }
+
+  public setAlpha(value?: number): this {
+    console.log('setAlpha player', value);
+    super.setAlpha(value);
+    if(this.bullets){
+      this.bullets.getChildren().forEach(child => {
+        const bullet = child as Bullet;
+        bullet.setAlpha(value)
+      });
+    }
+    return this;
+  }
 }

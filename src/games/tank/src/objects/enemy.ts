@@ -68,6 +68,7 @@ export class Enemy extends Phaser.GameObjects.Container {
       maxSize: 10,
       runChildUpdate: true
     });
+    // this.add(this.bullets);
 
     // tweens
     this.scene.tweens.add({
@@ -91,7 +92,9 @@ export class Enemy extends Phaser.GameObjects.Container {
     if (this.active) {
       this.handleShooting();
     } else {
-      this.destroy();
+      // this.destroy();
+      this.setVisible(false);
+      this.body.checkCollision.none = true;
       this.barrel.destroy();
       this.lifeBar.destroy();
     }
@@ -157,7 +160,54 @@ export class Enemy extends Phaser.GameObjects.Container {
           x: this.x,
           y: this.y
       });
+      // this.active = false;
+
+      const emitter = this.scene.add.particles('flares').createEmitter({
+        frame: 'red',
+        x: this.x,
+        y: this.y,
+        quantity: 5,
+        speed: { random: [50, 100] },
+        lifespan: { random: [200, 400]},
+        scale: {start: 0.2, end: 0 },
+        rotate: { random: true, start: 0, end: 180 },
+        angle: { random: true, start: 0, end: 270 },
+        blendMode: 'ADD'
+      })
+      const xVals = [this.x, this.scene.cameras.main.worldView.x +300, this.scene.cameras.main.worldView.x +100, this.scene.cameras.main.worldView.x + this.scene.cameras.main.width]
+		  const yVals = [this.y, this.scene.cameras.main.worldView.y +100, this.scene.cameras.main.worldView.y +150, this.scene.cameras.main.worldView.y + 10]
+
+      this.scene.tweens.addCounter({
+        from: 0,
+        to: 1,
+        ease: Phaser.Math.Easing.Sine.InOut,
+        duration: 1000,
+        onUpdate: tween => {
+          const v = tween.getValue()
+          const x = Phaser.Math.Interpolation.CatmullRom(xVals, v)
+          const y = Phaser.Math.Interpolation.CatmullRom(yVals, v)
+  
+          emitter.setPosition(x, y)
+        },
+        onComplete: () => {
+          emitter.explode(50, 100, 100)
+          emitter.stop()
+  
+          this.scene.time.delayedCall(1000, () => {
+            particles.removeEmitter(emitter)
+            this.destroy();
+          })
+        }
+      })
       this.active = false;
     }
+  }
+  public setAlpha(value?: number): this {
+    console.log('setAlpha', value);
+    super.setAlpha(value);
+    if(this.bullets){
+      this.bullets.setAlpha(value)
+    }
+    return this;
   }
 }

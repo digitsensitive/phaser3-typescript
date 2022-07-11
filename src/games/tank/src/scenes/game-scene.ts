@@ -196,7 +196,12 @@ export class GameScene extends Phaser.Scene {
     this.btn_menu.setAlpha(alpha);
     this.obstacles.setAlpha(alpha);
     this.player.setAlpha(alpha);
-    this.enemies.setAlpha(alpha);
+    // this.enemies.setAlpha(alpha);
+    //set alpha enemies
+    this.enemies.getChildren().forEach(child =>{
+      const enemy = child as Enemy;
+      enemy.setAlpha(alpha);
+    })
     this.TextScore.setAlpha(alpha);
   }
   
