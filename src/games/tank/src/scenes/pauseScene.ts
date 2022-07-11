@@ -20,6 +20,7 @@ export class PauseScene extends Phaser.Scene {
     this.initTween();
     this.createHandleEvents();
   }
+  
   private createUI(){
     this.btn_music =  new ButtonMusic({
       scene: this,
@@ -27,7 +28,9 @@ export class PauseScene extends Phaser.Scene {
       y: 0,
       texture: 'btn-music',
       frame: 1,
-    }, 2)
+      numberOfFrames: 2,
+      soundPress: 'click',
+    })
 
     this.btn_sound =  new ButtonSound({
       scene: this,
@@ -35,13 +38,16 @@ export class PauseScene extends Phaser.Scene {
       y: 0,
       texture: 'btn-sound',
       frame: 1,
-    }, 2);
+      numberOfFrames: 2,
+      soundPress: 'click',
+    });
    
     this.btn_play =  new ButtonPlay({
       scene: this,
       x: 0,
       y: 0,
       texture: 'btn-play',
+      soundPress: 'click',
     }).setOrigin(0,0)
     
     this.btn_replay =  new ButtonReplay({
@@ -49,6 +55,7 @@ export class PauseScene extends Phaser.Scene {
       x: 0,
       y: 0,
       texture: 'btn-replay',
+      soundPress: 'click',
     }).setOrigin(0,0);
     
     this.zone = this.add.zone(100, 140, 350, 450).setOrigin(0,0);
@@ -77,6 +84,7 @@ export class PauseScene extends Phaser.Scene {
     this.add.existing(this.btn_sound);
     this.add.existing(this.btn_music);
   }
+
   private initTween(){
     this.tweens.add({
       targets: this.btn_music,
@@ -108,6 +116,7 @@ export class PauseScene extends Phaser.Scene {
       delay: 600,
     });
   }
+
   private createHandleEvents(){
     this.events.on('restartGame', ()=>{
       this.tweens.add({

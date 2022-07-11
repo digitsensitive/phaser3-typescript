@@ -9,9 +9,6 @@ export class ButtonMusic extends ToggleButton{
     }
   }
   protected handerOnPress(){
-    if(!this.currentScene.registry.get('muteSound'))
-      this.currentScene.sound.add('click').play();
-
     if(!this.currentScene.registry.get('muteMusic')){
       this.currentScene.registry.set('muteMusic', true);
     }else{

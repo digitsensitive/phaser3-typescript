@@ -67,7 +67,8 @@ export class MenuScene extends Phaser.Scene {
       scene: this,
       x: 0,
       y: 0,
-      texture: 'btn-start'
+      texture: 'btn-start',
+      soundPress: 'select',
     }).setVisible(false);
     
     
@@ -77,7 +78,9 @@ export class MenuScene extends Phaser.Scene {
       y: 0,
       texture: 'btn-sound',
       frame: 1,
-    }, 2)
+      numberOfFrames: 2,
+      soundPress: 'click',
+    })
     
     this.btn_music =  new ButtonMusic({
       scene: this,
@@ -85,7 +88,9 @@ export class MenuScene extends Phaser.Scene {
       y: 0,
       texture: 'btn-music',
       frame: 1,
-    }, 2)
+      numberOfFrames: 2,
+      soundPress: 'click',
+    })
     
     Phaser.Display.Align.In.TopCenter(logo, this.zone);
     Phaser.Display.Align.In.Center(this.btn_start, this.zone);

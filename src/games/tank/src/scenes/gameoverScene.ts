@@ -56,6 +56,7 @@ export default class GameOverScene extends Phaser.Scene {
       x: 0,
       y: 0,
       texture: 'btn-replay',
+      soundPress: 'click',
     }).setOrigin(0,0)
       .setDepth(3);
     this.zone = this.add.zone(140, 90, this.cameras.main.width - 140*2, this.cameras.main.height - 90*2).setOrigin(0,0);
@@ -117,6 +118,7 @@ export default class GameOverScene extends Phaser.Scene {
       });
     }, this);
   }
+  
   private createTweens() {
     this.tween = this.tweens.addCounter({
       from: 0,

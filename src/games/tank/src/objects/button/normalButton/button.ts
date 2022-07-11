@@ -1,16 +1,17 @@
-import { IImageConstructor } from '../../../interfaces/image.interface';
+import { IButtonConstructor } from "../../../interfaces/button.interface";
 
 export class Button extends Phaser.GameObjects.Image {
 	// variables
   protected currentScene: Phaser.Scene;
 	protected tweenDown: Phaser.Tweens.Tween;
 	protected tweenUp: Phaser.Tweens.Tween;
+	protected soundPress: Phaser.Sound.BaseSound;
 
-
-  constructor(aParams: IImageConstructor) {
+  constructor(aParams: IButtonConstructor) {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 		// variables
     this.currentScene = aParams.scene;
+		this.soundPress = this.currentScene.sound.add(aParams.soundPress);
 		this.initTween();
 		this.handerInput();
     this.scene.add.existing(this);
@@ -48,6 +49,9 @@ export class Button extends Phaser.GameObjects.Image {
 			this.tweenUp.play();
     });
 		this.on('pointerdown', () => {
+			console.log("onPress", this.currentScene.registry.get('muteSound'));
+			if(!this.currentScene.registry.get('muteSound'))
+				this.soundPress.play();
 			this.tweenDown.play();
     });
   }

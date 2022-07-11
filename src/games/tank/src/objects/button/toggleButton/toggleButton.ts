@@ -1,19 +1,22 @@
-import { ISpriteConstructor } from "../../../interfaces/sprite.interface";
+import { IToggleButtonConstructor } from "../../../interfaces/toggleButton.interface";
 
 export class ToggleButton extends Phaser.GameObjects.Sprite {
+  protected soundPress!: Phaser.Sound.BaseSound;
+
   // variables
   protected currentScene: Phaser.Scene;
   tweenDown: Phaser.Tweens.Tween;
   tweenUp: Phaser.Tweens.Tween;
 	numberOfFrames!: number;
 
-  constructor(aParams: ISpriteConstructor, numberOfFrames: number) {
+  constructor(aParams: IToggleButtonConstructor) {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // variables
     this.currentScene = aParams.scene;
-		this.numberOfFrames = numberOfFrames;
+		this.numberOfFrames = aParams.numberOfFrames;
 
+    this.soundPress = this.currentScene.sound.add(aParams.soundPress);
     this.initSprite();
     this.initTween();
 		this.onPress();
@@ -59,6 +62,8 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
 			this.tweenUp.play();
     });
     this.on('pointerdown', () => {
+      if(!this.currentScene.registry.get('muteSound'))
+        this.soundPress.play();
 			this.tweenDown.play();
     });
     this.on('pointerover', () => {

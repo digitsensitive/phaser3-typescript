@@ -101,6 +101,7 @@ export class GameScene extends Phaser.Scene {
       x: 0,
       y: 0,
       texture: "btn-menu",
+      soundPress: 'click',
     }).setScrollFactor(0);
 
     this.TextScore = this.add.text(0, 0, `Score: ${this.registry.get('score')}`, {
