@@ -1,10 +1,12 @@
+import SceneKeys from "../consts/SceneKeys";
+
 export class BootScene extends Phaser.Scene {
   private loadingBar: Phaser.GameObjects.Graphics;
   private progressBar: Phaser.GameObjects.Graphics;
 
   constructor() {
     super({
-      key: 'BootScene'
+      key: SceneKeys.BootScene,
     });
   }
 
@@ -45,7 +47,7 @@ export class BootScene extends Phaser.Scene {
     }
 
   update(): void {
-    this.scene.start('MenuScene');
+    this.scene.start(SceneKeys.MenuScene);
   }
 
   private createLoadingGraphics(): void {

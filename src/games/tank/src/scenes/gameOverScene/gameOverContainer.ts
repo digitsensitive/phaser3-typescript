@@ -1,5 +1,6 @@
+import SceneKeys from "../../consts/SceneKeys";
 import { highScore } from "../../helpers/helpers";
-import { ButtonReplay } from "../button/normalButton/buttonReplay";
+import { ButtonReplay } from "../../objects/button/normalButton/buttonReplay";
 
 export class GameOverContainer extends Phaser.GameObjects.Container{
   private zone!: Phaser.GameObjects.Zone;
@@ -18,6 +19,8 @@ export class GameOverContainer extends Phaser.GameObjects.Container{
     this.currentScene = scene;
     this.createUI();
     this.createTweens();
+    this.setDepth(3);
+    this.scene.add.existing(this);
   }
 
   private createUI() {
@@ -27,15 +30,15 @@ export class GameOverContainer extends Phaser.GameObjects.Container{
     this.highScoreText = this.currentScene.add.text(0, 0, `High score`, { fontFamily: 'Quicksand',fontSize: '48px'})
       .setOrigin(0.5,0.5)
       .setVisible(false)
-      .setDepth(3);
+      .setDepth(4);
     this.highScore = this.currentScene.add.text(0, 0, `${highScore(this.currentScene)}`, { fontFamily: 'Quicksand',fontSize: '48px'})
       .setOrigin(0.5,0.5)
       .setVisible(false)
-      .setDepth(3);;
+      .setDepth(4);;
     this.score = this.currentScene.add.text(0, 0, `${this.currentScene.registry.get('score')}`, { fontFamily: 'Quicksand',fontSize: '48px'})
       .setOrigin(0.5,0.5)
       .setVisible(false)
-      .setDepth(3);
+      .setDepth(4);
 
     this.btnReplay =  new ButtonReplay({
       scene: this.currentScene,
@@ -44,7 +47,7 @@ export class GameOverContainer extends Phaser.GameObjects.Container{
       texture: 'btn-replay',
       soundPress: 'click',
     }).setOrigin(0,0)
-      .setDepth(3);
+      .setDepth(4);
     this.zone = this.currentScene.add.zone(140, 90, this.currentScene.cameras.main.width - 140*2, this.currentScene.cameras.main.height - 90*2).setOrigin(0,0);
     this.add(this.zone);
 
@@ -142,9 +145,9 @@ export class GameOverContainer extends Phaser.GameObjects.Container{
       duration: 500,
       onComplete: () => {
         this.currentScene.scene.stop();
-        this.currentScene.scene.stop("GameScene");
-        this.currentScene.scene.stop("MenuScene");
-        this.currentScene.scene.start("MenuScene");
+        this.currentScene.scene.stop(SceneKeys.GameScene);
+        this.currentScene.scene.stop(SceneKeys.MenuScene);
+        this.currentScene.scene.start(SceneKeys.MenuScene);
       }
     });
   }

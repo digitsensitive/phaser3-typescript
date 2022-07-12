@@ -1,16 +1,16 @@
-import { PauseContainer } from "../objects/container/pauseContainer";
+import SceneKeys from "../../consts/SceneKeys";
+import { PauseContainer } from "./pauseContainer";
 
 export class PauseScene extends Phaser.Scene {
   private zone!: Phaser.GameObjects.Zone;
   private pauseContainer: PauseContainer;
   constructor() {
     super({
-      key: 'PauseScene'
+      key: SceneKeys.PauseScene,
     });
   }
 
   create(): void {
-    
     this.createUI();
     this.createHandleEvents();
   }

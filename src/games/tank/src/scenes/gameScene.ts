@@ -3,6 +3,7 @@ import { Enemy } from '../objects/enemy';
 import { Obstacle } from '../objects/obstacles/obstacle';
 import { Bullet } from '../objects/bullet';
 import { ButtonMenu } from '../objects/button/normalButton/buttonMenu';
+import SceneKeys from '../consts/SceneKeys';
 
 export class GameScene extends Phaser.Scene {
   private map: Phaser.Tilemaps.Tilemap;
@@ -23,7 +24,7 @@ export class GameScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: 'GameScene'
+      key: SceneKeys.GameScene
     });
     
   }
@@ -190,6 +191,16 @@ export class GameScene extends Phaser.Scene {
       this.setAlpha(1.0);
       console.log('Scene A resumed');
     })
+    this.events.on('gameOver', () => {
+      // set  audio
+      this.audioBattle.pause();
+      // set alpha
+      this.setAlpha(0.2);
+      this.enemies.getChildren().forEach((child)=>{
+        const enemy = child as Enemy;
+        enemy.setActive(false);
+      })
+    })
   }
 
   private setAlpha(alpha: number){
@@ -245,23 +256,23 @@ export class GameScene extends Phaser.Scene {
   private bulletHitLayer(bullet: Bullet): void {
     this.createEmitter(bullet.x, bullet.y);
 
-    bullet.destroy();
+    bullet.destroyBullet();
   }
 
   private bulletHitObstacles(bullet: Bullet, obstacle: Obstacle): void {
     this.createEmitter(bullet.x, bullet.y);
-    bullet.destroy();
+    bullet.destroyBullet();
   }
 
   private enemyBulletHitPlayer(bullet: Bullet, player: Player): void {
     this.createEmitter(bullet.x, bullet.y);
-    bullet.destroy();
+    bullet.destroyBullet();
     player.updateHealth(bullet.getDamage());
   }
 
   private playerBulletHitEnemy(bullet: Bullet, enemy: Enemy): void {
     this.createEmitter(bullet.x, bullet.y);
-    bullet.destroy();
+    bullet.destroyBullet();
     this.updateScore();
     enemy.updateHealth(bullet.getDamage());
   }

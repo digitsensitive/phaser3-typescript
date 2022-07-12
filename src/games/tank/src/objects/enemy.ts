@@ -162,7 +162,7 @@ export class Enemy extends Phaser.GameObjects.Container {
         angle: { min: -85, max: -95 },
         rotate: { min: -180, max: 180 },
         lifespan: { min: 1000, max: 1100 },
-        blendMode: 'ADD',
+        // blendMode: 'ADD',
         frequency: 110,
         maxParticles: 10,
         x: this.x,

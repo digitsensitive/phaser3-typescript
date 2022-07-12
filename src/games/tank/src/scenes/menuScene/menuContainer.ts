@@ -1,6 +1,7 @@
-import { ButtonStart } from "../button/normalButton/buttonStart";
-import { ButtonMusic } from "../button/toggleButton/buttonMusic";
-import { ButtonSound } from "../button/toggleButton/buttonSound";
+import SceneKeys from "../../consts/SceneKeys";
+import { ButtonStart } from "../../objects/button/normalButton/buttonStart";
+import { ButtonMusic } from "../../objects/button/toggleButton/buttonMusic";
+import { ButtonSound } from "../../objects/button/toggleButton/buttonSound";
 
 export class MenuContainer extends Phaser.GameObjects.Container {
   private btnStart: ButtonStart;
@@ -88,10 +89,10 @@ export class MenuContainer extends Phaser.GameObjects.Container {
       ease: 'Power1',
       duration: 500,
       onComplete: () => {
-        this.currentScene.scene.stop("MenuScene")
+        this.currentScene.scene.stop(SceneKeys.MenuScene)
         this.currentScene.game.input.mouse.requestPointerLock();
-        this.currentScene.scene.stop("GameScene");
-        this.currentScene.scene.start("GameScene");
+        this.currentScene.scene.stop(SceneKeys.GameScene);
+        this.currentScene.scene.start(SceneKeys.GameScene);
       }
     });
   }

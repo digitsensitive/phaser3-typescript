@@ -1,7 +1,8 @@
-import { ButtonPlay } from "../button/normalButton/buttonPlay";
-import { ButtonReplay } from "../button/normalButton/buttonReplay";
-import { ButtonMusic } from "../button/toggleButton/buttonMusic";
-import { ButtonSound } from "../button/toggleButton/buttonSound";
+import SceneKeys from "../../consts/SceneKeys";
+import { ButtonPlay } from "../../objects/button/normalButton/buttonPlay";
+import { ButtonReplay } from "../../objects/button/normalButton/buttonReplay";
+import { ButtonMusic } from "../../objects/button/toggleButton/buttonMusic";
+import { ButtonSound } from "../../objects/button/toggleButton/buttonSound";
 
 export class PauseContainer extends Phaser.GameObjects.Container{
   private currentScene: Phaser.Scene;
@@ -130,11 +131,11 @@ export class PauseContainer extends Phaser.GameObjects.Container{
       onComplete: () => {
         if(modeClose == 'continue'){
           this.currentScene.game.input.mouse.requestPointerLock();
-          this.currentScene.scene.resume("GameScene");
+          this.currentScene.scene.resume(SceneKeys.GameScene);
         }else{
-          this.currentScene.scene.stop("GameScene");
-          this.currentScene.scene.stop("MenuScene");
-          this.currentScene.scene.start("MenuScene");
+          this.currentScene.scene.stop(SceneKeys.GameScene);
+          this.currentScene.scene.stop(SceneKeys.MenuScene);
+          this.currentScene.scene.start(SceneKeys.MenuScene);
           this.currentScene.scene.stop();
         }
       },

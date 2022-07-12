@@ -1,7 +1,8 @@
 /* eslint no-undef: 0 */
 /* eslint no-unused-expressions: 0 */
 import 'phaser';
-import { GameOverContainer } from '../objects/container/gameoverContainer';
+import SceneKeys from '../../consts/SceneKeys';
+import { GameOverContainer } from './gameOverContainer';
 
 export default class GameOverScene extends Phaser.Scene {
   private gameOverContainer: GameOverContainer;
@@ -10,7 +11,9 @@ export default class GameOverScene extends Phaser.Scene {
   private audioGameOver: Phaser.Sound.BaseSound;
 
   constructor() {
-    super('GameOverScene');
+    super({
+      key: SceneKeys.GameOverScene,
+    });
   }
 
   create() {

@@ -1,4 +1,5 @@
-import { MenuContainer } from "../objects/container/menuContainer";
+import SceneKeys from "../../consts/SceneKeys";
+import { MenuContainer } from "./menuContainer";
 
 export class MenuScene extends Phaser.Scene {
   private menuContainer: MenuContainer; 
@@ -7,7 +8,7 @@ export class MenuScene extends Phaser.Scene {
   private switchScene!: boolean;
   constructor() {
     super({
-      key: 'MenuScene'
+      key: SceneKeys.MenuScene
     });
   }
   

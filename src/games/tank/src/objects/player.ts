@@ -197,6 +197,15 @@ export class Player extends Phaser.GameObjects.Container {
       if(!this.scene.registry.get('muteSound'))
         this.audioPlayerShooter.play();
       this.scene.cameras.main.shake(20, 0.005);
+
+      this.scene.tweens.add({
+        targets: this.barrel,
+        scaleX: 1.2,
+        scaleY: 0.9,
+        duration: this.rateOfFire,
+        yoyo: true,
+      })
+      
       this.scene.tweens.add({
         targets: this,
         props: { alpha: 0.8 },
@@ -222,9 +231,9 @@ export class Player extends Phaser.GameObjects.Container {
             damage: 0.1
           })
         );
-
         this.lastShoot = this.scene.time.now + this.rateOfFire;
       }
+
     }
   }
 
@@ -275,9 +284,12 @@ export class Player extends Phaser.GameObjects.Container {
         this.audioPlayerDeath.play();
       this.health = 0;
       this.active = false;
-      this.scene.scene.pause();
+      // this.scene.scene.pause();
+      this.scene.input.mouse.releasePointerLock();
+      this.scene.events.emit('gameOver')
       this.curosr.setVisible(false);
       this.scene.scene.launch('GameOverScene');
+      this.scene.scene.bringToTop('GameOverScene');
       console.log('player is dead');
     }
   }
@@ -292,5 +304,9 @@ export class Player extends Phaser.GameObjects.Container {
       });
     }
     return this;
+  }
+
+  private createParticalBullet(){
+
   }
 }
