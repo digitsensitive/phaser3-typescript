@@ -5,19 +5,23 @@ import { ButtonSound } from "../button/toggleButton/buttonSound";
 
 export class PauseContainer extends Phaser.GameObjects.Container{
   private currentScene: Phaser.Scene;
-  private btn_music: ButtonMusic;
-  private btn_replay: ButtonReplay;
-  private btn_play: ButtonPlay;
-  private btn_sound: ButtonSound;
+  private btnMusic: ButtonMusic;
+  private btnReplay: ButtonReplay;
+  private btnPlay: ButtonPlay;
+  private btnSound: ButtonSound;
+  private zone!: Phaser.GameObjects.Zone;
 
   constructor(scene: Phaser.Scene, x: number, y: number){
     super(scene, x, y);
     this.currentScene = scene;
     this.createUI();
-    this.createTweens();
+    this.createTweenOpen();
   }
   createUI(){
-    this.btn_music =  new ButtonMusic({
+    this.zone = this.currentScene.add.zone(0, 0, 350, 450).setOrigin(0,0);
+    this.add(this.zone);
+
+    this.btnMusic =  new ButtonMusic({
       scene: this.currentScene,
       x: 0,
       y: 0,
@@ -25,9 +29,9 @@ export class PauseContainer extends Phaser.GameObjects.Container{
       frame: 1,
       numberOfFrames: 2,
       soundPress: 'click',
-    })
+    }).setOrigin(0,0)
 
-    this.btn_sound =  new ButtonSound({
+    this.btnSound =  new ButtonSound({
       scene: this.currentScene,
       x: 0,
       y: 0,
@@ -35,9 +39,9 @@ export class PauseContainer extends Phaser.GameObjects.Container{
       frame: 1,
       numberOfFrames: 2,
       soundPress: 'click',
-    });
+    }).setOrigin(0,0);
    
-    this.btn_play =  new ButtonPlay({
+    this.btnPlay =  new ButtonPlay({
       scene: this.currentScene,
       x: 0,
       y: 0,
@@ -45,65 +49,93 @@ export class PauseContainer extends Phaser.GameObjects.Container{
       soundPress: 'click',
     }).setOrigin(0,0)
     
-    this.btn_replay =  new ButtonReplay({
+    this.btnReplay =  new ButtonReplay({
       scene: this.currentScene,
       x: 0,
       y: 0,
       texture: 'btn-replay',
       soundPress: 'click',
     }).setOrigin(0,0);
+    
+    Phaser.Display.Align.In.TopRight(
+      this.btnMusic,
+      this.zone
+    )
+    Phaser.Display.Align.In.TopLeft(
+      this.btnSound,
+      this.zone
+    )
+    Phaser.Display.Align.In.Center(
+      this.btnPlay,
+      this.zone
+    )
+      
+    Phaser.Display.Align.In.BottomCenter(
+      this.btnReplay,
+      this.zone
+    )
 
-    this.add([this.btn_music, this.btn_play, this.btn_replay, this.btn_sound]);
+    this.add([this.btnMusic, this.btnPlay, this.btnReplay, this.btnSound]);
   }
-
-  private createTweens(): void {
+  
+  private createTweenOpen(): void {
     // tweens open
-    this.scene.tweens.add({
-      targets: this.btn_music,
-      x: 300,
-      ease: 'Power1',
+    this.scene.tweens.timeline({
+      ease: 'Back.easeOut',
       duration: 300,
-    });
-
-    this.scene.tweens.add({
-      targets: this.btn_sound,
-      x: 100,
-      ease: 'Power1',
-      duration: 300,
-      delay: 200,
-    });
-
-    this.scene.tweens.add({
-      targets: this.btn_play,
-      x: 100,
-      ease: 'Power1',
-      duration: 300,
-      delay: 400,
-    });
-    this.scene.tweens.add({
-      targets: this.btn_replay,
-      x: 100,
-      ease: 'Power1',
-      duration: 300,
-      delay: 600,
-    });
+      tweens:[
+        {
+          targets: this.btnMusic,
+          x: 800,
+        },
+        {
+          targets: this.btnSound,
+          x: 600,
+        },
+        {
+          targets: this.btnPlay,
+          x: 600,
+        },
+        {
+          targets: this.btnReplay,
+          x: 600,
+        }
+      ]
+    })
   }
 
   public createTweenClose(modeClose: string){
-    this.scene.tweens.add({
-      targets: [this.btn_replay, this.btn_play, this.btn_sound, this.btn_music],
-      x: -600,
+    this.scene.tweens.timeline({
+      // targets: [this.btnReplay, this.btnPlay, this.btnSound, this.btnMusic],
       ease: 'Power1',
-      duration: 500,
+      duration: 200,
+      tweens:[
+        {
+          targets: this.btnSound,
+          x: -100,
+        },
+        {
+          targets: this.btnMusic,
+          x: -100,
+        },
+        {
+          targets: this.btnPlay,
+          x: -100,
+        },
+        {
+          targets: this.btnReplay,
+          x: -100,
+        }
+      ],
       onComplete: () => {
         if(modeClose == 'continue'){
+          this.currentScene.game.input.mouse.requestPointerLock();
+          this.currentScene.scene.resume("GameScene");
+        }else{
           this.currentScene.scene.stop("GameScene");
           this.currentScene.scene.stop("MenuScene");
           this.currentScene.scene.start("MenuScene");
           this.currentScene.scene.stop();
-        }else{
-          this.currentScene.game.input.mouse.requestPointerLock();
-          this.currentScene.scene.resume("GameScene");
         }
       },
     });

@@ -1,6 +1,6 @@
 import { BootScene } from './scenes/bootScene';
 import { GameScene } from './scenes/gameScene';
-import GameOverScene from './scenes/gameoverScene';
+import GameOverScene from './scenes/gameOverScene';
 import { MenuScene } from './scenes/menuScene';
 import { PauseScene } from './scenes/pauseScene';
 

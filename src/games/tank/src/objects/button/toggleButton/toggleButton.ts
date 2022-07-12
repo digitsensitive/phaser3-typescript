@@ -4,9 +4,10 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
 
   // variables
   protected currentScene: Phaser.Scene;
-  tweenDown: Phaser.Tweens.Tween;
-  tweenUp: Phaser.Tweens.Tween;
-	numberOfFrames!: number;
+  private tweenDown: Phaser.Tweens.Tween;
+  private tweenUp: Phaser.Tweens.Tween;
+	private numberOfFrames!: number;
+  private isClick: boolean;
 
   constructor(aParams: IToggleButtonConstructor) {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
@@ -14,6 +15,7 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
     // variables
     this.currentScene = aParams.scene;
 		this.numberOfFrames = aParams.numberOfFrames;
+    this.isClick = false;
 
     this.soundPress = this.currentScene.sound.add(aParams.soundPress);
     this.initSprite();
@@ -22,7 +24,7 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
     this.currentScene.add.existing(this);
   }
 
-  protected initSprite() {
+  private initSprite() {
     // sprite
     this.setOrigin(0, 0);
   }
@@ -34,25 +36,26 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
 			ease: 'Sine.easeInOut',
 			duration: 100,
 			repeat: 0,
+      paused: true
 			})
-      .pause();
     
     this.tweenUp = this.currentScene.tweens.add({
-    targets: this,
-    scaleX: 1,
-    scaleY: 1,
-    ease: 'Sine.easeInOut',
-    duration: 100,
-    repeat: 0,
-    onComplete: ()=>{
-        let currentFrame = parseInt(this.frame.name);
-        let nextFrame = currentFrame + 1;
-        if(nextFrame > this.numberOfFrames - 1) nextFrame = 0;
-        this.setFrame(nextFrame);
-        this.handerOnPress();
-  }
+      targets: this,
+      scaleX: 1,
+      scaleY: 1,
+      ease: 'Sine.easeInOut',
+      duration: 100,
+      repeat: 0,
+      paused: true,
+      onComplete: ()=>{
+          this.isClick = false;
+          let currentFrame = parseInt(this.frame.name);
+          let nextFrame = currentFrame + 1;
+          if(nextFrame > this.numberOfFrames - 1) nextFrame = 0;
+          this.setFrame(nextFrame);
+          this.handerOnPress();
+      }
     })
-    .pause();
   }
 
   private onPress(){
@@ -60,13 +63,18 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
     this.on('pointerup', () => {
 			this.tweenUp.play();
     });
+
     this.on('pointerdown', () => {
+      this.isClick = true;
       if(!this.currentScene.registry.get('muteSound'))
         this.soundPress.play();
 			this.tweenDown.play();
     });
-    this.on('pointerover', () => {
 
+    this.on('pointerout', () => {
+      console.log('Press downside pressed on mouse over');
+      if(this.isClick)
+        this.tweenUp.play();
 		})
   }
 

@@ -5,11 +5,13 @@ export class Button extends Phaser.GameObjects.Image {
 	protected tweenDown: Phaser.Tweens.Tween;
 	protected tweenUp: Phaser.Tweens.Tween;
 	protected soundPress: Phaser.Sound.BaseSound;
+	private isClick: boolean;
 
   constructor(aParams: IButtonConstructor) {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 		// variables
     this.currentScene = aParams.scene;
+		this.isClick = false;
 		this.soundPress = this.currentScene.sound.add(aParams.soundPress);
 		this.initTween();
 		this.handerInput();
@@ -36,6 +38,7 @@ export class Button extends Phaser.GameObjects.Image {
 			duration: 100,
 			repeat: 0,
 			onComplete: () => {
+				this.isClick = false;
 				this.handleOnPress();
 			}
 		})
@@ -49,9 +52,14 @@ export class Button extends Phaser.GameObjects.Image {
     });
 		this.on('pointerdown', () => {
 			console.log("onPress", this.currentScene.registry.get('muteSound'));
+			this.isClick = true;
 			if(!this.currentScene.registry.get('muteSound'))
 				this.soundPress.play();
 			this.tweenDown.play();
+    });
+		this.on('pointerout', () => {
+			if(this.isClick)
+				this.tweenUp.play();
     });
   }
 

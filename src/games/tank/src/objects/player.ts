@@ -112,7 +112,7 @@ export class Player extends Phaser.GameObjects.Container {
     }, this);
 
     this.scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer)=>{
-        if (this&&!this.scene.input.mouse.locked){
+        if (this&&!this.scene?.input.mouse.locked){
           this.curosr.setVisible(true);
           this.scene.game.input.mouse.requestPointerLock();
         }
@@ -129,10 +129,9 @@ export class Player extends Phaser.GameObjects.Container {
     this.scene.events.on('resume', () => {
       this.curosr.setVisible(true);
     })
-    
   }
-  update(): void {
 
+  update(): void {
     if (this.active) {
       if (!this.scene.input.mouse.locked){
         this.curosr.setVisible(false);
