@@ -1,3 +1,12 @@
+import BaseState from '../States/BaseState';
+import DownLeftState from '../States/DownLeftState';
+import DownState from '../States/DownState';
+import LeftState from '../States/LeftState';
+import LeftUpState from '../States/LeftUpState';
+import RightDownState from '../States/RightDownState';
+import RightState from '../States/RightSate';
+import UpRightState from '../States/UpRightState';
+import UpState from '../States/UpState';
 import { Bullet } from './bullet';
 
 export class Player extends Phaser.GameObjects.Container {
@@ -8,22 +17,24 @@ export class Player extends Phaser.GameObjects.Container {
   private speed: number;
   private texture: string;
   private rateOfFire: number;
+  private statePlayer: string = "1";
 
   // children
   private barrel: Phaser.GameObjects.Image;
   private lifeBar: Phaser.GameObjects.Graphics;
-  private tank: Phaser.GameObjects.Image;
+  public tank: Phaser.GameObjects.Image;
   
   // game objects
   private bullets: Phaser.GameObjects.Group;
-  private tween: Phaser.Tweens.Tween;
+  public tween: Phaser.Tweens.Tween;
   private curosr: Phaser.GameObjects.Image;
+  private currentState!: BaseState
 
   // input
-  private rotateKeyLeft: Phaser.Input.Keyboard.Key;
-  private rotateKeyRight: Phaser.Input.Keyboard.Key;
-  private moveKeyUp: Phaser.Input.Keyboard.Key;
-  private moveKeyDown: Phaser.Input.Keyboard.Key;
+  public moveKeyLeft: Phaser.Input.Keyboard.Key;
+  public moveKeyRight: Phaser.Input.Keyboard.Key;
+  public moveKeyUp: Phaser.Input.Keyboard.Key;
+  public moveKeyDown: Phaser.Input.Keyboard.Key;
 
   // audio 
   private audioPlayerShooter: Phaser.Sound.BaseSound;
@@ -32,6 +43,56 @@ export class Player extends Phaser.GameObjects.Container {
   public getBullets(): Phaser.GameObjects.Group {
     return this.bullets;
   }
+
+  public setCurrentState(state: string) {
+    switch (state) {
+      case "Down": {
+        console.log("Down state");
+        this.currentState = new DownState(this)
+        break
+      }
+      case "DownLeft": {
+        console.log("Down state left");
+        this.currentState = new DownLeftState(this)
+        break
+      }
+      case "Left": {
+        console.log("LeftState  ");
+        this.currentState = new LeftState(this)
+        break
+      }
+      case "LeftUp": {
+        console.log("LeftUpState");
+        this.currentState = new LeftUpState(this)
+        break
+      }
+      case "Up": {
+        console.log("UpState")
+        this.currentState = new UpState(this)
+        break
+      }
+      case "UpRight": {
+        console.log("UpRightState")
+        this.currentState = new UpRightState(this)
+        break
+      }
+      case "Right": {
+        console.log("Right")
+        this.currentState = new RightState(this)
+        break
+      }
+      case "RightDown": {
+        console.log("RightDownState")
+        this.currentState = new RightDownState(this)
+        break
+      }
+      case "Down": {
+        console.log("DownState");
+        this.currentState = new DownState(this)
+        break
+      }
+    }
+}
 
   constructor(aParams: ITankConstructor) {
     super(aParams.scene, aParams.x, aParams.y);
@@ -85,10 +146,10 @@ export class Player extends Phaser.GameObjects.Container {
     });
 
     // input
-    this.rotateKeyLeft = this.scene.input.keyboard.addKey(
+    this.moveKeyLeft = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.A
     );
-    this.rotateKeyRight = this.scene.input.keyboard.addKey(
+    this.moveKeyRight = this.scene.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.D
     );
     this.moveKeyUp = this.scene.input.keyboard.addKey(
@@ -100,6 +161,7 @@ export class Player extends Phaser.GameObjects.Container {
 
     // physics
     this.scene.physics.world.enable(this);
+    this.currentState = new DownState(this)
     // input mouse
     this.initHandleInput();
   }
@@ -139,6 +201,7 @@ export class Player extends Phaser.GameObjects.Container {
       // rotation barrel
       this.barrel.rotation = Phaser.Math.Angle.Between(this.x, this.y, this.curosr.x, this.curosr.y)+ Math.PI/2;
       this.handleInput();
+      this.currentState.handleInput()
     } else {
       this.destroy();
       this.barrel.destroy();
@@ -153,9 +216,9 @@ export class Player extends Phaser.GameObjects.Container {
     this.body.setVelocity(0);
 
     // rotate tank
-    if (this.rotateKeyLeft.isDown) {
+    if (this.moveKeyLeft.isDown) {
       this.body.setVelocityX(-this.speed)
-    } else if (this.rotateKeyRight.isDown) {
+    } else if (this.moveKeyRight.isDown) {
         this.body.setVelocityX(this.speed)
     }
     if (this.moveKeyUp.isDown) {
@@ -164,6 +227,208 @@ export class Player extends Phaser.GameObjects.Container {
       this.body.setVelocityY(this.speed);
     }
 
+
+    // if(this.statePlayer == "1"){
+    //   if((!this.tween || !this.tween.isPlaying())&&(this.moveKeyLeft.isDown||this.moveKeyUp.isDown)){
+    //     this.statePlayer = "2";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: -135,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    //   else if((!this.tween || !this.tween.isPlaying())&&(this.moveKeyRight.isDown)){
+    //     this.statePlayer = "8";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: -225,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    // }
+    // else if (this.statePlayer =="2"){
+    //   if((!this.tween.isPlaying())&&(!(this.moveKeyLeft.isDown&&this.moveKeyDown.isDown)&&(this.moveKeyUp.isDown||this.moveKeyLeft.isDown))){
+    //     console.log("Tween is already playing 2")
+    //     this.statePlayer = "3";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: -90,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }else if((!this.tween.isPlaying())&&(!(this.moveKeyLeft.isDown&&this.moveKeyDown.isDown)&&(this.moveKeyRight.isDown||this.moveKeyDown.isDown))){
+    //     this.statePlayer = "1";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: -180,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    // }
+    // else if (this.statePlayer =="3"){
+    //   if((!this.tween.isPlaying())&&(this.moveKeyUp.isDown || this.moveKeyRight.isDown)){
+    //     console.log("Tween is already playing 3")
+    //     this.statePlayer = "4";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: -45,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    //   else if((!this.tween.isPlaying())&&this.moveKeyDown.isDown){
+    //     this.statePlayer = "2";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: -135,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    // }
+    // else if (this.statePlayer =="4"){
+    //   if((!this.tween.isPlaying())&&(!(this.moveKeyUp.isDown&&this.moveKeyLeft.isDown)&& (this.moveKeyRight.isDown||this.moveKeyUp.isDown))){
+    //     console.log("Tween is already playing 4")
+    //     this.statePlayer = "5";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: 0,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    //   else if((!this.tween.isPlaying())&&(!(this.moveKeyUp.isDown&&this.moveKeyLeft.isDown)&& (this.moveKeyLeft.isDown||this.moveKeyDown.isDown))){
+    //     this.statePlayer = "3";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: -90,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    // }
+    // else if (this.statePlayer =="5"){
+    //   if(!this.tween.isPlaying()&& (this.moveKeyRight.isDown||this.moveKeyDown.isDown)){
+    //     console.log("Tween is already playing 5")
+    //     this.statePlayer = "6";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: 45,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    //   else if(!this.tween.isPlaying()&& this.moveKeyLeft.isDown){
+    //     this.statePlayer = "4";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: -45,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    // }
+    // else if (this.statePlayer =="6"){
+      
+    //   if(!this.tween.isPlaying()&& !(this.moveKeyRight.isDown&&this.moveKeyUp.isDown)&& (this.moveKeyDown.isDown||this.moveKeyRight.isDown)){
+    //     console.log("Tween is already playing 6")
+    //     this.statePlayer = "7";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: 90,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    //   else if (!this.tween.isPlaying()&& ((!(this.moveKeyRight.isDown&&this.moveKeyUp.isDown))&&this.moveKeyUp.isDown||this.moveKeyLeft.isDown)){
+    //     this.statePlayer = "5";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: 0,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+      
+    // }
+    // else if (this.statePlayer =="7"){
+    //   if(!this.tween.isPlaying()&& (this.moveKeyDown.isDown|| this.moveKeyLeft.isDown)){
+    //     console.log("Tween is already playing 7")
+    //     this.statePlayer = "8";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: 135,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    //   else if(!this.tween.isPlaying()&& this.moveKeyUp.isDown){
+    //     this.statePlayer = "6";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: 45,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    // }
+    // else if (this.statePlayer =="8"){
+    //   if(!this.tween.isPlaying()&& (!(this.moveKeyDown.isDown&&this.moveKeyRight.isDown)&&(this.moveKeyLeft.isDown||this.moveKeyUp.isDown||this.moveKeyDown.isDown))){
+    //     console.log("Tween is already playing 8")
+    //     this.statePlayer = "1";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: 180,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+
+    //   else if(!this.tween.isPlaying()&& !(this.moveKeyDown.isDown&&this.moveKeyRight.isDown)&&this.moveKeyRight.isDown){
+    //     this.statePlayer = "7";
+    //     this.tween = this.scene.tweens.add({
+    //       targets: this.tank,
+    //       angle: 90,
+    //       ease: 'Sine.easeInOut',
+    //       duration: 100,
+    //       yoyo: false,
+    //       repeat: 0,
+    //     });
+    //   }
+    // }
     // move cursor
     var bodyCurosr = this.curosr.body as Phaser.Physics.Arcade.Body;
     bodyCurosr.setVelocity(this.body.velocity.x, this.body.velocity.y)
@@ -178,17 +443,17 @@ export class Player extends Phaser.GameObjects.Container {
     }
 
     if((!this.tween || !this.tween.isPlaying()) && angle!=null && (this.body.velocity.x != 0 || this.body.velocity.y != 0)){
-      if(this.tank.angle == 90 && angle == -180)
-        angle = 180;
-      var duration = (Math.abs(this.tank.angle - angle) / 90) * 250;
-      this.tween = this.scene.tweens.add({
-        targets: this.tank,
-        angle: angle,
-        ease: 'Sine.easeInOut',
-        duration: duration,
-        yoyo: false,
-        repeat: 0,
-      });
+      // if(this.tank.angle == 90 && angle == -180)
+      //   angle = 180;
+      // var duration = (Math.abs(this.tank.angle - angle) / 90) * 250;
+      // this.tween = this.scene.tweens.add({
+      //   targets: this.tank,
+      //   angle: angle,
+      //   ease: 'Sine.easeInOut',
+      //   duration: duration,
+      //   yoyo: false,
+      //   repeat: 0,
+      // });
     }
   }
 
@@ -284,12 +549,9 @@ export class Player extends Phaser.GameObjects.Container {
         this.audioPlayerDeath.play();
       this.health = 0;
       this.active = false;
-      // this.scene.scene.pause();
-      this.scene.input.mouse.releasePointerLock();
-      this.scene.events.emit('gameOver')
       this.curosr.setVisible(false);
+      this.scene.scene.pause();
       this.scene.scene.launch('GameOverScene');
-      this.scene.scene.bringToTop('GameOverScene');
       console.log('player is dead');
     }
   }
@@ -304,9 +566,5 @@ export class Player extends Phaser.GameObjects.Container {
       });
     }
     return this;
-  }
-
-  private createParticalBullet(){
-
   }
 }

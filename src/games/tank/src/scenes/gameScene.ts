@@ -183,6 +183,7 @@ export class GameScene extends Phaser.Scene {
         this.input.mouse.releasePointerLock();
       // pause audio
       this.audioBattle.pause();
+      this.scene.sendToBack();
       // set alpha
       this.setAlpha(0.2);
     })
@@ -190,16 +191,6 @@ export class GameScene extends Phaser.Scene {
       // set alpha
       this.setAlpha(1.0);
       console.log('Scene A resumed');
-    })
-    this.events.on('gameOver', () => {
-      // set  audio
-      this.audioBattle.pause();
-      // set alpha
-      this.setAlpha(0.2);
-      this.enemies.getChildren().forEach((child)=>{
-        const enemy = child as Enemy;
-        enemy.setActive(false);
-      })
     })
   }
 
