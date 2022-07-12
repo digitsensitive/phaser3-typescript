@@ -17,24 +17,17 @@ export class Player extends Phaser.GameObjects.Container {
   private speed: number;
   private texture: string;
   private rateOfFire: number;
-  private statePlayer: string = "1";
 
   // children
   private barrel: Phaser.GameObjects.Image;
   private lifeBar: Phaser.GameObjects.Graphics;
-  public tank: Phaser.GameObjects.Image;
+  private tank: Phaser.GameObjects.Image;
   
   // game objects
   private bullets: Phaser.GameObjects.Group;
-  public tween: Phaser.Tweens.Tween;
+  private tween: Phaser.Tweens.Tween;
   private curosr: Phaser.GameObjects.Image;
   private currentState!: BaseState
-
-  // input
-  public moveKeyLeft: Phaser.Input.Keyboard.Key;
-  public moveKeyRight: Phaser.Input.Keyboard.Key;
-  public moveKeyUp: Phaser.Input.Keyboard.Key;
-  public moveKeyDown: Phaser.Input.Keyboard.Key;
 
   // audio 
   private audioPlayerShooter: Phaser.Sound.BaseSound;
@@ -42,6 +35,22 @@ export class Player extends Phaser.GameObjects.Container {
 
   public getBullets(): Phaser.GameObjects.Group {
     return this.bullets;
+  }
+
+  public getTank(){
+    return this.tank;
+  }
+
+  public getSpeed(){
+    return this.speed;
+  }
+
+  public getTween(){
+    return this.tween;
+  }
+
+  public setTween(tween: Phaser.Tweens.Tween){
+    this.tween = tween;
   }
 
   public setCurrentState(state: string) {
@@ -101,6 +110,9 @@ export class Player extends Phaser.GameObjects.Container {
 
     this.initAudio();
     this.initContainer();
+    // input mouse
+    this.initHandleInput();
+
     this.scene.add.existing(this);
     // set body of container
     this.body.setOffset(-this.tank.width/2, -this.tank.height/2);
@@ -145,25 +157,10 @@ export class Player extends Phaser.GameObjects.Container {
       runChildUpdate: true
     });
 
-    // input
-    this.moveKeyLeft = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.A
-    );
-    this.moveKeyRight = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.D
-    );
-    this.moveKeyUp = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.W
-    );
-    this.moveKeyDown = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.S
-    );
-
     // physics
     this.scene.physics.world.enable(this);
     this.currentState = new DownState(this)
-    // input mouse
-    this.initHandleInput();
+    
   }
 
   private initHandleInput(){
@@ -200,8 +197,9 @@ export class Player extends Phaser.GameObjects.Container {
       }
       // rotation barrel
       this.barrel.rotation = Phaser.Math.Angle.Between(this.x, this.y, this.curosr.x, this.curosr.y)+ Math.PI/2;
-      this.handleInput();
       this.currentState.handleInput()
+      this.moveCurosrFollowPlayer();
+
     } else {
       this.destroy();
       this.barrel.destroy();
@@ -209,252 +207,10 @@ export class Player extends Phaser.GameObjects.Container {
     }
   }
 
-  private handleInput() {
-    // move tank forward
-    // small corrections with (- MATH.PI / 2) to align tank correctly
-    var angle: number|null;
-    this.body.setVelocity(0);
-
-    // rotate tank
-    if (this.moveKeyLeft.isDown) {
-      this.body.setVelocityX(-this.speed)
-    } else if (this.moveKeyRight.isDown) {
-        this.body.setVelocityX(this.speed)
-    }
-    if (this.moveKeyUp.isDown) {
-      this.body.setVelocityY(-this.speed)
-    } else if (this.moveKeyDown.isDown) {
-      this.body.setVelocityY(this.speed);
-    }
-
-
-    // if(this.statePlayer == "1"){
-    //   if((!this.tween || !this.tween.isPlaying())&&(this.moveKeyLeft.isDown||this.moveKeyUp.isDown)){
-    //     this.statePlayer = "2";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: -135,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    //   else if((!this.tween || !this.tween.isPlaying())&&(this.moveKeyRight.isDown)){
-    //     this.statePlayer = "8";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: -225,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    // }
-    // else if (this.statePlayer =="2"){
-    //   if((!this.tween.isPlaying())&&(!(this.moveKeyLeft.isDown&&this.moveKeyDown.isDown)&&(this.moveKeyUp.isDown||this.moveKeyLeft.isDown))){
-    //     console.log("Tween is already playing 2")
-    //     this.statePlayer = "3";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: -90,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }else if((!this.tween.isPlaying())&&(!(this.moveKeyLeft.isDown&&this.moveKeyDown.isDown)&&(this.moveKeyRight.isDown||this.moveKeyDown.isDown))){
-    //     this.statePlayer = "1";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: -180,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    // }
-    // else if (this.statePlayer =="3"){
-    //   if((!this.tween.isPlaying())&&(this.moveKeyUp.isDown || this.moveKeyRight.isDown)){
-    //     console.log("Tween is already playing 3")
-    //     this.statePlayer = "4";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: -45,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    //   else if((!this.tween.isPlaying())&&this.moveKeyDown.isDown){
-    //     this.statePlayer = "2";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: -135,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    // }
-    // else if (this.statePlayer =="4"){
-    //   if((!this.tween.isPlaying())&&(!(this.moveKeyUp.isDown&&this.moveKeyLeft.isDown)&& (this.moveKeyRight.isDown||this.moveKeyUp.isDown))){
-    //     console.log("Tween is already playing 4")
-    //     this.statePlayer = "5";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: 0,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    //   else if((!this.tween.isPlaying())&&(!(this.moveKeyUp.isDown&&this.moveKeyLeft.isDown)&& (this.moveKeyLeft.isDown||this.moveKeyDown.isDown))){
-    //     this.statePlayer = "3";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: -90,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    // }
-    // else if (this.statePlayer =="5"){
-    //   if(!this.tween.isPlaying()&& (this.moveKeyRight.isDown||this.moveKeyDown.isDown)){
-    //     console.log("Tween is already playing 5")
-    //     this.statePlayer = "6";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: 45,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    //   else if(!this.tween.isPlaying()&& this.moveKeyLeft.isDown){
-    //     this.statePlayer = "4";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: -45,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    // }
-    // else if (this.statePlayer =="6"){
-      
-    //   if(!this.tween.isPlaying()&& !(this.moveKeyRight.isDown&&this.moveKeyUp.isDown)&& (this.moveKeyDown.isDown||this.moveKeyRight.isDown)){
-    //     console.log("Tween is already playing 6")
-    //     this.statePlayer = "7";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: 90,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    //   else if (!this.tween.isPlaying()&& ((!(this.moveKeyRight.isDown&&this.moveKeyUp.isDown))&&this.moveKeyUp.isDown||this.moveKeyLeft.isDown)){
-    //     this.statePlayer = "5";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: 0,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-      
-    // }
-    // else if (this.statePlayer =="7"){
-    //   if(!this.tween.isPlaying()&& (this.moveKeyDown.isDown|| this.moveKeyLeft.isDown)){
-    //     console.log("Tween is already playing 7")
-    //     this.statePlayer = "8";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: 135,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    //   else if(!this.tween.isPlaying()&& this.moveKeyUp.isDown){
-    //     this.statePlayer = "6";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: 45,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    // }
-    // else if (this.statePlayer =="8"){
-    //   if(!this.tween.isPlaying()&& (!(this.moveKeyDown.isDown&&this.moveKeyRight.isDown)&&(this.moveKeyLeft.isDown||this.moveKeyUp.isDown||this.moveKeyDown.isDown))){
-    //     console.log("Tween is already playing 8")
-    //     this.statePlayer = "1";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: 180,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-
-    //   else if(!this.tween.isPlaying()&& !(this.moveKeyDown.isDown&&this.moveKeyRight.isDown)&&this.moveKeyRight.isDown){
-    //     this.statePlayer = "7";
-    //     this.tween = this.scene.tweens.add({
-    //       targets: this.tank,
-    //       angle: 90,
-    //       ease: 'Sine.easeInOut',
-    //       duration: 100,
-    //       yoyo: false,
-    //       repeat: 0,
-    //     });
-    //   }
-    // }
+  private moveCurosrFollowPlayer() {
     // move cursor
     var bodyCurosr = this.curosr.body as Phaser.Physics.Arcade.Body;
     bodyCurosr.setVelocity(this.body.velocity.x, this.body.velocity.y)
-    
-    // angle
-    var angleOfVelocity = this.body.velocity.angle()*Phaser.Math.RAD_TO_DEG;
-    // console.log(angleOfVelocity, this.tank.angle);
-    if(angleOfVelocity>=90)
-      angle = angleOfVelocity - 270;
-    else {
-      angle = angleOfVelocity + 90;
-    }
-
-    if((!this.tween || !this.tween.isPlaying()) && angle!=null && (this.body.velocity.x != 0 || this.body.velocity.y != 0)){
-      // if(this.tank.angle == 90 && angle == -180)
-      //   angle = 180;
-      // var duration = (Math.abs(this.tank.angle - angle) / 90) * 250;
-      // this.tween = this.scene.tweens.add({
-      //   targets: this.tank,
-      //   angle: angle,
-      //   ease: 'Sine.easeInOut',
-      //   duration: duration,
-      //   yoyo: false,
-      //   repeat: 0,
-      // });
-    }
   }
 
   private handleShooting(): void {
@@ -550,12 +306,15 @@ export class Player extends Phaser.GameObjects.Container {
       this.health = 0;
       this.active = false;
       this.curosr.setVisible(false);
+
+      // pause current scene and show scene game over
       this.scene.scene.pause();
       this.scene.scene.launch('GameOverScene');
       console.log('player is dead');
     }
   }
 
+  // using when pause scene
   public setAlpha(value?: number): this {
     console.log('setAlpha player', value);
     super.setAlpha(value);

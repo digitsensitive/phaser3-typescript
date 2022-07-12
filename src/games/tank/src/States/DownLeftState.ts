@@ -1,37 +1,29 @@
+import { createTweenRotationTank } from "../helpers/helpers";
 import { Player } from "../objects/player"
 import BaseState from "./BaseState"
 
 export default class DownLeftState extends BaseState {
-    private player: Player;
+    // private player: Player;
     constructor(player: Player) {
-        super("DownLeft")
-        this.player = player
+        super("DownLeft", player)
+        // this.player = player
     }
 
-    public override handleInput(): void {
-      if((!this.player.tween.isPlaying())&&(!(this.player.moveKeyLeft.isDown&&this.player.moveKeyDown.isDown)&&(this.player.moveKeyUp.isDown||this.player.moveKeyLeft.isDown))){
-        console.log("Tween is already playing 2")
-        // this.player.statePlayer = "3";
-        this.player.setCurrentState("Left")
-        this.player.tween = this.player.scene.tweens.add({
-          targets: this.player.tank,
-          angle: -90,
-          ease: 'Sine.easeInOut',
-          duration: 100,
-          yoyo: false,
-          repeat: 0,
-        });
-      }else if((!this.player.tween.isPlaying())&&(!(this.player.moveKeyLeft.isDown&&this.player.moveKeyDown.isDown)&&(this.player.moveKeyRight.isDown||this.player.moveKeyDown.isDown))){
-        // this.player.statePlayer = "1";
-        this.player.setCurrentState("Down")
-        this.player.tween = this.player.scene.tweens.add({
-          targets: this.player.tank,
-          angle: -180,
-          ease: 'Sine.easeInOut',
-          duration: 100,
-          yoyo: false,
-          repeat: 0,
-        });
+    public handleInput(): void {
+      super.handleInput();
+      if(!this.player.getTween().isPlaying() && !(this.moveKeyLeft.isDown&&this.moveKeyDown.isDown)){
+        
+        if (this.moveKeyUp.isDown||this.moveKeyLeft.isDown){
+          console.log("Tween is already playing 2")
+          // this.player.statePlayer = "3";
+          this.player.setCurrentState("Left")
+          this.player.setTween(createTweenRotationTank(this.player, -90))
+        }
+        else if (this.moveKeyRight.isDown||this.moveKeyDown.isDown){
+          // this.player.statePlayer = "1";
+          this.player.setCurrentState("Down")
+          this.player.setTween( createTweenRotationTank(this.player, -180));
+        }
       }
     }
 }

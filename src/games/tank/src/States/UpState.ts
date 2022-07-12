@@ -1,38 +1,30 @@
+import { createTweenRotationTank } from "../helpers/helpers";
 import { Player } from "../objects/player"
 import BaseState from "./BaseState"
 
 export default class UpState extends BaseState {
-    private player: Player;
+    // private player: Player;
     constructor(player: Player) {
-        super("Up")
-        this.player = player
+        super("Up", player)
+        // this.player = player
     }
 
-    public override handleInput(): void {
-      if(!this.player.tween.isPlaying()&& (this.player.moveKeyRight.isDown||this.player.moveKeyDown.isDown)){
-        console.log("Tween is already playing 5")
-        // this.player.statePlayer = "6";
-        this.player.setCurrentState("UpRight")
-        this.player.tween = this.player.scene.tweens.add({
-          targets: this.player.tank,
-          angle: 45,
-          ease: 'Sine.easeInOut',
-          duration: 100,
-          yoyo: false,
-          repeat: 0,
-        });
-      }
-      else if(!this.player.tween.isPlaying()&& this.player.moveKeyLeft.isDown){
-        // this.player.statePlayer = "4";
-        this.player.setCurrentState("LeftUp")
-        this.player.tween = this.player.scene.tweens.add({
-          targets: this.player.tank,
-          angle: -45,
-          ease: 'Sine.easeInOut',
-          duration: 100,
-          yoyo: false,
-          repeat: 0,
-        });
+    public handleInput(): void {
+      super.handleInput();
+      if(!this.player.getTween().isPlaying()){
+
+        if(this.moveKeyRight.isDown||this.moveKeyDown.isDown){
+          console.log("Tween is already playing 5")
+          // this.player.statePlayer = "6";
+          this.player.setCurrentState("UpRight")
+          this.player.setTween(createTweenRotationTank(this.player, 45));
+        }
+
+        else if (this.moveKeyLeft.isDown){
+          // this.player.statePlayer = "4";
+          this.player.setCurrentState("LeftUp")
+          this.player.setTween(createTweenRotationTank(this.player, -45));
+        }
       }
     }
 }
