@@ -14,7 +14,6 @@ export class Tile extends Phaser.GameObjects.Image {
   }
 
   public initTween(){
-    // this.y = (this.y-CONST.gridHeight*(this.y/CONST.tileHeight))
     this.tween = this.scene.tweens.add({
       targets: this,
       scaleX: 0.5,

@@ -11,7 +11,7 @@ export default class GameOverScene extends Phaser.Scene {
   private highScoreText!: Phaser.GameObjects.Text;
   private highScore!: Phaser.GameObjects.Text;
   private tween!: Phaser.Tweens.Tween;
-  private btn_replay!: ButtonReplay;
+  private btnReplay!: ButtonReplay;
 
   // audio
   private audioGameOver: Phaser.Sound.BaseSound;
@@ -51,7 +51,7 @@ export default class GameOverScene extends Phaser.Scene {
       .setVisible(false)
       .setDepth(3);
 
-    this.btn_replay =  new ButtonReplay({
+    this.btnReplay =  new ButtonReplay({
       scene: this,
       x: 0,
       y: 0,
@@ -70,7 +70,7 @@ export default class GameOverScene extends Phaser.Scene {
       this.zone,
     );
     Phaser.Display.Align.In.BottomCenter(
-      this.btn_replay,
+      this.btnReplay,
       this.zone,
     );
 
@@ -89,7 +89,7 @@ export default class GameOverScene extends Phaser.Scene {
     );
     
     this.currentScoreText.setY(this.cameras.main.height + 100);
-    this.btn_replay.setY(this.cameras.main.height + 100);
+    this.btnReplay.setY(this.cameras.main.height + 100);
     this.score.setY(300);
     this.highScoreText.setY(400);
     this.highScore.setY(500);    
@@ -104,7 +104,7 @@ export default class GameOverScene extends Phaser.Scene {
       });
 
       this.tweens.add({
-        targets: [this.btn_replay],
+        targets: [this.btnReplay],
         y: this.cameras.main.height + 200,
         ease: 'Power1',
         duration: 500,
@@ -155,7 +155,7 @@ export default class GameOverScene extends Phaser.Scene {
       this.highScore.setVisible(true);
       console.log("score: ");
       this.tweens.add({
-        targets: this.btn_replay,
+        targets: this.btnReplay,
         y: this.cameras.main.height - 300,
         ease: 'Power1',
         duration: 1000,

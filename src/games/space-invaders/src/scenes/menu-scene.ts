@@ -58,22 +58,12 @@ export class MenuScene extends Phaser.Scene {
   update(): void {
     if (this.startKey.isDown) {
       this.tweens.add({
-        targets: this.bitmapTexts[1],
-        ease: 'Power1',
-        duration: 1000,
-        y: -10,
-        yoyo: false,
-        repeat: 0,
-      });
-
-      this.tweens.add({
-        targets: this.bitmapTexts[0],
-        ease: 'Power1',
-        duration: 1000,
+        targets: this.bitmapTexts,
         y: this.cameras.main.height +10,
-        yoyo: false,
-        repeat: 0,
+        ease: 'Power1',
+        duration: 1000,
         onComplete: () => {
+          this.scene.stop();
           this.scene.start('HUDScene');
           this.scene.start('GameScene');
           this.scene.bringToTop('HUDScene');

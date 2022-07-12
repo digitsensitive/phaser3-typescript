@@ -53,6 +53,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   create(){
+    // after 10 seconds create tween
     this.time.addEvent({ delay: 10000, callback: ()=>{
       if(!this.match){
         for (let y = 0; y < CONST.gridHeight; y++) {
@@ -68,7 +69,6 @@ export class GameScene extends Phaser.Scene {
     if(!this.firstSelectedTile){
       this.emitter.stop();
     }
-    console.log("match", this.match)
   }
 
   initPractices(): void {

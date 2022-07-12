@@ -141,6 +141,7 @@ export class GameScene extends Phaser.Scene {
     if (this.player.y > this.game.config.height) {
       this.scene.start('GameScene');
     }
+    
     if(this.player.body.velocity.y !=0){
       this.emitter.start();
     }else{
@@ -160,9 +161,11 @@ export class GameScene extends Phaser.Scene {
         })
       }
     }
+
     if(this.player.body.velocity.y <0){
       this.emitter.setAngle({min: 100, max: 180});
     }
+
   }
 
   private spawnNewTower(): void {

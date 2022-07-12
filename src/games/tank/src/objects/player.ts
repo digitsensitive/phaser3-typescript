@@ -132,7 +132,7 @@ export class Player extends Phaser.GameObjects.Container {
     
   }
   update(): void {
-    // console.log('player: ' +  this.angle);
+
     if (this.active) {
       if (!this.scene.input.mouse.locked){
         this.curosr.setVisible(false);
@@ -157,11 +157,8 @@ export class Player extends Phaser.GameObjects.Container {
     if (this.rotateKeyLeft.isDown) {
       this.body.setVelocityX(-this.speed)
     } else if (this.rotateKeyRight.isDown) {
-      if(this.angle == -180)
-        this.tank.angle  =179;
         this.body.setVelocityX(this.speed)
     }
-
     if (this.moveKeyUp.isDown) {
       this.body.setVelocityY(-this.speed)
     } else if (this.moveKeyDown.isDown) {
@@ -174,7 +171,7 @@ export class Player extends Phaser.GameObjects.Container {
     
     // angle
     var angleOfVelocity = this.body.velocity.angle()*Phaser.Math.RAD_TO_DEG;
-    console.log(angleOfVelocity, this.tank.angle);
+    // console.log(angleOfVelocity, this.tank.angle);
     if(angleOfVelocity>=90)
       angle = angleOfVelocity - 270;
     else {
