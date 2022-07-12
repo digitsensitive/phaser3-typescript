@@ -1,6 +1,6 @@
 import { createTweenRotationTank } from "../helpers/helpers";
 import { Player } from "../objects/player"
-import BaseState from "./BaseState"
+import BaseState from "./baseState"
 
 export default class DownState extends BaseState {
     // private player: Player;

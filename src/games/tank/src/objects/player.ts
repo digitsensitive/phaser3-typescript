@@ -1,12 +1,12 @@
-import BaseState from '../States/BaseState';
-import DownLeftState from '../States/DownLeftState';
-import DownState from '../States/DownState';
-import LeftState from '../States/LeftState';
-import LeftUpState from '../States/LeftUpState';
-import RightDownState from '../States/RightDownState';
-import RightState from '../States/RightSate';
-import UpRightState from '../States/UpRightState';
-import UpState from '../States/UpState';
+import BaseState from '../states/baseState';
+import DownLeftState from '../states/downLeftState';
+import DownState from '../states/downState';
+import LeftState from '../states/leftState';
+import LeftUpState from '../states/leftUpState';
+import RightDownState from '../states/rightDownState';
+import RightState from '../states/rightSate';
+import UpRightState from '../states/upRightState';
+import UpState from '../states/upState';
 import { Bullet } from './bullet';
 
 export class Player extends Phaser.GameObjects.Container {

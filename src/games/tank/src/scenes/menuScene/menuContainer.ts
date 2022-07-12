@@ -89,8 +89,8 @@ export class MenuContainer extends Phaser.GameObjects.Container {
       ease: 'Power1',
       duration: 500,
       onComplete: () => {
-        this.currentScene.scene.stop(SceneKeys.MenuScene)
         this.currentScene.game.input.mouse.requestPointerLock();
+        this.currentScene.scene.stop(SceneKeys.MenuScene)
         this.currentScene.scene.stop(SceneKeys.GameScene);
         this.currentScene.scene.start(SceneKeys.GameScene);
       }
