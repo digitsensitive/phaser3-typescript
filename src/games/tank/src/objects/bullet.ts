@@ -68,7 +68,7 @@ export class Bullet extends Phaser.GameObjects.Image {
   }
 
   update(): void {
-    this.fire.setAngle({min: angleParticleBullet(this.angle)-5, max: angleParticleBullet(this.angle)+5})
+    this.fire.setAngle(angleParticleBullet(this.angle))
     // console.log("update finished", this.angle);
   }
 

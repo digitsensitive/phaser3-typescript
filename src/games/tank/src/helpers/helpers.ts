@@ -1,3 +1,4 @@
+import { CONST } from "../consts/const";
 import { Player } from "../objects/player";
 
 export const highScore = function (scene: Phaser.Scene){
@@ -24,7 +25,7 @@ export const createTweenRotationTank = function (player: Player, angle: number){
     targets: player.getTank(),
     angle: angle,
     ease: 'Sine.easeInOut',
-    duration: 100,
+    duration: CONST.timeRotateStep,
     yoyo: false,
     repeat: 0,
   });

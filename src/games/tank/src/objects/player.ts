@@ -1,3 +1,4 @@
+import { CONST } from '../consts/const';
 import BaseState from '../states/baseState';
 import DownLeftState from '../states/downLeftState';
 import DownState from '../states/downState';
@@ -132,7 +133,7 @@ export class Player extends Phaser.GameObjects.Container {
 
     // image
     this.tank = this.scene.physics.add.image(0, 0, this.texture);
-    this.tank.angle = 180;
+    this.tank.angle = CONST.tankSpeed;
     
     this.barrel = this.scene.add.image(0, 0, 'barrelBlue');
     this.barrel.setOrigin(0.5, 1);
@@ -176,8 +177,9 @@ export class Player extends Phaser.GameObjects.Container {
           this.scene.game.input.mouse.requestPointerLock();
         }
         else this.handleShooting();
-    }, this);
+    }, this); 
 
+    // using unblock mouse
     this.scene.input.keyboard.on('keydown-SPACE', ()=>{
       if (this.scene.input.mouse.locked){
         this.scene.input.mouse.releasePointerLock();
@@ -185,6 +187,7 @@ export class Player extends Phaser.GameObjects.Container {
       }
     });
 
+    // when player continue playing
     this.scene.events.on('resume', () => {
       this.curosr.setVisible(true);
     })
