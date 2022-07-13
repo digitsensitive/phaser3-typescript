@@ -7,6 +7,7 @@ export class MenuContainer extends Phaser.GameObjects.Container {
   private btnStart: ButtonStart;
   private btnSound: ButtonSound;
   private btnMusic: ButtonMusic;
+  private logo: Phaser.GameObjects.Image;
   private currentScene: Phaser.Scene;
   private zone!: Phaser.GameObjects.Zone;
 
@@ -14,6 +15,7 @@ export class MenuContainer extends Phaser.GameObjects.Container {
     super(scene, x, y);
     this.currentScene = scene;
     this.createUI();
+    this.alignUI();
     this.createTweens();
   }
 
@@ -22,7 +24,7 @@ export class MenuContainer extends Phaser.GameObjects.Container {
       .setOrigin(0,0)
       .setScale(0.75,0.75);
     
-    const logo = this.currentScene.add.image(0,0,'logo');
+    this.logo = this.currentScene.add.image(0,0,'logo');
     this.zone = this.currentScene.add.zone(140, 90, this.currentScene.cameras.main.width - 140*2, this.currentScene.cameras.main.height - 90*2).setOrigin(0,0);
     this.add(this.zone);
     //  Center the picture in the game
@@ -57,8 +59,10 @@ export class MenuContainer extends Phaser.GameObjects.Container {
     })
     
     this.add([this.btnSound, this.btnMusic, this.btnStart]);
+  }
 
-    Phaser.Display.Align.In.TopCenter(logo, this.zone);
+  private alignUI(){
+    Phaser.Display.Align.In.TopCenter(this.logo, this.zone);
     Phaser.Display.Align.In.Center(this.btnStart, this.zone);
     Phaser.Display.Align.In.BottomLeft(this.btnSound, this.zone);
     Phaser.Display.Align.In.BottomRight(this.btnMusic, this.zone);

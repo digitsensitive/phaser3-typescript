@@ -219,27 +219,7 @@ export class Player extends Phaser.GameObjects.Container {
         this.audioPlayerShooter.play();
       this.scene.cameras.main.shake(20, 0.005);
 
-      this.scene.tweens.add({
-        targets: this.barrel,
-        scaleX: 1.2,
-        scaleY: 0.9,
-        duration: this.rateOfFire,
-        yoyo: true,
-      })
-      
-      this.scene.tweens.add({
-        targets: this,
-        props: { alpha: 0.8 },
-        delay: 0,
-        duration: 5,
-        ease: 'Power1',
-        easeParams: null,
-        hold: 0,
-        repeat: 0,
-        repeatDelay: 0,
-        yoyo: true,
-        paused: false
-      });
+      this.createTweenWhenShooting();
 
       if (this.bullets.getLength() < 10) {
         this.bullets.add(
@@ -256,6 +236,30 @@ export class Player extends Phaser.GameObjects.Container {
       }
 
     }
+  }
+
+  private createTweenWhenShooting() {
+    this.scene.tweens.add({
+      targets: this.barrel,
+      scaleX: 1.2,
+      scaleY: 0.9,
+      duration: this.rateOfFire,
+      yoyo: true,
+    })
+    
+    this.scene.tweens.add({
+      targets: this,
+      props: { alpha: 0.8 },
+      delay: 0,
+      duration: 5,
+      ease: 'Power1',
+      easeParams: null,
+      hold: 0,
+      repeat: 0,
+      repeatDelay: 0,
+      yoyo: true,
+      paused: false
+    });
   }
 
   private redrawLifebar(): void {

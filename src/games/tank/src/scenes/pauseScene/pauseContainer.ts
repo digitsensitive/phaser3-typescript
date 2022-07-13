@@ -16,6 +16,7 @@ export class PauseContainer extends Phaser.GameObjects.Container{
     super(scene, x, y);
     this.currentScene = scene;
     this.createUI();
+    this.alignUI();
     this.createTweenOpen();
   }
   createUI(){
@@ -57,7 +58,11 @@ export class PauseContainer extends Phaser.GameObjects.Container{
       texture: 'btn-replay',
       soundPress: 'click',
     }).setOrigin(0,0);
-    
+
+    this.add([this.btnMusic, this.btnPlay, this.btnReplay, this.btnSound]);
+  }
+
+  private alignUI(){
     Phaser.Display.Align.In.TopRight(
       this.btnMusic,
       this.zone
@@ -75,8 +80,6 @@ export class PauseContainer extends Phaser.GameObjects.Container{
       this.btnReplay,
       this.zone
     )
-
-    this.add([this.btnMusic, this.btnPlay, this.btnReplay, this.btnSound]);
   }
   
   private createTweenOpen(): void {

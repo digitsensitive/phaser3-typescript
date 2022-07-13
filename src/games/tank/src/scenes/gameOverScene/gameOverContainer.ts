@@ -18,6 +18,8 @@ export class GameOverContainer extends Phaser.GameObjects.Container{
     super(scene, x, y);
     this.currentScene = scene;
     this.createUI();
+    this.alignUI();
+    this.setStartPosition();
     this.createTweens();
     this.setDepth(3);
     this.scene.add.existing(this);
@@ -48,9 +50,15 @@ export class GameOverContainer extends Phaser.GameObjects.Container{
       soundPress: 'click',
     }).setOrigin(0,0)
       .setDepth(4);
-    this.zone = this.currentScene.add.zone(140, 90, this.currentScene.cameras.main.width - 140*2, this.currentScene.cameras.main.height - 90*2).setOrigin(0,0);
-    this.add(this.zone);
 
+    const camerasWidth= this.currentScene.cameras.main.width;
+    const camerasHeight= this.currentScene.cameras.main.height;
+
+    this.zone = this.currentScene.add.zone(140, 90, camerasWidth - 140*2, camerasHeight - 90*2).setOrigin(0,0);
+    this.add([this.zone, this.btnReplay, this.highScoreText, this.highScore, this.currentScoreText, this.score, this.gameOverText])    
+  }
+
+  private alignUI(){
     Phaser.Display.Align.In.Center(
       this.gameOverText,
       this.zone,
@@ -77,13 +85,14 @@ export class GameOverContainer extends Phaser.GameObjects.Container{
       this.highScoreText,
       this.zone,
     );
-    
+  }
+
+  private setStartPosition(){
     this.currentScoreText.setY(this.scene.cameras.main.height + 100);
     this.btnReplay.setY(this.scene.cameras.main.height + 100);
     this.score.setY(300);
     this.highScoreText.setY(400);
     this.highScore.setY(500);
-    this.add([this.btnReplay, this.highScoreText, this.highScore, this.currentScoreText, this.score, this.gameOverText])    
   }
 
   private createTweens() {
