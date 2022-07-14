@@ -31,7 +31,7 @@ export class Brick extends Phaser.GameObjects.Rectangle {
       scaleY: 1,
       ease: 'Sine.easeInOut',
       duration: 300,
-      delay: (x+y*WIDTH) * 50,
+      delay: this.scene.tweens.stagger(50, {}),
       repeat: 0,
       yoyo: false,
       onComplete: () => {

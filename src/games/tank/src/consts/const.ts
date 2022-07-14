@@ -1,4 +1,4 @@
 export let CONST = {
-  timeRotateStep : 100,
-  tankSpeed : 200,
+  TIME_ROTATE_STEP : 100,
+  TANK_SPEED : 200,
 };

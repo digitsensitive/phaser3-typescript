@@ -2,7 +2,6 @@ import { angleParticleBullet } from "../helpers/helpers";
 
 export class Bullet extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;
-
   private bulletSpeed: number;
   private damage!: number;
 
@@ -15,21 +14,34 @@ export class Bullet extends Phaser.GameObjects.Image {
 
     this.rotation = aParams.rotation;
     this.damage = aParams.damage;
+
+    this.initVariables();
     this.initImage();
+    this.initPhysics();
     this.createParticalBullet();
     this.scene.add.existing(this);
   }
+
+  update(): void {
+    this.fire.setAngle(angleParticleBullet(this.angle))
+  }
+
   public getDamage(){
     return this.damage;
   }
-  private initImage(): void {
+
+  public destroyBullet() {
+    this.fire.stop();
+    this.darkSmoke.stop();
+    this.destroy();
+  }
+
+  private initVariables(){
     // variables
     this.bulletSpeed = 1000;
+  }
 
-    // image
-    this.setOrigin(0.5, 0.5);
-    this.setDepth(2);
-
+  private initPhysics(){
     // physics
     this.scene.physics.world.enable(this);
     this.scene.physics.velocityFromRotation(
@@ -37,23 +49,24 @@ export class Bullet extends Phaser.GameObjects.Image {
       this.bulletSpeed,
       this.body.velocity
     );
+  }
 
-    this.scene.scene.get('GameOverScene').events.on("start", () =>{
-      console.log("GameOverScene started");
-      this.destroyBullet();
-    })
+  private initImage(): void {
+    // image
+    this.setOrigin(0.5, 0.5);
+    this.setDepth(2);
   }
 
   private createParticalBullet(){
     this.fire = this.scene.add.particles('fire').createEmitter({
       speed: { min: 100, max: 200 },
-      // angle: { min: -85, max: -95 },
       scale: { start: 0, end: 1, ease: 'Back.easeOut' },
       alpha: { start: 1, end: 0, ease: 'Quart.easeOut' },
       lifespan: 600,
       follow: this,
     });
     this.fire.reserve(1000);
+    
     this.darkSmoke = this.scene.add.particles('dark-smoke').createEmitter({
       x: this.x,
       y: this.y,
@@ -65,16 +78,5 @@ export class Bullet extends Phaser.GameObjects.Image {
       follow: this,
     });
     this.darkSmoke.reserve(1000);
-  }
-
-  update(): void {
-    this.fire.setAngle(angleParticleBullet(this.angle))
-    // console.log("update finished", this.angle);
-  }
-
-  public destroyBullet() {
-    this.fire.stop();
-    this.darkSmoke.stop();
-    this.destroy();
   }
 }

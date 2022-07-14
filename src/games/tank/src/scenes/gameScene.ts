@@ -1,9 +1,10 @@
-import { Player } from '../objects/player';
-import { Enemy } from '../objects/enemy';
-import { Obstacle } from '../objects/obstacles/obstacle';
-import { Bullet } from '../objects/bullet';
-import { ButtonMenu } from '../objects/button/normalButton/buttonMenu';
+import { Player } from '../objects/Player';
+import { Enemy } from '../objects/Enemy';
+import { Obstacle } from '../objects/obstacles/Obstacle';
+import { Bullet } from '../objects/Bullet';
+import { MenuButton } from '../objects/button/normal-button/MenuButton';
 import SceneKeys from '../consts/SceneKeys';
+import EventKeys from '../consts/EventKeys';
 
 export class GameScene extends Phaser.Scene {
   private map: Phaser.Tilemaps.Tilemap;
@@ -13,18 +14,20 @@ export class GameScene extends Phaser.Scene {
   private player: Player;
   private enemies: Phaser.GameObjects.Group;
   private obstacles: Phaser.GameObjects.Group;
-  private TextScore!: Phaser.GameObjects.Text;
+  private textScore!: Phaser.GameObjects.Text;
 
-  private target: Phaser.Math.Vector2;
-  private btn_menu!: ButtonMenu;
+  private buttonMenu!: MenuButton;
   private zone!: Phaser.GameObjects.Zone;
 
   // audio
   private audioBattle: Phaser.Sound.BaseSound;
+  private audioPlayerShooter: Phaser.Sound.BaseSound;
+  private audioPlayerDeath: Phaser.Sound.BaseSound;
+  private audioEnemyDeath: Phaser.Sound.BaseSound;
 
   constructor() {
     super({
-      key: SceneKeys.GameScene
+      key: SceneKeys.GAME_SCENE
     });
     
   }
@@ -35,69 +38,34 @@ export class GameScene extends Phaser.Scene {
   create(): void {
     
     this.initAudio();
-
-    // create tilemap from tiled JSON
-    this.map = this.make.tilemap({ key: 'levelMap' });
-
-    this.tileset = this.map.addTilesetImage('tiles');
-    this.layer = this.map.createLayer('tileLayer', this.tileset, 0, 0);
-    this.layer.setCollisionByProperty({ collide: true });
-
-    this.obstacles = this.add.group({
-      /*classType: Obstacle,*/
-      runChildUpdate: true
-    });
-
-    this.enemies = this.add.group({
-      /*classType: Enemy*/
-    });
-    this.convertObjects();
-    this.physics.world.setBounds(0, 0, this.layer.width, this.layer.height);
-    this.handlePhysics();
-    this.cameras.main.startFollow(this.player);
-
     this.createUI();
-    
-    this.initEvents();
+    this.createMap();
+    this.initEnemies();
+    this.initObstacles();
+    this.createObjects();
+    this.handlePhysics();
+    this.initListenEvents();
+    this.setUpCameraFollowPlayer();
   }
 
   update(): void {
     this.player.update();
-
-    this.enemies.children.each((enemy: Enemy) => {
-      enemy.update();
-      if (this.player.active && enemy.active) {
-        var angle = Phaser.Math.Angle.Between(
-          enemy.body.x,
-          enemy.body.y,
-          this.player.body.x,
-          this.player.body.y
-        );
-
-        enemy.getBarrel().angle =
-          (angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
-      }
-    }, this);
-
-    if(!this.registry.get('muteMusic')&&!this.audioBattle.isPlaying){
-      if(this.audioBattle.isPaused)
-        this.audioBattle.resume();
-      else  
-        this.audioBattle.play();
-    }
-    else if(this.registry.get('muteMusic')&&this.audioBattle.isPlaying){
-      this.audioBattle.pause();
-      console.log('Audio is paused',this.audioBattle.isPaused);
-    }
-
+    this.updateEnemys();
   }
 
   private initAudio() {
     this.audioBattle = this.sound.add('battle');
+    this.audioBattle.play();
+    this.audioPlayerShooter = this.sound.add('player-shooter');
+    this.audioPlayerDeath = this.sound.add('player-death');
+    this.audioEnemyDeath = this.sound.add('enemy-death');
   }
 
   private createUI(){
-    this.btn_menu = new ButtonMenu({
+    const camerasWidth= this.cameras.main.width;
+    const camerasHeight= this.cameras.main.height;
+
+    this.buttonMenu = new MenuButton({
       scene: this,
       x: 0,
       y: 0,
@@ -105,27 +73,72 @@ export class GameScene extends Phaser.Scene {
       soundPress: 'click',
     }).setScrollFactor(0);
 
-    this.TextScore = this.add.text(0, 0, `Score: ${this.registry.get('score')}`, {
+    this.textScore = this.add.text(
+      0, 
+      0, 
+      `Score: ${this.registry.get('score')}`, 
+      {
 			fontFamily: 'Quicksand',
 			fontSize: '48px',
 			color: '#fff'
-		}).setScrollFactor(0)
+		  }
+    )
+      .setScrollFactor(0)
       .setOrigin(0, 0);
     
-    this.zone = this.add.zone(this.cameras.main.width/2, this.cameras.main.height / 2, this.cameras.main.width - 10*4, this.cameras.main.height-10*2)
+    this.zone = this.add.zone(
+      camerasWidth/2, 
+      camerasHeight  / 2, 
+      camerasWidth - 40, 
+      camerasHeight - 20
+    )
     Phaser.Display.Align.In.TopLeft(
-      this.btn_menu,
+      this.buttonMenu,
       this.zone
     );
     
     Phaser.Display.Align.In.TopRight(
-      this.TextScore,
+      this.textScore,
       this.zone
     );
-    this.TextScore.setX(this.TextScore.x -25)
+    this.textScore.setX(this.textScore.x - 25)
+  }
+
+  private createMap(){
+    // create tilemap from tiled JSON
+    this.map = this.make.tilemap({ key: 'levelMap' });
+
+    this.tileset = this.map.addTilesetImage('tiles');
+    this.layer = this.map.createLayer('tileLayer', this.tileset, 0, 0);
+    this.layer.setCollisionByProperty({ collide: true });
+  }
+
+  private initEnemies(){
+    this.enemies = this.add.group({
+      /*classType: Enemy*/
+    });
+  }
+
+  private initObstacles(){
+    this.obstacles = this.add.group({
+      /*classType: Obstacle,*/
+      runChildUpdate: true
+    });
+  }
+
+  private setUpCameraFollowPlayer(){
+    this.cameras.main.startFollow(this.player);
   }
 
   private handlePhysics(){
+
+    this.physics.world.setBounds(
+      0, 
+      0, 
+      this.layer.width, 
+      this.layer.height
+    );
+
     // collider layer and obstacles
     this.physics.add.collider(this.player, this.layer);
     this.physics.add.collider(this.player, this.obstacles);
@@ -146,15 +159,16 @@ export class GameScene extends Phaser.Scene {
       null,
       this
     );
-
+    
+    this.physics.add.collider(
+      this.player.getBullets(),
+      this.enemies,
+      (obj1, obj2) =>this.playerBulletHitEnemy(obj1 as Bullet, obj2 as Enemy),
+      null,
+      this
+    );
+    
     this.enemies.children.each((enemy: Enemy) => {
-      this.physics.add.collider(
-        this.player.getBullets(),
-        enemy,
-        (obj1, obj2) =>this.playerBulletHitEnemy(obj1 as Bullet, obj2 as Enemy),
-        null,
-        this
-      );
       this.physics.add.overlap(
         enemy.getBullets(),
         this.player,
@@ -177,76 +191,112 @@ export class GameScene extends Phaser.Scene {
     }, this);
   }
 
-  private initEvents() {
+  private initListenEvents() {
     this.events.on('pause', ()=>{
       if(this.input.mouse.locked)
         this.input.mouse.releasePointerLock();
       // pause audio
       this.audioBattle.pause();
       this.scene.sendToBack();
-      // set alpha
-      this.setAlpha(0.2);
     })
+    
     this.events.on('resume', () => {
-      // set alpha
-      this.setAlpha(1.0);
-      console.log('Scene A resumed');
+      if(!this.registry.get('muteMusic')&&!this.audioBattle.isPlaying){
+        if(this.audioBattle.isPaused)
+          this.audioBattle.resume();
+        else  
+          this.audioBattle.play();
+      }
+      else if(this.audioBattle.isPlaying && this.registry.get('muteMusic')){
+        this.audioBattle.pause();
+      }
     })
+
+    this.events.on(EventKeys.PLAYER_SHOOTING,()=>{
+      if(!this.registry.get('muteSound'))
+        this.audioPlayerShooter.play();
+    })
+
+    this.events.on(EventKeys.PLAYER_DEATH,()=>{
+      if(!this.registry.get('muteSound'))
+        this.audioPlayerDeath.play();
+    })
+
+    this.events.on(EventKeys.ENEMY_DEATH,()=>{
+      if(!this.registry.get('muteSound'))
+        this.audioEnemyDeath.play();
+    })
+
+    this.events.on("start",()=>{
+      this.removeListener();
+    })
+
   }
 
-  private setAlpha(alpha: number){
-    this.layer.setAlpha(alpha);
-    this.btn_menu.setAlpha(alpha);
-    this.obstacles.setAlpha(alpha);
-    this.player.setAlpha(alpha);
-    // this.enemies.setAlpha(alpha);
-    //set alpha enemies
-    this.enemies.getChildren().forEach(child =>{
-      const enemy = child as Enemy;
-      enemy.setAlpha(alpha);
-    })
-    this.TextScore.setAlpha(alpha);
+  private removeListener(){
+    this.events.removeListener(EventKeys.PLAYER_SHOOTING);
+    this.events.removeListener(EventKeys.PLAYER_DEATH);
+    this.events.removeListener('enemy_death');
   }
-  
-  private convertObjects(): void {
+
+
+  private createObjects(): void {
     // find the object layer in the tilemap named 'objects'
     const objects = this.map.getObjectLayer('objects').objects as any[];
 
     objects.forEach((object) => {
-      if (object.type === 'player') {
-        this.player = new Player({
-          scene: this,
-          x: object.x,
-          y: object.y,
-          texture: 'tankBlue',
-          rateOfFire: 80,
-        });
-      } else if (object.type === 'enemy') {
-        let enemy = new Enemy({
-          scene: this,
-          x: object.x,
-          y: object.y,
-          texture: 'tankRed',
-          rateOfFire: 1000,
-        });
-
-        this.enemies.add(enemy);
-      } else {
-        let obstacle = new Obstacle({
-          scene: this,
-          x: object.x,
-          y: object.y - 40,
-          texture: object.type
-        });
-
-        this.obstacles.add(obstacle);
+      switch (object.type) {
+        case "player": {
+          this.player = this.createPlayer(object.x, object.y);
+          break;
+        }
+        
+        case "enemy":{
+          let enemy = this.createEnemy(object.x, object.y);
+          this.enemies.add(enemy);
+          break;
+        }
+        
+        default:{
+          let obstacle = this.createObstacle(object.x, object.y, object.type);
+          this.obstacles.add(obstacle);
+          break;
+        }
       }
+    });
+  }
+
+  private createPlayer(x: number, y: number): Player {
+    return new Player({
+      scene: this,
+      x: x,
+      y: y,
+      texture: 'tankBlue',
+      rateOfFire: 80,
+    });
+  }
+
+  private createEnemy(x: number, y: number): Enemy {
+    return new Enemy({
+      scene: this,
+      x: x,
+      y: y,
+      texture: 'tankRed',
+      rateOfFire: 1000,
+    });
+  }
+
+  private createObstacle(x: number, y: number, texture: string): Obstacle {
+    return new Obstacle({
+      scene: this,
+      x: x,
+      y: y - 40,
+      texture: texture
     });
   }
 
   private bulletHitLayer(bullet: Bullet): void {
     this.createEmitter(bullet.x, bullet.y);
-
     bullet.destroyBullet();
   }
 
@@ -269,16 +319,17 @@ export class GameScene extends Phaser.Scene {
   }
 
   private createEmitter(x: number, y: number){
-    var particlesBullet = this.add.particles('flares').createEmitter({
-      frame: 'red',
-      x: x,
-      y: y,
-      lifespan: 500,
-      speed: { min: 400, max: 600 },
-      angle: {min: 0, max: 360},
-      scale: { start: 0.1, end: 0 },
-      quantity: 2,
-      blendMode: 'ADD',
+    var particlesBullet = this.add.particles('flares')
+      .createEmitter({
+        frame: 'red',
+        x: x,
+        y: y,
+        lifespan: 500,
+        speed: { min: 400, max: 600 },
+        angle: {min: 0, max: 360},
+        scale: { start: 0.1, end: 0 },
+        quantity: 2,
+        blendMode: 'ADD',
     });
 
     this.time.delayedCall(150, ()=>{
@@ -288,6 +339,12 @@ export class GameScene extends Phaser.Scene {
 
   private updateScore(){
     this.registry.set('score' ,this.registry.get('score')+1);
-    this.TextScore.setText(`Score: ${this.registry.get('score')}`);
+    this.textScore.setText(`Score: ${this.registry.get('score')}`);
+  }
+
+  private updateEnemys(){
+    this.enemies.children.each((enemy: Enemy) => {
+      enemy.update(this.player);
+    }, this);
   }
 }

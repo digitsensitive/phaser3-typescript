@@ -6,7 +6,7 @@ export class BootScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: SceneKeys.BootScene,
+      key: SceneKeys.BOOT_SCENE,
     });
   }
 
@@ -47,7 +47,7 @@ export class BootScene extends Phaser.Scene {
     }
 
   update(): void {
-    this.scene.start(SceneKeys.MenuScene);
+    this.scene.start(SceneKeys.MENU_SCENE);
   }
 
   private createLoadingGraphics(): void {

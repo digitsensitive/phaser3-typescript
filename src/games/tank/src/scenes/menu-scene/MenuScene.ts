@@ -1,21 +1,20 @@
+import EventKeys from "../../consts/EventKeys";
 import SceneKeys from "../../consts/SceneKeys";
-import { MenuContainer } from "./menuContainer";
+import { MenuContainer } from "./MenuContainer";
 
 export class MenuScene extends Phaser.Scene {
   private menuContainer: MenuContainer; 
   private menuTrackAudio: Phaser.Sound.BaseSound;
   private menuStartAudio: Phaser.Sound.BaseSound;
-  private switchScene!: boolean;
   constructor() {
     super({
-      key: SceneKeys.MenuScene
+      key: SceneKeys.MENU_SCENE
     });
   }
   
   init(): void {
     this.initGlobalDataManager();
     this.createHandleEvents();
-    this.switchScene = false;
   }
   
   create(): void {
@@ -25,23 +24,11 @@ export class MenuScene extends Phaser.Scene {
   }
 
   update(): void {
-    // if switchScene then stop audio
-    if(!this.switchScene && !this.menuStartAudio.isPlaying){
-      if(!this.registry.get('muteMusic')&&!this.menuTrackAudio.isPlaying){
-        if(this.menuTrackAudio.isPaused)
-          this.menuTrackAudio.resume();
-        else
-          this.menuTrackAudio.play();
-      }
-      else if(this.registry.get('muteMusic')&&this.menuTrackAudio.isPlaying){
-        this.menuTrackAudio.pause();
-      }
-    }
   }
   
   private initAudio() {
     this.menuTrackAudio = this.sound.add('menu_track');
-    this.menuStartAudio = this.sound.add('menu_strat');
+    this.menuStartAudio = this.sound.add('menu_start');
     this.menuStartAudio.play();
     this.menuStartAudio.on('complete', ()=>{
       this.menuStartAudio.pause();
@@ -51,9 +38,8 @@ export class MenuScene extends Phaser.Scene {
   }
 
   private createHandleEvents(): void {
-    this.events.on('startGame', ()=>{
+    this.events.on(EventKeys.START_GAME, ()=>{
       this.menuTrackAudio.stop();
-      this.switchScene = true;
       this.menuContainer.createTweenClose();
     }, this);
 
@@ -61,10 +47,25 @@ export class MenuScene extends Phaser.Scene {
       this.removeListener();
       this.input.mouse.releasePointerLock();
     }, this);
+
+    this.events.on(EventKeys.MUTE_MUSIC, ()=>{
+      if(this.menuTrackAudio.isPlaying){
+        this.menuTrackAudio.pause();
+      }
+    })
+    
+    this.events.on(EventKeys.UNMUTE_MUSIC, ()=>{
+      if(this.menuTrackAudio.isPaused)
+          this.menuTrackAudio.resume();
+      else
+        this.menuTrackAudio.play();
+    })
   }
 
   private removeListener() {
-    this.events.removeListener('startGame');
+    this.events.removeListener(EventKeys.START_GAME);
+    this.events.removeListener(EventKeys.MUTE_MUSIC);
+    this.events.removeListener(EventKeys.UNMUTE_MUSIC);
   }
 
   private initGlobalDataManager(): void {

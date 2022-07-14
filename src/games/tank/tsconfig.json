@@ -4,7 +4,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "typeRoots": ["*/**/*.interface.ts"]
+    "typeRoots": ["*/**/*.d.ts"]
   },
   
   "include": ["src/**/*"],

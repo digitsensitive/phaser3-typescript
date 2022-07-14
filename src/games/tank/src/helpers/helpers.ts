@@ -1,5 +1,5 @@
 import { CONST } from "../consts/const";
-import { Player } from "../objects/player";
+import { Player } from "../objects/Player";
 
 export const highScore = function (scene: Phaser.Scene){
   var score = scene.registry.get('score');
@@ -20,13 +20,16 @@ export const angleParticleBullet = function (angle: number){
   return angle - 90;
 }
 
-export const createTweenRotationTank = function (player: Player, angle: number){
-  return player.scene.tweens.add({
-    targets: player.getTank(),
-    angle: angle,
-    ease: 'Sine.easeInOut',
-    duration: CONST.timeRotateStep,
-    yoyo: false,
-    repeat: 0,
+export const playSound = function (scene: Phaser.Scene, audioKey: string){
+  scene.sound.add(audioKey).play;
+}
+
+export const newPlayer = function (scene: Phaser.Scene, x: number, y: number){
+  return new Player({
+    scene: this,
+    x: x,
+    y: y,
+    texture: 'tankBlue',
+    rateOfFire: 80,
   });
 }

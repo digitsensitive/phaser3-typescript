@@ -3,7 +3,6 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
   protected soundPress!: Phaser.Sound.BaseSound;
 
   // variables
-  protected currentScene: Phaser.Scene;
   private tweenDown: Phaser.Tweens.Tween;
   private tweenUp: Phaser.Tweens.Tween;
 	private numberOfFrames!: number;
@@ -13,23 +12,23 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // variables
-    this.currentScene = aParams.scene;
+    this.scene = aParams.scene;
 		this.numberOfFrames = aParams.numberOfFrames;
     this.isClick = false;
-
-    this.soundPress = this.currentScene.sound.add(aParams.soundPress);
+    this.soundPress = this.scene.sound.add(aParams.soundPress);
+    
     this.initSprite();
     this.initTween();
 		this.onPress();
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
+    this.setInteractive({ useHandCursor: true });
   }
 
   private initSprite() {
     // sprite
-    this.setOrigin(0, 0);
   }
   private initTween(){
-    this.tweenDown = this.currentScene.tweens.add({
+    this.tweenDown = this.scene.tweens.add({
 			targets: this,
 			scaleX: 0.9,
 			scaleY: 0.9,
@@ -39,7 +38,7 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
       paused: true
 			})
     
-    this.tweenUp = this.currentScene.tweens.add({
+    this.tweenUp = this.scene.tweens.add({
       targets: this,
       scaleX: 1,
       scaleY: 1,
@@ -49,33 +48,36 @@ export class ToggleButton extends Phaser.GameObjects.Sprite {
       paused: true,
       onComplete: ()=>{
           this.isClick = false;
-          let currentFrame = parseInt(this.frame.name);
-          let nextFrame = currentFrame + 1;
-          if(nextFrame > this.numberOfFrames - 1) nextFrame = 0;
-          this.setFrame(nextFrame);
+          this.switchTexture();
           this.handerOnPress();
       }
     })
   }
 
   private onPress(){
-    this.setInteractive({ useHandCursor: true });
-    this.on('pointerup', () => {
+    this.on(Phaser.Input.Events.POINTER_UP, () => {
 			this.tweenUp.play();
     });
 
-    this.on('pointerdown', () => {
+    this.on(Phaser.Input.Events.POINTER_DOWN, () => {
       this.isClick = true;
-      if(!this.currentScene.registry.get('muteSound'))
-        this.soundPress.play();
 			this.tweenDown.play();
+      if(!this.scene.registry.get('muteSound'))
+        this.soundPress.play();
     });
 
-    this.on('pointerout', () => {
-      console.log('Press downside pressed on mouse over');
+    this.on(Phaser.Input.Events.POINTER_OVER, () => {
       if(this.isClick)
         this.tweenUp.play();
 		})
+  }
+
+  private switchTexture() {
+    let currentFrame = parseInt(this.frame.name);
+    let nextFrame = currentFrame + 1;
+    if(nextFrame > this.numberOfFrames - 1) 
+      nextFrame = 0;
+    this.setFrame(nextFrame);
   }
 
   protected handerOnPress(){
