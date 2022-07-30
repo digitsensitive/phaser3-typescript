@@ -14,6 +14,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Version 1.5.4 - 2022-07-30
+
+### Changed
+
+- Update expose-loader from `3.0.0` to `4.0.0`
+- Update ts-loader from `9.2.5` to `9.3.1`
+- Update typescript from `4.3.5` to `4.8.0-dev.20220730`
+- Update webpack from `5.50.0` to `5.74.0`
+- Update webpack-cli from `4.7.2` to `4.10.0`
+- Update webpack-dev-server from `3.11.2` to `4.9.3`
+- Update phaser from `3.55.2` to `3.60.0-beta.9`
+
+---
+
 ## Version 1.5.3 - 2022-02-13
 
 ### Added

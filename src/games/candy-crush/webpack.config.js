@@ -21,8 +21,7 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, './'),
-    publicPath: '/dist/',
+    static: path.resolve(__dirname, './'),
     host: 'localhost',
     port: 8080,
     open: false
