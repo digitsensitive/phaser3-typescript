@@ -1,0 +1,16 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "image",
+        "key": "colorMap",
+        "url": "./assets/images/colorMap.png"
+      },
+      {
+        "type": "image",
+        "key": "heightMap",
+        "url": "./assets/images/heightMap.png"
+      }
+    ]
+  }
+}
