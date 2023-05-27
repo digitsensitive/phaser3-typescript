@@ -18,7 +18,7 @@
     "Phaser3-example"
   ],
   "devDependencies": {
-    "prettier": "2.3.2"
+    "prettier": "2.8.8"
   },
   "scripts": {
     "webpack-boilerplate": "cd src/boilerplates/webpack-boilerplate && yarn && yarn run dev",
