@@ -81,6 +81,131 @@
         "type": "image",
         "key": "treeLarge",
         "url": "./assets/obstacles/tree-large.png"
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "./assets/images/bg.png"
+      }
+      ,
+      {
+        "type": "image",
+        "key": "btn-start",
+        "url": "./assets/images/btn_startbattle.png"
+      },
+      {
+        "type": "image",
+        "key": "logo",
+        "url": "./assets/images/logo.png"
+      },
+      {
+        "type": "image",
+        "key": "btn-menu",
+        "url": "./assets/images/btn_menu.png"
+      },
+      {
+        "type": "image",
+        "key": "btn-pause",
+        "url": "./assets/images/pause-btn.png"
+      },
+      {
+        "type": "image",
+        "key": "btn-replay",
+        "url": "./assets/images/replay-btn.png"
+      },
+      {
+        "type": "image",
+        "key": "btn-play",
+        "url": "./assets/images/play-btn.png"
+      },
+      {
+        "type": "image",
+        "key": "curosr",
+        "url": "./assets/images/curosr.png"
+      },
+      {
+        "type": "image",
+        "key": "fire",
+        "url": "./assets/images/muzzleflash3.png"
+      },
+      {
+        "type": "image",
+        "key": "dark-smoke",
+        "url": "./assets/images/smoke-puff.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "btn-sound",
+        "url": "./assets/sprites/btn-sound.png",
+        "frameConfig": {
+          "frameWidth": 167,
+          "frameHeight": 156
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "btn-music",
+        "url": "./assets/sprites/btn-music.png",
+        "frameConfig": {
+          "frameWidth": 167,
+          "frameHeight": 156
+        }
+      },
+      {
+        "type": "json",
+        "key": "animationJSON",
+        "url": "./assets/animations/animations.json"
+      },
+      {
+        "type": "atlas",
+        "key": "flares",
+        "textureURL": "./assets/images/flares.png",
+        "atlasURL": "./assets/images/flares.json"
+      },
+      {
+        "type": "audio",
+        "key": "menu_track",
+        "url": "./assets/audio/menu_track.m4a"
+      },
+      {
+        "type": "audio",
+        "key": "select",
+        "url": "./assets/audio/select_sfx.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "click",
+        "url": "./assets/audio/click.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "player-shooter",
+        "url": "./assets/audio/fire_1.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "player-death",
+        "url": "./assets/audio/player_death.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "enemy-death",
+        "url": "./assets/audio/destroy_1.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "battle",
+        "url": "./assets/audio/battle.ogg"
+      },
+      {
+        "type": "audio",
+        "key": "gameover",
+        "url": "./assets/audio/dist_assets_TownTheme.mp3"
+      },
+      {
+        "type": "audio",
+        "key": "menu_start",
+        "url": "./assets/audio/rpgfire_sfx.ogg"
       }
     ]
   }

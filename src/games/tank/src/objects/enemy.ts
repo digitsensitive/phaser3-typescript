@@ -1,20 +1,56 @@
-import { Bullet } from './bullet';
-import { IImageConstructor } from '../interfaces/image.interface';
+import EventKeys from "../consts/EventKeys";
+import { Bullet } from "./Bullet";
+import { Player } from "./Player";
 
-export class Enemy extends Phaser.GameObjects.Image {
+export class Enemy extends Phaser.GameObjects.Container {
   body: Phaser.Physics.Arcade.Body;
 
   // variables
   private health: number;
-  private lastShoot: number;
-  private speed: number;
+  private nextShoot: number;
+  private texture: string;
+  private rateOfFire: number;
 
   // children
   private barrel: Phaser.GameObjects.Image;
   private lifeBar: Phaser.GameObjects.Graphics;
-
+  private tank: Phaser.GameObjects.Image;
+  
   // game objects
   private bullets: Phaser.GameObjects.Group;
+
+  constructor(aParams: ITankConstructor) {
+    super(aParams.scene, aParams.x, aParams.y);
+
+    this.texture = aParams.texture;
+    this.rateOfFire = aParams.rateOfFire;
+
+    this.initVariables();
+    this.initContainer();
+    this.moveEnemy();
+    this.scene.add.existing(this);
+  }
+
+  update(player: Player) : void {
+    if (player.active && this.active) {
+      this.shooting();
+
+      var angle = Phaser.Math.Angle.Between(
+        this.body.x,
+        this.body.y,
+        player.body.x,
+        player.body.y
+      );
+
+      this.getBarrel().angle =
+        (angle + Math.PI / 2) * Phaser.Math.RAD_TO_DEG;
+
+    } else {
+      this.destroy();
+      this.barrel.destroy();
+      this.lifeBar.destroy();
+    }
+  }
 
   public getBarrel(): Phaser.GameObjects.Image {
     return this.barrel;
@@ -24,37 +60,60 @@ export class Enemy extends Phaser.GameObjects.Image {
     return this.bullets;
   }
 
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+  public updateHealth(damage: number): void {
+    this.initTweenDamage(damage);
+    if (this.health > 0) {
+      this.health -= damage;
+      this.redrawLifebar();
+    } else {
+      this.scene.events.emit(EventKeys.ENEMY_DEATH)
+      this.health = 0;
+      // particles
+      this.initParticlesDeath();
+      this.active = false;
+    }
+  }
 
-    this.initContainer();
-    this.scene.add.existing(this);
+  private initVariables(){
+    // variables
+    this.health = 1;
+    this.nextShoot = 0;
   }
 
   private initContainer() {
-    // variables
-    this.health = 1;
-    this.lastShoot = 0;
-    this.speed = 100;
-
     // image
-    this.setDepth(0);
+    this.tank = this.scene.physics.add.image(0, 0, this.texture)
+      .setImmovable(true);
+    this.body = this.tank.body as Phaser.Physics.Arcade.Body;
 
     this.barrel = this.scene.add.image(0, 0, 'barrelRed');
     this.barrel.setOrigin(0.5, 1);
     this.barrel.setDepth(1);
-
+    
     this.lifeBar = this.scene.add.graphics();
     this.redrawLifebar();
 
-    // game objects
-    this.bullets = this.scene.add.group({
-      /*classType: Bullet,*/
-      active: true,
-      maxSize: 10,
-      runChildUpdate: true
-    });
+    // add objects to container
+    this.add([
+      this.tank, 
+      this.lifeBar, 
+      this.barrel
+    ]);
 
+    // game objects
+   // game objects
+   this.bullets = this.scene.add.group({
+    /*classType: Bullet,*/
+    active: true,
+    maxSize: 10,
+    runChildUpdate: true
+   });
+
+    // physics
+    this.scene.physics.world.enable(this);
+  }
+
+  private moveEnemy(){
     // tweens
     this.scene.tweens.add({
       targets: this,
@@ -68,39 +127,22 @@ export class Enemy extends Phaser.GameObjects.Image {
       repeatDelay: 0,
       yoyo: true
     });
-
-    // physics
-    this.scene.physics.world.enable(this);
   }
 
-  update(): void {
-    if (this.active) {
-      this.barrel.x = this.x;
-      this.barrel.y = this.y;
-      this.lifeBar.x = this.x;
-      this.lifeBar.y = this.y;
-      this.handleShooting();
-    } else {
-      this.destroy();
-      this.barrel.destroy();
-      this.lifeBar.destroy();
-    }
-  }
-
-  private handleShooting(): void {
-    if (this.scene.time.now > this.lastShoot) {
+  private shooting(): void {
+    if (this.scene.time.now > this.nextShoot) {
       if (this.bullets.getLength() < 10) {
         this.bullets.add(
           new Bullet({
             scene: this.scene,
             rotation: this.barrel.rotation,
-            x: this.barrel.x,
-            y: this.barrel.y,
-            texture: 'bulletRed'
+            x: this.x,
+            y: this.y,
+            texture: 'bulletRed',
+            damage: 0.05
           })
         );
-
-        this.lastShoot = this.scene.time.now + 400;
+        this.nextShoot = this.scene.time.now + this.rateOfFire;
       }
     }
   }
@@ -109,23 +151,58 @@ export class Enemy extends Phaser.GameObjects.Image {
     this.lifeBar.clear();
     this.lifeBar.fillStyle(0xe66a28, 1);
     this.lifeBar.fillRect(
-      -this.width / 2,
-      this.height / 2,
-      this.width * this.health,
+      -this.tank.width / 2,
+      this.tank.height / 2,
+      this.tank.width * this.health,
       15
     );
     this.lifeBar.lineStyle(2, 0xffffff);
-    this.lifeBar.strokeRect(-this.width / 2, this.height / 2, this.width, 15);
+    this.lifeBar.strokeRect(-this.tank.width / 2, this.tank.height / 2, this.tank.width, 15);
     this.lifeBar.setDepth(1);
   }
 
-  public updateHealth(): void {
-    if (this.health > 0) {
-      this.health -= 0.05;
-      this.redrawLifebar();
-    } else {
-      this.health = 0;
-      this.active = false;
-    }
+  private initTweenDamage(damage: number): void {
+    const xTextHealth = Phaser.Math.Between(this.x - 30, this.x + 30)
+    const yTextHealth = this.y
+    const textHealth = this.scene.add.text(xTextHealth, yTextHealth, `-${damage*100/5}`, {
+			fontFamily: 'Bangers',
+			fontSize: '50px',
+			color: '#B21E1E',
+		}).setOrigin(0.5, 0.5);
+
+    this.scene.tweens.add({
+      targets: textHealth,
+      y: yTextHealth -100,
+      ease: 'Power1',
+      duration: 300,
+      yoyo: false,
+      repeat: 0,
+      onComplete: ()=>{
+        textHealth.destroy();
+      }
+    })
+  }
+
+  private initParticlesDeath(){
+    const zone = new Phaser.Geom.Rectangle(-32, -32, 64, 64);
+    const particles = this.scene.add.particles('fire');
+    particles.createEmitter({
+        alpha: { start: 1, end: 0 },
+        scale: { start: 0.5, end: 2.5 },
+        speed: 20,
+        accelerationY: -300,
+        angle: { min: -85, max: -95 },
+        rotate: { min: -180, max: 180 },
+        lifespan: { min: 1000, max: 1100 },
+        frequency: 110,
+        maxParticles: 10,
+        x: this.x,
+        y: this.y,
+        emitZone: {
+          type: 'random' , 
+          source: zone, 
+          quantity: 10
+        }
+    });
   }
 }

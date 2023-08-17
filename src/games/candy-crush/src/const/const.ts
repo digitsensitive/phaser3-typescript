@@ -11,12 +11,12 @@ export let CONST = {
     'croissant',
     'cupcake',
     'donut',
-    'eclair',
-    'macaroon',
-    'pie',
-    'poptart1',
-    'poptart2',
-    'starcookie1',
-    'starcookie2'
+    // 'eclair',
+    // 'macaroon',
+    // 'pie',
+    // 'poptart1',
+    // 'poptart2',
+    // 'starcookie1',
+    // 'starcookie2'
   ]
 };

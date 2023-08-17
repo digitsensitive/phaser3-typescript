@@ -17,8 +17,9 @@ export class Redhat extends Phaser.GameObjects.Image {
 
   private initPhysics() {
     this.scene.physics.world.enable(this);
-    this.body.setVelocity(100, 200);
+    this.body.setVelocity(300, 400);
     this.body.setBounce(1, 1);
+    this.body.setSize(200,200)
     this.body.setCollideWorldBounds(true);
   }
 }

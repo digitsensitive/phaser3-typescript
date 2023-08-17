@@ -1,3 +1,4 @@
+import { BootScene } from './scenes/boot-scene';
 import { GameScene } from './scenes/game-scene';
 
 export const GameConfig: Phaser.Types.Core.GameConfig = {
@@ -5,7 +6,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   url: 'https://github.com/digitsensitive/phaser3-typescript',
   version: '1.0',
   type: Phaser.AUTO,
-  scene: [GameScene],
+  scene: [BootScene, GameScene],
   input: {
     mouse: true
   },
@@ -22,5 +23,5 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     width: 960,
     height: 640
   },
-  backgroundColor: 0x4ac7ff
+  // backgroundColor: 0x4ac7ff
 };

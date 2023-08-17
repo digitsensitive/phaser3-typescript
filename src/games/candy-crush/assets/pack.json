@@ -60,6 +60,12 @@
         "type": "image",
         "key": "starcookie2",
         "url": "./assets/images/starcookie2.png"
+      },
+      {
+        "type": "atlas",
+        "key": "flares",
+        "textureURL": "./assets/images/flares.png",
+        "atlasURL": "./assets/images/flares.json"
       }
     ]
   }

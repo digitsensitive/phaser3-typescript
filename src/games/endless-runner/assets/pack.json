@@ -1,0 +1,12 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "atlas",
+        "key": "flares",
+        "textureURL": "./assets/images/flares.png",
+        "atlasURL": "./assets/images/flares.json"
+      }
+    ]
+  }
+}

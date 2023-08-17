@@ -3,7 +3,8 @@
     "target": "ES6",
     "module": "CommonJS",
     "moduleResolution": "node",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "typeRoots": ["*/**/*.interface.ts"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
