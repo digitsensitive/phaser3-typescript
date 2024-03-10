@@ -1,13 +1,14 @@
-import { IImageConstructor } from '../interfaces/image.interface';
+import { ImageConstructor } from '../interfaces/image.interface';
 
 export class Redhat extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;
 
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.frame);
 
     this.initSprite();
     this.initPhysics();
+
     this.scene.add.existing(this);
   }
 
@@ -20,5 +21,6 @@ export class Redhat extends Phaser.GameObjects.Image {
     this.body.setVelocity(100, 200);
     this.body.setBounce(1, 1);
     this.body.setCollideWorldBounds(true);
+    this.body.setSize(200, 300);
   }
 }

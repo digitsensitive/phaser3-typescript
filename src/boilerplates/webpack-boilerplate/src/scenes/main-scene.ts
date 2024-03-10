@@ -1,10 +1,10 @@
 import { Redhat } from '../objects/redhat';
 
-export class MainScene extends Phaser.Scene {
+export class GameScene extends Phaser.Scene {
   private myRedhat: Redhat;
 
   constructor() {
-    super({ key: 'MainScene' });
+    super({ key: 'GameScene' });
   }
 
   preload(): void {
@@ -13,9 +13,7 @@ export class MainScene extends Phaser.Scene {
   }
 
   create(): void {
-    const particles = this.add.particles('redParticle');
-
-    const emitter = particles.createEmitter({
+    const emitter = this.add.particles(0, 0, 'redParticle', {
       speed: 100,
       scale: { start: 0.5, end: 0 },
       blendMode: 'ADD'
