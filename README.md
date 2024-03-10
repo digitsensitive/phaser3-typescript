@@ -9,7 +9,6 @@
 
 <div align="center">
 
-![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg?style=flat-square)
 ![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg?style=flat-square)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square)
