@@ -58,8 +58,7 @@ const config: webpack.Configuration = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
-      filename: 'index.html',
-      title: 'webpack-boilerplate',
+      title: 'Webpack Boilerplate',
       inject: 'head'
     })
   ]
