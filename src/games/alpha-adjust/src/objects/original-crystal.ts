@@ -1,12 +1,12 @@
-import { ICrystalConstructor } from '../interfaces/crystal.interface';
+import { CrystalConstructor } from '../interfaces/crystal.interface';
 
 export class OriginalCrystal extends Phaser.GameObjects.Image {
   private randomAlpha: number;
 
-  constructor(aParams: ICrystalConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
+  constructor(params: CrystalConstructor) {
+    super(params.scene, params.x, params.y, params.texture);
 
-    this.initVariables(aParams.alpha);
+    this.initVariables(params.alpha);
     this.initImage();
     this.scene.add.existing(this);
   }

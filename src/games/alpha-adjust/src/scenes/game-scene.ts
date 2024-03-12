@@ -15,7 +15,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    this.load.image('crystal', './assets/images/crystal.png');
+    this.load.image('crystal', '../assets/images/crystal.png');
   }
 
   init(): void {
@@ -43,7 +43,7 @@ export class GameScene extends Phaser.Scene {
 
     this.input.on(
       'pointerdown',
-      function () {
+      () => {
         if (!this.playerHasClicked) {
           this.playerHasClicked = true;
         } else {

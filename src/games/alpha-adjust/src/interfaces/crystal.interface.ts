@@ -1,4 +1,4 @@
-export interface ICrystalConstructor {
+export interface CrystalConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;

@@ -1,10 +1,10 @@
-import { ICrystalConstructor } from '../interfaces/crystal.interface';
+import { CrystalConstructor } from '../interfaces/crystal.interface';
 
 export class CloneCrystal extends Phaser.GameObjects.Image {
   private increaseAlpha: boolean;
 
-  constructor(aParams: ICrystalConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
+  constructor(params: CrystalConstructor) {
+    super(params.scene, params.x, params.y, params.texture);
 
     this.initVariables();
     this.initImage();
