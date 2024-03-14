@@ -31,6 +31,7 @@
     "candy-crush": "cd src/games/candy-crush && yarn && yarn run dev",
     "clocks": "cd src/games/clocks && yarn && yarn run dev",
     "coin-runner": "cd src/games/coin-runner && yarn && yarn run dev",
+    "cosmic-chaos": "cd src/games/cosmic-chaos && yarn && yarn run serve-dev",
     "endless-runner": "cd src/games/endless-runner && yarn && yarn run dev",
     "flappy-bird": "cd src/games/flappy-bird && yarn && yarn run dev",
     "snake": "cd src/games/snake && yarn && yarn run dev",

@@ -1,0 +1,18 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "./assets/font/font.png",
+        "fontDataURL": "./assets/font/font.fnt"
+      },
+
+      {
+        "type": "image",
+        "key": "player",
+        "url": "./assets/images/player.png"
+      }
+    ]
+  }
+}
