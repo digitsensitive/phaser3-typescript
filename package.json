@@ -18,7 +18,7 @@
     "Phaser3-example"
   ],
   "devDependencies": {
-    "prettier": "2.8.8"
+    "prettier": "3.2.5"
   },
   "scripts": {
     "prettier": "yarn prettier-ts && yarn prettier-json && yarn prettier-html",
