@@ -1,4 +1,4 @@
-export interface IClockConstructor {
+export interface ClockConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;
@@ -7,7 +7,7 @@ export interface IClockConstructor {
   prefix: string;
 }
 
-export interface IImageConstructor {
+export interface ImageConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;

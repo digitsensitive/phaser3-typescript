@@ -1,5 +1,5 @@
 import { settings } from '../settings';
-import { IClockConstructor } from '../interfaces/interfaces';
+import { ClockConstructor } from '../interfaces/interfaces';
 
 export class Clock extends Phaser.GameObjects.Sprite {
   body: Phaser.Physics.Arcade.Body;
@@ -7,22 +7,22 @@ export class Clock extends Phaser.GameObjects.Sprite {
   private face: Phaser.GameObjects.Sprite;
   private hand: Phaser.GameObjects.Sprite;
 
-  constructor(aParams: IClockConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+  constructor(params: ClockConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.frame);
 
     // face sprite
     this.face = this.scene.add.sprite(
-      aParams.x,
-      aParams.y,
-      aParams.prefix + 'clockface'
+      params.x,
+      params.y,
+      params.prefix + 'clockface'
     );
     this.face.setVisible(false);
 
     // hand sprite
     this.hand = this.scene.add.sprite(
-      aParams.x,
-      aParams.y,
-      aParams.prefix + 'hand'
+      params.x,
+      params.y,
+      params.prefix + 'hand'
     );
 
     this.hand.setTint(0xff6378);

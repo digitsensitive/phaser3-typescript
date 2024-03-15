@@ -1,12 +1,12 @@
-import { IImageConstructor } from '../interfaces/interfaces';
+import { ImageConstructor } from '../interfaces/interfaces';
 
 export class Ball extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;
 
   private speed: number;
 
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.frame);
 
     this.initVariables();
     this.initImage();

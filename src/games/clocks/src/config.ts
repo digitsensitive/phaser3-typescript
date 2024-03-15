@@ -4,7 +4,7 @@ import { GameScene } from './scenes/game-scene';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Clocks',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '1.0',
+  version: '0.0.1',
   type: Phaser.AUTO,
   scene: [BootScene, GameScene],
   input: {
@@ -13,7 +13,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 0 }
+      gravity: { x: 0, y: 0 }
     }
   },
   scale: {
