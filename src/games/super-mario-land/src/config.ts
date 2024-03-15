@@ -6,7 +6,7 @@ import { MenuScene } from './scenes/menu-scene';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Super Mario Land',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '2.0',
+  version: '0.0.1',
   width: 160,
   height: 144,
   zoom: 5,
@@ -19,10 +19,10 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 475 },
+      gravity: { x: 0, y: 475 },
       debug: false
     }
   },
   backgroundColor: '#f8f8f8',
-  render: { pixelArt: true, antialias: false }
+  render: { pixelArt: true }
 };

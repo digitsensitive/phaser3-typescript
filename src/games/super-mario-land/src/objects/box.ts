@@ -5,10 +5,9 @@ export class Box extends Phaser.GameObjects.Sprite {
   body: Phaser.Physics.Arcade.Body;
 
   // variables
-  private currentScene: Phaser.Scene;
   private boxContent: string;
   private content: Collectible;
-  private hitBoxTimeline: Phaser.Tweens.Timeline;
+  private hitBoxTween: Phaser.Tweens.Tween;
 
   public getContent(): Phaser.GameObjects.Sprite {
     return this.content;
@@ -22,24 +21,22 @@ export class Box extends Phaser.GameObjects.Sprite {
     super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
 
     // variables
-    this.currentScene = aParams.scene;
     this.boxContent = aParams.content;
 
     this.initSprite();
-    this.currentScene.add.existing(this);
+    this.scene.add.existing(this);
   }
 
   private initSprite() {
     // variables
     this.content = null;
-    this.hitBoxTimeline = this.currentScene.tweens.createTimeline({});
 
     // sprite
     this.setOrigin(0, 0);
     this.setFrame(0);
 
     // physics
-    this.currentScene.physics.world.enable(this);
+    this.scene.physics.world.enable(this);
     this.body.setSize(8, 8);
     this.body.setAllowGravity(false);
     this.body.setImmovable(true);
@@ -48,7 +45,7 @@ export class Box extends Phaser.GameObjects.Sprite {
   update(): void {}
 
   public yoyoTheBoxUpAndDown(): void {
-    this.hitBoxTimeline.add({
+    this.hitBoxTween = this.scene.add.tween({
       targets: this,
       props: { y: this.y - 10 },
       duration: 60,
@@ -63,7 +60,7 @@ export class Box extends Phaser.GameObjects.Sprite {
 
   public spawnBoxContent(): Collectible {
     this.content = new Collectible({
-      scene: this.currentScene,
+      scene: this.scene,
       x: this.x,
       y: this.y - 8,
       texture: this.boxContent,
@@ -77,7 +74,7 @@ export class Box extends Phaser.GameObjects.Sprite {
     duration: number,
     complete: () => void
   ): void {
-    this.hitBoxTimeline.add({
+    this.hitBoxTween = this.scene.add.tween({
       targets: this.content,
       props: props,
       delay: 0,
@@ -88,7 +85,7 @@ export class Box extends Phaser.GameObjects.Sprite {
   }
 
   public startHitTimeline(): void {
-    this.hitBoxTimeline.play();
+    this.hitBoxTween.play();
   }
 
   public popUpCollectible(): void {
@@ -98,9 +95,9 @@ export class Box extends Phaser.GameObjects.Sprite {
   }
 
   public addCoinAndScore(coin: number, score: number): void {
-    this.currentScene.registry.values.coins += coin;
-    this.currentScene.events.emit('coinsChanged');
-    this.currentScene.registry.values.score += score;
-    this.currentScene.events.emit('scoreChanged');
+    this.scene.registry.values.coins += coin;
+    this.scene.events.emit('coinsChanged');
+    this.scene.registry.values.score += score;
+    this.scene.events.emit('scoreChanged');
   }
 }

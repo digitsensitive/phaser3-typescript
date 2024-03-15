@@ -40,7 +40,7 @@
     "snake": "cd src/games/snake && yarn && yarn run serve-dev",
     "space-invaders": "cd src/games/space-invaders && yarn && yarn run serve-dev",
     "space-shooter": "cd src/games/space-shooter && yarn && yarn run serve-dev",
-    "super-mario-land": "cd src/games/super-mario-land && yarn && yarn run dev",
+    "super-mario-land": "cd src/games/super-mario-land && yarn && yarn run serve-dev",
     "tank": "cd src/games/tank && yarn && yarn run dev",
     "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run dev",
     "fractal-tree": "cd src/experimental/fractal-tree && yarn && yarn run dev",
