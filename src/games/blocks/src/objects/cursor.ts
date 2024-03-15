@@ -1,20 +1,20 @@
 import { CONST } from '../const/const';
-import { ICursorConstructor } from '../interfaces/cursor.interface';
+import { CursorConstructor } from '../interfaces/cursor.interface';
 
 export class Cursor extends Phaser.GameObjects.Image {
   private currentPosition: [number, number];
   private activated: boolean;
 
-  constructor(aParams: ICursorConstructor) {
+  constructor(params: CursorConstructor) {
     super(
-      aParams.scene,
-      aParams.x,
-      aParams.y,
-      aParams.texture,
-      aParams.cursorStartPosition
+      params.scene,
+      params.x,
+      params.y,
+      params.texture,
+      params.cursorStartPosition
     );
 
-    this.currentPosition = aParams.cursorStartPosition;
+    this.currentPosition = params.cursorStartPosition;
     this.initVariables();
     this.initImage();
 

@@ -1,13 +1,13 @@
-import { IBlockConstructor } from '../interfaces/block.interface';
+import { BlockConstructor } from '../interfaces/block.interface';
 
 export class Block extends Phaser.GameObjects.Sprite {
   private blockType: number;
   private isDying: boolean;
 
-  constructor(aParams: IBlockConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.type);
+  constructor(params: BlockConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.type);
 
-    this.blockType = aParams.type;
+    this.blockType = params.type;
     this.isDying = false;
 
     this.initSprite();

@@ -1,4 +1,4 @@
-export interface ICursorConstructor {
+export interface CursorConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;

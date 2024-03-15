@@ -1,4 +1,4 @@
-export interface IBlockConstructor {
+export interface BlockConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;
