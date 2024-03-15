@@ -1,4 +1,4 @@
-import { IImageConstructor } from '../interfaces/image.interface';
+import { ImageConstructor } from '../interfaces/image.interface';
 import { Bullet } from './bullet';
 
 export class Player extends Phaser.GameObjects.Image {
@@ -10,8 +10,8 @@ export class Player extends Phaser.GameObjects.Image {
   private rotationSpeed: number = 0.05;
   private shootKey: Phaser.Input.Keyboard.Key;
 
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.frame);
 
     this.initImage();
     this.initVariables();

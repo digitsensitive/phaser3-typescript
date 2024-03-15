@@ -39,7 +39,7 @@
     "flappy-bird": "cd src/games/flappy-bird && yarn && yarn run serve-dev",
     "snake": "cd src/games/snake && yarn && yarn run serve-dev",
     "space-invaders": "cd src/games/space-invaders && yarn && yarn run serve-dev",
-    "space-shooter": "cd src/games/space-shooter && yarn && yarn run dev",
+    "space-shooter": "cd src/games/space-shooter && yarn && yarn run serve-dev",
     "super-mario-land": "cd src/games/super-mario-land && yarn && yarn run dev",
     "tank": "cd src/games/tank && yarn && yarn run dev",
     "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run dev",
@@ -50,8 +50,7 @@
     "procedural-generation": "cd src/experimental/procedural-generation && yarn && yarn run dev",
     "raycasting": "cd src/experimental/raycasting && yarn && yarn run dev",
     "untextured-raycaster": "cd src/experimental/untextured-raycaster && yarn && yarn run dev",
-    "factory-method": "cd patterns/creational-design-patterns/factory-method && yarn && yarn run dev",
-    "run-presentation": "cd slides && yarn && yarn run:dev"
+    "factory-method": "cd patterns/creational-design-patterns/factory-method && yarn && yarn run dev"
   },
   "repository": {
     "type": "git",

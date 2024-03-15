@@ -1,4 +1,4 @@
-import { IBulletConstructor } from '../interfaces/bullet.interface';
+import { BulletConstructor } from '../interfaces/bullet.interface';
 
 export class Bullet extends Phaser.GameObjects.Graphics {
   body: Phaser.Physics.Arcade.Body;
@@ -12,13 +12,13 @@ export class Bullet extends Phaser.GameObjects.Graphics {
     return this.body;
   }
 
-  constructor(aParams: IBulletConstructor) {
-    super(aParams.scene, aParams.options);
+  constructor(params: BulletConstructor) {
+    super(params.scene, params.options);
 
     this.initVariables();
     this.initGraphics();
     this.initPhysics();
-    this.initBullet(aParams.options.x, aParams.options.y, aParams.rotation);
+    this.initBullet(params.options.x, params.options.y, params.rotation);
 
     this.scene.add.existing(this);
   }
