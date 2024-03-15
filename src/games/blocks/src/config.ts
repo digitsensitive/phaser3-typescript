@@ -1,10 +1,10 @@
 import { BootScene } from './scenes/boot-scene';
 import { GameScene } from './scenes/game-scene';
 
-const config: Phaser.Types.Core.GameConfig = {
+export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Blocks',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '1.0',
+  version: '0.0.1',
   width: 160,
   height: 144,
   zoom: 3,
