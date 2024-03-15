@@ -1,0 +1,14 @@
+# Set a time for checks
+version: 2
+updates:
+  - package-ecosystem: "yarn"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "21:58"
+    commit-message:
+      prefix: "chore(deps):"
+    allow:
+      - dependency-type: "all"
+    open-pull-requests-limit: 10
+    rebase-strategy: "auto"
