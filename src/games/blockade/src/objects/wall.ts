@@ -1,8 +1,8 @@
-import { IImageConstructor } from '../interfaces/image.interface';
+import { ImageConstructor } from '../interfaces/image.interface';
 
 export class Wall extends Phaser.GameObjects.Image {
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.frame);
     this.setOrigin(0.5, 0.5);
     this.setAlpha(Phaser.Math.RND.between(0.01, 0.4));
     this.scene.add.existing(this);
