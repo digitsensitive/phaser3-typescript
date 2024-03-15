@@ -5,7 +5,7 @@ import { MainMenuScene } from './scenes/main-menu-scene';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Flappy Bird',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '2.0',
+  version: '0.0.1',
   width: 390,
   height: 600,
   type: Phaser.AUTO,
@@ -17,7 +17,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 300 }
+      gravity: { x: 0, y: 300 }
     }
   },
   backgroundColor: '#98d687',

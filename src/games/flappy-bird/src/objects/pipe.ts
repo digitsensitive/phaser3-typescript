@@ -1,10 +1,10 @@
-import { IImageConstructor } from '../interfaces/image.interface';
+import { ImageConstructor } from '../interfaces/image.interface';
 
 export class Pipe extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;
 
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.frame);
 
     // image
     this.setScale(3);

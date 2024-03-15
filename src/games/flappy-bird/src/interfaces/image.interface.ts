@@ -1,4 +1,4 @@
-export interface IImageConstructor {
+export interface ImageConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;
