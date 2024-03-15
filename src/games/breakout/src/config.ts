@@ -4,10 +4,9 @@ import { GameScene } from './scenes/game-scene';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Breakout',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '1.0',
+  version: '0.0.1',
   type: Phaser.AUTO,
   scene: [BootScene, GameScene],
-
   input: {
     keyboard: true
   },

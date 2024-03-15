@@ -1,17 +1,17 @@
-import { IRectangleConstructor } from '../interfaces/interfaces';
+import { RectangleConstructor } from '../interfaces/interfaces';
 
 export class Ball extends Phaser.GameObjects.Rectangle {
   body: Phaser.Physics.Arcade.Body;
 
-  constructor(aParams: IRectangleConstructor) {
+  constructor(params: RectangleConstructor) {
     super(
-      aParams.scene,
-      aParams.x,
-      aParams.y,
-      aParams.width,
-      aParams.height,
-      aParams.fillColor,
-      aParams.fillAlpha
+      params.scene,
+      params.x,
+      params.y,
+      params.width,
+      params.height,
+      params.fillColor,
+      params.fillAlpha
     );
 
     this.initRectangle();

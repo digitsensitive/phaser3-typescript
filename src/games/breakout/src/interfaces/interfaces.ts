@@ -1,4 +1,4 @@
-export interface IRectangleConstructor {
+export interface RectangleConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;

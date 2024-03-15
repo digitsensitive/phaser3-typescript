@@ -119,7 +119,7 @@ export class GameScene extends Phaser.Scene {
       this.ball.setVisible(true);
     }
 
-    if (this.ball.y > this.game.config.height) {
+    if (<number>this.ball.y > <number>this.game.config.height) {
       settings.lives -= 1;
       this.events.emit('livesChanged');
 
