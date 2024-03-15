@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "commonjs",
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "strict": false
-  }
+    "noImplicitAny": true,
+    "strict": false,
+    "esModuleInterop": true // webpack.config.ts
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

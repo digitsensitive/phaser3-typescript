@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Factory Method: Factory Method Scene
- * @license      Digitsensitive
- */
-
 import { Enemy } from '../objects/enemy';
 import {
   BobbieEnemyFactory,
@@ -46,7 +39,7 @@ export class FactoryMethodScene extends Phaser.Scene {
       this.kanyeEnemyFactory.create({ scene: this, x: 20, y: 100 })
     );
 
-    this.enemies.children.each((enemy: Enemy) => {
+    this.enemies.getChildren().forEach((enemy: Enemy) => {
       this.add.bitmapText(
         enemy.x + 20,
         enemy.y - 3,

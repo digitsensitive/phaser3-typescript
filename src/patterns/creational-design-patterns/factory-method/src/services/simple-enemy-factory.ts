@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Factory Method: Simple Enemy Factory
- * @license      Digitsensitive
- */
-
 import { Enemy } from '../objects/enemy';
 import { Wallace } from '../objects/wallace';
 import { Bobbie } from '../objects/bobbie';
@@ -38,7 +31,7 @@ export class SimpleEnemyFactory {
           scene: this.currentScene,
           x: params.x,
           y: params.y,
-          key: 'enemy'
+          texture: 'enemy'
         });
 
       case 'wallace':
@@ -46,14 +39,14 @@ export class SimpleEnemyFactory {
           scene: this.currentScene,
           x: params.x,
           y: params.y,
-          key: 'enemy'
+          texture: 'enemy'
         });
       case 'kanye':
         return new Kanye({
           scene: this.currentScene,
           x: params.x,
           y: params.y,
-          key: 'enemy'
+          texture: 'enemy'
         });
       default:
         break;

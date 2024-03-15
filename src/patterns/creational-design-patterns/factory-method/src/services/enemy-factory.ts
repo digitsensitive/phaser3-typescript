@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Factory Method: Enemy Factory
- * @license      Digitsensitive
- */
-
 import { Enemy } from '../objects/enemy';
 import { Wallace } from '../objects/wallace';
 import { Bobbie } from '../objects/bobbie';
@@ -41,7 +34,7 @@ export class BobbieEnemyFactory extends EnemyFactory {
       scene: params.scene,
       x: params.x,
       y: params.y,
-      key: 'enemy'
+      texture: 'enemy'
     });
   }
 }
@@ -57,7 +50,7 @@ export class WallaceEnemyFactory extends EnemyFactory {
       scene: params.scene,
       x: params.x,
       y: params.y,
-      key: 'enemy'
+      texture: 'enemy'
     });
   }
 }
@@ -73,7 +66,7 @@ export class KanyeEnemyFactory extends EnemyFactory {
       scene: params.scene,
       x: params.x,
       y: params.y,
-      key: 'enemy'
+      texture: 'enemy'
     });
   }
 }

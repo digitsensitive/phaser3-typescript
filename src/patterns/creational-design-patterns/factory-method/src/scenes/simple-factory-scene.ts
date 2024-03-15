@@ -1,10 +1,3 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 Digitsensitive
- * @description  Factory Method: Simple Factory Scene
- * @license      Digitsensitive
- */
-
 import { SimpleEnemyFactory } from '../services/simple-enemy-factory';
 import { Enemy } from '../objects/enemy';
 
@@ -37,7 +30,7 @@ export class SimpleFactoryScene extends Phaser.Scene {
       this.enemyFactory.create({ type: 'kanye', x: 20, y: 100 })
     );
 
-    this.enemies.children.each((enemy: Enemy) => {
+    this.enemies.getChildren().forEach((enemy: Enemy) => {
       this.add.bitmapText(
         enemy.x + 20,
         enemy.y - 3,

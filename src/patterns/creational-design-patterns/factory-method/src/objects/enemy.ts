@@ -1,17 +1,12 @@
-/**
- * @author       Digitsensitive <digit.sensitivee@gmail.com>
- * @copyright    2020 digitsensitive
- * @description  Factory Method: Enemy
- * @license      Digitsensitive
- */
+import { ImageConstructor } from '../interfaces/image.interface';
 
 export class Enemy extends Phaser.GameObjects.Image {
   protected dexterity: number;
   protected intelligence: number;
   protected strength: number;
 
-  constructor(params) {
-    super(params.scene, params.x, params.y, params.key);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.frame);
     this.initImage();
     this.scene.add.existing(this);
   }
