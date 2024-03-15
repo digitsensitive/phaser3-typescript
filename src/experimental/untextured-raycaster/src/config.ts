@@ -3,7 +3,7 @@ import { GameScene } from './scenes/game-scene';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Untextured Raycasting',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '2.0',
+  version: '0.0.1',
   width: 640,
   height: 480,
   type: Phaser.AUTO,

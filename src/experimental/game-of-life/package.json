@@ -1,21 +1,27 @@
 {
   "name": "game-of-life",
   "version": "0.0.1",
-  "description": "Game of life for Phaser 3 in TypeScript",
+  "description": "Game Of Life for Phaser 3 in TypeScript",
   "keywords": [],
+  "scripts": {
+    "build-dev": "webpack --mode development",
+    "build-prod": "webpack --mode production",
+    "serve-dev": "webpack --mode development && webpack serve --mode development"
+  },
   "devDependencies": {
-    "expose-loader": "3.0.0",
-    "ts-loader": "9.2.5",
-    "typescript": "4.8.0-dev.20220730",
-    "webpack": "5.74.0",
-    "webpack-cli": "4.10.0",
-    "webpack-dev-server": "4.9.3"
+    "@types/node": "20.11.25",
+    "@types/webpack": "5.28.5",
+    "expose-loader": "5.0.0",
+    "html-webpack-plugin": "5.6.0",
+    "ts-loader": "9.5.1",
+    "ts-node": "10.9.2",
+    "typescript": "5.4.2",
+    "webpack": "5.90.3",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "5.0.2"
   },
   "dependencies": {
-    "phaser": "3.55.2"
-  },
-  "scripts": {
-    "dev": "webpack --mode development && webpack serve --mode development"
+    "phaser": "3.80.1"
   },
   "repository": {
     "type": "git",

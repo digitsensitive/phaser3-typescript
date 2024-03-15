@@ -66,7 +66,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     // Set the line style for the walls
-    this.polygonGraphics.lineStyle(1, 0x00ff00);
+    this.polygonGraphics.lineStyle(2, 0x00ff00);
 
     // Draw the walls on screen
     for (let w of this.polygonLines) {
