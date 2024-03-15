@@ -1,5 +1,5 @@
 <p align="center">
-  <img width=60% src="assets/github/phaser3-typescript.png">
+  <img width=60% src="phaser3-typescript.png">
 </p>
 
 <p align="center">
