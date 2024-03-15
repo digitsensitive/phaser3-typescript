@@ -1,8 +1,8 @@
-import { IImageConstructor } from '../interfaces/image.interface';
+import { ImageConstructor } from '../interfaces/image.interface';
 
 export class Tile extends Phaser.GameObjects.Image {
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture, params.frame);
 
     // set image settings
     this.setOrigin(0, 0);

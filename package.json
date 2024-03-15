@@ -28,7 +28,7 @@
     "blockade": "cd src/games/blockade && yarn && yarn run serve-dev",
     "blocks": "cd src/games/blocks && yarn install && yarn run serve-dev",
     "breakout": "cd src/games/breakout && yarn && yarn run serve-dev",
-    "candy-crush": "cd src/games/candy-crush && yarn && yarn run dev",
+    "candy-crush": "cd src/games/candy-crush && yarn && yarn run serve-dev",
     "clocks": "cd src/games/clocks && yarn && yarn run dev",
     "coin-runner": "cd src/games/coin-runner && yarn && yarn run dev",
     "endless-runner": "cd src/games/endless-runner && yarn && yarn run dev",
