@@ -42,7 +42,7 @@
     "space-shooter": "cd src/games/space-shooter && yarn && yarn run serve-dev",
     "super-mario-land": "cd src/games/super-mario-land && yarn && yarn run serve-dev",
     "tank": "cd src/games/tank && yarn && yarn run serve-dev",
-    "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run dev",
+    "cellular-automaton": "cd src/experimental/cellular-automaton && yarn && yarn run serve-dev",
     "fractal-tree": "cd src/experimental/fractal-tree && yarn && yarn run dev",
     "game-of-life": "cd src/experimental/game-of-life && yarn && yarn run dev",
     "lissajous-curve": "cd src/experimental/lissajous-curve && yarn && yarn run dev",

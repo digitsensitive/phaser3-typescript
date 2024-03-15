@@ -4,7 +4,7 @@ import { CONST } from './const/const';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Cellular automaton',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '2.0',
+  version: '0.0.1',
   width: 600,
   height: 600,
   type: Phaser.AUTO,
