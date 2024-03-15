@@ -1,4 +1,4 @@
-export interface ISpriteConstructor {
+export interface SpriteConstructor {
   scene: Phaser.Scene;
   x: number;
   y: number;

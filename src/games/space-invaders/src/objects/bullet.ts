@@ -1,22 +1,22 @@
-import { IBulletConstructor } from '../interfaces/bullet.interface';
+import { BulletConstructor } from '../interfaces/bullet.interface';
 
 export class Bullet extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;
 
   private bulletSpeed: number;
 
-  constructor(aParams: IBulletConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
+  constructor(params: BulletConstructor) {
+    super(params.scene, params.x, params.y, params.texture);
 
-    this.initVariables(aParams);
+    this.initVariables(params);
     this.initImage();
     this.initPhysics();
 
     this.scene.add.existing(this);
   }
 
-  private initVariables(aParams: IBulletConstructor): void {
-    this.bulletSpeed = aParams.bulletProperties.speed;
+  private initVariables(params: BulletConstructor): void {
+    this.bulletSpeed = params.bulletProperties.speed;
   }
 
   private initImage(): void {

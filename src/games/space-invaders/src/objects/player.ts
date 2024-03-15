@@ -1,5 +1,5 @@
 import { Bullet } from './bullet';
-import { IImageConstructor } from '../interfaces/image.interface';
+import { ImageConstructor } from '../interfaces/image.interface';
 
 export class Player extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;
@@ -14,8 +14,8 @@ export class Player extends Phaser.GameObjects.Image {
     return this.bullets;
   }
 
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture);
 
     this.initVariables();
     this.initImage();

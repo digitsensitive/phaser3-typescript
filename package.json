@@ -38,7 +38,7 @@
     "endless-runner": "cd src/games/endless-runner && yarn && yarn run serve-dev",
     "flappy-bird": "cd src/games/flappy-bird && yarn && yarn run serve-dev",
     "snake": "cd src/games/snake && yarn && yarn run serve-dev",
-    "space-invaders": "cd src/games/space-invaders && yarn && yarn run dev",
+    "space-invaders": "cd src/games/space-invaders && yarn && yarn run serve-dev",
     "space-shooter": "cd src/games/space-shooter && yarn && yarn run dev",
     "super-mario-land": "cd src/games/super-mario-land && yarn && yarn run dev",
     "tank": "cd src/games/tank && yarn && yarn run dev",
