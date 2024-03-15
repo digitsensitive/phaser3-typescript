@@ -28,7 +28,7 @@
     "webpack-boilerplate": "cd src/boilerplates/webpack-boilerplate && yarn && yarn run serve-dev",
     "parcel-boilerplate": "cd src/boilerplates/parcel-boilerplate && yarn && yarn run dev",
     "alpha-adjust": "cd src/games/alpha-adjust && yarn && yarn run serve-dev",
-    "asteroid": "cd src/games/asteroid && yarn && yarn run dev",
+    "asteroid": "cd src/games/asteroid && yarn && yarn run serve-dev",
     "blockade": "cd src/games/blockade && yarn && yarn run serve-dev",
     "blocks": "cd src/games/blocks && yarn install && yarn run serve-dev",
     "breakout": "cd src/games/breakout && yarn && yarn run serve-dev",
