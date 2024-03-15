@@ -1,11 +1,11 @@
 import { CONST } from '../const/const';
-import { IGraphicsConstructor } from '../interfaces/graphics.interface';
+import { GraphicsConstructor } from '../interfaces/graphics.interface';
 
 export class Apple extends Phaser.GameObjects.Graphics {
-  constructor(aParams: IGraphicsConstructor) {
-    super(aParams.scene, aParams.options);
-    this.x = aParams.options.x;
-    this.y = aParams.options.y;
+  constructor(params: GraphicsConstructor) {
+    super(params.scene, params.options);
+    this.x = params.options.x;
+    this.y = params.options.y;
     this.fillStyle(0x61e85b, 0.8);
     this.fillRect(
       CONST.FIELD_SIZE,

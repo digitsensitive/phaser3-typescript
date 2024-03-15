@@ -5,7 +5,7 @@ import { MainMenuScene } from './scenes/main-menu-scene';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Snake',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '2.0',
+  version: '0.0.1',
   width: 256,
   height: 224,
   zoom: 3,
