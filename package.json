@@ -21,7 +21,10 @@
     "prettier": "2.8.8"
   },
   "scripts": {
+    "prettier": "yarn prettier-ts && yarn prettier-json && yarn prettier-html",
     "prettier-ts": "prettier --write '**/*.ts'",
+    "prettier-json": "prettier --write '**/*.json'",
+    "prettier-html": "prettier --write '**/*.html'",
     "webpack-boilerplate": "cd src/boilerplates/webpack-boilerplate && yarn && yarn run serve-dev",
     "parcel-boilerplate": "cd src/boilerplates/parcel-boilerplate && yarn && yarn run dev",
     "alpha-adjust": "cd src/games/alpha-adjust && yarn && yarn run serve-dev",
