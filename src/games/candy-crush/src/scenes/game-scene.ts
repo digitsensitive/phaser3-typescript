@@ -145,12 +145,14 @@ export class GameScene extends Phaser.Scene {
         }
       });
 
-      this.firstSelectedTile = this.tileGrid[
-        firstTilePosition.y / CONST.tileHeight
-      ][firstTilePosition.x / CONST.tileWidth];
-      this.secondSelectedTile = this.tileGrid[
-        secondTilePosition.y / CONST.tileHeight
-      ][secondTilePosition.x / CONST.tileWidth];
+      this.firstSelectedTile =
+        this.tileGrid[firstTilePosition.y / CONST.tileHeight][
+          firstTilePosition.x / CONST.tileWidth
+        ];
+      this.secondSelectedTile =
+        this.tileGrid[secondTilePosition.y / CONST.tileHeight][
+          secondTilePosition.x / CONST.tileWidth
+        ];
     }
   }
 
