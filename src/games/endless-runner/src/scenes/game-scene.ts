@@ -110,7 +110,7 @@ export class GameScene extends Phaser.Scene {
       }
     }, this);
 
-    if (this.player.y > this.game.config.height) {
+    if (<number>this.player.y > <number>this.game.config.height) {
       this.scene.start('GameScene');
     }
   }
