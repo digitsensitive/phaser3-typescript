@@ -70,8 +70,6 @@ yarn webpack-boilerplate
 
 ## Examples
 
-### Games
-
 Check the `package.json` for the correct scripts to start projects.
 For example you can start the `Candy Crush` project with:
 
@@ -93,16 +91,6 @@ yarn candy-crush
 - [Space Invaders](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-invaders)
 - [Space Shooter](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/space-shooter)
 - [Super Mario Land](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/games/super-mario-land)
-
-### Experimental
-
-Check the `package.json` for the correct scripts to start projects.
-For example you can start the `Game of Life` project with:
-
-```
-yarn game-of-life
-```
-
 - [Cellular Automaton](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/cellular-automaton)
 - [Fractal Tree](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/fractal-tree)
 - [Game of Life](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/game-of-life)
@@ -111,17 +99,7 @@ yarn game-of-life
 - [Procedural Generation](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/procedural-generation)
 - [Raycasting](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/raycasting)
 - [Untextured Raycaster](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/experimental/untextured-raycaster)
-
-### Patterns
-
-Check the `package.json` for the correct scripts to start projects.
-For example you can start the `Factory Method` project with:
-
-```
-yarn factory-method
-```
-
-- [Factory Method](https://github.com/digitsensitive/phaser3-typescript/blob/master/patterns/creational-design-patterns/factory-method)
+- [Factory Method](https://github.com/digitsensitive/phaser3-typescript/blob/master/src/patterns/creational-design-patterns/factory-method)
 
 ## Project Configurations
 
