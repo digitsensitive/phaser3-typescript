@@ -1,12 +1,12 @@
-import { IImageConstructor } from '../interfaces/image.interface';
+import { ImageConstructor } from '../interfaces/image.interface';
 
 export class Coin extends Phaser.GameObjects.Image {
   private centerOfScreen: number;
   private changePositionTimer: Phaser.Time.TimerEvent;
   private lastPosition: string;
 
-  constructor(aParams: IImageConstructor) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture);
+  constructor(params: ImageConstructor) {
+    super(params.scene, params.x, params.y, params.texture);
 
     this.initVariables();
     this.initImage();
