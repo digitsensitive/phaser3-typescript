@@ -14,6 +14,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## Version 1.5.5 - 2024-03-15
+
+### Changed
+
+- Update all dependencies in `games` and `webpack-boilerplate`
+- Add `prettier` scripts in `package.json`
+- Reset all versions in `examples` to `0.0.1`
+
+---
+
 ## Version 1.5.4 - 2022-07-30
 
 ### Changed

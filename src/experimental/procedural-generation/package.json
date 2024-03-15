@@ -1,6 +1,6 @@
 {
   "name": "procedural-generation",
-  "version": "2.0.0",
+  "version": "0.0.1",
   "description": "Procedural Generation for Phaser 3 in TypeScript",
   "keywords": [],
   "devDependencies": {
