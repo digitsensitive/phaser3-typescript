@@ -5,7 +5,7 @@ import { MenuScene } from './scenes/menu-scene';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Tank',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '2.0',
+  version: '0.0.1',
   width: 1600,
   height: 1200,
   zoom: 0.6,
@@ -18,10 +18,9 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 0 },
-      debug: false
+      gravity: { x: 0, y: 0 }
     }
   },
   backgroundColor: '#000000',
-  render: { pixelArt: false, antialias: true }
+  render: { antialias: true }
 };

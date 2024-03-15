@@ -61,7 +61,7 @@ export class GameScene extends Phaser.Scene {
       this
     );
 
-    this.enemies.children.each((enemy: Enemy) => {
+    this.enemies.getChildren().forEach((enemy: Enemy) => {
       this.physics.add.overlap(
         this.player.getBullets(),
         enemy,
@@ -96,7 +96,7 @@ export class GameScene extends Phaser.Scene {
   update(): void {
     this.player.update();
 
-    this.enemies.children.each((enemy: Enemy) => {
+    this.enemies.getChildren().forEach((enemy: Enemy) => {
       enemy.update();
       if (this.player.active && enemy.active) {
         var angle = Phaser.Math.Angle.Between(
