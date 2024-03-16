@@ -26,7 +26,7 @@
     "prettier-json": "prettier --write '**/*.json'",
     "prettier-html": "prettier --write '**/*.html'",
     "webpack-boilerplate": "cd src/boilerplates/webpack-boilerplate && yarn && yarn run serve-dev",
-    "parcel-boilerplate": "cd src/boilerplates/parcel-boilerplate && yarn && yarn run dev",
+    "parcel-boilerplate": "cd src/boilerplates/parcel-boilerplate && yarn && yarn run serve-dev",
     "alpha-adjust": "cd src/games/alpha-adjust && yarn && yarn run serve-dev",
     "asteroid": "cd src/games/asteroid && yarn && yarn run serve-dev",
     "blockade": "cd src/games/blockade && yarn && yarn run serve-dev",

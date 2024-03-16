@@ -1,4 +1,4 @@
-import { GameScene } from './scenes/main-scene';
+import { GameScene } from './scenes/game-scene';
 
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Webpack-Boilerplate',

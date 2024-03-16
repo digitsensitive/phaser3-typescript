@@ -12,7 +12,7 @@
     "phaser": "3.80.1"
   },
   "scripts": {
-    "dev": "parcel ./index.html -p 8080"
+    "serve-dev": "parcel ./index.html -p 8080"
   },
   "repository": {
     "type": "git",
