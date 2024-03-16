@@ -1,15 +1,15 @@
 {
   "name": "parcel-boilerplate",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Parcel-Boilerplate for Phaser 3 in TypeScript",
   "keywords": [],
   "devDependencies": {
     "parcel-bundler": "1.12.5",
     "parcel-plugin-static-files-copy": "2.6.0",
-    "typescript": "4.8.0-dev.20220730"
+    "typescript": "5.4.2"
   },
   "dependencies": {
-    "phaser": "3.60.0-beta.9"
+    "phaser": "3.80.1"
   },
   "scripts": {
     "dev": "parcel ./index.html -p 8080"
