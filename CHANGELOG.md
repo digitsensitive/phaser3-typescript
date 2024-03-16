@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
-- Update all dependencies in `games`, `experimental`, `patterns` and `webpack-boilerplate`
+- Update all dependencies in `boilerplates`, `games`, `experimental` and `patterns`
 - Add `prettier` scripts in `package.json`
 - Reset all versions in `examples` to `0.0.1`
 
