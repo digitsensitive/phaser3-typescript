@@ -1,0 +1,46 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "json",
+        "key": "animationJSON",
+        "url": "./assets/animations/animations.json"
+      },
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "./assets/font/font.png",
+        "fontDataURL": "./assets/font/font.fnt"
+      },
+      {
+        "type": "image",
+        "key": "cityBackground",
+        "url": "./assets/images/cityBackground.png"
+      },
+      {
+        "type": "image",
+        "key": "sunBackground",
+        "url": "./assets/images/sunBackground.png"
+      },
+      {
+        "type": "image",
+        "key": "healthpack",
+        "url": "./assets/images/healthpack.png"
+      },
+      {
+        "type": "image",
+        "key": "stone",
+        "url": "./assets/images/stone.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "explosion",
+        "url": "./assets/sprites/explosion.png",
+        "frameConfig": {
+          "frameWidth": 49,
+          "frameHeight": 34
+        }
+      }
+    ]
+  }
+}

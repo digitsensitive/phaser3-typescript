@@ -1,6 +1,6 @@
 import { Bullet } from './bullet';
 import { CONST } from '../const/const';
-import { IGraphicsConstructor } from '../interfaces/graphics.interface';
+import { GraphicsConstructor } from '../interfaces/graphics.interface';
 
 export class Ship extends Phaser.GameObjects.Graphics {
   body: Phaser.Physics.Arcade.Body;
@@ -19,8 +19,8 @@ export class Ship extends Phaser.GameObjects.Graphics {
     return this.body;
   }
 
-  constructor(aParams: IGraphicsConstructor) {
-    super(aParams.scene, aParams.options);
+  constructor(params: GraphicsConstructor) {
+    super(params.scene, params.options);
 
     // variables
     this.bullets = [];

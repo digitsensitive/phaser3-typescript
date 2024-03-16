@@ -5,11 +5,15 @@ import { GameScene } from './scenes/game-scene';
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Asteroid',
   url: 'https://github.com/digitsensitive/phaser3-typescript',
-  version: '2.0',
-  width: 800,
-  height: 600,
+  version: '0.0.1',
   type: Phaser.AUTO,
-  parent: 'game',
+  scale: {
+    mode: Phaser.Scale.MAX_ZOOM,
+    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
+    parent: 'game',
+    width: '100%',
+    height: '100%'
+  },
   scene: [BootScene, MainMenuScene, GameScene],
   input: {
     keyboard: true,
@@ -18,11 +22,8 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     gamepad: false
   },
   physics: {
-    default: 'arcade',
-    arcade: {
-      debug: false
-    }
+    default: 'arcade'
   },
   backgroundColor: '#000000',
-  render: { pixelArt: false, antialias: true }
+  render: { antialias: true }
 };

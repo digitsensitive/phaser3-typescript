@@ -1,0 +1,15 @@
+{
+  "anims": [
+    {
+      "key": "explosion",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "explosion",
+        "start": 0,
+        "end": 4
+      },
+      "repeat": 1,
+      "frameRate": 10
+    }
+  ]
+}

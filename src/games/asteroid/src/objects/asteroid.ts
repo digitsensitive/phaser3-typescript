@@ -1,6 +1,6 @@
 import { CONST } from '../const/const';
 
-import { IAsteroidConstructor } from '../interfaces/asteroid.interface';
+import { AsteroidConstructor } from '../interfaces/asteroid.interface';
 
 export class Asteroid extends Phaser.GameObjects.Graphics {
   body: Phaser.Physics.Arcade.Body;
@@ -18,20 +18,16 @@ export class Asteroid extends Phaser.GameObjects.Graphics {
     return this.body;
   }
 
-  constructor(aParams: IAsteroidConstructor) {
-    super(aParams.scene, aParams.options);
+  constructor(params: AsteroidConstructor) {
+    super(params.scene, params.options);
 
     // variables
     this.numberOfSides = 12;
     this.asteroidRadius = 0;
-    this.sizeOfAsteroid = aParams.size;
+    this.sizeOfAsteroid = params.size;
 
     // init ship
-    this.initAsteroid(
-      aParams.options.x,
-      aParams.options.y,
-      this.sizeOfAsteroid
-    );
+    this.initAsteroid(params.options.x, params.options.y, this.sizeOfAsteroid);
 
     // physics
     this.scene.physics.world.enable(this);

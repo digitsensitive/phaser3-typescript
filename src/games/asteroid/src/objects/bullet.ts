@@ -1,4 +1,4 @@
-import { IBulletConstructor } from '../interfaces/bullet.interface';
+import { BulletConstructor } from '../interfaces/bullet.interface';
 
 export class Bullet extends Phaser.GameObjects.Graphics {
   body: Phaser.Physics.Arcade.Body;
@@ -13,8 +13,8 @@ export class Bullet extends Phaser.GameObjects.Graphics {
     return this.body;
   }
 
-  constructor(aParams: IBulletConstructor) {
-    super(aParams.scene, aParams.options);
+  constructor(params: BulletConstructor) {
+    super(params.scene, params.options);
 
     // variables
     this.colors = [];
@@ -27,11 +27,11 @@ export class Bullet extends Phaser.GameObjects.Graphics {
     this.isOffScreen = false;
 
     // init bullet
-    this.x = aParams.options.x;
-    this.y = aParams.options.y;
+    this.x = params.options.x;
+    this.y = params.options.y;
     this.velocity = new Phaser.Math.Vector2(
-      15 * Math.cos(aParams.rotation - Math.PI / 2),
-      15 * Math.sin(aParams.rotation - Math.PI / 2)
+      15 * Math.cos(params.rotation - Math.PI / 2),
+      15 * Math.sin(params.rotation - Math.PI / 2)
     );
 
     // define bullet graphics and draw it
