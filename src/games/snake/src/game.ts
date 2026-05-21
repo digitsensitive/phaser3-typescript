@@ -1,4 +1,5 @@
 import 'phaser';
+import './eduplay'; // initializes EduPlay client + preloads the first question
 import { GameConfig } from './config';
 
 export class Game extends Phaser.Game {

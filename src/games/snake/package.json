@@ -22,7 +22,12 @@
     "webpack-dev-server": "5.0.2"
   },
   "dependencies": {
+    "@eduplay/sdk-core": "file:/home/lloydho/eduplay/sdk/core",
+    "@eduplay/sdk-web": "file:/home/lloydho/eduplay/sdk/web",
     "phaser": "3.80.1"
+  },
+  "resolutions": {
+    "@eduplay/sdk-core": "file:/home/lloydho/eduplay/sdk/core"
   },
   "repository": {
     "type": "git",

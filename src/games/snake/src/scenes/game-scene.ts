@@ -1,6 +1,7 @@
 import { Apple } from '../objects/apple';
 import { Snake } from '../objects/snake';
 import { CONST } from '../const/const';
+import { showAdBreak } from '../eduplay';
 
 export class GameScene extends Phaser.Scene {
   // field and game setting
@@ -21,6 +22,10 @@ export class GameScene extends Phaser.Scene {
   // texts
   private scoreText: Phaser.GameObjects.BitmapText;
 
+  // EduPlay break gating — prevents re-firing showAdBreak() every frame while
+  // the player sits dead before the scene transitions back to the menu.
+  private adBreakTriggered: boolean;
+
   constructor() {
     super({
       key: 'GameScene'
@@ -35,6 +40,7 @@ export class GameScene extends Phaser.Scene {
     this.horizontalFields = this.boardWidth / CONST.FIELD_SIZE;
     this.verticalFields = this.boardHeight / CONST.FIELD_SIZE;
     this.tick = 0;
+    this.adBreakTriggered = false;
   }
 
   create(): void {
@@ -96,8 +102,19 @@ export class GameScene extends Phaser.Scene {
         this.tick = time;
       }
       this.player.handleInput();
-    } else {
-      this.scene.start('MainMenuScene');
+    } else if (!this.adBreakTriggered) {
+      // EduPlay break-point: show an educational question at the natural
+      // game-over pause. onResume returns to the main menu (same behaviour
+      // as the original bare scene.start). If no ad is preloaded yet (rare
+      // — preloadNextAd is called at boot) fall back to the original flow
+      // so the player isn't stranded on the death screen.
+      this.adBreakTriggered = true;
+      const shown = showAdBreak({
+        onResume: () => this.scene.start('MainMenuScene'),
+      });
+      if (!shown) {
+        this.scene.start('MainMenuScene');
+      }
     }
   }
 
