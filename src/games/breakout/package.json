@@ -1,7 +1,7 @@
 {
   "name": "breakout",
   "version": "0.0.1",
-  "description": "Breakout for Phaser 3 in TypeScript",
+  "description": "Breakout for Phaser 4 in TypeScript",
   "keywords": [],
   "scripts": {
     "build-dev": "webpack --mode development",
@@ -9,20 +9,20 @@
     "serve-dev": "webpack --mode development && webpack serve --mode development"
   },
   "devDependencies": {
-    "@types/node": "20.11.25",
+    "@types/node": "25.9.1",
     "@types/webpack": "5.28.5",
-    "copy-webpack-plugin": "12.0.2",
-    "expose-loader": "5.0.0",
-    "html-webpack-plugin": "5.6.0",
-    "ts-loader": "9.5.1",
+    "copy-webpack-plugin": "14.0.0",
+    "expose-loader": "5.0.1",
+    "html-webpack-plugin": "5.6.7",
+    "ts-loader": "9.5.7",
     "ts-node": "10.9.2",
-    "typescript": "5.4.2",
-    "webpack": "5.90.3",
-    "webpack-cli": "5.1.4",
-    "webpack-dev-server": "5.0.2"
+    "typescript": "6.0.3",
+    "webpack": "5.107.1",
+    "webpack-cli": "7.0.2",
+    "webpack-dev-server": "5.2.4"
   },
   "dependencies": {
-    "phaser": "3.80.1"
+    "phaser": "4.1.0"
   },
   "repository": {
     "type": "git",

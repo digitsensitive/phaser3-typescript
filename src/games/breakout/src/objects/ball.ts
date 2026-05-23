@@ -24,6 +24,7 @@ export class Ball extends Phaser.GameObjects.Rectangle {
     this.width = 10;
     this.height = 10;
     this.setFillStyle(0xffffff);
+    this.setRounded(16);
   }
 
   private initPhysics(): void {
