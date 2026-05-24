@@ -11,6 +11,7 @@ export class GameScene extends Phaser.Scene {
   private player: Player;
   private scoreText: Phaser.GameObjects.BitmapText;
   private highScoreText: Phaser.GameObjects.BitmapText;
+  private lives: number;
   private livesText: Phaser.GameObjects.BitmapText;
 
   constructor() {
@@ -22,7 +23,7 @@ export class GameScene extends Phaser.Scene {
   init(): void {
     settings.highScore = settings.score;
     settings.score = 0;
-    settings.lives = 3;
+    this.lives = settings.lives;
   }
 
   create(): void {
@@ -37,6 +38,10 @@ export class GameScene extends Phaser.Scene {
     const HEIGHT = settings.LEVELS[settings.currentLevel].HEIGHT;
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
+        if (BRICKS[y * 14 + x] == 0) {
+          continue;
+        }
+
         this.bricks.add(
           new Brick({
             scene: this,
@@ -46,7 +51,7 @@ export class GameScene extends Phaser.Scene {
               y * (settings.BRICK.HEIGHT + settings.BRICK.SPACING),
             width: settings.BRICK.WIDTH,
             height: settings.BRICK.HEIGHT,
-            fillColor: BRICK_COLORS[BRICKS[y * 14 + x]]
+            fillColor: BRICK_COLORS[BRICKS[y * 14 + x] - 1]
           })
         );
       }
@@ -85,7 +90,7 @@ export class GameScene extends Phaser.Scene {
       10,
       30,
       'font',
-      `Lives: ${settings.lives}`,
+      `Lives: ${this.lives}`,
       8
     );
 
@@ -114,16 +119,16 @@ export class GameScene extends Phaser.Scene {
     this.player.update();
 
     if (this.player.body.velocity.x !== 0 && !this.ball.visible) {
-      this.ball.setPosition(this.player.x, this.player.y - 200);
+      this.ball.setPosition(this.player.x, this.player.y - 300);
       this.ball.applyInitVelocity();
       this.ball.setVisible(true);
     }
 
     if (<number>this.ball.y > <number>this.game.config.height) {
-      settings.lives -= 1;
+      this.lives -= 1;
       this.events.emit('livesChanged');
 
-      if (settings.lives === 0) {
+      if (this.lives === 0) {
         this.gameOver();
       } else {
         this.player.body.setVelocity(0);
@@ -154,6 +159,6 @@ export class GameScene extends Phaser.Scene {
   }
 
   private updateLives(): void {
-    this.livesText.setText(`Lives: ${settings.lives}`);
+    this.livesText.setText(`Lives: ${this.lives}`);
   }
 }
